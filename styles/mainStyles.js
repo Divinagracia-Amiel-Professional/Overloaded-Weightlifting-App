@@ -8,6 +8,7 @@ const mainStyles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       padding: 15,
+      gap: 10,
     },    
     headerText: {
       fontFamily: fontFamily.primaryHeader,
@@ -23,6 +24,17 @@ const mainStyles = StyleSheet.create({
       fontFamily: fontFamily.body,
       fontSize: textSizes.medium,
       color: colors.black
+    },
+    buttonText: {
+      fontFamily: fontFamily.secondaryHeader,
+      fontSize: textSizes.large,
+      color: colors.lightGray
+    },
+    button: {
+      paddingVertical: 5,
+      paddingHorizontal: 20,
+      backgroundColor: colors.black,
+      borderRadius: 5
     }
 });
 
