@@ -10,13 +10,21 @@ const colors = {
     white: "#FFF",
   };
   
-  const font = {
-    regular: "DMRegular",
-    medium: "DMMedium",
-    bold: "DMBold",
+  const fontWeight = {
+    light: 300,
+    reg: 400,
+    med: 500,
+    semiBold: 600,
+    bold: 700
   };
+
+  const fontFamily = {
+    primaryHeader: "Staatliches, sans-serif",
+    secondaryHeader: "Anton, sans-serif",
+    body: "Signika, sans-serif"
+  }
   
-  const sizes = {
+  const textSizes = {
     xSmall: 10,
     small: 12,
     medium: 16,
@@ -48,4 +56,4 @@ const colors = {
     },
   };
   
-  export { colors, font, sizes, shadow };
+  export { colors, fontWeight, fontFamily, textSizes, shadow };
