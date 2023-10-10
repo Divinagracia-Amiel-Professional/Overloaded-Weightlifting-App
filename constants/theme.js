@@ -2,7 +2,7 @@ const colors = {
     primary: "#880D1E", //OU Crimson
     secondary: "#3D2B3D", //Dark Purple
   
-    black: "4F5152", //Cracked Pepper
+    black: "#4F5152", //Cracked Pepper
 
     lightGray: "#F0EEEA", //Isabelline
     lightGray2: "#DAD7CD", //TimberWolf
@@ -19,9 +19,9 @@ const colors = {
   };
 
   const fontFamily = {
-    primaryHeader: "Staatliches, sans-serif",
-    secondaryHeader: "Anton, sans-serif",
-    body: "Signika, sans-serif"
+    primaryHeader: "Staatliches-Regular",
+    secondaryHeader: "Anton-Regular",
+    body: "Signika-Regular"
   }
   
   const textSizes = {
