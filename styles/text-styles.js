@@ -6,17 +6,22 @@ const textStyles = StyleSheet.create({
         fontFamily: fontFamily.primaryHeader,
         fontSize: textSizes.xLarge,
         color: colors.black
-      },
-      secondaryHeaderText: {
+    },
+    secondaryHeaderText: {
         fontFamily: fontFamily.secondaryHeader,
         fontSize: textSizes.large,
         color: colors.black
-      },
-      bodyText: {
+    },
+    bodyText: {
         fontFamily: fontFamily.body,
         fontSize: textSizes.medium,
         color: colors.black
-      },
+    },
+    navBarText: {
+        fontFamily: fontFamily.primaryHeader,
+        fontSize: textSizes.small,
+        color: colors.black
+    }
 })
 
 export default textStyles;

@@ -7,7 +7,9 @@ import {
 } from '../styles/style-index'
 
 export default function Settings(){
-    <View style={mainStyles.bodyContainer}>
-        <Text style={textStyles.headerText}>Planner</Text>
-    </View>
+    return(
+        <View style={mainStyles.bodyContainer}>
+            <Text style={textStyles.headerText}>Planner</Text>
+        </View>
+    )
 }
