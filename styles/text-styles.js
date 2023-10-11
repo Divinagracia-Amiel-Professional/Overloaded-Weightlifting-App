@@ -20,7 +20,7 @@ const textStyles = StyleSheet.create({
     navBarText: {
         fontFamily: fontFamily.primaryHeader,
         fontSize: textSizes.small,
-        color: color.black
+        color: colors.black
     }
 })
 
