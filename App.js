@@ -15,7 +15,7 @@ export default function App() {
   }
 
   return (
-  <View style={mainStyles.container}>
+  <View style={mainStyles.mainContainer}>
      <Home />
   </View> 
   );
