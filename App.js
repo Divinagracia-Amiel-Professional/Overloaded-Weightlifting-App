@@ -2,6 +2,8 @@ import { Text, View } from 'react-native';
 import mainStyles from './styles/mainStyles';
 import Home from './pages/home';
 import { useFonts } from 'expo-font'
+import { NavigationContainer } from '@react-navigation/native'
+import NavBar from './components/general/navbar';
 
 export default function App() {
   let [ fontsLoaded ] = useFonts({
@@ -15,8 +17,8 @@ export default function App() {
   }
 
   return (
-  <View style={mainStyles.mainContainer}>
-     <Home />
-  </View> 
+    <NavigationContainer>
+      <NavBar />
+    </NavigationContainer>
   );
 }
