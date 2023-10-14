@@ -1,11 +1,17 @@
 import React from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {
   mainStyles,
   textStyles,
   buttonStyles
 } from '../styles/style-index'
+import {
+  logoIcon,
+  calendarIcon,
+  gearIcon,
+  graphIcon
+} from '../constants/icons'
 
 export default function Home() {
   return (
@@ -15,6 +21,7 @@ export default function Home() {
       <Pressable style={buttonStyles.button}>
         <Text style={buttonStyles.buttonText}>Add to workouts</Text>
       </Pressable>
+      <Image source={logoIcon}/>
       <StatusBar style="auto" />
     </View>
   );
