@@ -2,6 +2,21 @@ import { Text } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
 import { NavBar } from './components/component-index';
+import { 
+  MD3LightTheme,
+  MD3DarkTheme,
+  PaperProvider } from 'react-native-paper';
+import { darkTheme, lightTheme } from './constants/theme';
+
+const useLightTheme = {
+  ...MD3LightTheme,
+  ...lightTheme
+}
+
+const useDarkTheme = {
+  ...MD3DarkTheme,
+  ...darkTheme
+}
 
 export default function App() {
   let [ fontsLoaded ] = useFonts({
@@ -15,8 +30,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <NavBar />
-    </NavigationContainer>
+    <PaperProvider theme={useDarkTheme}>
+      <NavigationContainer theme={useDarkTheme}>
+        <NavBar />
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
