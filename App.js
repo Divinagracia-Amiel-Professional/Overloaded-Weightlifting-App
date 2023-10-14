@@ -1,9 +1,7 @@
-import { Text, View } from 'react-native';
-import mainStyles from './styles/mainStyles';
-import Home from './pages/home';
+import { Text } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
-import NavBar from './components/general/navbar';
+import NavBar from './components/component-index';
 
 export default function App() {
   let [ fontsLoaded ] = useFonts({
