@@ -4,11 +4,9 @@ import { CommonActions } from '@react-navigation/routers'
 import { Text, BottomNavigation } from 'react-native-paper'
 import { Image } from 'react-native'
 import {
-    logoIcon,
-    calendarIcon,
-    graphIcon,
-    gearIcon
-} from '../../constants/icons'
+    logoSelected as LogoSelected,
+    logoIcon as Logo
+    } from '../../constants/icons'
 import {
     mainStyles
 } from '../../styles/style-index'
@@ -68,22 +66,28 @@ export default function NavBar(){
                 component={Home}
                 options={{
                     tabBarLabel: 'Home',
-                    // tabBarIcon: ({size, color}) => {
-                    //     return <Image source={logoIcon} size={size} color={color} />
-                    // }
+                        tabBarIcon: ({size, color}) => {
+                        return <Logo height={size}/>
+                    }
                 }}
             />
             <Tab.Screen
                 name={'Planner'} 
                 component={Planner}
+                options={{
+                    tabBarLabel: 'Planner'}}
             />
             <Tab.Screen
                 name={'Settings'} 
                 component={Settings}
+                options={{
+                    tabBarLabel: 'Settings'}}
             />
             <Tab.Screen
                 name={'Tracker'} 
                 component={Tracker}
+                options={{
+                    tabBarLabel: 'Tracker'}}
             />
         </Tab.Navigator>
     ) 

@@ -7,10 +7,10 @@ import {
   buttonStyles
 } from '../styles/style-index'
 import {
-  logoIcon,
-  calendarIcon,
-  gearIcon,
-  graphIcon
+  logoIcon as Logo,
+  calendarIcon as CalendarIcon,
+  gearIcon as GearIcon,
+  graphIcon as GraphIcon
 } from '../constants/icons'
 
 export default function Home() {
@@ -21,7 +21,6 @@ export default function Home() {
       <Pressable style={buttonStyles.button}>
         <Text style={buttonStyles.buttonText}>Add to workouts</Text>
       </Pressable>
-      <Image source={logoIcon}/>
       <StatusBar style="auto" />
     </View>
   );
