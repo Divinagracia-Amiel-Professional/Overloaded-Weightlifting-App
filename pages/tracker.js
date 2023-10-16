@@ -9,7 +9,7 @@ import {
 export default function Tracker(){
     return(
         <View style={mainStyles.bodyContainer}>
-            <Text style={textStyles.headerText}>Planner</Text>
+            <Text style={textStyles.headerText}>Tracker</Text>
         </View>
     )
 }
