@@ -19,8 +19,20 @@ const textStyles = StyleSheet.create({
     },
     navBarText: {
         fontFamily: fontFamily.primaryHeader,
-        fontSize: textSizes.small,
+        fontSize: textSizes.medium,
         color: colors.black
+    },
+    cardHeaderText: {
+        fontFamily: fontFamily.primaryHeader,
+        fontSize: textSizes.xxLarge,
+    },
+    cardDetailHeaderText: {
+        fontFamily: fontFamily.bodyHeader,
+        fontSize: textSizes.medium,
+    },
+    cardDetailBody: {
+        fontFamily: fontFamily.bodyText,
+        fontSize: textSizes.medium,
     }
 })
 

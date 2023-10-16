@@ -1,23 +1,23 @@
 const lightTheme = {
   "colors": {
-    "primary": "rgb(175, 45, 54)",
-    "onPrimary": "rgb(255, 255, 255)",
-    "primaryContainer": "rgb(255, 218, 216)",
-    "onPrimaryContainer": "rgb(65, 0, 7)",
-    "secondary": "rgb(134, 70, 139)",
+    "primary": "#880D1E",
+    "onPrimary": "#FFFFFF",
+    "primaryContainer": "#880D1E",
+    "onPrimaryContainer": "#FFFFFF",
+    "secondary": "#3D2B3D",
     "onSecondary": "rgb(255, 255, 255)",
-    "secondaryContainer": "rgb(255, 214, 252)",
+    "secondaryContainer": "transparent",
     "onSecondaryContainer": "rgb(54, 0, 62)",
     "tertiary": "rgb(176, 46, 0)",
     "onTertiary": "rgb(255, 255, 255)",
-    "tertiaryContainer": "rgb(255, 219, 209)",
-    "onTertiaryContainer": "rgb(59, 9, 0)",
+    "tertiaryContainer": "#F0EEEA",
+    "onTertiaryContainer": "#4F5152",
     "error": "rgb(186, 26, 26)",
     "onError": "rgb(255, 255, 255)",
     "errorContainer": "rgb(255, 218, 214)",
     "onErrorContainer": "rgb(65, 0, 2)",
-    "background": "rgb(255, 251, 255)",
-    "onBackground": "rgb(32, 26, 26)",
+    "background": "#FFF",
+    "onBackground": "#4F5152",
     "surface": "rgb(255, 251, 255)",
     "onSurface": "rgb(32, 26, 26)",
     "surfaceVariant": "rgb(244, 221, 220)",
@@ -39,7 +39,8 @@ const lightTheme = {
     },
     "surfaceDisabled": "rgba(32, 26, 26, 0.12)",
     "onSurfaceDisabled": "rgba(32, 26, 26, 0.38)",
-    "backdrop": "rgba(59, 45, 45, 0.4)"
+    "backdrop": "rgba(59, 45, 45, 0.4)",
+    "customLightGray" : "#DAD7CD"
   }
 }
 
@@ -61,8 +62,8 @@ const darkTheme = {
     "onError": "rgb(105, 0, 5)",
     "errorContainer": "rgb(147, 0, 10)",
     "onErrorContainer": "rgb(255, 180, 171)",
-    "background": "rgb(32, 26, 26)",
-    "onBackground": "rgb(237, 224, 223)",
+    "background": "#4F5152",
+    "onBackground": "#F0EEEA",
     "surface": "rgb(32, 26, 26)",
     "onSurface": "rgb(237, 224, 223)",
     "surfaceVariant": "rgb(82, 67, 66)",
@@ -84,8 +85,10 @@ const darkTheme = {
     },
     "surfaceDisabled": "rgba(237, 224, 223, 0.12)",
     "onSurfaceDisabled": "rgba(237, 224, 223, 0.38)",
-    "backdrop": "rgba(59, 45, 45, 0.4)"
-  }
+    "backdrop": "rgba(59, 45, 45, 0.4)",
+    "customLightGray" : "#DAD7CD"
+  },
+  "roundness": 2
 }
 
 const colors = {
@@ -111,7 +114,9 @@ const colors = {
   const fontFamily = {
     primaryHeader: "Staatliches-Regular",
     secondaryHeader: "Anton-Regular",
-    body: "Signika-Regular"
+    body: "Signika-Regular",
+    bodyHeader: "Signika-Bold",
+    bodyLight: "Signika-Light"
   }
   
   const textSizes = {
@@ -120,7 +125,8 @@ const colors = {
     medium: 16,
     large: 20,
     xLarge: 24,
-    xxLarge: 32,
+    xxLarge: 28,
+    xxxLarge: 32,
   };
   
   const shadow = {

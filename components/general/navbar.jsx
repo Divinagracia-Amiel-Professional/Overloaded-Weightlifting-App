@@ -1,28 +1,41 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { CommonActions } from '@react-navigation/routers'
-import { Text, BottomNavigation } from 'react-native-paper'
-import { Image } from 'react-native'
+import { 
+  BottomNavigation,
+  useTheme
+   } from 'react-native-paper'
+import { Text, View } from 'react-native'
 import {
     logoSelected as LogoSelected,
     logoIcon as Logo
     } from '../../constants/icons'
 import {
-    mainStyles
+    mainStyles,
+    textStyles
 } from '../../styles/style-index'
 import { Home, Planner, Settings, Tracker } from '../../pages/pages-index'
 
 const Tab = createBottomTabNavigator()
 
 export default function NavBar(){
+    const theme = useTheme()
+
     return(
-        <Tab.Navigator screenOptions={{
+        <Tab.Navigator 
+          screenOptions={{
             headerShown: false,
           }}
           tabBar={({ navigation, state, descriptors, insets }) => (
             <BottomNavigation.Bar
+             inactiveColor={theme.colors.onBackground}
+             activeColor={theme.colors.onBackground}
+             style={{
+              backgroundColor: theme.colors.tertiaryContainer
+             }}
+
              navigationState={state}
-             safeAreaInsets={insets}
+             safeAreaInsets={{insets}}
               onTabPress={({ route, preventDefault }) => {
                 const event = navigation.emit({
                   type: 'tabPress',
@@ -47,6 +60,17 @@ export default function NavBar(){
     
                 return null;
               }}
+              renderLabel={({ route, focused }) => {
+                const { options } = descriptors[route.key];
+                return(
+                  <View style={mainStyles.tabBarLabelContainer}>
+                    <Text style={{...textStyles.navBarText,
+                      color: (focused ? theme.colors.onBackground : theme.colors.onBackground)}}>
+                      {options.tabBarLabel}
+                    </Text>
+                  </View>
+                ) 
+              }}
               getLabelText={({ route }) => {
                 const { options } = descriptors[route.key];
                 const label =
@@ -66,16 +90,18 @@ export default function NavBar(){
                 component={Home}
                 options={{
                     tabBarLabel: 'Home',
-                        tabBarIcon: ({size, color}) => {
-                        return <Logo height={size}/>
-                    }
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <LogoSelected height={size} />
+                      : <Logo height={size} />) 
+                    },
                 }}
             />
             <Tab.Screen
                 name={'Planner'} 
                 component={Planner}
                 options={{
-                    tabBarLabel: 'Planner'}}
+                    tabBarLabel: 'Planner',
+                  }}
             />
             <Tab.Screen
                 name={'Settings'} 

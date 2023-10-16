@@ -23,7 +23,12 @@ export default function App() {
   let [ fontsLoaded ] = useFonts({
     'Staatliches-Regular': require('./assets/fonts/Staatliches-Regular.ttf'),
     'Anton-Regular': require('./assets/fonts/Anton-Regular.ttf'),
-    'Signika-Regular': require('./assets/fonts/Signika-Regular.ttf')
+
+    'Signika-Light': require('./assets/fonts/Signika-Light.ttf'),
+    'Signika-Medium': require('./assets/fonts/Signika-Medium.ttf'),
+    'Signika-Regular': require('./assets/fonts/Signika-Regular.ttf'),
+    'Signika-SemiBold': require('./assets/fonts/Signika-SemiBold.ttf'),
+    'Signika-Bold': require('./assets/fonts/Signika-Bold.ttf')
   })
 
   if(!fontsLoaded){
@@ -31,8 +36,8 @@ export default function App() {
   }
 
   return (
-    <PaperProvider theme={useDarkTheme}>
-      <NavigationContainer theme={useDarkTheme}>
+    <PaperProvider theme={useLightTheme}>
+      <NavigationContainer theme={useLightTheme}>
         <NavBar />
       </NavigationContainer>
     </PaperProvider>
