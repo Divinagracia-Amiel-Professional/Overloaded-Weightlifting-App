@@ -10,8 +10,10 @@ const buttonStyles = StyleSheet.create({
       button: {
         paddingVertical: 5,
         paddingHorizontal: 10,
-        borderRadius: 5
-      }
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
 })
 
 export default buttonStyles;
