@@ -8,7 +8,13 @@ import {
 import { Text, View } from 'react-native'
 import {
     logoSelected as LogoSelected,
-    logoIcon as Logo
+    logoIcon as Logo,
+    graphIcon as Graph,
+    graphIconFocused as GraphFocused,
+    gearIcon as Gear,
+    gearIconFocused as GearFocused,
+    calendarIcon as CalendarFocused,
+    calenderIconFocused as Calendar
     } from '../../constants/icons'
 import {
     mainStyles,
@@ -101,20 +107,34 @@ export default function NavBar(){
                 component={Planner}
                 options={{
                     tabBarLabel: 'Planner',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <CalendarFocused height={size} />
+                      : <Calendar height={size} />) 
+                    },
                   }}
-            />
-            <Tab.Screen
-                name={'Settings'} 
-                component={Settings}
-                options={{
-                    tabBarLabel: 'Settings'}}
             />
             <Tab.Screen
                 name={'Tracker'} 
                 component={Tracker}
                 options={{
-                    tabBarLabel: 'Tracker'}}
+                    tabBarLabel: 'Tracker',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <GraphFocused height={size} />
+                      : <Graph height={size} />) 
+                    },
+                }}
             />
+            <Tab.Screen
+                name={'Settings'} 
+                component={Settings}
+                options={{
+                    tabBarLabel: 'Settings',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <GearFocused height={size} />
+                      : <Gear height={size} />) 
+                    },
+                  }}
+            />        
         </Tab.Navigator>
     ) 
 }
