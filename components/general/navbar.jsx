@@ -1,5 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { CommonActions } from '@react-navigation/routers'
 import { 
   BottomNavigation,
@@ -93,7 +94,7 @@ export default function NavBar(){
         >
             <Tab.Screen
                 name='Home'
-                component={Home}
+                component={gestureHandlerRootHOC(Home)}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {
@@ -104,7 +105,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Planner'} 
-                component={Planner}
+                component={gestureHandlerRootHOC(Planner)}
                 options={{
                     tabBarLabel: 'Planner',
                     tabBarIcon: ({size, focused}) => {
@@ -115,7 +116,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Tracker'} 
-                component={Tracker}
+                component={gestureHandlerRootHOC(Tracker)}
                 options={{
                     tabBarLabel: 'Tracker',
                     tabBarIcon: ({size, focused}) => {
@@ -126,7 +127,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Settings'} 
-                component={Settings}
+                component={gestureHandlerRootHOC(Settings)}
                 options={{
                     tabBarLabel: 'Settings',
                     tabBarIcon: ({size, focused}) => {
