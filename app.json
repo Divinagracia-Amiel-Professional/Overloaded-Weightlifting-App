@@ -30,7 +30,9 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-build-properties",
+      "@morrowdigital/watermelondb-expo-plugin"
     ],
     "extra": {
       "router": {
