@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, Pressable, Image } from 'react-native';
 import { useTheme, Card } from 'react-native-paper';
-import { StatusBar } from 'expo-status-bar';
 import {
   mainStyles,
   textStyles,
