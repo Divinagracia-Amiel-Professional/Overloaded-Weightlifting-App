@@ -10,6 +10,7 @@ import {
 import { darkTheme, lightTheme } from './constants/theme';
 import 'react-native-gesture-handler'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { registerRootComponent } from 'expo'
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -45,3 +46,5 @@ export default function App() {
     </PaperProvider>
   );
 }
+
+registerRootComponent(App)
