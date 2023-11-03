@@ -15,6 +15,8 @@ import {
 import { StartButton } from '../components/component-index';
 import Timer from '../components/general/timer';
 
+
+
 export default function Home() {
   const theme = useTheme()
 
