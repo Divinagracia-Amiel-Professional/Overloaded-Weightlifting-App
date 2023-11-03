@@ -1,23 +1,17 @@
 export default 
 {
-    id: "KN9JnBNyeMitbfEoumYd",
-    name: "Conventional Deadlift",
+    id: "6",
+    name: "Eccentric Goblet Squat",
     description: "",
-    difficulty: 4,
+    difficulty: 3,
     focus: [
-        "glut_max", 
-        "hams", 
-        "erector",
+        "glut", 
+        "core",
         "quad",
-        "forearm",
-        "traps",
-        "core"
     ],
     group: [
         "legs",
         "core",
-        "full",
-        "back"
     ],
     resources: {
         img_urls: [

@@ -1,23 +1,15 @@
 export default 
 {
-    id: "KN9JnBNyeMitbfEoumYd",
-    name: "Conventional Deadlift",
+    id: "2",
+    name: "Seated Hip Abductions",
     description: "",
-    difficulty: 4,
+    difficulty: 2,
     focus: [
-        "glut_max", 
-        "hams", 
-        "erector",
-        "quad",
-        "forearm",
-        "traps",
-        "core"
+        "glut_med", 
+        "glut_min",
     ],
     group: [
         "legs",
-        "core",
-        "full",
-        "back"
     ],
     resources: {
         img_urls: [

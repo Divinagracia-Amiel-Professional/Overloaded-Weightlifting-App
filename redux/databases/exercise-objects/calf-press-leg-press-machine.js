@@ -1,23 +1,14 @@
 export default 
 {
-    id: "KN9JnBNyeMitbfEoumYd",
-    name: "Conventional Deadlift",
+    id: "1",
+    name: "Calf Press on Leg Press Machine",
     description: "",
-    difficulty: 4,
+    difficulty: 2,
     focus: [
-        "glut_max", 
-        "hams", 
-        "erector",
-        "quad",
-        "forearm",
-        "traps",
-        "core"
+        "calves"
     ],
     group: [
         "legs",
-        "core",
-        "full",
-        "back"
     ],
     resources: {
         img_urls: [

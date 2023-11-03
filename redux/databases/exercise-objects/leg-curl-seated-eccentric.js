@@ -1,23 +1,15 @@
 export default 
 {
-    id: "KN9JnBNyeMitbfEoumYd",
-    name: "Conventional Deadlift",
+    id: "4",
+    name: "Eccentric Seated Leg Curl",
     description: "",
-    difficulty: 4,
+    difficulty: 3,
     focus: [
-        "glut_max", 
-        "hams", 
-        "erector",
-        "quad",
-        "forearm",
-        "traps",
-        "core"
+        "hams",
     ],
     group: [
         "legs",
         "core",
-        "full",
-        "back"
     ],
     resources: {
         img_urls: [

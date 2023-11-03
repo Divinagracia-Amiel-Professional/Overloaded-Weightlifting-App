@@ -1,23 +1,17 @@
 export default 
 {
-    id: "KN9JnBNyeMitbfEoumYd",
-    name: "Conventional Deadlift",
+    id: "5",
+    name: "Bulgarian Split Squats",
     description: "",
-    difficulty: 4,
+    difficulty: 5,
     focus: [
         "glut_max", 
-        "hams", 
-        "erector",
         "quad",
-        "forearm",
-        "traps",
         "core"
     ],
     group: [
         "legs",
         "core",
-        "full",
-        "back"
     ],
     resources: {
         img_urls: [
