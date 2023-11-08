@@ -9,7 +9,7 @@ import {
   PaperProvider } from 'react-native-paper';
 import { darkTheme, lightTheme } from './constants/theme';
 import 'react-native-gesture-handler'
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+// import { Provider } from 'react-redux'
 
 const useLightTheme = {
   ...MD3LightTheme,
