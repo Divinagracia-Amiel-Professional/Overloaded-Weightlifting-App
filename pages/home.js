@@ -14,6 +14,7 @@ import {
 } from '../constants/icons'
 import { StartButton } from '../components/component-index';
 import Timer from '../components/general/timer';
+import GetDBButton from '../components/general/add_database';
 
 
 
@@ -25,6 +26,7 @@ export default function Home() {
     backgroundColor: theme.colors.background
     }}>
       <StartButton />
+      <GetDBButton />
     </View>
   );
 }
