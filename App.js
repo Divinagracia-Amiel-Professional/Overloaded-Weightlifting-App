@@ -9,7 +9,8 @@ import {
   PaperProvider } from 'react-native-paper';
 import { darkTheme, lightTheme } from './constants/theme';
 import 'react-native-gesture-handler'
-// import { Provider } from 'react-redux'
+import { Provider } from 'react-redux'
+import { store } from './redux/store';
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -38,10 +39,12 @@ export default function App() {
   }
 
   return (
-    <PaperProvider theme={useLightTheme}>
-      <NavigationContainer theme={useLightTheme}>
-        <NavBar />
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider theme={useLightTheme}>
+        <NavigationContainer theme={useLightTheme}>
+          <NavBar />
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }

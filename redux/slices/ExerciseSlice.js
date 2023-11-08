@@ -8,7 +8,7 @@ const initExerciseDbState = {
 
 const ExerciseSlice = createSlice({
     name: "ExerciseDB",
-    initExerciseDbState, 
+    initialState: initExerciseDbState, 
     reducers: {
         addInitExercisesToStore: (state, action) => {
             state.value = action.payload

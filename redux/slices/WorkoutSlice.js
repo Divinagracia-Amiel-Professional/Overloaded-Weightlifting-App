@@ -8,7 +8,7 @@ const initWorkoutDbState = {
 
 const WorkoutSlice = createSlice({
     name: "WorkoutDB",
-    initWorkoutDbState, 
+    initialState: initWorkoutDbState, 
     reducers: {
         addInitWorkoutToStore: (state, action) => {
             state.value = action.payload
