@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { RootState, AppDispatch } from '../../redux/store';
 import { addInitExercisesToStore } from '../../redux/slices/ExerciseSlice';
 import { Text, View, Pressable, Image } from 'react-native';
-import { useTheme, Card } from 'react-native-paper';
+import { useTheme, Card, Modal, Portal } from 'react-native-paper';
 import {
   mainStyles,
   textStyles,
   buttonStyles
 } from '../../styles/style-index';
+import exercisesInitDb from '../../redux/databases/exercises-init-db';
+import { isPending } from '@reduxjs/toolkit';
 
 export default function GetDBButton() {
-    const exerciseDB = useSelector((state: RootState) => state.exercise.value);
-    const dispatch = useDispatch();
+    const exerciseDB = useSelector((state: RootState) => state.exercise);
+    const dispatch = useDispatch<AppDispatch>();
     const theme = useTheme();
+
+    const [ data, setData ] = useState({})
+    const [ visible, setVisible ] = useState(false)
+
+    console.log(exerciseDB)
+
+    useEffect(() => {
+        if(exerciseDB.isPending){
+            setVisible(true)
+        } 
+        else{
+            setVisible(false)
+        }
+    }, [exerciseDB.isPending])
+    
 
     return(
         <>
@@ -21,16 +38,17 @@ export default function GetDBButton() {
                 style={{...buttonStyles.button,
                     backgroundColor: theme.colors.onBackground}}
                     onPress={() => dispatch(addInitExercisesToStore(
-                    {
-                        name: "amiel",
-                        age: 23,
-                        sex: "m"
-                    }
-                ))}
+                        exercisesInitDb,
+                    ))}
             >
                 <Text style={{...buttonStyles.buttonText,
-                color: theme.colors.background}}>{exerciseDB ? exerciseDB.name : "no_DB"}</Text>
+                color: theme.colors.background}}>{(exerciseDB.isPending ? "...Loading" : exerciseDB.data[0] ? exerciseDB.data[0].name : "no_db")}</Text>
             </Pressable>
+            <Portal>
+                <Modal visible={visible}>
+                    <Text>Loading...</Text>
+                </Modal>
+            </Portal>
         </>
     )
 }

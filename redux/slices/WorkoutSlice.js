@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initDbAddExercisesToStore } from '../actions'
-import { initDbAddWorkoutsToStore } from '../actions'
 
-const initWorkoutDbState = {
-
+const initWorkoutDB = {
+    isPending: false
 }
 
 const WorkoutSlice = createSlice({
     name: "WorkoutDB",
-    initialState: initWorkoutDbState, 
+    initialState: initWorkoutDB, 
     reducers: {
         addInitWorkoutToStore: (state, action) => {
             state.value = action.payload
