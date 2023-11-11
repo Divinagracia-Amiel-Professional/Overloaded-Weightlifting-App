@@ -10,7 +10,6 @@ import {
   buttonStyles
 } from '../../styles/style-index';
 import exercisesInitDb from '../../redux/databases/exercises-init-db';
-import { isPending } from '@reduxjs/toolkit';
 
 export default function GetDBButton() {
     const exerciseDB = useSelector((state: RootState) => state.exercise);
