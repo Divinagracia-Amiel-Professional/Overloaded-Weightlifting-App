@@ -12,10 +12,10 @@ const WorkoutSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(addInitWorkoutToStore.pending, (state) => {
-            state.isPending = !state.isPending
+            state.isPending = true
         })
         .addCase(addInitWorkoutToStore.fulfilled, (state, action) => {
-            state.isPending = !state.isPending
+            state.isPending = false
             state.data = action.payload
         })    
     }
