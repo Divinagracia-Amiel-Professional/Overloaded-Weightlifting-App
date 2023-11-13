@@ -9,7 +9,7 @@ const InitSlice = createSlice({
     name: "InitSlice",
     initialState: isInit, 
     reducers: {
-        setInit : (state, action) => {
+        setInit : (state) => {
             state.data = !state.data
         },
     },

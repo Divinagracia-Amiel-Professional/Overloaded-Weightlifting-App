@@ -8,7 +8,14 @@ const initWorkoutDB = {
 const WorkoutSlice = createSlice({
     name: "WorkoutDB",
     initialState: initWorkoutDB, 
-    reducers: {},
+    reducers: {
+        addInitWorkouts: (state, action) => {
+            state.data = action.payload
+        },
+        reset: (state) => {
+            return initialState
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(addInitWorkoutToStore.pending, (state) => {
@@ -30,4 +37,4 @@ export const addInitWorkoutToStore = createAsyncThunk(
 )
 
 export default WorkoutSlice.reducer
-// export const { addInitWorkoutToStore } = WorkoutSlice.actions
+export const { reset, addInitWorkouts } = WorkoutSlice.actions

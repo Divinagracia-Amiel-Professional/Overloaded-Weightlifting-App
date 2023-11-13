@@ -9,12 +9,12 @@ const ExerciseSlice = createSlice({
     name: "ExerciseDB",
     initialState: initExerciseDB, 
     reducers: {
-        // addInitExercisesToStore: (state, action) => {
-        //     state.value = action.payload
-        // },
-        // reset: (state) => {
-        //     return initialState
-        // }
+        addInitExercises: (state, action) => {
+            state.data = action.payload
+        },
+        reset: (state) => {
+            return initialState
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -37,4 +37,4 @@ export const addInitExercisesToStore = createAsyncThunk(
 )
 
 export default ExerciseSlice.reducer
-export const { reset } = ExerciseSlice.actions
+export const { reset, addInitExercises } = ExerciseSlice.actions

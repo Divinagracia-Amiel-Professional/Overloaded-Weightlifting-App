@@ -19,11 +19,12 @@ import { useSecureStore, getSecureStoreString } from '../custom-hooks/useSecureS
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import initializeDB from '../custom-hooks/initDB';
+import initializeDBSync from '../custom-hooks/initDBsync';
 import { setInit } from '../redux/slices/InitSlice';
 
 export default function Home() {
   const theme = useTheme()
-  const initDB = initializeDB()
+  const initDB = initializeDBSync()
   
 
   return (
