@@ -21,7 +21,8 @@ import {
     mainStyles,
     textStyles
 } from '../../styles/style-index'
-import { Home, Planner, Settings, Tracker } from '../../pages/pages-index'
+import { Planner, Settings, Tracker } from '../../pages/pages-index'
+import DoWorkoutStack from '../../pages/doWorkout/doWork-main-stack-navigator'
 
 const Tab = createBottomTabNavigator()
 
@@ -93,8 +94,8 @@ export default function NavBar(){
           )}
         >
             <Tab.Screen
-                name='Home'
-                component={gestureHandlerRootHOC(Home)}
+                name='DoWorkoutStack'
+                component={gestureHandlerRootHOC(DoWorkoutStack)}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {
