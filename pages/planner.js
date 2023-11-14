@@ -8,6 +8,7 @@ import {
 import DraggableLyrics from '../components/do-workout-components/draggable-sortable-list';
 
 export default function Planner(){
+
     return(
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Planner</Text>
