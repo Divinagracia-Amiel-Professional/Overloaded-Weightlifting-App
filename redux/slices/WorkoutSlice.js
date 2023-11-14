@@ -24,7 +24,7 @@ const WorkoutSlice = createSlice({
         .addCase(addInitWorkoutToStore.fulfilled, (state, action) => {
             state.isPending = false
             state.data = action.payload
-        })    
+        })
     }
 })
 

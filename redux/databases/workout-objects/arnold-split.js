@@ -4,7 +4,7 @@ import squatBulgarianSplitBar from "../exercise-objects/squat-bulgarian-split-ba
 
 export default 
 {
-    id: "divisplitID",
+    id: "arnoldsplitID",
     name: "Divi Split",
     cycles : [
         {
@@ -15,7 +15,7 @@ export default
                     order: 3,
                     exercises : [
                         {
-                            exercise_id: deadliftConventional.id,
+                            exercise_id: squatBulgarianSplitBar.id,
                             workout_data: {
                                 order: 1,
                                 rep_end: 4,
@@ -26,7 +26,7 @@ export default
                             }
                         },
                         {
-                            exercise_id: squatBulgarianSplitBar.id,
+                            exercise_id: calfPressLegPressMachine.id,
                             workout_data: {
                                 order: 2,
                                 rep_end: 6,

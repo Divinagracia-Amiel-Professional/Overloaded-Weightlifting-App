@@ -5,6 +5,7 @@ import {
     textStyles,
     buttonStyles
 } from '../styles/style-index'
+import TestDBComponent from '../components/test-components/test-store';
 
 export default function Tracker(){
     return(
