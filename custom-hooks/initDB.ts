@@ -17,13 +17,13 @@ const initializeDB = () => {
 
     useEffect(() => {
         (async() => {
-            console.log('success!')
             console.log(isInit)
 
             if(!isInit){
                 await dispatch(addInitExercisesToStore(exercisesInitDb));
                 await dispatch(addInitWorkoutToStore(workoutsInitDb));
                 dispatch(setInit())
+                console.log('success!')
             }
             
             setIsSuccess(true)

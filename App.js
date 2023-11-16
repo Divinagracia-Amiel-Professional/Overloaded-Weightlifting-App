@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
 import { NavBar } from './components/component-index';
+import DoWorkoutStack from './pages/doWorkout/doWork-main-stack-navigator';
 import { 
   MD3LightTheme,
   MD3DarkTheme,
@@ -42,7 +43,7 @@ export default function App() {
     <Provider store={store}>
       <PaperProvider theme={useLightTheme}>
         <NavigationContainer theme={useLightTheme}>
-          <NavBar />
+          <DoWorkoutStack />
         </NavigationContainer>
       </PaperProvider>
     </Provider>

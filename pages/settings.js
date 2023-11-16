@@ -18,7 +18,6 @@ export default function Settings(){
     return(
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Settings</Text>
-            {/* <GetWorkoutData /> */}
         </View>
     )
 }

@@ -23,6 +23,7 @@ import {
 } from '../../styles/style-index'
 import { Planner, Settings, Tracker } from '../../pages/pages-index'
 import DoWorkoutStack from '../../pages/doWorkout/doWork-main-stack-navigator'
+import { Home } from '../../pages/pages-index'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,8 +32,11 @@ export default function NavBar(){
 
     return(
         <Tab.Navigator 
+          detachInactiveScreens={true}
           screenOptions={{
             headerShown: false,
+            lazy: true,
+            freezeOnBlur: true
           }}
           tabBar={({ navigation, state, descriptors, insets }) => (
             <BottomNavigation.Bar
@@ -94,8 +98,8 @@ export default function NavBar(){
           )}
         >
             <Tab.Screen
-                name='DoWorkoutStack'
-                component={gestureHandlerRootHOC(DoWorkoutStack)}
+                name='Home'
+                component={gestureHandlerRootHOC(Home)}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {

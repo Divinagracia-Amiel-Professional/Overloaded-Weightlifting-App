@@ -3,13 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initState = {
     user: 'guestUser',
     workoutUsed: [],
-    records:[],
     preferences: {
         lightTheme: true,
     }
 }
 
-const CurrentUserSlice = createSlice({
+const DoWorkoutListSlice = createSlice({
     name: "CurrentUser",
     initialState: initState,
     reducers: {
@@ -22,5 +21,5 @@ const CurrentUserSlice = createSlice({
     }
 })
 
-export default CurrentUserSlice.reducer
-export const {} = CurrentUserSlice.actions
+export default DoWorkoutListSlice.reducer
+export const {} = DoWorkoutListSlice.actions

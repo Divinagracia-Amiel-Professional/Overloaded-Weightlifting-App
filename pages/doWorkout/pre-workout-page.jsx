@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import {
     mainStyles,
     textStyles,
@@ -10,15 +10,27 @@ import DraggableSortableList from '../../components/do-workout-components/dragga
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux';
 
 
-export default function PreWorkoutPage(){
+export default function PreWorkoutPage({navigation}){
     const theme = useTheme()
+    const [ data, setParentData ] = useState([])
+    console.log(data)
 
     return(
         <View style={{...mainStyles.bodyContainer,
             backgroundColor: theme.colors.background
             }}>
-            <Text>preWorkoutPage</Text>
-            <DraggableSortableList />
+            <Text></Text>
+            <DraggableSortableList 
+                data = {data}
+                post = {setParentData}
+            />
+            <Pressable style={{}}
+                onPress={() => {
+                    navigation.navigate('DoWorkoutPage')
+                }}
+            >
+                <Text>Let's GO!</Text>
+            </Pressable>
         </View>
     )
 }

@@ -16,13 +16,13 @@ const initializeDBSync = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        console.log('success!')
         console.log(isInit)
 
         if(!isInit){
             dispatch(addInitExercises(exercisesInitDb));
             dispatch(addInitWorkouts(workoutsInitDb));
             dispatch(setInit())
+            console.log('success!')
         }
         
         setIsSuccess(true)

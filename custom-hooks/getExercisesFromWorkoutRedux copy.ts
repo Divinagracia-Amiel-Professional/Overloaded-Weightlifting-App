@@ -4,7 +4,6 @@ import { RootState } from '../redux/store';
 
 const getExercisesFromWorkoutRedux = (workout_id, cycle_order, split_order) => {
     const workoutDB = useSelector((state: RootState) => state.workout.data)
-    const exerciseDB = useSelector((state: RootState) => state.exercise.data)
     const initState = []
     const [ data, setData ] = useState([])
     const [ error, setError ] = useState(false)
@@ -39,19 +38,10 @@ const getExercisesFromWorkoutRedux = (workout_id, cycle_order, split_order) => {
                         setError(true)
                         throw new Error('Split with corresponding order does not exist')           
                     }
-         
-                    const exercises = await exerciseDB.filter(({id}) => {   
-                        return splitQuery.exercises.some(include => include.exercise_id === id)
-                    })
-                    
-                    const combineArrays = await splitQuery.exercises.map(workout => {  
-                        return {
-                            ...workout,
-                            exercise_obj: exercises.find(item => item.id === workout.exercise_id)
-                        }
-                    })
-
-                    setData(combineArrays)
+                    if(splitQuery){
+                        setData(splitQuery.exercises)
+                        setError(false)
+                    }
                 }
                 catch(e){
                     console.log(e)
