@@ -1,24 +1,15 @@
 import React, { useState } from 'react'
-import { View, Text, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import { 
   textStyles,
   listStyles,
 } from '../../styles/style-index'
-import FontAwesome from '@expo/vector-icons/FontAwesome5'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { Placeholder as PlaceholderImage } from '../../constants/images'
-
-let dragListStyle = {}
-let listContainerStyle = {}
-let list_textStyle = {}
 
 export default function DragListItem(props){
     const theme = useTheme()
-
-    //styling
-    
 
     return(
         <View

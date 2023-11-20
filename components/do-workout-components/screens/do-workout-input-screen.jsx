@@ -9,7 +9,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
-export default function ExerciseScreen(){
+export default function InputScreen(){
     const theme = useTheme()
 
     return(
@@ -18,7 +18,7 @@ export default function ExerciseScreen(){
                 backgroundColor: theme.colors.background
             }}
         >
-            <Text>Exercise Screen</Text>
+            <Text>Input Screen</Text>
         </View>
     )
 }
