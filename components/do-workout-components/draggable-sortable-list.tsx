@@ -92,7 +92,7 @@ export default function DraggableSortableList(props) {
         keyExtractor={keyExtractor}
         onReordered={onReordered}
         renderItem={renderItem}
-        showsVerticalScrollIndicator={true}
+      
         style={{
           flexGrow: 0,
         }}

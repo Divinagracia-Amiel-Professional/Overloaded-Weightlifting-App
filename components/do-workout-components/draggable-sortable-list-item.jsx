@@ -31,7 +31,7 @@ export default function DragListItem(props){
                 <Pressable 
                     onPressIn={props.onDragStart}
                     onPressOut={props.onDragEnd}>
-                    <Feather name={'menu'} size={30} color={theme.colors.secondary}/>
+                    <MaterialIcons name={'drag-indicator'} size={30} color={theme.colors.secondary}/>
                 </Pressable>
             </View>
             <View
