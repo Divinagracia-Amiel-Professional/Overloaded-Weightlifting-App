@@ -1,7 +1,7 @@
 export default 
 {
     id: "1",
-    name: "Calf Press on Leg Press Machine",
+    name: "Single Calf Press",
     description: "",
     difficulty: 2,
     focus: [

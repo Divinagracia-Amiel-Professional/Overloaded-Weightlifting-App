@@ -1,4 +1,4 @@
-import calfPressLegPressMachine from "../exercise-objects/calf-press-leg-press-machine"
+import calfPressLegPressMachine from "../exercise-objects/calf-press-leg-press-machine-single"
 import deadliftConventional from "../exercise-objects/deadlift-conventional"
 import squatBulgarianSplitBar from "../exercise-objects/squat-bulgarian-split-bar"
 

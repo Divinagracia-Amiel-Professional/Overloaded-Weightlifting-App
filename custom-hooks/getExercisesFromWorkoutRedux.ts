@@ -61,7 +61,7 @@ const getExercisesFromWorkoutRedux = (workout_id, cycle_order, split_order) => {
             }
             setIsLoading(false)
         })()
-    }, [])
+    }, [workout_id, cycle_order, split_order])
 
     return { data, isLoading }
 }

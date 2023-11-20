@@ -14,6 +14,35 @@ const buttonStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
+      bottomAbsoluteContainer: {
+        width: '100%',
+        paddingVertical: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+
+        position: 'absolute',
+        bottom: 0,
+
+        borderTopWidth: 0.5,
+
+        // border-top: 0.5px solid #DAD7CD;
+      },
+      bottomAbsoluteButton: {
+        paddingVertical: 10,
+        paddingHorizontal: 40,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+
+        borderRadius: 50,
+      },
+      bottomAbsoluteButtonText: {
+        textAlign: 'center',
+        fontFamily: fontFamily.primaryHeader,
+        fontSize: textSizes.large,
+      }
 })
 
 export default buttonStyles;

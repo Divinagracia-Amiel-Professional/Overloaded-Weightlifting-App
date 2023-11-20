@@ -15,6 +15,21 @@ const mainStyles = StyleSheet.create({
       paddingVertical: 50,
       gap: 10,
     },
+    preWorkoutContainer: {
+      flex: 1,
+      backgroundColor: colors.lightGray,
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: 0,
+      paddingVertical: 0,
+      gap: 10,
+    },
+    preWorkoutHeaderContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 5,
+      alignSelf: 'stretch',
+    },
     tabBarLabelContainer: {
       flex: 1,
       alignItems: 'center'

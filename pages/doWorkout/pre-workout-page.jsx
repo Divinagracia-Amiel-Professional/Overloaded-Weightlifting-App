@@ -1,36 +1,86 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, Image, ScrollView } from 'react-native'
 import {
     mainStyles,
     textStyles,
-    buttonStyles
+    buttonStyles,
+    imageStyles
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list';
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux';
-
+import { Placeholder as PlaceholderImage } from '../../constants/images';
+import setWorkoutName from '../../functions/setWorkoutName';
 
 export default function PreWorkoutPage({navigation}){
     const theme = useTheme()
+
+    const currentWorkout = {
+        id: 'divisplitID',
+        cycle: 2,
+        split: {
+            order: 3,
+            name: 'Leg Day',
+        },
+    }
     const [ data, setParentData ] = useState([])
     console.log(data)
 
+
     return(
-        <View style={{...mainStyles.bodyContainer,
+        <View style={{...mainStyles.preWorkoutContainer,
             backgroundColor: theme.colors.background
-            }}>
-            <Text></Text>
-            <DraggableSortableList 
-                data = {data}
-                post = {setParentData}
-            />
-            <Pressable style={{}}
-                onPress={() => {
-                    navigation.navigate('DoWorkoutPage')
-                }}
+            }}
             >
-                <Text>Let's GO!</Text>
-            </Pressable>
+            <Image 
+                style={imageStyles.placeholder}
+                source={PlaceholderImage}
+            />
+            <View 
+                style={mainStyles.preWorkoutHeaderContainer}
+            >
+                {
+                    currentWorkout ? 
+                    <Text
+                        style={textStyles.preWorkoutPage.headerText}
+                    >{setWorkoutName(currentWorkout.cycle, currentWorkout.split.name)}</Text> : 
+                    'No Workout'
+                }
+                {
+                    data.length ? 
+                    <Text
+                        style={textStyles.preWorkoutPage.bodyText}
+                    >{data.length} exercises</Text> :
+                    ''
+                }
+            </View>
+            
+                <DraggableSortableList
+                    currentWorkout = {currentWorkout}
+                    data = {data}
+                    post = {setParentData}
+                />
+           
+            <View
+                style={{...buttonStyles.bottomAbsoluteContainer,
+                    backgroundColor: theme.colors.background,
+                    borderColor: theme.colors.customLightGray
+                    }}
+            >
+                <Pressable style={{...buttonStyles.bottomAbsoluteButton,
+                    backgroundColor: theme.colors.primary
+                    }}
+                    onPress={() => {
+                        navigation.navigate('DoWorkoutPage')
+                    }}
+                >
+                    <Text
+                        style={{...buttonStyles.bottomAbsoluteButtonText,
+                            color: theme.colors.background
+                            }}
+                    >Let's GO!</Text>
+                </Pressable>
+            </View>  
         </View>
     )
 }

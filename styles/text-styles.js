@@ -33,6 +33,28 @@ const textStyles = StyleSheet.create({
     cardDetailBody: {
         fontFamily: fontFamily.bodyText,
         fontSize: textSizes.medium,
+    },
+    preWorkoutPage: {
+        headerText: {
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.xxLarge,
+        },
+        bodyText: {
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium
+        }
+    },
+    list: {
+        draggable: {
+            headerText: {
+                fontFamily: fontFamily.primaryHeader,
+                fontSize: textSizes.large
+            },
+            bodyText: {
+                fontFamily: fontFamily.body,
+                fontSize: textSizes.small
+            }
+        }
     }
 })
 

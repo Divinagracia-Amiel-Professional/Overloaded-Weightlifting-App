@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, Pressable, TouchableOpacity, ScrollView } from 'react-native'
 import DragList, { DragListRenderItemInfo } from 'react-native-draglist'
+import { useTheme } from 'react-native-paper'
+import { 
+  listStyles
+} from '../../styles/style-index'
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux'
-import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory'
+import DragListItem from './draggable-sortable-list-item'
 
-// const SOUND_OF_SILENCE = ['hello', 'darkness', 'my', 'old', 'friend'];
+let DragListStyle = {}
 
 export default function DraggableSortableList(props) {
-  const exercises = getExercisesFromWorkoutRedux('divisplitID', 2, 3)
+  const theme = useTheme()
+
+  //styling
+
+  const exercises = getExercisesFromWorkoutRedux(
+    props.currentWorkout.id,
+    props.currentWorkout.cycle,
+    props.currentWorkout.split.order
+  )
   // const [data, setData] = useState([])
 
   useEffect(() => {
@@ -35,18 +47,18 @@ export default function DraggableSortableList(props) {
     const name = item.item.exercise_obj.name
     const rep_end = item.item.workout_data.rep_end
     const rep_start =  item.item.workout_data.rep_start
+    const sets = item.item.workout_data.set_count
 
     return (
-      <Pressable 
+      <DragListItem
         key={item.id}
-        onPressIn={onDragStart}
-        onPressOut={onDragEnd}>
-        <Text>{name}</Text>
-        <View>
-          <Text>{rep_start}</Text>
-          {rep_end !== rep_start && <Text>{rep_end}</Text> /*conditional if there is no rep range*/}
-        </View>
-      </Pressable> 
+        name={name}
+        start={rep_start}
+        end={rep_end}
+        sets={sets}
+        onDragStart={onDragStart}
+        onDragEnd={onDragEnd}
+      />
     );
   }
 
@@ -59,15 +71,35 @@ export default function DraggableSortableList(props) {
   }
 
   return (
-    props.data.length ? <View>
+    props.data.length ? 
+    // <ScrollView
+    //   // contentContainerStyle={{justifyContent: 'center',
+    //   // alignSelf: 'stretch',}}
+    // >
+    <View
+      style={{
+        ...listStyles.draggable.listContainer,
+        paddingBottom: 100,
+      }}
+
+      // contentContainerStyle={{
+      //   justifyContent: 'center',
+      //   alignSelf: 'stretch',
+      // }}
+    >
       <DragList
         data={props.data}
         keyExtractor={keyExtractor}
         onReordered={onReordered}
         renderItem={renderItem}
-        style={{flexGrow: 0}}
+        showsVerticalScrollIndicator={true}
+        style={{
+          flexGrow: 0,
+        }}
       />
-    </View> :
+    </View>
+    // </ScrollView> 
+    :
     <Text>...Loading</Text>
   );
 }
