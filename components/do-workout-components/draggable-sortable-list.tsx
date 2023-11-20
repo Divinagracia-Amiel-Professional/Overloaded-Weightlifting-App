@@ -68,6 +68,7 @@ export default function DraggableSortableList(props) {
 
     copy.splice(toIndex, 0, removed[0]); // Now insert at the new post
     props.post(copy);
+    
   }
 
   return (
@@ -92,7 +93,10 @@ export default function DraggableSortableList(props) {
         keyExtractor={keyExtractor}
         onReordered={onReordered}
         renderItem={renderItem}
-      
+        scrollEnabled={false}
+        // onScroll={() => {
+        //   console.log('scrolled')
+        // }}
         style={{
           flexGrow: 0,
         }}

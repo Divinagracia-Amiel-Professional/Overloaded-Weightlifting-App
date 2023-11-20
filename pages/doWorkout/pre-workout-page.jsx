@@ -54,13 +54,13 @@ export default function PreWorkoutPage({navigation}){
                     ''
                 }
             </View>
-            
+            <ScrollView>
                 <DraggableSortableList
                     currentWorkout = {currentWorkout}
                     data = {data}
                     post = {setParentData}
                 />
-           
+            </ScrollView>
             <View
                 style={{...buttonStyles.bottomAbsoluteContainer,
                     backgroundColor: theme.colors.background,
