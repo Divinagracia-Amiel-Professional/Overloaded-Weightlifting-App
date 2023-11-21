@@ -30,6 +30,14 @@ const mainStyles = StyleSheet.create({
       gap: 5,
       alignSelf: 'stretch',
     },
+    doWorkoutPage: {
+      header: {
+
+      },
+      timer: {
+        
+      }
+    },
     tabBarLabelContainer: {
       flex: 1,
       alignItems: 'center'
