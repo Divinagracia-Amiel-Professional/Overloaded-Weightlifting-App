@@ -6,43 +6,61 @@ import {
     textSizes, 
     shadow 
 } from '../../constants/theme'
-import { buttonStyles, cardStyles, mainStyles, textStyles } from '../../styles/style-index'
+import { 
+    buttonStyles,
+    cardStyles,
+    mainStyles, 
+    textStyles,
+    imageStyles,
+    listStyles,
+} from '../../styles/style-index'
 
 const isInit = {
     data: {
-        lightTheme: {
-            colors: {
-                ...colors
-            },
-            containers: {
-                startButtonContainer: {
-                    ...cardStyles.startButtonContainer,
-                    backgroundColor: colors.lightGray
-                },
-                cardContainer: {
-                    ...cardStyles.cardContainer,
-                    backgroundColor: colors.primary
-                },
-            },
-            texts: {
-                cardHeaderText: {
-                    ...textStyles.cardDetailHeaderText,
-                    color: colors.white
-                },
-            },
-            button: {
-                container: {
-                    ...buttonStyles.button
-                },
-                text: {
-                    ...buttonStyles.text,
-                    color: colors.secondary
-                }
-            }
+        mainStyles: {
+            bodyContainer: {
+                flex: 1,
+                backgroundColor: colors.lightGray,
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                padding: 15,
+                paddingVertical: 50,
+                gap: 10,
+              },
         },
-        darkTheme: {
+        // lightTheme: {
+        //     colors: {
+        //         ...colors
+        //     },
+        //     containers: {
+        //         startButtonContainer: {
+        //             ...cardStyles.startButtonContainer,
+        //             backgroundColor: colors.lightGray
+        //         },
+        //         cardContainer: {
+        //             ...cardStyles.cardContainer,
+        //             backgroundColor: colors.primary
+        //         },
+        //     },
+        //     texts: {
+        //         cardHeaderText: {
+        //             ...textStyles.cardDetailHeaderText,
+        //             color: colors.white
+        //         },
+        //     },
+        //     button: {
+        //         container: {
+        //             ...buttonStyles.button
+        //         },
+        //         text: {
+        //             ...buttonStyles.text,
+        //             color: colors.secondary
+        //         }
+        //     }
+        // },
+        // darkTheme: {
 
-        }
+        // }
     },
     isPending: false
 }

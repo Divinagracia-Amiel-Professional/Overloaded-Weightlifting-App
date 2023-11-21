@@ -15,6 +15,10 @@ const imageStyles = StyleSheet.create({
     draggable: {
         height: 75,
         width: 75
+    },
+    doWorkout: {
+        flexGrow: 1,
+        alignSelf: 'stretch'
     }
 })
 

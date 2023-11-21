@@ -67,8 +67,25 @@ export default function DraggableSortableList(props) {
     const removed = copy.splice(fromIndex, 1);
 
     copy.splice(toIndex, 0, removed[0]); // Now insert at the new post
-    props.post(copy);
-    
+
+    let count = -1
+    const toConvert = copy
+    const final_arr = toConvert.map(item => {
+        count++
+        return(
+          {
+            id: count,
+            item: {...item.item,
+              workout_data : {
+                ...item.item.workout_data,
+                order: count + 1
+              }
+            }
+          }
+        )
+      })
+
+    props.post(final_arr);
   }
 
   return (
@@ -99,6 +116,8 @@ export default function DraggableSortableList(props) {
         // }}
         style={{
           flexGrow: 0,
+          // paddingBottom: 200,
+          // backgroundColor: 'red'
         }}
       />
     </View>

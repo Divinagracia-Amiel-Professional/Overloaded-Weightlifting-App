@@ -39,7 +39,9 @@ export default function DragListItem(props){
                         style={{...listStyles.draggable.HeaderContainer}}
                     >
                         <Text
-                            style={{...textStyles.list.draggable.headerText}}
+                            style={{...textStyles.list.draggable.headerText,
+                                color: theme.colors.secondary
+                            }}
                         >{props.name}</Text>
                         <Pressable
                     
@@ -51,11 +53,17 @@ export default function DragListItem(props){
                         style={{...listStyles.draggable.RepContainer}}
                     >
                         <Text
-                            style={{...textStyles.list.draggable.bodyText}}
+                            style={{...textStyles.list.draggable.bodyText,
+                                color: theme.colors.secondary
+                            }}
                         >{props.sets} sets</Text>
+
                         <Feather name={'x'} size={12} color={theme.colors.secondary} />
+                        
                         <Text
-                             style={{...textStyles.list.draggable.bodyText}}
+                            style={{...textStyles.list.draggable.bodyText,
+                                color: theme.colors.secondary
+                            }}
                         >{props.start} {(props.end !== props.start ? `- ${props.end} reps` : 'reps') /*conditional if there is no range*/}</Text>
                     </View>
                 </View>

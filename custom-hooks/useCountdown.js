@@ -14,11 +14,11 @@ export default function useCountdown(init){
 
         return () => clearTimeout(timeout)
 
-    }, [secondsLeft])
+    }, [init, secondsLeft])
 
     const setTime = (seconds) => {
         setSecondsLeft(seconds)
     }
 
-    return [ secondsLeft, setTime ]
+    return { secondsLeft, setSecondsLeft }
 }

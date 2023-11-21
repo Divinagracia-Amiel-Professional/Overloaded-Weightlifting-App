@@ -42,6 +42,23 @@ const buttonStyles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: fontFamily.primaryHeader,
         fontSize: textSizes.large,
+      },
+      doWorkout: {
+        skip: {
+          flexDirection: 'row',
+          paddingVertical: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        done: {
+          flexDirection: 'row',
+          paddingHorizontal: 40,
+          paddingVertical: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+          
+          borderRadius: 15,
+        },
       }
 })
 

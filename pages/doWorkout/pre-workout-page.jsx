@@ -25,6 +25,11 @@ export default function PreWorkoutPage({navigation}){
     }
     const [ data, setParentData ] = useState([])
     console.log(data)
+    for(let i=0; i<data.length; i++){
+        console.log(data[i].id + ' ' + data[i].item.exercise_obj.name)
+        console.log(data[i].item.workout_data)
+    }
+    
 
 
     return(
@@ -33,7 +38,9 @@ export default function PreWorkoutPage({navigation}){
             }}
             >
             <Image 
-                style={imageStyles.placeholder}
+                style={{...imageStyles.placeholder, 
+                    borderColor: theme.colors.onBackground
+                }}
                 source={PlaceholderImage}
             />
             <View 
@@ -42,14 +49,18 @@ export default function PreWorkoutPage({navigation}){
                 {
                     currentWorkout ? 
                     <Text
-                        style={textStyles.preWorkoutPage.headerText}
+                        style={{...textStyles.preWorkoutPage.headerText,
+                            color: theme.colors.secondary
+                        }}
                     >{setWorkoutName(currentWorkout.cycle, currentWorkout.split.name)}</Text> : 
                     'No Workout'
                 }
                 {
                     data.length ? 
                     <Text
-                        style={textStyles.preWorkoutPage.bodyText}
+                        style={{...textStyles.preWorkoutPage.bodyText,
+                            color: theme.colors.secondary
+                        }}
                     >{data.length} exercises</Text> :
                     ''
                 }

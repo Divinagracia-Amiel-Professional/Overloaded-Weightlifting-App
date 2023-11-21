@@ -7,6 +7,7 @@ import {
     buttonStyles
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
+import ExerciseScreen from '../../components/do-workout-components/screens/do-workout-exercise-screen';
 
 export default function DoWorkoutPage(){
     const theme = useTheme()
@@ -15,7 +16,7 @@ export default function DoWorkoutPage(){
         <View style={{...mainStyles.bodyContainer,
             backgroundColor: theme.colors.background
             }}>
-            <Text>doWorkoutPage</Text>
+            <ExerciseScreen />
         </View>
     )
 }
