@@ -13,8 +13,16 @@ export default function ExerciseSet(props){
     const theme = props.theme
 
     return(
-      <View>
-        <Text>Set {props.currentSet} of {props.setCount}</Text>
+      <View
+        style={{...mainStyles.doWorkoutScreen.setSection.container,
+          backgroundColor: theme.colors.background
+        }}
+      >
+        <Text
+          style={{...textStyles.doWorkoutScreen.setText,
+            color: theme.colors.secondary
+          }}
+        >Set {props.currentSet} of {props.setCount}</Text>
       </View>
     )
 }

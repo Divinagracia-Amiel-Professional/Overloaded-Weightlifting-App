@@ -10,6 +10,7 @@ import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
 export default function ExerciseRecords(props){
+  const theme = props.theme
   const data = props.data
   const records = data.map(item => { 
     const Record = 
@@ -18,15 +19,25 @@ export default function ExerciseRecords(props){
       </View>; 
 
     return(
-      <View>
-        <Text>{item.title}</Text>
-        {(item.data.id ? Record : <Text>No Data</Text>)}
+      <View
+        key={item.id}
+        style={{...mainStyles.doWorkoutScreen.recordSection.recordContainer,
+        }}
+      >
+        <Text
+          style={{...textStyles.doWorkoutScreen.bodyHeaderText,
+            color: theme.colors.secondary
+          }}
+        >{item.title}</Text>
+        {(item.data.id ? Record : <Text style={{...textStyles.doWorkoutScreen.bodyText}}>No Data</Text>)}
       </View>
     )
   })
 
   return(
-    <View>
+    <View
+      style={{...mainStyles.doWorkoutScreen.recordSection.container}}
+    >
         {records}
     </View>
   )

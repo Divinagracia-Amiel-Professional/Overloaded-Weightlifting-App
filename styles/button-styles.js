@@ -50,14 +50,25 @@ const buttonStyles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'center',
         },
+        skipText: {
+          fontFamily: fontFamily.secondaryHeader,
+          fontSize: textSizes.medium
+        },
         done: {
           flexDirection: 'row',
           paddingHorizontal: 40,
           paddingVertical: 10,
           justifyContent: 'center',
           alignItems: 'center',
+          gap: 5,
           
           borderRadius: 15,
+        },
+        doneText: {
+          fontFamily: fontFamily.secondaryHeader,
+          fontSize: textSizes.xLarge,
+
+          // lineHeight: 'normal'
         },
       }
 })

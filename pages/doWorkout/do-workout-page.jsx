@@ -10,13 +10,26 @@ import { useTheme, Card } from 'react-native-paper';
 import ExerciseScreen from '../../components/do-workout-components/screens/do-workout-exercise-screen';
 
 export default function DoWorkoutPage(){
-    const theme = useTheme()
-    
+    const recordData = [
+        {
+            title: 'Previous Record',
+            data: {}
+        },
+        {
+            title: 'Max Reps Record',
+            data: {}
+        },
+        {
+            title: '1 Rep Max Record',
+            data: {}
+        }
+    ]
+
     return(
-        <View style={{...mainStyles.bodyContainer,
-            backgroundColor: theme.colors.background
-            }}>
-            <ExerciseScreen />
+        <View style={{flex: 1}}>
+            <ExerciseScreen 
+                recordData={recordData}
+            />
         </View>
     )
 }

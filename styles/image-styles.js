@@ -18,7 +18,8 @@ const imageStyles = StyleSheet.create({
     },
     doWorkout: {
         flexGrow: 1,
-        alignSelf: 'stretch'
+        alignSelf: 'stretch',
+        width: 'auto',
     }
 })
 

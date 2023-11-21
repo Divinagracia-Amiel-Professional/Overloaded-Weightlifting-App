@@ -44,6 +44,24 @@ const textStyles = StyleSheet.create({
             fontSize: textSizes.medium
         }
     },
+    doWorkoutScreen: {
+        headerText: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxLarge
+        },
+        bodyText: {
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium
+        },
+        bodyHeaderText: {
+            fontFamily: fontFamily.bodyHeader,
+            fontSize: textSizes.medium
+        },
+        setText: {
+            fontFamily: fontFamily.bodyHeader,
+            fontSize: textSizes.xxxLarge
+        }
+    },
     list: {
         draggable: {
             headerText: {

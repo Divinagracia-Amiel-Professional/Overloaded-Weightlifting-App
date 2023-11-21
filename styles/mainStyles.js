@@ -38,13 +38,13 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'flex-start',
         padding: 0,
         paddingVertical: 0,
-        gap: 10,
+        gap: 20,
       },
       headerSection: {
         container: {
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 10,
+          gap: 0,
           alignSelf: 'stretch',
         },
         headerTextContainer: {
@@ -62,6 +62,7 @@ const mainStyles = StyleSheet.create({
       },
       setSection: {
         container: {
+          marginHorizontal: 15,
           padding: 10,
           justifyContent: 'center',
           alignItems: 'center',
@@ -76,6 +77,7 @@ const mainStyles = StyleSheet.create({
       },
       recordSection: {
         container: {
+          flexDirection: 'row',
           paddingHorizontal: 15,
           justifyContent: 'center',
           alignItems: 'center',
@@ -89,6 +91,12 @@ const mainStyles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'center',
           gap: 5,
+        },
+        repContainer: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 2,
         }
       },
       buttonSection: {

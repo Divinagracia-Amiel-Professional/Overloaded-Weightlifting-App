@@ -5,6 +5,7 @@ import {
   textStyles,
   listStyles,
   mainStyles,
+  imageStyles
 } from '../../../styles/style-index'
 import { 
     ExerciseButtons,
@@ -16,32 +17,26 @@ import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { Placeholder as PlaceholderImage } from '../../../constants/images'
 
-export default function ExerciseScreen(){
-    const recordData = [
-        {
-            title: 'Previous Record',
-            data: {}
-        },
-        {
-            title: 'Max Reps Record',
-            data: {}
-        },
-        {
-            title: '1 Rep Max Record',
-            data: {}
-        }
-    ]
-    
+export default function ExerciseScreen(props){
+ 
     const theme = useTheme()
 
     return(
-        <View>
+        <View
+            style={{...mainStyles.doWorkoutScreen.bodyContainer,
+                backgroundColor: theme.colors.background
+            }}
+        >
             <Image 
+                style={{...imageStyles.doWorkout,
+                    
+                }}
                 source={PlaceholderImage}
             />
             <ExerciseHeader
                 theme={theme}
                 name={'Deadlift'}
+                setCount={4}
                 start={4}
                 end={4}
             />
@@ -51,9 +46,12 @@ export default function ExerciseScreen(){
                 setCount={4}
             />
             <ExerciseRecords
-                data={recordData}
+                theme={theme}
+                data={props.recordData}
             />
-
+            <ExerciseButtons
+                theme={theme}
+            />
 
             {/* <ExerciseTimer
                 theme={theme}
