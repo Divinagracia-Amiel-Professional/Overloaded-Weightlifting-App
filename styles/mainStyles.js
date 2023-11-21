@@ -37,7 +37,7 @@ const mainStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         padding: 0,
-        paddingVertical: 0,
+        paddingBottom: 25,
         gap: 20,
       },
       headerSection: {
@@ -106,6 +106,30 @@ const mainStyles = StyleSheet.create({
           alignItems: 'center',
           gap: 20,
           alignSelf: 'stretch',
+        }
+      }
+    },
+    restScreen: {
+      bodyContainer:{
+
+      },
+      mainSectionAndUpcomingContainer: {
+
+      },
+      mainSection:{
+        container: {
+    
+        },
+        timerContiner: {
+
+        },
+        inputSection: {
+          
+        }
+      },
+      upcoming: {
+        container: {
+
         }
       }
     }, 

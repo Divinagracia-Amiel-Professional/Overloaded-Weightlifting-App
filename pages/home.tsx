@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Text, View, Pressable, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Pressable, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useTheme, Card } from 'react-native-paper';
 import {
   mainStyles,
@@ -33,6 +33,9 @@ export default function Home({navigation}) {
         }}
       />
       <Text>{useSelector((state: RootState) => state.init.data) ? "Loaded" : "No_DB"}</Text>
+      <TextInput 
+        inputMode='numeric'
+      />
     </View>
   );
 }

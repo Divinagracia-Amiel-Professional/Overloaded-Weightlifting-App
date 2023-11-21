@@ -29,13 +29,13 @@ export default function ExerciseScreen(props){
         >
             <Image 
                 style={{...imageStyles.doWorkout,
-                    
+
                 }}
                 source={PlaceholderImage}
             />
             <ExerciseHeader
                 theme={theme}
-                name={'Deadlift'}
+                name={'Conventional Deadlift'}
                 setCount={4}
                 start={4}
                 end={4}

@@ -20,7 +20,7 @@ export default function ExerciseRecords(props){
 
     return(
       <View
-        key={item.id}
+        key={item.title}
         style={{...mainStyles.doWorkoutScreen.recordSection.recordContainer,
         }}
       >
