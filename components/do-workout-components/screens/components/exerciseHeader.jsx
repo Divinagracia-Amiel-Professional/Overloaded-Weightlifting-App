@@ -31,7 +31,7 @@ export default function ExerciseHeader(props){
         </Pressable>
       </View>
       <View
-        style={{...mainStyles.doWorkoutScreen.headerSection.repContainer,
+        style={{...mainStyles.repContainer,
           color: theme.colors.secondary
         }}
       >

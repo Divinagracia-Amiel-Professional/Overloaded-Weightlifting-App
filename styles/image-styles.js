@@ -20,6 +20,11 @@ const imageStyles = StyleSheet.create({
         flexGrow: 1,
         alignSelf: 'stretch',
         width: 'auto',
+    },
+    rest: {
+        height: 150,
+        alignSelf: 'stretch',
+        borderRadius: 2.5,
     }
 })
 

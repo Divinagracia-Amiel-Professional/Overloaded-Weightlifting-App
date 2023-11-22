@@ -62,6 +62,34 @@ const textStyles = StyleSheet.create({
             fontSize: textSizes.xxxLarge
         }
     },
+    restScreen: {
+        headerTimer: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxLarge,
+        },
+        timer: {
+            textAlign: 'center',
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.xxxLargeTwo,
+            letterSpacing: 6.4,
+        },
+        bodyTextAnton: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.medium,
+        },
+        bodyTextSignika: {
+            textAlign: 'center',
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium,
+        },
+        upcomingHeader: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxLarge,
+        }
+    },  
     list: {
         draggable: {
             headerText: {

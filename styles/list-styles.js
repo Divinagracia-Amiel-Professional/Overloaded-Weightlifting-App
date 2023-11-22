@@ -45,12 +45,6 @@ const listStyles = StyleSheet.create({
             alignSelf: 'stretch',
             justifyContent: 'space-between'
         },
-        RepContainer: {
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: 2,
-        },
     },
 })
 

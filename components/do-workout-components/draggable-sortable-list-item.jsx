@@ -4,6 +4,7 @@ import { useTheme } from 'react-native-paper'
 import { 
   textStyles,
   listStyles,
+  mainStyles
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
@@ -50,7 +51,7 @@ export default function DragListItem(props){
                         </Pressable>
                     </View>
                     <View
-                        style={{...listStyles.draggable.RepContainer}}
+                        style={{...mainStyles.repContainer}}
                     >
                         <Text
                             style={{...textStyles.list.draggable.bodyText,

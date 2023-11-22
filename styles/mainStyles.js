@@ -15,6 +15,12 @@ const mainStyles = StyleSheet.create({
       paddingVertical: 50,
       gap: 10,
     },
+    repContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 2,
+    },
     preWorkoutContainer: {
       flex: 1,
       backgroundColor: colors.lightGray,
@@ -53,12 +59,6 @@ const mainStyles = StyleSheet.create({
           alignItems: 'center',
           gap: 5,
         },
-        repContainer: {
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 2,
-        }
       },
       setSection: {
         container: {
@@ -92,12 +92,6 @@ const mainStyles = StyleSheet.create({
           alignItems: 'center',
           gap: 5,
         },
-        repContainer: {
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 2,
-        }
       },
       buttonSection: {
         container: {
@@ -110,26 +104,81 @@ const mainStyles = StyleSheet.create({
       }
     },
     restScreen: {
-      bodyContainer:{
-
+      screenContainer:{
+        flex: 1,
+        backgroundColor: colors.lightGray,
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: 0,
       },
-      mainSectionAndUpcomingContainer: {
-
+      bodyContainer: {
+        alignItems: 'flex-start',
+        gap: 30,
+        flexGrow: 1,
       },
       mainSection:{
         container: {
-    
+          paddingHorizontal: 10,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 15,
+          alignSelf: 'stretch',
         },
         timerContiner: {
-
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 5,
         },
         inputSection: {
-          
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 15,
+          alignSelf: 'stretch',
+        },
+        inputWithLabelContainer: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 5,
+          flexGrow: 1,
+          alignSelf: 'stretch',
+        },
+        inputContainer: {
+          height: 40,
+          flexDirection: 'row',
+          padding: 10,
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          gap: 10,
+
+          borderRadius: 10,
+        },
+        skipContainer: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
         }
       },
       upcoming: {
         container: {
+          paddingBottom: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 10,
+          alignSelf: 'stretch',
+          position: 'relative',
+        },
+        notchContainer: {
+          paddingVertical: 5,
+          paddingHorizontal: 20,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 1,
 
+          position: 'absolute',
+          left: '50%',
         }
       }
     }, 
