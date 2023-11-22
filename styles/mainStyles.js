@@ -113,8 +113,8 @@ const mainStyles = StyleSheet.create({
       },
       bodyContainer: {
         alignItems: 'flex-start',
+        alignSelf: 'stretch',
         gap: 30,
-        flexGrow: 1,
       },
       mainSection:{
         container: {
@@ -125,10 +125,10 @@ const mainStyles = StyleSheet.create({
           gap: 15,
           alignSelf: 'stretch',
         },
-        timerContiner: {
+        timerContainer: {
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 5,
+          gap: -20,
         },
         inputSection: {
           flexDirection: 'row',
@@ -155,10 +155,15 @@ const mainStyles = StyleSheet.create({
 
           borderRadius: 10,
         },
+        textInput: {
+          width: '100%',
+          textAlign: 'right'
+        },
         skipContainer: {
           justifyContent: 'center',
           alignItems: 'center',
           alignSelf: 'stretch',
+          marginTop: 10,
         }
       },
       upcoming: {
@@ -166,9 +171,12 @@ const mainStyles = StyleSheet.create({
           paddingBottom: 10,
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 10,
+          gap: 5,
           alignSelf: 'stretch',
           position: 'relative',
+
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
         },
         notchContainer: {
           paddingVertical: 5,
@@ -176,9 +184,16 @@ const mainStyles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'center',
           gap: 1,
+          zIndex: 1,
 
           position: 'absolute',
-          left: '50%',
+          top: 0,
+          left: 0,
+
+          borderBottomRightRadius: 10,
+          // borderBottomLeftRadius: 10,
+
+          ...shadow.small
         }
       }
     }, 

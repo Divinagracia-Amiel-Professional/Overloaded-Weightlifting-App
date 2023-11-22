@@ -66,12 +66,12 @@ const textStyles = StyleSheet.create({
         headerTimer: {
             textAlign: 'center',
             fontFamily: fontFamily.secondaryHeader,
-            fontSize: textSizes.xxLarge,
+            fontSize: textSizes.xxxLarge,
         },
         timer: {
             textAlign: 'center',
             fontFamily: fontFamily.primaryHeader,
-            fontSize: textSizes.xxxLargeTwo,
+            fontSize: textSizes.timer,
             letterSpacing: 6.4,
         },
         bodyTextAnton: {
@@ -100,7 +100,7 @@ const textStyles = StyleSheet.create({
                 fontFamily: fontFamily.body,
                 fontSize: textSizes.small
             }
-        }
+        },
     }
 })
 

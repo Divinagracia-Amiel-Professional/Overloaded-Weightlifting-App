@@ -65,7 +65,9 @@ export default function PreWorkoutPage({navigation}){
                     ''
                 }
             </View>
-            <ScrollView>
+            <ScrollView
+                style={{alignSelf: 'stretch'}}
+            >
                 <DraggableSortableList
                     currentWorkout = {currentWorkout}
                     data = {data}

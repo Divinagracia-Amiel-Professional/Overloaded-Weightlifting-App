@@ -24,7 +24,8 @@ const imageStyles = StyleSheet.create({
     rest: {
         height: 150,
         alignSelf: 'stretch',
-        borderRadius: 2.5,
+        width: 'auto',
+    
     }
 })
 

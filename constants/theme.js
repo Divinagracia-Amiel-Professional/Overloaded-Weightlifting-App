@@ -127,7 +127,7 @@ const colors = {
     xLarge: 24,
     xxLarge: 28,
     xxxLarge: 32,
-    xxxLargeTwo: 64,
+    timer: 96,
   };
   
   const shadow = {
@@ -139,7 +139,7 @@ const colors = {
       },
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
-      elevation: 2,
+      elevation: 3,
     },
     medium: {
       shadowColor: "#000",

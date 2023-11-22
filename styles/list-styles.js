@@ -46,6 +46,33 @@ const listStyles = StyleSheet.create({
             justifyContent: 'space-between'
         },
     },
+    dropdown: {
+        container: {
+            margin: 0,
+            flexGrow: 1,
+            alignSelf: 'center',
+            
+            // borderBottomColor: 'gray',
+            // borderBottomWidth: 0.5,
+        },
+        listContainer: {
+            width: '150%'
+        },
+        itemContainer: {
+            
+        },
+        // icon: {
+        // marginRight: 5,
+        // },
+        placeholderStyle: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.medium,
+        },
+        selectedTextStyle: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.medium,
+        },
+    }
 })
 
 export default listStyles

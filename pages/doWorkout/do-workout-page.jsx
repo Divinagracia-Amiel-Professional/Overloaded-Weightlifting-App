@@ -7,7 +7,7 @@ import {
     buttonStyles
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
-import ExerciseScreen from '../../components/do-workout-components/screens/do-workout-exercise-screen';
+import { ExerciseScreen, RestScreen } from '../../components/component-index';
 
 export default function DoWorkoutPage(){
     const recordData = [
@@ -27,9 +27,10 @@ export default function DoWorkoutPage(){
 
     return(
         <View style={{flex: 1}}>
-            <ExerciseScreen 
+            {/* <ExerciseScreen 
                 recordData={recordData}
-            />
+            /> */}
+            <RestScreen />
         </View>
     )
 }

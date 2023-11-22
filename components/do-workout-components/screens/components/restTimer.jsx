@@ -11,6 +11,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import useCountdown from '../../../../custom-hooks/useCountdown'
 
 export default function RestTimer(props){
+    const theme = props.theme
     const { secondsLeft, setSecondsLeft } = useCountdown(props.time)
 
     useEffect(() => {
@@ -18,9 +19,22 @@ export default function RestTimer(props){
     }, [props.time])
 
     return(
-      <View>
-        <Text>Set {props.currentSet}/{props.setCount}</Text>
-        <Text>{displayTime(secondsLeft)}</Text>
+      <View
+        style={{...mainStyles.restScreen.mainSection.timerContainer}}
+      >
+        {/* <Text>Set {props.currentSet}/{props.setCount}</Text> */}
+
+        <Text
+          style={{...textStyles.restScreen.headerTimer,
+            color: 'white'
+          }}
+        >REST</Text>
+        <Text
+          style={{...textStyles.restScreen.timer,
+            color: 'white'
+          }}
+        >{displayTime(secondsLeft)}</Text>
+
         {/* <Pressable
                 style={{height: 100, width: 100, backgroundColor: 'red'}}
                 onPressIn={() => {setSecondsLeft(prevState => prevState + 30)}}

@@ -6,19 +6,49 @@ import {
   listStyles,
   mainStyles,
 } from '../../../styles/style-index'
+import {
+    RestMainSection,
+    RestUpcomingSection, 
+    MetricDropdown 
+} from './components/doWorkoutComponentIndex'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
-export default function ExerciseScreen(){
+export default function RestScreen(){
     const theme = useTheme()
+    const [ metric, setMetric ] = useState('kg')
 
     return(
         <View
-            style={{...mainStyles.mainContainer,
-                backgroundColor: theme.colors.background
+            style={{...mainStyles.restScreen.screenContainer,
+                backgroundColor: theme.colors.primary
             }}
         >
-            <Text>Rest Screen</Text>
+            <View
+                style={{...mainStyles.restScreen.bodyContainer}}
+            >
+                <RestMainSection 
+                    theme={theme}
+                    time={150}
+                />
+                <RestUpcomingSection 
+                    theme={theme}
+                />
+            </View>
+            
+            {/* <View
+                style={{height: 50,
+                    flexDirection: 'row',
+                    width:  40
+                }}
+            >
+                <MetricDropdown 
+                    theme={theme}
+                    type={'weight'}
+                    metric={metric}
+                    setMetric={setMetric}
+                />
+            </View> */}
         </View>
     )
 }

@@ -70,6 +70,22 @@ const buttonStyles = StyleSheet.create({
 
           // lineHeight: 'normal'
         },
+      },
+      restScreen: {
+        skipContainer:{
+          flexDirection: 'row',
+          paddingVertical: 5,
+          paddingHorizontal: 20,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 5,
+
+          borderRadius: 30,
+        },
+        skipText: {
+          fontFamily: fontFamily.secondaryHeader,
+          fontSize: textSizes.xxLarge
+        }
       }
 })
 
