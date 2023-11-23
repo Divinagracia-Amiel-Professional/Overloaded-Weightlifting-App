@@ -22,6 +22,9 @@ export default function ExerciseButtons(props){
         style={{...buttonStyles.doWorkout.done,
           backgroundColor: theme.colors.primary
         }}
+        onPress={() => {
+          props.setIsRest(true)
+        }}
       >
         <Feather name="check" size={25} color={theme.colors.background}/>
         <Text

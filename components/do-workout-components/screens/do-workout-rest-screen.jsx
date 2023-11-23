@@ -14,7 +14,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
-export default function RestScreen(){
+export default function RestScreen(props){
     const theme = useTheme()
     const [ metric, setMetric ] = useState('kg')
 
@@ -29,7 +29,8 @@ export default function RestScreen(){
             >
                 <RestMainSection 
                     theme={theme}
-                    time={150}
+                    time={props.time}
+                    setIsRest={props.setIsRest}
                 />
                 <RestUpcomingSection 
                     theme={theme}

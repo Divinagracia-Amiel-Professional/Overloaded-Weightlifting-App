@@ -90,6 +90,17 @@ const textStyles = StyleSheet.create({
             fontSize: textSizes.xxLarge,
         }
     },  
+    postWorkout: {
+        headerText: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxxLarge,
+        },
+        bodyText: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xLarge,
+        }
+    },
     list: {
         draggable: {
             headerText: {

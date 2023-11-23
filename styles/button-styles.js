@@ -86,7 +86,7 @@ const buttonStyles = StyleSheet.create({
           fontFamily: fontFamily.secondaryHeader,
           fontSize: textSizes.xxLarge
         }
-      }
+      },
 })
 
 export default buttonStyles;

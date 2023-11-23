@@ -18,9 +18,12 @@ export default function RestButtons(props){
         <View
           style={{...mainStyles.restScreen.mainSection.skipContainer}}
         >
-            <View
+            <Pressable
               style={{...buttonStyles.restScreen.skipContainer,
                 backgroundColor: 'white'
+              }}
+              onPress={() => {
+                props.setIsRest(false)
               }}
             >
               <Text
@@ -34,7 +37,7 @@ export default function RestButtons(props){
                 color={theme.colors.primary}
                 variant="Outline"
               />
-            </View>
+            </Pressable>
         </View>
     )
 }

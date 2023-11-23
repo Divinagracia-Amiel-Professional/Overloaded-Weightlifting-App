@@ -18,7 +18,6 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { Placeholder as PlaceholderImage } from '../../../constants/images'
 
 export default function ExerciseScreen(props){
- 
     const theme = useTheme()
 
     return(
@@ -51,6 +50,7 @@ export default function ExerciseScreen(props){
             />
             <ExerciseButtons
                 theme={theme}
+                setIsRest={props.setIsRest}
             />
 
             {/* <ExerciseTimer

@@ -29,6 +29,7 @@ export default function RestMainSection(props){
             />
             <RestButtons 
                 theme={theme}
+                setIsRest={props.setIsRest}
             />
         </View>
     )

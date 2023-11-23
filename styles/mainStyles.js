@@ -197,6 +197,35 @@ const mainStyles = StyleSheet.create({
         }
       }
     }, 
+    postWorkoutPage: {
+      container: {
+        flex: 1,
+        backgroundColor: colors.lightGray,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 15,
+        paddingVertical: 50,
+        gap: 10,
+      },
+      messageSection: {
+        container: {
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          gap: 20,
+        },
+        messageContainer: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          gap: 0,
+        },
+        buttonContainer: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+        }
+      }
+    },
     tabBarLabelContainer: {
       flex: 1,
       alignItems: 'center'
