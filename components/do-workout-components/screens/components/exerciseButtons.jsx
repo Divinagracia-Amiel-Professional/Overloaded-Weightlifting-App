@@ -10,9 +10,11 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { Next } from 'iconsax-react-native' 
+import { current } from '@reduxjs/toolkit'
 
 export default function ExerciseButtons(props){
   const theme = props.theme
+  console.log(`${props.currentWorkoutOrder} of ${props.workoutLength}`)
 
   return(
     <View
@@ -23,7 +25,15 @@ export default function ExerciseButtons(props){
           backgroundColor: theme.colors.primary
         }}
         onPress={() => {
-          props.setIsRest(true)
+          if(props.currentWorkoutOrder === props.workoutLength && props.currentSet === props.setCount){ //conditional to navigate to postWorkoutPage
+            props.navigation.navigate('PostWorkoutPage', {
+              isComplete: true
+            })
+          }
+          else{
+            props.setSet(currentSet => currentSet + 1) //add set to parent exercise screen
+            props.setIsRest(true)  
+          }
         }}
       >
         <Feather name="check" size={25} color={theme.colors.background}/>

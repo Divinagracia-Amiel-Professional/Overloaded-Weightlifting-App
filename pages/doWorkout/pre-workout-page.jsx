@@ -24,11 +24,11 @@ export default function PreWorkoutPage({navigation}){
         },
     }
     const [ data, setParentData ] = useState([])
-    console.log(data)
-    for(let i=0; i<data.length; i++){
-        console.log(data[i].id + ' ' + data[i].item.exercise_obj.name)
-        console.log(data[i].item.workout_data)
-    }
+    // console.log(data)
+    // for(let i=0; i<data.length; i++){
+    //     console.log(data[i].id + ' ' + data[i].item.exercise_obj.name)
+    //     console.log(data[i].item.workout_data)
+    // }
     
 
 
@@ -84,7 +84,9 @@ export default function PreWorkoutPage({navigation}){
                     backgroundColor: theme.colors.primary
                     }}
                     onPress={() => {
-                        navigation.navigate('DoWorkoutPage')
+                        navigation.navigate('DoWorkoutPage', {
+                            data: data
+                        })
                     }}
                 >
                     <Text

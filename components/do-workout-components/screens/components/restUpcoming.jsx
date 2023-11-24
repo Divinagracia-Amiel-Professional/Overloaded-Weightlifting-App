@@ -13,6 +13,7 @@ import { Placeholder as PlaceholderImage } from '../../../../constants/images'
 
 export default function RestUpcomingSection(props){
     const theme = props.theme
+    console.log(props)
 
     return(
         <View
@@ -29,7 +30,7 @@ export default function RestUpcomingSection(props){
                     style={{...textStyles.restScreen.bodyTextAnton,
                         color: 'white'
                     }}
-                >Next Exercise 2/7</Text>
+                >Next Exercise {props.nextWorkoutOrder}/{props.workoutLength}</Text>
             </View>
             <Image
                 style={{...imageStyles.rest}}
@@ -39,7 +40,7 @@ export default function RestUpcomingSection(props){
                 style={{...textStyles.restScreen.upcomingHeader,
                     color: theme.colors.secondary
                 }}
-            >Bularian Split Squats</Text>
+            >{props.nextWorkoutName}</Text>
             <View
                 style={{...mainStyles.repContainer}}
             >
@@ -47,7 +48,7 @@ export default function RestUpcomingSection(props){
                     style={{...textStyles.restScreen.bodyTextSignika,
                         color: theme.colors.secondary
                     }}
-                >4 sets</Text>
+                >{props.nextWorkoutSetCount} sets</Text>
 
                 <Feather name={'x'} size={12} color={theme.colors.secondary} />
 
@@ -55,7 +56,7 @@ export default function RestUpcomingSection(props){
                     style={{...textStyles.restScreen.bodyTextSignika,
                         color: theme.colors.secondary
                     }}
-                >10-12 reps</Text>
+                >{props.nextWorkoutRepStart} {(props.nextWorkoutRepEnd !== props.nextWorkoutRepStart ? `- ${props.nextWorkoutRepEnd} reps` : 'reps')}</Text>
             </View>
         </View>
     )

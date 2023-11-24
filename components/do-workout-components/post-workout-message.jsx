@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list'
 import {
     mainStyles,
@@ -35,9 +35,12 @@ export default function PostWorkoutMessage(props){
                 >{props.isComplete ? completeMessage.body : incompleteMessage.body}</Text>
             </View>
 
-            <View
+            <Pressable
                 style={{...buttonStyles.restScreen.skipContainer,
                     backgroundColor: 'white'
+                }}
+                onPress={() => {
+                    props.navigation.navigate('Navbar')
                 }}
             >
                 <Text
@@ -45,7 +48,7 @@ export default function PostWorkoutMessage(props){
                         color: theme.colors.primary
                     }}
                 >Back to Home</Text>
-            </View>
+            </Pressable>
         </View>
     )
 }

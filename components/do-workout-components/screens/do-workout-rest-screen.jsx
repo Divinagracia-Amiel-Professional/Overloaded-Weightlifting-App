@@ -17,24 +17,43 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 export default function RestScreen(props){
     const theme = useTheme()
     const [ metric, setMetric ] = useState('kg')
+    console.log(props.currentSet)
+    console.log(props.setCount)
+    console.log(props.workoutLength)
 
     return(
         <View
             style={{...mainStyles.restScreen.screenContainer,
-                backgroundColor: theme.colors.primary
+                backgroundColor: theme.colors.primary,
+                justifyContent: (props.currentSet === props.setCount + 1 ? 'flex-end' : 'center' ) //condtional: center rest when exercise is in between set not finished
             }}
         >
             <View
-                style={{...mainStyles.restScreen.bodyContainer}}
+                style={{...mainStyles.restScreen.bodyContainer
+                
+                }}
             >
                 <RestMainSection 
                     theme={theme}
                     time={props.time}
                     setIsRest={props.setIsRest}
+                    setIndex={props.setIndex}
+                    setSet={props.setSet}
+                    currentSet={props.currentSet}
+                    setCount={props.setCount} //not useState, simply number of sets
                 />
-                <RestUpcomingSection 
-                    theme={theme}
-                />
+                {(
+                    props.currentSet === props.setCount + 1 &&  //conditional so that upcoming section won't appear if exercise is not finised yet
+                    <RestUpcomingSection 
+                        theme={theme}
+                        workoutLength={props.workoutLength} 
+                        nextWorkoutName={props.nextWorkout.item.exercise_obj.name}
+                        nextWorkoutOrder={props.nextWorkout.item.workout_data.order}
+                        nextWorkoutSetCount={props.nextWorkout.item.workout_data.set_count}
+                        nextWorkoutRepStart={props.nextWorkout.item.workout_data.rep_start}
+                        nextWorkoutRepEnd={props.nextWorkout.item.workout_data.rep_end}
+                    />
+                )}
             </View>
             
             {/* <View

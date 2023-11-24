@@ -29,7 +29,12 @@ export default function RestMainSection(props){
             />
             <RestButtons 
                 theme={theme}
+
                 setIsRest={props.setIsRest}
+                setIndex={props.setIndex} 
+                setSet={props.setSet}
+                currentSet={props.currentSet}
+                setCount={props.setCount}
             />
         </View>
     )

@@ -23,7 +23,15 @@ export default function RestButtons(props){
                 backgroundColor: 'white'
               }}
               onPress={() => {
-                props.setIsRest(false)
+                //ADD CASE IF WORKOUT IS FINISHED
+                if(props.currentSet === props.setCount + 1){
+                  props.setSet(1)
+                  props.setIndex(prev => prev + 1)
+                  props.setIsRest(false)
+                }
+                else{
+                  props.setIsRest(false)
+                }    
               }}
             >
               <Text

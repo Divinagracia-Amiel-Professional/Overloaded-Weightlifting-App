@@ -108,7 +108,7 @@ const mainStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.lightGray,
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        // justifyContent: 'flex-end',
         padding: 0,
       },
       bodyContainer: {

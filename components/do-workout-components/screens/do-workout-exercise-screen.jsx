@@ -19,6 +19,7 @@ import { Placeholder as PlaceholderImage } from '../../../constants/images'
 
 export default function ExerciseScreen(props){
     const theme = useTheme()
+    const currentWorkout = props.currentWorkout
 
     return(
         <View
@@ -34,15 +35,15 @@ export default function ExerciseScreen(props){
             />
             <ExerciseHeader
                 theme={theme}
-                name={'Conventional Deadlift'}
-                setCount={4}
-                start={4}
-                end={4}
+                name={currentWorkout.item.exercise_obj.name}
+                setCount={currentWorkout.item.workout_data.set_count}
+                start={currentWorkout.item.workout_data.rep_start}
+                end={currentWorkout.item.workout_data.rep_end}
             />
             <ExerciseSet 
                 theme={theme}
-                currentSet={1}
-                setCount={4}
+                currentSet={props.currentSet}
+                setCount={currentWorkout.item.workout_data.set_count}
             />
             <ExerciseRecords
                 theme={theme}
@@ -51,6 +52,13 @@ export default function ExerciseScreen(props){
             <ExerciseButtons
                 theme={theme}
                 setIsRest={props.setIsRest}
+                setSet={props.setSet}
+                currentSet={props.currentSet}
+                setCount={currentWorkout.item.workout_data.set_count}
+                currentWorkoutOrder={props.currentWorkout.item.workout_data.order}
+                workoutLength={props.workoutLength}
+
+                navigation={props.navigation}
             />
 
             {/* <ExerciseTimer
