@@ -7,6 +7,7 @@ import {
 } from '../styles/style-index'
 
 export default function Planner(){
+
     return(
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Planner</Text>

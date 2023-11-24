@@ -3,11 +3,15 @@ import { Text } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
 import { NavBar } from './components/component-index';
+import DoWorkoutStack from './pages/doWorkout/doWork-main-stack-navigator';
 import { 
   MD3LightTheme,
   MD3DarkTheme,
   PaperProvider } from 'react-native-paper';
 import { darkTheme, lightTheme } from './constants/theme';
+import 'react-native-gesture-handler'
+import { Provider } from 'react-redux'
+import { store } from './redux/store';
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -36,10 +40,12 @@ export default function App() {
   }
 
   return (
-    <PaperProvider theme={useLightTheme}>
-      <NavigationContainer theme={useLightTheme}>
-        <NavBar />
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider theme={useLightTheme}>
+        <NavigationContainer theme={useLightTheme}>
+          <DoWorkoutStack />
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }

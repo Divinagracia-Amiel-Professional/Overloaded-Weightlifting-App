@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { 
@@ -12,15 +12,21 @@ import {
     textStyles,
     buttonStyles
 } from '../../styles/style-index'
+import StartButtonDetail from './start-button-details';
+import FontAwesome from '@expo/vector-icons/FontAwesome5'
+import { NavigationContainer } from '@react-navigation/native'
 
-export default function StartButton(){
+export default function StartButton(props){
     const theme = useTheme()
+    const [isDetailShown, setIsDetailShown] = useState(false)
 
     return(
-        <View style={cardStyles.startButtonContainer}>
+        <View style={{...cardStyles.startButtonContainer,
+            backgroundColor: theme.colors.tertiaryContainer}}>
             <Pressable 
                 style={{...cardStyles.cardContainer,
                 backgroundColor: theme.colors.primaryContainer}}
+                onPress={props.onPress}
             >
                 <LogoStartEnabled />
                 <Text 
@@ -29,44 +35,24 @@ export default function StartButton(){
                 >
                         Let's Go JIM!!!
                 </Text>
-            </Pressable>
-            <View
-                style={{...cardStyles.startButtonDetailsContainer,
-                backgroundColor: theme.colors.tertiaryContainer}}
+            </Pressable>    
+            {isDetailShown && <StartButtonDetail/>}
+            <Pressable 
+                style={buttonStyles.button}
+                onPress={() => {
+                    return (
+                        setIsDetailShown(prevState => !prevState)
+                    )
+                }}
             >
-                <Text 
-                    style={{
-                        ...textStyles.cardDetailHeaderText,
-                        color: theme.colors.secondary,
-                    }}
-                >
-                    Exercise Today: 2nd Leg Cycle
-                </Text>
-                <Text
-                    style={{
-                        ...textStyles.cardDetailBody,
-                        color: theme.colors.secondary
-                    }}
-                >
-                    Target Muscles:</Text>
-                <View style={{
-                    ...cardStyles.startButtonMusclesContainer
-                }}>
-                    <MuscleStartCore />
-                    <MuscleStartLegs />
-                </View>
-                <Pressable
-                    style={{
-                        ...buttonStyles.button,
-                        backgroundColor: theme.colors.secondary
-                    }}
-                    >
-                    <Text style={{
+                {
+                    !isDetailShown && <Text style={{
                         ...buttonStyles.buttonText,
-                        color: theme.colors.onSecondary
-                    }}>Take a Break?</Text>
-                </Pressable>
-            </View>    
+                        color: theme.colors.secondary
+                    }}>Show Details</Text>
+                }
+                <FontAwesome name={isDetailShown ? "angle-up" : "angle-down"} size={24} color={theme.colors.secondary}/>
+            </Pressable>  
         </View>  
     )
 }

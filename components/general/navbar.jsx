@@ -1,5 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { CommonActions } from '@react-navigation/routers'
 import { 
   BottomNavigation,
@@ -8,13 +9,21 @@ import {
 import { Text, View } from 'react-native'
 import {
     logoSelected as LogoSelected,
-    logoIcon as Logo
+    logoIcon as Logo,
+    graphIcon as Graph,
+    graphIconFocused as GraphFocused,
+    gearIcon as Gear,
+    gearIconFocused as GearFocused,
+    calendarIcon as CalendarFocused,
+    calenderIconFocused as Calendar
     } from '../../constants/icons'
 import {
     mainStyles,
     textStyles
 } from '../../styles/style-index'
-import { Home, Planner, Settings, Tracker } from '../../pages/pages-index'
+import { Planner, Settings, Tracker } from '../../pages/pages-index'
+import DoWorkoutStack from '../../pages/doWorkout/doWork-main-stack-navigator'
+import { Home } from '../../pages/pages-index'
 
 const Tab = createBottomTabNavigator()
 
@@ -23,8 +32,11 @@ export default function NavBar(){
 
     return(
         <Tab.Navigator 
+          detachInactiveScreens={true}
           screenOptions={{
             headerShown: false,
+            lazy: true,
+            freezeOnBlur: true
           }}
           tabBar={({ navigation, state, descriptors, insets }) => (
             <BottomNavigation.Bar
@@ -87,7 +99,7 @@ export default function NavBar(){
         >
             <Tab.Screen
                 name='Home'
-                component={Home}
+                component={gestureHandlerRootHOC(Home)}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {
@@ -98,23 +110,37 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Planner'} 
-                component={Planner}
+                component={gestureHandlerRootHOC(Planner)}
                 options={{
                     tabBarLabel: 'Planner',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <CalendarFocused height={size} />
+                      : <Calendar height={size} />) 
+                    },
                   }}
             />
             <Tab.Screen
-                name={'Settings'} 
-                component={Settings}
+                name={'Tracker'} 
+                component={gestureHandlerRootHOC(Tracker)}
                 options={{
-                    tabBarLabel: 'Settings'}}
+                    tabBarLabel: 'Tracker',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <GraphFocused height={size} />
+                      : <Graph height={size} />) 
+                    },
+                }}
             />
             <Tab.Screen
-                name={'Tracker'} 
-                component={Tracker}
+                name={'Settings'} 
+                component={gestureHandlerRootHOC(Settings)}
                 options={{
-                    tabBarLabel: 'Tracker'}}
-            />
+                    tabBarLabel: 'Settings',
+                    tabBarIcon: ({size, focused}) => {
+                      return (focused ? <GearFocused height={size} />
+                      : <Gear height={size} />) 
+                    },
+                  }}
+            />        
         </Tab.Navigator>
     ) 
 }

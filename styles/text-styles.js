@@ -33,6 +33,85 @@ const textStyles = StyleSheet.create({
     cardDetailBody: {
         fontFamily: fontFamily.bodyText,
         fontSize: textSizes.medium,
+    },
+    preWorkoutPage: {
+        headerText: {
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.xxLarge,
+        },
+        bodyText: {
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium
+        }
+    },
+    doWorkoutScreen: {
+        headerText: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxLarge
+        },
+        bodyText: {
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium
+        },
+        bodyHeaderText: {
+            fontFamily: fontFamily.bodyHeader,
+            fontSize: textSizes.medium
+        },
+        setText: {
+            fontFamily: fontFamily.bodyHeader,
+            fontSize: textSizes.xxxLarge
+        }
+    },
+    restScreen: {
+        headerTimer: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxxLarge,
+        },
+        timer: {
+            textAlign: 'center',
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.timer,
+            letterSpacing: 6.4,
+        },
+        bodyTextAnton: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.medium,
+        },
+        bodyTextSignika: {
+            textAlign: 'center',
+            fontFamily: fontFamily.body,
+            fontSize: textSizes.medium,
+        },
+        upcomingHeader: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxLarge,
+        }
+    },  
+    postWorkout: {
+        headerText: {
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xxxLarge,
+        },
+        bodyText: {
+            textAlign: 'center',
+            fontFamily: fontFamily.secondaryHeader,
+            fontSize: textSizes.xLarge,
+        }
+    },
+    list: {
+        draggable: {
+            headerText: {
+                fontFamily: fontFamily.primaryHeader,
+                fontSize: textSizes.large
+            },
+            bodyText: {
+                fontFamily: fontFamily.body,
+                fontSize: textSizes.small
+            }
+        },
     }
 })
 

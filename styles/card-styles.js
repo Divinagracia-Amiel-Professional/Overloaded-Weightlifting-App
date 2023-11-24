@@ -17,14 +17,18 @@ const cardStyles = StyleSheet.create({
         alignSelf: 'stretch',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: -15,
+        gap: 5,
+        ...shadow.medium,
+        paddingBottom: 10,
+
+        borderRadius: 12,
     },
     startButtonDetailsContainer: {
         zIndex: -1,
         alignSelf: 'stretch',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: 25,
+        paddingTop: 10,
         gap: 5,
 
         borderRadius: 12,
