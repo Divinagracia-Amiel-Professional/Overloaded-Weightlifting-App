@@ -36,7 +36,7 @@ export default function DoWorkoutPage({ route, navigation }){
         <View style={{flex: 1}}>
             {isRest ? //conditional to switch from exercise to rest vice versa
                 <RestScreen
-                    time={150}
+                    time={data[index].item.workout_data.rest_initial}
                     setIsRest={setIsRest}
                     setIndex={setIndex}
                     setSet={setSet}
