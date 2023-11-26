@@ -6,12 +6,6 @@ import {
   textStyles,
   buttonStyles
 } from '../styles/style-index'
-import {
-  logoIcon as Logo,
-  calendarIcon as CalendarIcon,
-  gearIcon as GearIcon,
-  graphIcon as GraphIcon
-} from '../constants/icons'
 import { StartButton } from '../components/component-index';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';

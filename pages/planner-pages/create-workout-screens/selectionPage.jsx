@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { TouchableRipple, useTheme } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,
@@ -12,14 +12,38 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit } from 'iconsax-react-native'
 import { CardButton } from '../../../components/component-index';
-import { CardRack, CardRackDisabled } from '../../../constants/icons';
+import { Rack, Gear, Package, Tools } from '../../../constants/icons';
 
-export default function SelectionPage(){
+export default function SelectionPage({navigation}){
+    const theme = useTheme()
+
     return(
         <View
-            style={{...mainStyles.bodyContainer}}
-        >
-            <Text>Selection Page</Text>
+            style={{...mainStyles.bodyContainer,
+                backgroundColor: theme.colors.background,
+                justifyContent: 'center'
+            }}
+        >  
+            <CardButton 
+                state={true}
+                header='Select From Premade Workouts'
+                mainIcon={<Package scale={1.5} strokeColor={theme.colors.background} />}
+                mainIconDisabled={<Package scale={1.5} strokeColor={theme.colors.onTertiaryContainer} />}
+                sideIcon={<Gear scale={1.5} fill={theme.colors.background} strokeColor={'none'} />}
+                sideIconDisabled={<Gear scale={1.5} strokeColor={theme.colors.onTertiaryContainer} />}
+                disabledMessage='Cannot Create Workout'
+                onPress={() => {}}
+            />
+            <CardButton 
+                state={true}
+                header='Create Your Own'
+                mainIcon={<Rack scale={1.5} fill={theme.colors.background} />}
+                mainIconDisabled={<Rack scale={1.5} fill={theme.colors.onTertiaryContainer} />}
+                sideIcon={<Tools scale={1.5} fill={theme.colors.background} />}
+                sideIconDisabled={<Tools scale={1.5} fill={theme.colors.background} />}
+                disabledMessage='Cannot Create Workout'
+                onPress={() => {}}
+            />
         </View>
     )
 }

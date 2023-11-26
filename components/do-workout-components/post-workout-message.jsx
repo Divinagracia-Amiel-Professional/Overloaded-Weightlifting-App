@@ -9,7 +9,7 @@ import {
 import { useTheme, Card } from 'react-native-paper';
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { LogoPostWorkout as Logo } from '../../constants/icons';
+import { Logo } from '../../constants/icons';
 
 
 export default function PostWorkoutMessage(props){
@@ -22,7 +22,12 @@ export default function PostWorkoutMessage(props){
             <View
                 style={{...mainStyles.postWorkoutPage.messageSection.messageContainer}}
             >
-                {props.isComplete ? <Logo /> : <Feather color='white' name={'frown'} size={132} />}
+                {
+                    props.isComplete ?
+                        <Logo width={90} height={80} scale={2} strokeColor={theme.colors.primary} fill={theme.colors.background}/>
+                        : 
+                        <Feather color='white' name={'frown'} size={132} />
+                }
                 <Text
                     style={{...textStyles.postWorkout.headerText,
                         color: 'white'

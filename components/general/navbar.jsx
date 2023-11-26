@@ -7,16 +7,13 @@ import {
   useTheme
    } from 'react-native-paper'
 import { Text, View } from 'react-native'
-import {
-    logoSelected as LogoSelected,
-    logoIcon as Logo,
-    graphIcon as Graph,
-    graphIconFocused as GraphFocused,
-    gearIcon as Gear,
-    gearIconFocused as GearFocused,
-    calendarIcon as CalendarFocused,
-    calenderIconFocused as Calendar
-    } from '../../constants/icons'
+import { 
+  Logo,
+  Graph,
+  GearHexa,
+  Calendar,
+  CalendarFilled
+} from '../../constants/icons'
 import {
     mainStyles,
     textStyles
@@ -103,8 +100,7 @@ export default function NavBar(){
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {
-                      return (focused ? <LogoSelected height={size} />
-                      : <Logo height={size} />) 
+                      return <Logo height={size} strokeColor={focused ? theme.colors.tertiaryContainer : theme.colors.onBackground} strokeWidth={3} fill={focused ? theme.colors.onBackground : 'none'} />
                     },
                 }}
             />
@@ -114,8 +110,8 @@ export default function NavBar(){
                 options={{
                     tabBarLabel: 'Planner',
                     tabBarIcon: ({size, focused}) => {
-                      return (focused ? <CalendarFocused height={size} />
-                      : <Calendar height={size} />) 
+                      return (focused ? <CalendarFilled height={size} fill={theme.colors.onBackground} />
+                      : <Calendar height={size} strokeColor={theme.colors.onBackground} />) 
                     },
                   }}
             />
@@ -125,8 +121,7 @@ export default function NavBar(){
                 options={{
                     tabBarLabel: 'Tracker',
                     tabBarIcon: ({size, focused}) => {
-                      return (focused ? <GraphFocused height={size} />
-                      : <Graph height={size} />) 
+                      return <Graph height={size} strokeColor={theme.colors.onBackground} fill={focused ? theme.colors.onBackground : 'none'}/>
                     },
                 }}
             />
@@ -136,8 +131,7 @@ export default function NavBar(){
                 options={{
                     tabBarLabel: 'Settings',
                     tabBarIcon: ({size, focused}) => {
-                      return (focused ? <GearFocused height={size} />
-                      : <Gear height={size} />) 
+                      return <GearHexa height={size} strokeColor={theme.colors.onBackground} fill={focused ? theme.colors.onBackground : 'none'} />
                     },
                   }}
             />        

@@ -12,7 +12,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit } from 'iconsax-react-native'
-import { CardRack, CardRackDisabled } from '../constants/icons';
+import { Rack } from '../constants/icons';
 
 export default function Planner({navigation}){
     const theme = useTheme()
@@ -24,8 +24,8 @@ export default function Planner({navigation}){
             <CardButton 
                 state={true}
                 header='Create Workout'
-                mainIcon={<CardRack/>}
-                mainIconDisabled={<CardRackDisabled />}
+                mainIcon={<Rack fill={theme.colors.background}/>}
+                mainIconDisabled={<Rack fill={theme.colors.onTertiaryContainer}/>}
                 sideIcon={<Add size='32' color={theme.colors.background} />}
                 sideIconDisabled={<Add size='32' color={theme.colors.onTertiaryContainer} />}
                 disabledMessage='Cannot Create Workout'
