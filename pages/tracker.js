@@ -6,7 +6,6 @@ import {
     buttonStyles
 } from '../styles/style-index'
 import TestDBComponent from '../components/test-components/test-store';
-import { Gear, GearHexa, Calendar, CalendarFilled, Logo, Graph, Abs, Legs, Rack, Package, Tools } from '../constants/icons';
 
 export default function Tracker(){
     return(
