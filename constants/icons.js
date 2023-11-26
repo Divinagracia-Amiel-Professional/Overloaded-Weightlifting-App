@@ -1,6 +1,11 @@
 import calendarIcon from '../assets/icons/calendar-navbar-default.svg'
 import calenderIconFocused from '../assets/icons/calendar-navbar-selected.svg'
 import calendarStartDisabled from '../assets/icons/calendar-start-disabled.svg'
+import CardGear from '../assets/icons/card-gear.svg'
+import CardRack from '../assets/icons/card-rack.svg'
+import CardRackDisabled from '../assets/icons/card-rack-disabled.svg'
+import CardTools from '../assets/icons/card-tools.svg'
+import CardPackage from '../assets/icons/card-package.svg'
 import gearIcon from '../assets/icons/gear-navbar-default.svg'
 import gearIconFocused from '../assets/icons/gear-navbar-selected.svg'
 import graphIcon from '../assets/icons/graph-navbar-default.svg'
@@ -17,15 +22,24 @@ export {
     calendarIcon,
     calenderIconFocused,
     calendarStartDisabled,
+
+    CardGear,
+    CardPackage,
+    CardRack,
+    CardRackDisabled,
+    CardTools,
+
     gearIcon,
     gearIconFocused,
     graphIcon,
     graphIconFocused,
+
     logoIcon,
     logoSelected,
     logoStartEnabled,
     logoStartDisabled,
     LogoPostWorkout,
+
     MuscleStartCore,
     MuscleStartLegs
 }

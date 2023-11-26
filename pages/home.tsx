@@ -25,7 +25,7 @@ export default function Home({navigation}) {
 
   return (
     <View style={{...mainStyles.bodyContainer,
-    backgroundColor: theme.colors.background
+      backgroundColor: theme.colors.background
     }}>
       <StartButton
         onPress={() => {

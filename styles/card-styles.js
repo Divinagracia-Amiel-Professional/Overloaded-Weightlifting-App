@@ -13,6 +13,23 @@ const cardStyles = StyleSheet.create({
 
         borderRadius: 12,
     },
+    iconContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+    },
+    textSection: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 5,
+    },
+    bodyTextContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 5,
+    },
     startButtonContainer: {
         alignSelf: 'stretch',
         alignItems: 'center',

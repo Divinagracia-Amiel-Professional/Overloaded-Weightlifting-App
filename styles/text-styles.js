@@ -26,6 +26,10 @@ const textStyles = StyleSheet.create({
         fontFamily: fontFamily.primaryHeader,
         fontSize: textSizes.xxLarge,
     },
+    cardBodyText: {
+        fontFamily: fontFamily.bodyHeader,
+        fontSize: textSizes.medium,
+    },
     cardDetailHeaderText: {
         fontFamily: fontFamily.bodyHeader,
         fontSize: textSizes.medium,
