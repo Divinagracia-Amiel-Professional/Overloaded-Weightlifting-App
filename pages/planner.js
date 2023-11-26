@@ -14,7 +14,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit } from 'iconsax-react-native'
 import { CardRack, CardRackDisabled } from '../constants/icons';
 
-export default function Planner(){
+export default function Planner({navigation}){
     const theme = useTheme()
 
     return(
@@ -29,7 +29,9 @@ export default function Planner(){
                 sideIcon={<Add size='32' color={theme.colors.background} />}
                 sideIconDisabled={<Add size='32' color={theme.colors.onTertiaryContainer} />}
                 disabledMessage='Cannot Create Workout'
-                onPress={() => {}}
+                onPress={() => {
+                    navigation.navigate('SelectionPage')
+                }}
             />
             <CardButton 
                 state={false}

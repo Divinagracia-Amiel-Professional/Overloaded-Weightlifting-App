@@ -36,9 +36,7 @@ export default function CardButton(props){
             style={{...cardStyles.cardContainer,
                 ...stateColors.container
             }}
-            onPress={() => {
-                setIsEnabled(prevState => !prevState)
-            }}
+            onPress={props.onPress}
         >
             <View
                 style={{...cardStyles.iconContainer}}

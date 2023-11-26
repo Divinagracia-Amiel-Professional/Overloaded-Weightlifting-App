@@ -1,10 +1,17 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from '../home';
-import DoWorkoutPage from './do-workout-page';
-import PreWorkoutPage from './pre-workout-page';
-import PostWorkoutPage from './post-workout-page';
-import { NavBar } from '../../components/component-index';
+import { 
+    DoWorkoutPage,
+    PostWorkoutPage, 
+    PreWorkoutPage 
+} from './doWorkout/do-workout-index'
+import { 
+    SelectionPage,
+    SelectFromPremade,
+    CreateFromScratch,
+    PremadeWorkoutDetails
+} from './planner-pages/planner-pages-index';
+import { NavBar } from '../components/component-index';
 
 const Stack = createStackNavigator();
 
@@ -17,9 +24,16 @@ export default function DoWorkoutStack(){
           }}
         >
             <Stack.Screen name='Navbar' component={NavBar} />
+
             <Stack.Screen name='PreWorkoutPage'component={PreWorkoutPage}/>
             <Stack.Screen name='DoWorkoutPage' component={DoWorkoutPage}/>
             <Stack.Screen name='PostWorkoutPage' component={PostWorkoutPage}/>
+            
+            <Stack.Screen name='SelectionPage' component={SelectionPage}/>
+            <Stack.Screen name='SelectFromPremade' component={SelectFromPremade}/>
+            <Stack.Screen name='CreateFromScratch' component={CreateFromScratch}/>
+            <Stack.Screen name='PremadeWorkoutDetails' component={PremadeWorkoutDetails}/>
+
         </Stack.Navigator>
     )
 }
