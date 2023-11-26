@@ -11,7 +11,7 @@ import {
     CreateFromScratch,
     PremadeWorkoutDetails
 } from './planner-pages/planner-pages-index';
-import { NavBar } from '../components/component-index';
+import NavBar from './navbar';
 
 const Stack = createStackNavigator();
 

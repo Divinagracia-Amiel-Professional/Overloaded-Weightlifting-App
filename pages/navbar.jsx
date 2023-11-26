@@ -13,14 +13,13 @@ import {
   GearHexa,
   Calendar,
   CalendarFilled
-} from '../../constants/icons'
+} from '../constants/icons'
 import {
     mainStyles,
     textStyles
-} from '../../styles/style-index'
-import { Planner, Settings, Tracker } from '../../pages/pages-index'
-import DoWorkoutStack from '../../pages/main-stack-navigator'
-import { Home } from '../../pages/pages-index'
+} from '../styles/style-index'
+import { Planner, Settings, Tracker } from './pages-index'
+import { Home } from './pages-index'
 
 const Tab = createBottomTabNavigator()
 
