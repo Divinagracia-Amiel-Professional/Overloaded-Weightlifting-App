@@ -56,6 +56,56 @@ const cardStyles = StyleSheet.create({
         gap: 5,
         paddingBottom: 5,
     },
+    workoutCard: {
+        container: {
+            alignSelf: 'stretch',
+            // justifyContent: 'center',
+            // alignItems: 'center',
+            overflow: 'hidden',
+
+            borderRadius: 10,
+
+            ...shadow.medium
+        },
+        nameContainer: {
+            height: 150,
+            alignSelf: 'stretch',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 0,
+        },
+        imageBackground: {
+            flexGow: 1,
+            alignSelf: 'stretch',
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        details: {
+            container: {
+                paddingVertical: 15,
+                paddingHorizontal: 15,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                gap: 10,
+                alignSelf: 'stretch',
+            },
+            difficultyContainer: {
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 5,
+                alignSelf: 'stretch',
+            },
+            moreDetailsContainer: {
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'stretch',
+            },
+            pressable: {
+                flexDirection: 'row'
+            }
+        }
+    }
 })
 
 export default cardStyles

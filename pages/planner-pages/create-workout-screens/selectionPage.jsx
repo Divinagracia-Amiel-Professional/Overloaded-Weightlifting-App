@@ -24,6 +24,11 @@ export default function SelectionPage({navigation}){
                 justifyContent: 'center'
             }}
         >  
+            <Text
+                style={{...textStyles.headerText,
+                    color: theme.colors.onBackground
+                }}
+            >Create Workout</Text>
             <CardButton 
                 state={true}
                 header='Select From Premade Workouts'
@@ -32,7 +37,9 @@ export default function SelectionPage({navigation}){
                 sideIcon={<Gear scale={1.5} fill={theme.colors.background} strokeColor={'none'} />}
                 sideIconDisabled={<Gear scale={1.5} strokeColor={theme.colors.onTertiaryContainer} />}
                 disabledMessage='Cannot Create Workout'
-                onPress={() => {}}
+                onPress={() => {
+                    navigation.navigate('SelectFromPremade')
+                }}
             />
             <CardButton 
                 state={true}

@@ -4,6 +4,8 @@ import ExerciseScreen from './do-workout-components/screens/do-workout-exercise-
 import RestScreen from './do-workout-components/screens/do-workout-rest-screen'
 import PostWorkoutMessage from './do-workout-components/post-workout-message'
 import CardButton from './general/cardButton'
+import Gradient from './general/gradient'
+import WorkoutCard from './create-workout-components/workoutCard'
 
 export {
     Header,
@@ -11,5 +13,7 @@ export {
     ExerciseScreen,
     RestScreen,
     PostWorkoutMessage,
-    CardButton
+    CardButton,
+    Gradient,
+    WorkoutCard
 }

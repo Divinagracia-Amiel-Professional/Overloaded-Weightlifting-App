@@ -8,18 +8,25 @@ import {
 } from '../../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Add, CalendarEdit } from 'iconsax-react-native'
-import { CardButton } from '../../../components/component-index';
-import { CardRack, CardRackDisabled } from '../../../constants/icons';
+import { WorkoutCard } from '../../../components/component-index';
 
 export default function SelectFromPremade(){
+    const theme = useTheme()
+
     return(
         <View
-            style={{...mainStyles.bodyContainer}}
+            style={{...mainStyles.bodyContainer,
+                backgroundColor: theme.colors.background
+            }}
         >
-            <Text>Select From Premade Page</Text>
+            <Text
+                style={{...textStyles.headerText,
+                    color: theme.colors.secondary
+                }}
+            > Select a Workout </Text>
+            <WorkoutCard 
+                
+            />
         </View>
     )
 }

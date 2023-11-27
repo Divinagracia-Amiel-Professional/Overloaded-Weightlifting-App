@@ -4,10 +4,10 @@ import squatBulgarianSplitBar from "../exercise-objects/squat-bulgarian-split-ba
 
 export default 
 {
-    id: "arnoldsplitID",
-    name: "Arnold Split",
-    difficulty: '4',
-    focus: 'Body Building',
+    id: "tomplatzID",
+    name: "Tom Platz Split",
+    difficulty: '5',
+    focus: 'Legs',
     description: '',
     cycles : [
         {

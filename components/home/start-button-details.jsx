@@ -1,12 +1,7 @@
 import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { useTheme } from 'react-native-paper';
-import { 
-    logoStartEnabled as LogoStartEnabled,
-    calendarStartDisabled as CalendarStartDisabled,
-    MuscleStartCore,
-    MuscleStartLegs
- } from '../../constants/icons';
+import { Abs, Legs } from '../../constants/icons';
 import { 
     cardStyles,
     textStyles,
@@ -38,8 +33,8 @@ export default function StartButtonDetail(){
                 <View style={{
                     ...cardStyles.startButtonMusclesContainer
                 }}>
-                    <MuscleStartCore />
-                    <MuscleStartLegs />
+                    <Abs height={30} strokeColor={theme.colors.tertiaryContainer} fill={theme.colors.secondary}/>
+                    <Legs height={30} strokeColor={theme.colors.tertiaryContainer} fill={theme.colors.secondary}/>
                 </View>
                 <Pressable
                     style={{

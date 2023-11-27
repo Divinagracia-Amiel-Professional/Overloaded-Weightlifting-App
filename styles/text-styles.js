@@ -2,9 +2,14 @@ import { StyleSheet } from 'react-native'
 import { colors, fontWeight, fontFamily, textSizes, shadow } from '../constants/theme'
 
 const textStyles = StyleSheet.create({
-    headerText: {
+    headerBarText: {
         fontFamily: fontFamily.primaryHeader,
         fontSize: textSizes.xLarge,
+        color: colors.black
+    },
+    headerText: {
+        fontFamily: fontFamily.secondaryHeader,
+        fontSize: textSizes.xxxLarge,
         color: colors.black
     },
     secondaryHeaderText: {
@@ -116,6 +121,24 @@ const textStyles = StyleSheet.create({
                 fontSize: textSizes.small
             }
         },
+    },
+    workoutCard: {
+        header: {
+            textAlign: 'center',
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.workoutHeader,
+
+            position: 'absolute',
+            bottom: -21,
+
+            // includeFontPadding: false,
+            textAlignVertical: 'bottom'
+        },
+        body: {
+            textAlign: 'center',
+            fontFamily: fontFamily.primaryHeader,
+            fontSize: textSizes.large,
+        }
     }
 })
 

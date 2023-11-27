@@ -11,6 +11,9 @@ export default
 {
     id: "divisplitID",
     name: "Divi Split",
+    difficulty: '4',
+    focus: 'Strength Building',
+    description: '',
     cycles : [
         {
             order: 2,

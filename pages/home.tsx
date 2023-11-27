@@ -27,9 +27,6 @@ export default function Home({navigation}) {
         }}
       />
       <Text>{useSelector((state: RootState) => state.init.data) ? "Loaded" : "No_DB"}</Text>
-      <TextInput 
-        inputMode='numeric'
-      />
     </View>
   );
 }

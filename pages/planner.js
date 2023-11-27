@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
-    mainStyles,
-    textStyles,
-    buttonStyles
+    mainStyles
 } from '../styles/style-index'
 import { CardButton } from '../components/component-index';
 import Feather from '@expo/vector-icons/Feather'
