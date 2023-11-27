@@ -6,6 +6,7 @@ import GearHexa from '../assets/icons/gear-hexa-icon'
 import Graph from '../assets/icons/graph-icon'
 import Legs from '../assets/icons/legs-icon'
 import Logo from '../assets/icons/logo-icon'
+import LogoRating from '../assets/icons/logo-rating-icon'
 import Package from '../assets/icons/package-icon'
 import Rack from '../assets/icons/rack-icon'
 import Tools from '../assets/icons/tools-icon'
@@ -19,6 +20,7 @@ export {
     Graph,
     Legs,
     Logo,
+    LogoRating,
     Package,
     Rack,
     Tools,

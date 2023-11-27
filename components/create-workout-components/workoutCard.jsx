@@ -12,6 +12,9 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
 import Gradient from '../general/gradient'
 import { Placeholder2 } from '../../constants/images';
+import { Rating } from 'react-native-ratings';
+import { LogoRating } from '../../constants/icons';
+import { RatingImgGray } from '../../constants/images';
 
 export default function WorkoutCard(props){
     const theme = useTheme()
@@ -48,14 +51,26 @@ export default function WorkoutCard(props){
                         style={{...textStyles.workoutCard.body,
                             color: theme.colors.secondary
                         }}
-                    >Difficulty</Text>
+                    >Difficulty: </Text>
+                    <Rating 
+                        type='custom'
+                        ratingImage={RatingImgGray}
+                        ratingColor={theme.colors.primary}
+                        ratingBackgroundColor={theme.colors.customLightGray}
+                        ratingCount={5}
+                        imageSize={30}
+                        fractions={2}
+                        startingValue={3.8}
+                        showRating={false}
+                        readonly={true}
+                    />
                 </View>
 
                 <Text
                     style={{...textStyles.workoutCard.body,
                         color: theme.colors.secondary
                     }}
-                >Focus: Body Building</Text>
+                >Focus:  Body Building</Text>
                 
                 <View
                    style={{...cardStyles.workoutCard.details.moreDetailsContainer}} 
