@@ -102,7 +102,8 @@ const cardStyles = StyleSheet.create({
                 alignSelf: 'stretch',
             },
             pressable: {
-                flexDirection: 'row'
+                flexDirection: 'row',
+                gap: 5,
             }
         }
     }

@@ -6,7 +6,7 @@ export default
 {
     id: "arnoldsplitID",
     name: "Arnold Split",
-    difficulty: '4',
+    difficulty: 4,
     focus: 'Body Building',
     description: '',
     cycles : [

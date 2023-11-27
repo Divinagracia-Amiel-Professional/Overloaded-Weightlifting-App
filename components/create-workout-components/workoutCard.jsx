@@ -13,7 +13,6 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import Gradient from '../general/gradient'
 import { Placeholder2 } from '../../constants/images';
 import { Rating } from 'react-native-ratings';
-import { LogoRating } from '../../constants/icons';
 import { RatingImgGray } from '../../constants/images';
 
 export default function WorkoutCard(props){
@@ -37,7 +36,7 @@ export default function WorkoutCard(props){
                         style={{...textStyles.workoutCard.header,
                             color: theme.colors.tertiaryContainer
                         }}
-                    >Divi Split</Text>
+                    >{props.name}</Text>
                     
                 </ImageBackground>
             </View>
@@ -60,8 +59,7 @@ export default function WorkoutCard(props){
                         ratingCount={5}
                         imageSize={30}
                         fractions={2}
-                        startingValue={3.8}
-                        showRating={false}
+                        startingValue={props.difficulty}
                         readonly={true}
                     />
                 </View>
@@ -70,13 +68,14 @@ export default function WorkoutCard(props){
                     style={{...textStyles.workoutCard.body,
                         color: theme.colors.secondary
                     }}
-                >Focus:  Body Building</Text>
+                >Focus:  {props.focus}</Text>
                 
                 <View
                    style={{...cardStyles.workoutCard.details.moreDetailsContainer}} 
                 >
                     <Pressable
                         style={{...cardStyles.workoutCard.details.pressable}}
+                        onPress={props.onPress}
                     >
                         <Text
                             style={{...textStyles.workoutCard.body,

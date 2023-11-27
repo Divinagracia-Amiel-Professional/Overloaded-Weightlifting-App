@@ -10,7 +10,6 @@ import { StartButton } from '../components/component-index';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import initializeDBSync from '../custom-hooks/initDBsync';
-import { setInit } from '../redux/slices/InitSlice';
 import { NavigationContainer, CommonActions } from '@react-navigation/native'
 
 export default function Home({navigation}) {

@@ -6,7 +6,7 @@ export default
 {
     id: "tomplatzID",
     name: "Tom Platz Split",
-    difficulty: '5',
+    difficulty: 5,
     focus: 'Legs',
     description: '',
     cycles : [

@@ -14,7 +14,10 @@ import { Add, CalendarEdit } from 'iconsax-react-native'
 import { CardButton } from '../../../components/component-index';
 import { CardRack, CardRackDisabled } from '../../../constants/icons';
 
-export default function PremadeWorkoutDetails(){
+export default function PremadeWorkoutDetails({navigation, route}){
+    const data = route.params.workoutDetails
+    console.log(data)
+
     return(
         <View
             style={{...mainStyles.bodyContainer}}
