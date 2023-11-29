@@ -35,7 +35,11 @@ export default function ButtonOption(props){
     return(
         <Pressable
             style={{...buttonStyles.manageWorkoutButtonOptions,
-                ...stateStyle.container
+                ...stateStyle.container,
+                paddingVertical: props.type === 'icon' ? 5 : 0,
+                backgroundColor: props.type === 'icon' ? props.fill : stateStyle.container.backgroundColor,
+                // borderWidth: 1,
+                // borderColor: props.color
             }}
 
             onPress={props.onPress}

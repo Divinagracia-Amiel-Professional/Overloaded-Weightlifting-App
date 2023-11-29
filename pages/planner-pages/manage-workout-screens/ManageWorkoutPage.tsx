@@ -33,14 +33,15 @@ export default function ManageWorkoutPage({navigation, route}){
     const workouts = data.userWorkout[0] || data.currentlyUsed ? data.userWorkout.map(workout => {
         key++
         return(
-        <ManageWorkoutCard 
-            key={workout.id}
-            id={workout.id}
-            name={workout.name}
-            difficulty={workout.difficulty}
-            focus={workout.focus}
-        />
-    )}) : setData({
+            <ManageWorkoutCard 
+                key={workout.id}
+                id={workout.id}
+                name={workout.name}
+                difficulty={workout.difficulty}
+                focus={workout.focus}
+            />
+        )
+    }) : setData({
         userWorkout: getUserWorkouts(), 
         currentlyUsed: getCurrentlyUsedWorkouts()
     })

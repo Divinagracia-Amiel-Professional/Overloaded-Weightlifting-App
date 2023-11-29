@@ -95,6 +95,8 @@ const buttonStyles = StyleSheet.create({
       },
       manageWorkoutButtonOptions: {
         paddingHorizontal: 10,
+        minHeight: 35,
+        justifyContent: 'center'
       }
 })
 

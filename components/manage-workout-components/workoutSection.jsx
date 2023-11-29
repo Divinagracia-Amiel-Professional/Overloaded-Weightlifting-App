@@ -9,6 +9,7 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { Add, Edit, CalendarSearch, CalendarEdit } from 'iconsax-react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Gradient from '../general/gradient'
 import { Placeholder2 } from '../../constants/images';
@@ -17,35 +18,51 @@ import { RatingImgGray } from '../../constants/images';
 import ButtonOption from './buttonOption';
 import UseWorkoutModal from './useWorkoutModal';
 
-const optionsData = [
-    {
-        type:'icon',
-        icon: null,
-        onPress: () => {}
-    },
-    {
-        type:'icon',
-        icon: null,
-        onPress: () => {}
-    },
-    {
-        type:'icon',
-        icon: null,
-        onPress: () => {}
-    },
-    {
-        type:'icon',
-        icon: null,
-        onPress: () => {}
-    },
-]
-
 export default function WorkoutSection(props){
     const theme = useTheme()
     const [ visible, setVisible ] = useState(false)
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
+
+    const optionsData = [
+        {
+            type:'icon',
+            icon: <Edit size={25} color={theme.colors.secondary}/>,
+            fill: theme.colors.customLightGray,
+            color: theme.colors.background,
+            onPress: () => {
+                console.log('Edit Workout')
+            }
+        },
+        {
+            type:'icon',
+            icon: <CalendarEdit size={25} color={theme.colors.secondary}/>,
+            fill: theme.colors.customLightGray,
+            color: theme.colors.background,
+            onPress: () => {
+                console.log('Edit Schedule')
+            }
+        },
+        {
+            type:'icon',
+            icon: <CalendarSearch size={25} color={theme.colors.secondary}/>,
+            fill: theme.colors.customLightGray,
+            color: theme.colors.background,
+            onPress: () => {
+                console.log('Check Schedule')
+            }
+        },
+        {
+            type:'icon',
+            icon: <MaterialIcons name="delete-forever" size={25} color={theme.colors.background}/>,
+            color: theme.colors.background,
+            fill: theme.colors.primary,
+            onPress: () => {
+                console.log('Delete Forever')
+            }
+        },
+    ]
     
     return(
         <View
@@ -126,8 +143,9 @@ export default function WorkoutSection(props){
                    style={{...cardStyles.workoutCard.details.moreDetailsContainer,
                     paddingBottom: 15,
                     paddingHorizontal: 15,
-                    justifyContent: 'flex-start',
+                    justifyContent: 'space-between',
                     flexDirection: 'row',
+                    gap: 5,
                 }} 
                 >
                     <ButtonOption 
@@ -141,6 +159,22 @@ export default function WorkoutSection(props){
                             showModal()
                         }}
                     />
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            gap: 5,
+                        }}
+                    >
+                        {optionsData.map(option => (
+                            <ButtonOption 
+                                type={option.type}
+                                icon={option.icon}
+                                color={option.color}
+                                fill={option.fill}
+                                onPress={option.onPress}
+                            />
+                        ))}
+                    </View>
                 </View>
             </View>
         
