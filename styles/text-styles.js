@@ -137,7 +137,7 @@ const textStyles = StyleSheet.create({
         body: {
             textAlign: 'center',
             fontFamily: fontFamily.primaryHeader,
-            fontSize: textSizes.large,
+            fontSize: textSizes.xLarge,
         }
     }
 })

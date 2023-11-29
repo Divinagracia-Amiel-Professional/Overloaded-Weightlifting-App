@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
@@ -11,9 +11,18 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit } from 'iconsax-react-native'
 import { Rack } from '../constants/icons';
+import { getUserWorkouts } from '../functions/functions-index';
 
 export default function Planner({navigation}){
     const theme = useTheme()
+    const userWorkout = getUserWorkouts()
+    const [ workoutUsed , setWorkoutUsed ] = useState([])
+
+    useEffect(() => {
+        setWorkoutUsed(userWorkout)
+    }, [userWorkout])
+    
+    console.log(userWorkout)
 
     return(
         <View style={{...mainStyles.bodyContainer,
@@ -32,7 +41,7 @@ export default function Planner({navigation}){
                 }}
             />
             <CardButton 
-                state={false}
+                state={userWorkout[0] ? true : false}
                 header='Manage Workout'
                 mainIcon={<CalendarEdit size={80} color={theme.colors.background} />}
                 mainIconDisabled={<CalendarEdit size={80} color={theme.colors.onTertiaryContainer} />}

@@ -15,6 +15,8 @@ import { NavigationContainer, CommonActions } from '@react-navigation/native'
 export default function Home({navigation}) {
   const theme = useTheme()
   const initDB = initializeDBSync()
+  console.log(useSelector((state: RootState) => state.currentUser.workoutUsed))
+  
 
   return (
     <View style={{...mainStyles.bodyContainer,

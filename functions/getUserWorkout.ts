@@ -6,12 +6,11 @@ import { addInitWorkoutToStore } from '../redux/slices/WorkoutSlice';
 import exercisesInitDb from '../redux/databases/exercises-init-db';
 import workoutsInitDb from '../redux/databases/workouts-init-db';
 
-const getWorkouts = () => {
-    const exerciseDB = useSelector((state: RootState) => state.exercise);
-    const workoutDB = useSelector((state: RootState) => state.workout);
+const getUserWorkouts = () => {
+    const userWorkouts = useSelector((state: RootState) => state.currentUser.workoutUsed);
     const dispatch = useDispatch<AppDispatch>();
 
-    return workoutDB.data
+    return userWorkouts
 }
 
-export default getWorkouts
+export default getUserWorkouts
