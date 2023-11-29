@@ -11,8 +11,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import initializeDBSync from '../custom-hooks/initDBsync';
 import { NavigationContainer, CommonActions } from '@react-navigation/native'
+import { CardButton } from '../components/component-index';
 
-export default function Home({navigation}) {
+export default function Home({navigation}){
   const theme = useTheme()
   const initDB = initializeDBSync()
   console.log(useSelector((state: RootState) => state.currentUser.workoutUsed))

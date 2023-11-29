@@ -19,9 +19,10 @@ export default function ButtonWithIcon(props){
         backgroundColor: theme.colors.secondary,
         flexDirection: 'row',
         gap: 5,
+        minWidth: 50,
       }}
 
-      onPress={props.onPress}
+      onPress={props.onPress ? props.onPress : () => {}}
       >
       <Text
         style={{...buttonStyles.buttonText,

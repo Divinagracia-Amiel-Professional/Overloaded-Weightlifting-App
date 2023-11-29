@@ -106,6 +106,55 @@ const cardStyles = StyleSheet.create({
                 gap: 5,
             }
         }
+       
+    },
+    manageWorkoutCard: {
+        container: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignSelf: 'stretch',
+
+            elevation: 2,
+            overflow: 'hidden',
+            
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
+        },
+        optionsContainer:{
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignSelf: 'stretch',
+            gap: 0,
+        },
+        optionsItem: {
+            padding: 5,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignSelf: 'stretch',
+
+            elevation: 2,
+
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
+        }
+    },
+    manageWorkoutModal: {
+        container:{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginHorizontal: 30,
+            borderRadius: 10,
+            padding: 15,
+            gap: 15,
+        },
+        buttonContainer: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 50,
+            alignSelf: 'stretch',
+        }
     }
 })
 

@@ -48,7 +48,9 @@ export default function Planner({navigation}){
                 sideIcon={null}
                 sideIconDisabled={null}
                 disabledMessage='Create Workout First!'
-                onPress={() => {}}
+                onPress={() => {
+                    userWorkout[0] ? navigation.navigate('ManageWorkoutPage', {userWorkout: userWorkout}) : null
+                }} 
             />
             <CardButton 
                 state={false}

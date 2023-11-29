@@ -9,7 +9,8 @@ import {
     SelectionPage,
     SelectFromPremade,
     CreateFromScratch,
-    PremadeWorkoutDetails
+    PremadeWorkoutDetails,
+    ManageWorkoutPage
 } from './planner-pages/planner-pages-index';
 import NavBar from './navbar';
 
@@ -33,6 +34,8 @@ export default function DoWorkoutStack(){
             <Stack.Screen name='SelectFromPremade' component={SelectFromPremade}/>
             <Stack.Screen name='CreateFromScratch' component={CreateFromScratch}/>
             <Stack.Screen name='PremadeWorkoutDetails' component={PremadeWorkoutDetails}/>
+
+            <Stack.Screen name='ManageWorkoutPage' component={ManageWorkoutPage}/>
 
         </Stack.Navigator>
     )

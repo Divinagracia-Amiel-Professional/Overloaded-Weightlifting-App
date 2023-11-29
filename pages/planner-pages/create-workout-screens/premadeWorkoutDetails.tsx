@@ -15,14 +15,19 @@ import { addWorkoutsToUser }from '../../../functions/functions-index';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../../redux/store';
 import { addWorkout } from '../../../redux/slices/CurrentUserSlice';
+import getUserWorkoutObjects from '../../../custom-hooks/getUserWorkoutObjects';
 
 export default function PremadeWorkoutDetails({navigation, route}){
     const dispatch = useDispatch<AppDispatch>();
     const workoutUsed = useSelector((state: RootState) => state.currentUser.workoutUsed)
 
     const data = route.params.workoutDetails
-    console.log(data)
-    console.log(workoutUsed)
+    // console.log(data)
+    // console.log(workoutUsed)
+
+    const doesExist = workoutUsed.find(workouts => workouts.id === data.id) ? true : false
+    console.log(doesExist)
+    // console.log(getUserWorkoutObjects())
 
     return(
         <ScrollView
@@ -37,12 +42,14 @@ export default function PremadeWorkoutDetails({navigation, route}){
                 focus={data.focus}
                 description={data.description}
                 addWorkout={() => {
-                    if(workoutUsed.includes(data.id)){
+                    if(doesExist){
                         return console.log('Workout is already used!')
                     }
-                    dispatch(addWorkout(data.id))
+                    dispatch(addWorkout(data))
                 }}
-                editWorkout={() => {}}
+                editWorkout={() => {
+                    console.log(workoutUsed)
+                }}
             />
         </ScrollView>
     )
