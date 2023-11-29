@@ -52,12 +52,6 @@ export default function ManageWorkoutPage({navigation, route}){
             }}
             contentContainerStyle={mainStyles.scrollViewContainerStyle}
         >
-            <ManageWorkoutCard
-                key={'2'}
-                name={'Name'}
-                difficulty={3}
-                focus={'Focus'}
-            />
             {workouts ? workouts : null}
         </ScrollView>
     )
