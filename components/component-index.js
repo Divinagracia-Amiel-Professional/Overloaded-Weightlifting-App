@@ -8,10 +8,12 @@ import Gradient from './general/gradient'
 import WorkoutCard from './create-workout-components/workoutCard'
 import ButtonWithIcon from './general/button'
 import ManageWorkoutCard from './manage-workout-components/manageWorkoutCard'
+import DisabledStartButton from './home/disabled-button'
 
 export {
     Header,
     StartButton,
+    DisabledStartButton,
     ExerciseScreen,
     RestScreen,
     PostWorkoutMessage,

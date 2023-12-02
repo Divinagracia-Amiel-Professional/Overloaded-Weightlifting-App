@@ -24,11 +24,13 @@ export default function CardButton(props){
         <View
             style={{...cardStyles.bodyTextContainer}}
         >
-                <Text
+                {props.disabledMessage ? <Text
                     style={{...textStyles.cardBodyText,
                         ...stateColors.text
                     }}
                 >{props.disabledMessage}</Text>
+                :
+                props.customMessage}
         </View>;
 
     return(

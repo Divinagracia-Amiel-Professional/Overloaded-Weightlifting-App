@@ -20,7 +20,7 @@ export default function PreWorkoutPage({navigation}){
         cycle: 2,
         split: {
             order: 3,
-            name: 'Leg Day',
+            name: 'Push Day',
         },
     }
     const [ data, setParentData ] = useState([])
@@ -30,8 +30,6 @@ export default function PreWorkoutPage({navigation}){
     //     console.log(data[i].item.workout_data)
     // }
     
-
-
     return(
         <View style={{...mainStyles.preWorkoutContainer,
             backgroundColor: theme.colors.background

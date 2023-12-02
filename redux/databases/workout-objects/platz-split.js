@@ -9,6 +9,12 @@ export default
     difficulty: 5,
     focus: 'Legs',
     description: '',
+    latest_state: {
+        is_completed: false,
+        date_used: '',
+        cycle: 2,
+        split: 3
+    },
     cycles : [
         {
             order: 2,

@@ -1,0 +1,22 @@
+About scheduling
+-we can remove calendar and scheduling for simplicity sake
+-instead, for simplicity, a workout will only proceed to the next split/cycle if:
+    + it is the next day/days
+    + if workout split is not finished yet
+unless these two are fulfilled, the current workout and split will not change
+-However, the user can choose which split/cycle to use in the workout anytime, 
+    the behavior above is the default behavior.
+-In this basic scheduling, if the user changes what workout to use:
+    -the state(the current cycle and split) of the current workout will be saved
+    -the state of the chosen workout will be fetched
+
+- This can be much simpler than the calendar, because we dont have to worry abouy having a calendar component for now
+- I can focus more on the progress tracking aspect of the app which is much more important
+
+things to do:
+-a feature to choose the split cycle in home page
+-state of in-use workouts will be saved if changed
+-order of exercises in preworkout will be saved if changed
+-default behavior of the workouts
+
+

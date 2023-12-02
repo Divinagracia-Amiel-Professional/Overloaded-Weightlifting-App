@@ -2,7 +2,7 @@ import React from "react";
 import { Svg, Path, G, ClipPath, Defs, Rect } from "react-native-svg";
 
 const Logo = (props) => {
-    const color = props.strokeColor ? props.strokeColor : 'black'
+    const color = props.strokeColor ? props.strokeColor : 'none'
     const fill = props.fill ? props.fill : 'none'
     const scale = props.scale ? props.scale : 1
     const strokeWidth = props.strokeWidth ? props.strokeWidth : 1.5
