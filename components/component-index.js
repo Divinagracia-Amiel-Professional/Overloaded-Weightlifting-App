@@ -9,6 +9,7 @@ import WorkoutCard from './create-workout-components/workoutCard'
 import ButtonWithIcon from './general/button'
 import ManageWorkoutCard from './manage-workout-components/manageWorkoutCard'
 import DisabledStartButton from './home/disabled-button'
+import WorkoutPicker from './home/split-picker'
 
 export {
     Header,
@@ -21,5 +22,6 @@ export {
     Gradient,
     WorkoutCard,
     ButtonWithIcon,
-    ManageWorkoutCard
+    ManageWorkoutCard,
+    WorkoutPicker
 }

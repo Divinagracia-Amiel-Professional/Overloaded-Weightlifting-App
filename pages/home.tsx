@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { Text, View, Pressable, Image, TouchableOpacity, TextInput } from 'react-native';
-import { useTheme, Portal, Modal } from 'react-native-paper';
+import { useTheme, Portal, Modal, List } from 'react-native-paper';
 import {
   mainStyles,
   textStyles,
   buttonStyles,
   cardStyles
 } from '../styles/style-index'
-import { StartButton, CardButton, DisabledStartButton } from '../components/component-index';
+import { StartButton, CardButton, DisabledStartButton, WorkoutPicker } from '../components/component-index';
 import { Logo, Calendar } from '../constants/icons';
 
 import initializeDBSync from '../custom-hooks/initDBsync';
@@ -35,28 +35,31 @@ export default function Home({navigation}){
     if(currentUsedWorkout.data.id){
       return (
         <StartButton
-        onPress={() => {
-          navigation.navigate('PreWorkoutPage')
-        }}
-        showModal={showModal}
-        hideModal={hideModal}
-      />
+          data={currentUsedWorkout}
+          showModal={showModal}
+          hideModal={hideModal}
+          onPress={() => {
+            navigation.navigate('PreWorkoutPage', {
+              currentWorkout: currentUsedWorkout
+            })
+          }}
+        />
       )
     }
     else {
       return (
         <CardButton 
-        state={false}
-        header='Create Workout First!'
-        mainIcon={null}
-        mainIconDisabled={<Logo width={90} height={80} scale={1.5} fill={theme.colors.onTertiaryContainer} strokeColor={theme.colors.tertiaryContainer}/>}
-        sideIcon={null}
-        sideIconDisabled={null}
-        customMessage={<DisabledStartButton />}
-        disabledIcon=''
-        onPress={() => {     
-        }}
-      />
+          state={false}
+          header='Create Workout First!'
+          mainIcon={null}
+          mainIconDisabled={<Logo width={90} height={80} scale={1.5} fill={theme.colors.onTertiaryContainer} strokeColor={theme.colors.tertiaryContainer}/>}
+          sideIcon={null}
+          sideIconDisabled={null}
+          customMessage={<DisabledStartButton />}
+          disabledIcon=''
+          onPress={() => {     
+          }}
+        />
       )
     }
   }
@@ -76,7 +79,9 @@ export default function Home({navigation}){
           contentContainerStyle={{...cardStyles.manageWorkoutModal.container,
               backgroundColor: theme.colors.tertiaryContainer
           }}>
-            <Text>Modal</Text>
+            <WorkoutPicker 
+              data={currentUsedWorkout}
+            />
         </Modal>
       </Portal>
     </View>

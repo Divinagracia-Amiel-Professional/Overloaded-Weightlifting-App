@@ -7,9 +7,11 @@ import {
     textStyles,
     buttonStyles
 } from '../../styles/style-index'
+import { setWorkoutName } from '../../functions/functions-index';
 
-export default function StartButtonDetail(){
+export default function StartButtonDetail(props){
     const theme = useTheme()
+    const workoutData = props.data
 
     return(
         <View
@@ -21,7 +23,7 @@ export default function StartButtonDetail(){
                         color: theme.colors.secondary,
                     }}
                 >
-                    Exercise Today: 2nd Leg Cycle
+                    Exercise Today: {setWorkoutName(workoutData.data.latest_state.cycle, workoutData.data.latest_state.name)}
                 </Text>
                 <Text
                     style={{
@@ -41,11 +43,15 @@ export default function StartButtonDetail(){
                         ...buttonStyles.button,
                         backgroundColor: theme.colors.secondary
                     }}
+
+                    onPress={() => {
+                        props.showModal()
+                    }}
                     >
                     <Text style={{
                         ...buttonStyles.buttonText,
                         color: theme.colors.onSecondary
-                    }}>Take a Break?</Text>
+                    }}>Choose another split?</Text>
                 </Pressable>
             </View>
     )

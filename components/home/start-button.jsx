@@ -44,7 +44,11 @@ export default function StartButton(props){
             {
                 isDetailShown 
                 && 
-                <StartButtonDetail/>
+                <StartButtonDetail
+                    data={props.data}
+                    showModal={props.showModal}
+                    hideModal={props.hideModal}
+                />
             }
             <Pressable 
                 style={buttonStyles.button}

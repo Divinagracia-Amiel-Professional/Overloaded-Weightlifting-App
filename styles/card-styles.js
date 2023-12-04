@@ -40,6 +40,15 @@ const cardStyles = StyleSheet.create({
 
         borderRadius: 12,
     },
+    disabledStartButton: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        rowGap: 2.5,
+        columnGap: 5,
+    },
     startButtonDetailsContainer: {
         zIndex: -1,
         alignSelf: 'stretch',

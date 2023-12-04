@@ -10,20 +10,12 @@ import {
 import { Logo, Calendar } from '../../constants/icons';
 import { textSizes } from '../../constants/theme';
 
-export default function DisabledStartButton(){
+export default function DisabledStartButton(props){
   const theme = useTheme()
   
   return(
     <View
-      style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        alignSelf: 'stretch',
-        rowGap: 2.5,
-        columnGap: 5,
-      }}
+      style={{...cardStyles.disabledStartButton}}
     >
       <Text
         style={{...textStyles.cardBodyText,

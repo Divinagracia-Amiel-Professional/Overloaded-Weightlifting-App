@@ -18,7 +18,8 @@ export default
         is_completed: false,
         date_used: '',
         cycle: 2,
-        split: 3
+        split: 3,
+        name: 'Leg Day'
     },
     cycles : [
         {
