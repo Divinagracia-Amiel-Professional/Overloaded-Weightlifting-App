@@ -13,7 +13,7 @@ const getExercisesFromWorkoutRedux = (workout_id, cycle_order, split_order) => {
     useEffect(() => {
         (async() => {
             setIsLoading(true)
-            if(workoutDB){
+            if(workoutDB && exerciseDB){
                 try{
                     const workoutQuery = await workoutDB.find(workout => {
                         return workout.id === workout_id
@@ -40,15 +40,15 @@ const getExercisesFromWorkoutRedux = (workout_id, cycle_order, split_order) => {
                         throw new Error('Split with corresponding order does not exist')           
                     }
          
-                    const exercises = await exerciseDB.filter(({id}) => {   
-                        return splitQuery.exercises.some(include => include.exercise_id === id)
-                    })
+                    // const exercises = await exerciseDB.filter(({id}) => {   
+                    //     return splitQuery.exercises.some(include => include.exercise_id === id)
+                    // })
                     
-                    const combineArrays = await splitQuery.exercises.map(workout => {  
-                        return {
+                    const combineArrays = await splitQuery.exercises.map(workout => { 
+                        return ({
                             ...workout,
-                            exercise_obj: exercises.find(item => item.id === workout.exercise_id)
-                        }
+                            exercise_obj: exerciseDB.find(item => item.id === workout.exercise_id)
+                        })
                     })
 
                     setData(combineArrays)

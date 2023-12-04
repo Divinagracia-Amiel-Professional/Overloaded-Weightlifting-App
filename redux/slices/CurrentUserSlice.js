@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
     user: 'guestUser',
+    currentWorkout: '',
     workoutUsed: [],
     records:[],
     preferences: {
@@ -14,7 +15,10 @@ const CurrentUserSlice = createSlice({
     initialState: initState,
     reducers: {
         addWorkout: (state, action) => {
-            state.workoutUsed = action.payload
+            state.workoutUsed = [...state.workoutUsed, action.payload]
+        },
+        useWorkout: (state, action) => {
+            state.currentWorkout = action.payload
         }
     },
     extraReducers: {
@@ -23,4 +27,4 @@ const CurrentUserSlice = createSlice({
 })
 
 export default CurrentUserSlice.reducer
-export const {} = CurrentUserSlice.actions
+export const { addWorkout, useWorkout } = CurrentUserSlice.actions

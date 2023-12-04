@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import { useFonts } from 'expo-font'
 import { NavigationContainer } from '@react-navigation/native'
 import { NavBar } from './components/component-index';
-import DoWorkoutStack from './pages/doWorkout/doWork-main-stack-navigator';
+import DoWorkoutStack from './pages/main-stack-navigator';
 import { 
   MD3LightTheme,
   MD3DarkTheme,

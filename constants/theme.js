@@ -127,6 +127,7 @@ const colors = {
     xLarge: 24,
     xxLarge: 28,
     xxxLarge: 32,
+    workoutHeader: 64,
     timer: 96,
   };
   

@@ -87,6 +87,17 @@ const buttonStyles = StyleSheet.create({
           fontSize: textSizes.xxLarge
         }
       },
+      manageWorkoutOptions: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        paddingVertical: 10,
+      },
+      manageWorkoutButtonOptions: {
+        paddingHorizontal: 10,
+        minHeight: 35,
+        justifyContent: 'center'
+      }
 })
 
 export default buttonStyles;

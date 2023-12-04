@@ -10,19 +10,22 @@ import { useTheme, Card } from 'react-native-paper';
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list';
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux';
 import { Placeholder as PlaceholderImage } from '../../constants/images';
-import setWorkoutName from '../../functions/setWorkoutName';
+import { setWorkoutName } from '../../functions/functions-index';
 
-export default function PreWorkoutPage({navigation}){
+export default function PreWorkoutPage({navigation, route}){
     const theme = useTheme()
 
+    console.log(route.params.currentWorkout)
+
     const currentWorkout = {
-        id: 'divisplitID',
-        cycle: 2,
+        id: route.params.currentWorkout.data.id,
+        cycle: route.params.currentWorkout.data.latest_state.cycle,
         split: {
-            order: 3,
-            name: 'Leg Day',
+            order: route.params.currentWorkout.data.latest_state.split,
+            name: route.params.currentWorkout.data.latest_state.name,
         },
     }
+
     const [ data, setParentData ] = useState([])
     // console.log(data)
     // for(let i=0; i<data.length; i++){
@@ -30,8 +33,6 @@ export default function PreWorkoutPage({navigation}){
     //     console.log(data[i].item.workout_data)
     // }
     
-
-
     return(
         <View style={{...mainStyles.preWorkoutContainer,
             backgroundColor: theme.colors.background

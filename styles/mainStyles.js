@@ -15,6 +15,27 @@ const mainStyles = StyleSheet.create({
       paddingVertical: 50,
       gap: 10,
     },
+    scrollView: {
+      flex: 1,
+      backgroundColor: colors.lightGray,
+      padding: 15,
+    },
+    scrollViewContainerStyle: {
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      gap: 30,
+      paddingVertical: 50,
+      paddingBottom: 75,
+    },
+    PremadeScrollView: {
+      flex: 1,
+      backgroundColor: colors.lightGray,
+    },
+    PremadeScrollViewContainerStyle: {
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      gap: 30,
+    },
     repContainer: {
       flexDirection: 'row',
       justifyContent: 'center',

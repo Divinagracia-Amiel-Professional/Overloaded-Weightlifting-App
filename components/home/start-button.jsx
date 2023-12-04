@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { 
-    logoStartEnabled as LogoStartEnabled,
-    calendarStartDisabled as CalendarStartDisabled,
-    MuscleStartCore,
-    MuscleStartLegs
+    Logo,
+    Abs,
+    Legs
+} from '../../constants/icons';
+import { 
+    // logoStartEnabled as LogoStartEnabled,
+    // calendarStartDisabled as CalendarStartDisabled,
+    // MuscleStartCore,
+    // MuscleStartLegs
  } from '../../constants/icons';
 import { 
     cardStyles,
@@ -28,7 +33,7 @@ export default function StartButton(props){
                 backgroundColor: theme.colors.primaryContainer}}
                 onPress={props.onPress}
             >
-                <LogoStartEnabled />
+                <Logo width={90} height={80} scale={1.5} strokeColor={theme.colors.primary} fill={theme.colors.background}/>
                 <Text 
                     style={{...textStyles.cardHeaderText,
                     color: theme.colors.onPrimaryContainer}}
@@ -36,7 +41,15 @@ export default function StartButton(props){
                         Let's Go JIM!!!
                 </Text>
             </Pressable>    
-            {isDetailShown && <StartButtonDetail/>}
+            {
+                isDetailShown 
+                && 
+                <StartButtonDetail
+                    data={props.data}
+                    showModal={props.showModal}
+                    hideModal={props.hideModal}
+                />
+            }
             <Pressable 
                 style={buttonStyles.button}
                 onPress={() => {
