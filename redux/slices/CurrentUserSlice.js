@@ -19,6 +19,20 @@ const CurrentUserSlice = createSlice({
         },
         useWorkout: (state, action) => {
             state.currentWorkout = action.payload
+        },
+        updateState: (state, action) => {
+            if(state.workoutUsed[0]){
+                const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === action.payload.workoutId)
+                const data = {
+                    ...action.payload
+                }
+
+                state.workoutUsed[workoutIndex].latest_state = data
+                console.log(state.workoutUsed[workoutIndex].latest_state)
+            }
+            else{
+                console.log('There is no workout with that ID')
+            }
         }
     },
     extraReducers: {
@@ -27,4 +41,4 @@ const CurrentUserSlice = createSlice({
 })
 
 export default CurrentUserSlice.reducer
-export const { addWorkout, useWorkout } = CurrentUserSlice.actions
+export const { addWorkout, useWorkout, updateState } = CurrentUserSlice.actions

@@ -11,7 +11,8 @@ import {
 import { darkTheme, lightTheme } from './constants/theme';
 import 'react-native-gesture-handler'
 import { Provider } from 'react-redux'
-import { store } from './redux/store';
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -42,9 +43,11 @@ export default function App() {
   return (
     <Provider store={store}>
       <PaperProvider theme={useLightTheme}>
-        <NavigationContainer theme={useLightTheme}>
-          <DoWorkoutStack />
-        </NavigationContainer>
+        <PersistGate loading={null} persistor={persistor}>
+          <NavigationContainer theme={useLightTheme}>
+            <DoWorkoutStack />
+          </NavigationContainer>
+        </PersistGate>
       </PaperProvider>
     </Provider>
   );
