@@ -10,6 +10,9 @@ import ButtonWithIcon from './general/button'
 import ManageWorkoutCard from './manage-workout-components/manageWorkoutCard'
 import DisabledStartButton from './home/disabled-button'
 import WorkoutPicker from './home/split-picker'
+import CycleSection from './create-workout-components/cycleSection'
+import AddSectionButton from './create-workout-components/addSectionButton'
+import BasicInfoSection from './create-workout-components/basicInfoSection'
 
 export {
     Header,
@@ -23,5 +26,8 @@ export {
     WorkoutCard,
     ButtonWithIcon,
     ManageWorkoutCard,
-    WorkoutPicker
+    WorkoutPicker,
+    CycleSection,
+    AddSectionButton,
+    BasicInfoSection
 }

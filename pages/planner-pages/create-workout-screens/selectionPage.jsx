@@ -49,7 +49,9 @@ export default function SelectionPage({navigation}){
                 sideIcon={<Tools scale={1.5} fill={theme.colors.background} />}
                 sideIconDisabled={<Tools scale={1.5} fill={theme.colors.background} />}
                 disabledMessage='Cannot Create Workout'
-                onPress={() => {}}
+                onPress={() => {
+                    navigation.navigate('CreateFromScratch')
+                }}
             />
         </View>
     )

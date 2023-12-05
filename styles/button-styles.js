@@ -97,6 +97,23 @@ const buttonStyles = StyleSheet.create({
         paddingHorizontal: 10,
         minHeight: 35,
         justifyContent: 'center'
+      },
+      fromScratch: {
+        addSectionButton: {
+          container: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'stretch',
+            gap: 10,
+
+            borderWidth: 1,
+            borderRadius: 10,
+          },
+          text: {
+
+          }
+        }
       }
 })
 

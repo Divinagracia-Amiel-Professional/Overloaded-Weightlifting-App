@@ -247,6 +247,37 @@ const mainStyles = StyleSheet.create({
         }
       }
     },
+    fromScratch: {
+      headerContainer: {
+        paddingVertical: 20,
+        paddingHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'stretch',
+      },
+      cycleSection: {
+        container: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+        },
+        headerContainer: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          padding: 20,
+          gap: 10,
+        },
+        bodyContainer: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          padding: 20,
+          gap: 10,
+        }
+      }
+    },
     tabBarLabelContainer: {
       flex: 1,
       alignItems: 'center'
