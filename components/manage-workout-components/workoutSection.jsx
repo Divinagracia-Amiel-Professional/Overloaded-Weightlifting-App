@@ -25,6 +25,8 @@ export default function WorkoutSection(props){
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
 
+    let count = 0
+
     const optionsData = [
         {
             type:'icon',
@@ -165,15 +167,21 @@ export default function WorkoutSection(props){
                             gap: 5,
                         }}
                     >
-                        {optionsData.map(option => (
+                        {
+
+                        optionsData.map(option => {
+                            count++
+                            return(
                             <ButtonOption 
+                                key={count}
                                 type={option.type}
                                 icon={option.icon}
                                 color={option.color}
                                 fill={option.fill}
                                 onPress={option.onPress}
                             />
-                        ))}
+                        )
+                        })}
                     </View>
                 </View>
             </View>

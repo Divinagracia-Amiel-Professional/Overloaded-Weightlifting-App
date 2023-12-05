@@ -56,7 +56,7 @@ const getCurrentlyUsedWorkoutObject = () => {
         } catch(e) {
             console.log(e)
         }
-    }, [ currentlyUsed ])
+    }, [ currentlyUsed, userWorkouts ])
     
     return { data, err }
 }
