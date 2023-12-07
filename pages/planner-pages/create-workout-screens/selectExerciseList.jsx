@@ -33,12 +33,12 @@ export default function SelectExercisePage({navigation, route}){
     console.log(exercisesDB[0])
 
     const RenderItem = ({ item }) => {
-        const lastItemId = useRef(item.id);
-        const [ selected, setSelected ] = useState(item.isSelected);
-        if (item.id !== lastItemId.current) {
-            lastItemId.current = item.id;
-            setSelected(item.isSelected);
-        }
+        // const lastItemId = useRef(item.id);
+        // const [ selected, setSelected ] = useState(item.isSelected);
+        // if (item.id !== lastItemId.current) {
+        //     lastItemId.current = item.id;
+        //     setSelected(item.isSelected);
+        // }
         
         return(
             <SelectExerciseListItem

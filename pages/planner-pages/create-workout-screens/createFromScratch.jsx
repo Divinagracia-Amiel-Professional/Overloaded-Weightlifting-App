@@ -14,17 +14,7 @@ import { Add, CalendarEdit } from 'iconsax-react-native'
 import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '../../../components/component-index';
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-const workoutReducer = (state, action) => {
-    switch (action.type) {
-      case "ADD_CYCLE":
-        return state.map(prevState => {
-            
-        })
-      default:
-        return state;
-    }
-};
+import { reorderWorkout } from '../../../functions/functions-index';
 
 export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
@@ -36,8 +26,6 @@ export default function CreateFromScratch({navigation, route}){
     const [ workout, setWorkout ] = useState({
         ...initCycle
     })
-
-    const [ work, dispatch ] = useReducer(workoutReducer, initCycle)
 
     const cycles = workout.cycles.map(cycle => (
         <CycleSection
