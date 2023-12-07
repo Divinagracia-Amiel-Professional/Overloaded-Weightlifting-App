@@ -89,6 +89,8 @@ export default function BackButton(props){
             case 'direct_home':
                 props.navigation.popToTop()
                 break;
+            case 'create_workout':
+                props.navigation.navigate('Planner')
             default: 
                 showModal()
         }

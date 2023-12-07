@@ -40,8 +40,6 @@ export default function PreWorkoutPage({navigation, route}){
             }}
             >
 
-            <BackButton navigation={navigation} />
-
             <Image 
                 style={{...imageStyles.placeholder, 
                     borderColor: theme.colors.onBackground

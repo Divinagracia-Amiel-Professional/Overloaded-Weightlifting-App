@@ -11,11 +11,11 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit } from 'iconsax-react-native'
-import { AddSectionButton, CycleSection, BasicInfoSection } from '../../../components/component-index';
+import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '../../../components/component-index';
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function CreateFromScratch(props){
+export default function CreateFromScratch({navigation}){
     const theme = useTheme()
     const [ basicInfo , setBasicInfo ] = useState({
         name: '',
@@ -38,8 +38,9 @@ export default function CreateFromScratch(props){
 
     return(
         <SafeAreaView
-            style={{flex: 1}}
+            style={{flex: 1, position: 'relative'}}
         >
+            <BackButton type='doWorkout' navigation={navigation} />
             <ScrollView
             style={{...mainStyles.PremadeScrollView,
                 paddingHorizontal: 0,

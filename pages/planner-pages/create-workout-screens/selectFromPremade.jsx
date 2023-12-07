@@ -8,7 +8,7 @@ import {
 } from '../../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { WorkoutCard } from '../../../components/component-index';
+import { WorkoutCard, BackButton } from '../../../components/component-index';
 import getWorkouts from '../../../functions/getWorkouts';
 
 export default function SelectFromPremade({navigation}){
@@ -32,18 +32,23 @@ export default function SelectFromPremade({navigation}){
     }) : setData(getWorkouts())
 
     return(
-        <ScrollView
+        <View
+            style={{flex: 1, position: 'relative'}}
+        >
+            <BackButton type='create_workout' navigation={navigation}/>
+            <ScrollView
             style={{...mainStyles.scrollView,
                 backgroundColor: theme.colors.background
             }}
             contentContainerStyle={mainStyles.scrollViewContainerStyle}
-        >
+            >
             <Text
                 style={{...textStyles.headerText,
                     color: theme.colors.secondary
                 }}
             > Select a Workout </Text>
             {display}
-        </ScrollView>
+            </ScrollView>
+        </View> 
     )
 }

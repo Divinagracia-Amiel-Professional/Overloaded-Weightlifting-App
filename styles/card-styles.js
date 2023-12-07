@@ -71,6 +71,7 @@ const cardStyles = StyleSheet.create({
             // justifyContent: 'center',
             // alignItems: 'center',
             overflow: 'hidden',
+            position: 'relative',
 
             borderRadius: 10,
 
