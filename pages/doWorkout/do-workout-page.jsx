@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list'
 import {
@@ -7,7 +7,7 @@ import {
     buttonStyles
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
-import { ExerciseScreen, RestScreen } from '../../components/component-index';
+import { ExerciseScreen, RestScreen, BackButton, ConfirmationModal } from '../../components/component-index';
 
 const recordData = [
     {
@@ -25,15 +25,17 @@ const recordData = [
 ]
 
 export default function DoWorkoutPage({ route, navigation }){
+    const [ isGoingBack, SetIsGoingBack ] = useState(false)
     const [ isRest, setIsRest ] = useState(false)
     const [ set, setSet ] = useState(1) //set currentset of exercise
     const [ index, setIndex ] = useState(0) //sets index of exercise
     const [ restTime, setRestTime ] = useState(0) 
 
     const { data } = route.params
-
+    
     return(
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, position: 'relative'}}>
+            <BackButton navigation={navigation} type='doWorkout' />
             {isRest ? //conditional to switch from exercise to rest vice versa
                 <RestScreen
                     time={data[index].item.workout_data.rest_initial}

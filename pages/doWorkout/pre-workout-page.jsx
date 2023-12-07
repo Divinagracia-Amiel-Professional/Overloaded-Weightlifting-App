@@ -8,6 +8,7 @@ import {
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list';
+import { BackButton } from '../../components/component-index';
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux';
 import { Placeholder as PlaceholderImage } from '../../constants/images';
 import { setWorkoutName } from '../../functions/functions-index';
@@ -38,6 +39,9 @@ export default function PreWorkoutPage({navigation, route}){
             backgroundColor: theme.colors.background
             }}
             >
+
+            <BackButton navigation={navigation} />
+
             <Image 
                 style={{...imageStyles.placeholder, 
                     borderColor: theme.colors.onBackground

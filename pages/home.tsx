@@ -80,6 +80,7 @@ export default function Home({navigation}){
               backgroundColor: theme.colors.tertiaryContainer
           }}>
             <WorkoutPicker 
+              hideModal={hideModal}
               data={currentUsedWorkout}
             />
         </Modal>
