@@ -10,6 +10,7 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import useBackListener from '../../custom-hooks/useBackListener'
 import { ArrowLeft } from 'iconsax-react-native'
 import ButtonWithIcon from './button'
 import ConfirmationModal from './confirmationModal'
@@ -27,7 +28,7 @@ export default function BackButton(props){
     const hideModalSave = () => setVisibleSave(false);
 
     const type = props.type ? props.type : 'default'
-    console.log(type)
+    console.log('pasok')
 
     const getSave = () => {
         const data = props.data ? props.data : {}
@@ -80,6 +81,23 @@ export default function BackButton(props){
         }
     }
 
+    const onGoBack = () => {
+        switch(type){
+            case 'default': 
+                props.navigation.goBack()
+                break;
+            case 'direct_home':
+                props.navigation.popToTop()
+                break;
+            default: 
+                showModal()
+        }
+    }
+
+    useBackListener(() => {
+        onGoBack()
+    })
+
     return(
         <SafeAreaView
             style={{
@@ -89,6 +107,7 @@ export default function BackButton(props){
                 position: 'absolute',
                 top: 10,
                 left: 10,
+                display: props.hidden ? 'none' : 'flex'
             }}
         >   
             <ButtonWithIcon
@@ -97,13 +116,7 @@ export default function BackButton(props){
                 style={{paddingVertical: 10, opacity: 0.8}}
                 text="Yes"
                 onPress={() => {
-                    switch(type){
-                        case 'default': 
-                            props.navigation.goBack()
-                            break;
-                        default: 
-                            showModal()
-                    }
+                    onGoBack()
                 }}
             />
 

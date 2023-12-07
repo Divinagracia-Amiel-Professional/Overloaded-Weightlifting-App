@@ -8,6 +8,7 @@ import {
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
 import { ExerciseScreen, RestScreen, BackButton, ConfirmationModal } from '../../components/component-index';
+import useBackListener from '../../custom-hooks/useBackListener';
 
 const recordData = [
     {

@@ -7,7 +7,7 @@ import {
     buttonStyles
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
-import { PostWorkoutMessage } from '../../components/component-index';
+import { PostWorkoutMessage, BackButton } from '../../components/component-index';
 
 export default function PostWorkoutPage({ navigation, route, props}){
     const theme = useTheme()
@@ -23,6 +23,7 @@ export default function PostWorkoutPage({ navigation, route, props}){
                 backgroundColor: theme.colors.primary,
             }}
         >
+            <BackButton navigation={navigation} type='direct_home' hidden={true}/>
             <PostWorkoutMessage
                 theme={theme}
                 isComplete={isComplete}
