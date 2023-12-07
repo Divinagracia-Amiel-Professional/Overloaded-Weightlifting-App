@@ -9,7 +9,7 @@ import GetWorkoutData from '../functions/getWorkoutData';
 import useExercises from '../custom-hooks/useExercises';
 import { db } from '../firebase'
 
-export default function Settings(){
+export default function Profile(){
 
     const path = ['Workouts', 'gxgmfK5Z0bvhN1FkodoQ', 'Cycles', 'cycle_two','Splits']
     const collections = useExercises(db, path)
@@ -17,7 +17,7 @@ export default function Settings(){
 
     return(
         <View style={mainStyles.bodyContainer}>
-            <Text style={textStyles.headerText}>Settings</Text>
+            <Text style={textStyles.headerText}>Profile</Text>
         </View>
     )
 }

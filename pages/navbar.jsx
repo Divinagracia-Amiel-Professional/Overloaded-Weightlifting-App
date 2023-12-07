@@ -18,8 +18,8 @@ import {
     mainStyles,
     textStyles
 } from '../styles/style-index'
-import { Planner, Settings, Tracker } from './pages-index'
-import { Home } from './pages-index'
+import { Planner, Profile as ProfilePage, Tracker, Home } from './pages-index'
+import { Profile } from 'iconsax-react-native'
 
 const Tab = createBottomTabNavigator()
 
@@ -125,12 +125,12 @@ export default function NavBar(){
                 }}
             />
             <Tab.Screen
-                name={'Settings'} 
-                component={gestureHandlerRootHOC(Settings)}
+                name={'Profile'} 
+                component={gestureHandlerRootHOC(ProfilePage)}
                 options={{
-                    tabBarLabel: 'Settings',
+                    tabBarLabel: 'Profile',
                     tabBarIcon: ({size, focused}) => {
-                      return <GearHexa height={size} strokeColor={theme.colors.onBackground} fill={focused ? theme.colors.onBackground : 'none'} />
+                      return <Profile size={size} color={theme.colors.onBackground} variant={focused ? 'Bold' : 'Outline'} />
                     },
                   }}
             />        
