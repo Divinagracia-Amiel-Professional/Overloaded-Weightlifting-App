@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
@@ -15,7 +15,18 @@ import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '..
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function CreateFromScratch({navigation}){
+const workoutReducer = (state, action) => {
+    switch (action.type) {
+      case "ADD_CYCLE":
+        return state.map(prevState => {
+            
+        })
+      default:
+        return state;
+    }
+};
+
+export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
     const [ basicInfo , setBasicInfo ] = useState({
         name: '',
@@ -26,6 +37,8 @@ export default function CreateFromScratch({navigation}){
         ...initCycle
     })
 
+    const [ work, dispatch ] = useReducer(workoutReducer, initCycle)
+
     const cycles = workout.cycles.map(cycle => (
         <CycleSection
             key={cycle.order}
@@ -33,6 +46,7 @@ export default function CreateFromScratch({navigation}){
             split={cycle.split}
             workout={workout}
             setWorkout={setWorkout}
+            navigation={navigation}
         />
     ))
 

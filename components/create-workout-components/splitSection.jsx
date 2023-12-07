@@ -88,6 +88,15 @@ export default function SplitSection(props){
             <AddSectionButton 
                 type='split'
                 text='Add Workout'
+                onPress={() => {
+                    props.navigation.navigate('SelectExercisePage', {
+                        workoutData: {
+                            cycleOrder: props.cycleOrder,
+                            splitOrder: props.splitOrder,
+                            exercises: props.exercises
+                        }
+                    })
+                }}
             />
         </View>
     )

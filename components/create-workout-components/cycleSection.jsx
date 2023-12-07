@@ -28,6 +28,7 @@ export default function CycleSection(props){
             cycleOrder={props.order}
             splitOrder={split.order}
             exercises={split.exercises[0] ? split.exercises : []}
+            navigation={props.navigation}
         />
     ))
 

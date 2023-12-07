@@ -5,6 +5,7 @@ import getLocalDateTime from "./getLocalDateTime";
 import addDays from "./addDays";
 import setWorkoutName from "./setWorkoutName";
 import reorderWorkout from "./reorderWorkout";
+import getAllExercises from "./getAllExercises";
 
 export {
     addWorkoutsToUser,
@@ -13,5 +14,6 @@ export {
     getLocalDateTime,
     addDays,
     setWorkoutName,
-    reorderWorkout
+    reorderWorkout,
+    getAllExercises
 }

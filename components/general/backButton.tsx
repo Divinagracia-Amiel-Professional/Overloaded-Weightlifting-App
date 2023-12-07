@@ -86,8 +86,12 @@ export default function BackButton(props){
             case 'default': 
                 props.navigation.goBack()
                 break;
+            case 'select_exercise_list': 
+                props.navigation.navigate('CreateFromScratch')
+                break;
             case 'direct_home':
                 props.navigation.popToTop()
+                props.navigation.navigate('Home')
                 break;
             case 'create_workout':
                 props.navigation.navigate('Planner')
