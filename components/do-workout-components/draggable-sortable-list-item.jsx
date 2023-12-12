@@ -12,18 +12,35 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 export default function DragListItem(props){
     const theme = useTheme()
 
+    const onDragStart = () => {
+
+    }
+
     return(
         <View
             style={{...listStyles.draggable.listItemContainerWithHamburger
             }}
         >
             <View
-                style={{...listStyles.draggable.HamburgerContainer}}
+                style={{...listStyles.draggable.HamburgerContainer,
+                    backgroundColor: props.isActive ? theme.colors.secondary : theme.colors.background
+                }}
             >
                 <Pressable 
-                    onPressIn={props.onDragStart}
-                    onPressOut={props.onDragEnd}>
-                    <MaterialIcons name={'drag-indicator'} size={30} color={theme.colors.secondary}/>
+                    onPressIn={() => {
+                        props.setScroll(false)
+                    }}
+                    onLongPress={() => {
+                        props.setScroll(false)
+                        props.onDragStart(() => {
+                            console.log('dragged')
+                        })
+                    }}
+                    onPressOut={() => {
+                        props.setScroll(true)
+                        props.onDragEnd()
+                    }}>
+                    <MaterialIcons name={'drag-indicator'} size={30} color={props.isActive ? theme.colors.background : theme.colors.secondary}/>
                 </Pressable>
             </View>
             <View

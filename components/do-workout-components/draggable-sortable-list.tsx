@@ -58,6 +58,8 @@ export default function DraggableSortableList(props) {
         sets={sets}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
+        setScroll={props.setScroll}
+        isActive={isActive}
       />
     );
   }

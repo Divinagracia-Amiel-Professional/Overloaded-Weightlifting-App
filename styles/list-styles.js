@@ -17,8 +17,10 @@ const listStyles = StyleSheet.create({
             alignSelf: 'stretch',
         },
         HamburgerContainer: {
-            paddingRight: 15,
+            marginRight: 15,
             alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'stretch',
             gap: 10,
         },
         ListItemContainer: {

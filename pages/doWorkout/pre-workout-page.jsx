@@ -28,6 +28,8 @@ export default function PreWorkoutPage({navigation, route}){
     }
 
     const [ data, setParentData ] = useState([])
+
+    const [ scroll, setScroll ] = useState(true)
     // console.log(data)
     // for(let i=0; i<data.length; i++){
     //     console.log(data[i].id + ' ' + data[i].item.exercise_obj.name)
@@ -69,12 +71,14 @@ export default function PreWorkoutPage({navigation, route}){
                 }
             </View>
             <ScrollView
+                scrollEnabled={scroll}
                 style={{alignSelf: 'stretch'}}
             >
                 <DraggableSortableList
                     currentWorkout = {currentWorkout}
                     data = {data}
                     post = {setParentData}
+                    setScroll={setScroll}
                 />
             </ScrollView>
             <View
