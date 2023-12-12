@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView, FlatList } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
@@ -24,13 +24,36 @@ export default function SelectExercisePage({navigation, route}){
     const theme = useTheme()
 
     const exercisesDB = getAllExercises()
-    const workoutData = route.params.workoutData
 
-    const exercisesWithAdditionalAttributes = exercisesDB.map(exercise => ({
-        ...exercise,
-        isSelected: false,
-    }))
-    console.log(exercisesDB[0])
+    const dataFromSplit = route.params.workoutData ? route.params.workoutData : []
+
+    const exercisesWithAdditionalAttributes = exercisesDB.map(exercise => {
+        let isSelected = false
+
+        if(dataFromSplit.exercises[0]){
+            isSelected = dataFromSplit.exercises.some(fromSplitExercise => fromSplitExercise.id === exercise.id)
+        }
+        
+        return({
+            ...exercise,
+            isSelected: isSelected
+        })
+    })
+
+    const [ selectedExercises, setSelectedExercises ] = useState(exercisesWithAdditionalAttributes)
+   
+
+    const handleDone = () => {
+        const filtered = selectedExercises.filter(exercise => exercise.isSelected === true)
+        
+        navigation.navigate('CreateFromScratch', {
+            workoutData: {
+                cycleOrder: dataFromSplit.cycleOrder,
+                splitOrder: dataFromSplit.splitOrder,
+                exercises: filtered
+            }
+        })
+    }
 
     const RenderItem = ({ item }) => {
         // const lastItemId = useRef(item.id);
@@ -44,8 +67,9 @@ export default function SelectExercisePage({navigation, route}){
             <SelectExerciseListItem
                 key={item.id}
                 item={item}
-                name={item.name}
-                isSelected={item.isSelected}  
+                isSelected={item.isSelected}
+                exercises={selectedExercises}
+                setSelected={setSelectedExercises}
             />
         ) 
     }
@@ -66,7 +90,7 @@ export default function SelectExercisePage({navigation, route}){
                 <Text>Select Exercises</Text>
             </View>
             <FlashList
-                data={exercisesWithAdditionalAttributes}
+                data={selectedExercises}
                 renderItem={RenderItem}
                 contentContainerStyle={{
                     paddingHorizontal: 15
@@ -74,7 +98,43 @@ export default function SelectExercisePage({navigation, route}){
                 estimatedItemSize={100}
                 scrollEnabled={true}
             />
-            
+            <View
+                style={{...buttonStyles.bottomAbsoluteContainer,
+                    backgroundColor: theme.colors.background,
+                    borderColor: theme.colors.customLightGray,
+                    flexDirection: 'row'
+                    }}
+            >
+                <Pressable style={{...buttonStyles.bottomAbsoluteButton,
+                    backgroundColor: theme.colors.primary
+                    }}
+                    onPress={() => {
+                        handleDone()
+                    }}
+                >
+                    <Text
+                        style={{...buttonStyles.bottomAbsoluteButtonText,
+                            color: theme.colors.background
+                            }}
+                    >Done</Text>
+                </Pressable>
+                <Pressable 
+                    style={{...buttonStyles.bottomAbsoluteButton,
+                        backgroundColor: 'transparent',
+                        borderWidth: 1,
+                        borderColor: theme.colors.secondary
+                    }}
+                    onPress={() => {
+                        setSelectedExercises(exercisesWithAdditionalAttributes)
+                    }}
+                >
+                    <Text
+                        style={{...buttonStyles.bottomAbsoluteButtonText,
+                            color: theme.colors.secondary
+                            }}
+                    >Reset</Text>
+                </Pressable>
+            </View>
             {/* <ScrollView
             style={{...mainStyles.PremadeScrollView,
                 paddingHorizontal: 0,

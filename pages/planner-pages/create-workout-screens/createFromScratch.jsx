@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
@@ -27,6 +27,24 @@ export default function CreateFromScratch({navigation, route}){
         ...initCycle
     })
 
+    const routeParams = route.params ? route.params.workoutData : ''
+
+    const updateExercises = () => {
+        if(routeParams){
+            console.log('hello')
+            const { cycleOrder, splitOrder, exercises } = route.params.workoutData
+            const previousWorkout = workout
+            
+            previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises = [...exercises]
+
+            setWorkout({...previousWorkout})
+        }
+    }
+
+    useEffect(() => {
+        updateExercises()
+    }, [routeParams])
+
     const cycles = workout.cycles.map(cycle => (
         <CycleSection
             key={cycle.order}
@@ -37,6 +55,26 @@ export default function CreateFromScratch({navigation, route}){
             navigation={navigation}
         />
     ))
+
+    const handleAddCycle = () => {
+        setWorkout(prevState => ({
+            cycles: [
+                ...prevState.cycles,
+                {
+                    order: prevState.cycles[prevState.cycles.length - 1].order + 1,
+                    split: [
+                        {
+                            name: 'Split 1',
+                            order: 1,
+                            exercises: [
+        
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }))
+    }
 
     return(
         <SafeAreaView
@@ -79,23 +117,7 @@ export default function CreateFromScratch({navigation, route}){
                     type='cycle'
                     text='Add Cycle'
                     onPress={() => {
-                        setWorkout(prevState => ({
-                            cycles: [
-                                ...prevState.cycles,
-                                {
-                                    order: prevState.cycles[prevState.cycles.length - 1].order + 1,
-                                    split: [
-                                        {
-                                            name: 'Split 1',
-                                            order: 1,
-                                            exercises: [
-                        
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }))
+                        handleAddCycle()
                     }}
                 />
             </ScrollView>

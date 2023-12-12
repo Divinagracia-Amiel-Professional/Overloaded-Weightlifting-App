@@ -18,8 +18,8 @@ export default function AddSectionButton(props){
     return(
         <Pressable
             style={{...buttonStyles.fromScratch.addSectionButton.container,
+                height: props.type === 'cycle' ? 150 : 75,
                 margin: props.type === 'cycle' ? 15 : 0,
-                paddingVertical: props.type === 'cycle' ? 40 : 20
             }}
             onPress={props.onPress ? props.onPress : () => {}}
         >

@@ -13,7 +13,7 @@ export default function reorderWorkout(data){
                 return({
                     ...split,
                     order: splitCount,
-                    exercises: []
+                    exercises: split.exercises
                 })
             })
         })

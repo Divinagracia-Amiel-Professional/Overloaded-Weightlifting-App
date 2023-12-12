@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, Pressable } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import { 
@@ -11,21 +11,60 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
 export default function SelectExerciseListItem(props){
     const theme = useTheme()
+    const [ isSelected, setIsSelected ] = useState(props.isSelected);
+
+    useEffect(() => {
+        setIsSelected(props.isSelected)
+    }, [props.isSelected])
+
+    const handleLongPressSelect = () => {
+        // const prevData = [...props.exercises]
+        // const index = prevData.findIndex(exercise => exercise.id === props.item.id)
+        
+        // prevData[index].isSelected = true
+        // console.log(prevData[index])
+
+        // // console.log(prevData)
+
+
+        // props.setSelected(prevData)
+    }
+
+    const handlePress = () => {
+        const prevData = [...props.exercises]
+        const index = prevData.findIndex(exercise => exercise.id === props.item.id)
+
+        if(props.isSelected){
+            prevData[index].isSelected = false
+            console.log(prevData[index])
+
+            props.setSelected(prevData)
+        } else { 
+            prevData[index].isSelected = true
+            console.log(prevData[index])
+
+            props.setSelected(prevData)
+        }
+    }
 
     return(
-        <View
-            style={{...listStyles.draggable.listItemContainerWithHamburger
+        <Pressable
+            // onLongPress={() => {
+            //     handlePress()
+            // }}
+            onPress={() => {
+                handlePress()
+            }}
+            // onPressIn={props.onDragStart}
+            // onPressOut={props.onDragEnd}
+            style={{...listStyles.draggable.listItemContainerWithHamburger,
+                ...props.containerStyle,
             }}
         >
             <View
                 style={{...listStyles.draggable.HamburgerContainer}}
-            >
-                <Pressable
-                    onLongPress={() => {}}
-                    onPressIn={props.onDragStart}
-                    onPressOut={props.onDragEnd}>
-                    <MaterialIcons name={'radio-button-unchecked'} size={25} color={theme.colors.secondary}/>
-                </Pressable>
+            >  
+                <MaterialIcons name={`radio-button-${!isSelected ? 'un' : ''}checked`} size={25} color={theme.colors.secondary}/>
             </View>
             <View
                 style={{...listStyles.draggable.ListItemContainer,
@@ -44,7 +83,7 @@ export default function SelectExerciseListItem(props){
                             style={{...textStyles.list.draggable.headerText,
                                 color: theme.colors.secondary,
                             }}
-                        >{props.name}</Text>
+                        >{props.item.name}</Text>
                         <Pressable
                     
                         >
@@ -53,6 +92,6 @@ export default function SelectExerciseListItem(props){
                     </View>
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }

@@ -13,16 +13,18 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit, Edit2 } from 'iconsax-react-native'
 import { reorderWorkout } from '../../functions/functions-index';
 import AddSectionButton from './addSectionButton';
-
+import ExerciseItem from './exerciseItem';
 
 export default function SplitSection(props){
     const theme = useTheme()
 
-    const exercises = props.exercises.map(exercises => (
-        <View>
-            <Text>Hello</Text>
-        </View>
-    ))
+    const exercises = props.exercises[0] ? props.exercises.map(exercise => (
+        <ExerciseItem 
+            key={exercise.id}
+            id={exercise.id}
+            item={exercise}
+        />
+    )) : null
 
     const handleEdit = () => {
 
