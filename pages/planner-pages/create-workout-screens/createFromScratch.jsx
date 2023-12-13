@@ -31,11 +31,44 @@ export default function CreateFromScratch({navigation, route}){
 
     const updateExercises = () => {
         if(routeParams){
-            console.log('hello')
             const { cycleOrder, splitOrder, exercises } = route.params.workoutData
-            const previousWorkout = workout
-            
-            previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises = [...exercises]
+            const previousWorkout = workout 
+            let previousExercises = previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises
+            const newExercises = exercises.filter(exercise => {
+                return !previousExercises.some(prev => prev.id === exercise.id)
+            })
+
+            let newExercisesFormatted 
+
+            let count = 0
+            newExercisesFormatted = newExercises.map(exercise => {
+            count++
+                return({
+                    id: exercise.id,
+                    name: exercise.name,
+                    workoutData: {
+                        order: count,
+                        rep_end: 8,
+                        rep_start: 6,
+                        rest_increment: 30,
+                        rest_initial: 60,
+                        set_count: 3
+                    }
+                })
+            })
+
+            // if(previousExercises >= exercises){
+                previousExercises = previousExercises.filter(prevExercise => {
+                    return exercises.some(exercise => exercise.id === prevExercise.id)
+                })
+            // }
+
+            previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises = [ 
+                ...previousExercises,
+                ...newExercisesFormatted
+            ]
+
+            console.log(previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises)
 
             setWorkout({...previousWorkout})
         }

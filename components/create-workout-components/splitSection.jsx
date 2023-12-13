@@ -18,16 +18,35 @@ import ExerciseItem from './exerciseItem';
 export default function SplitSection(props){
     const theme = useTheme()
 
+    const [ isReordering, setIsReordering ] = useState(false)
+
     const exercises = props.exercises[0] ? props.exercises.map(exercise => (
         <ExerciseItem 
             key={exercise.id}
             id={exercise.id}
-            item={exercise}
+            name={exercise.name}
+            workoutData={exercise.workoutData}
+            workout={props.workout}
+            setWorkout={props.setWorkout}
         />
     )) : null
 
-    const handleEdit = () => {
+    const handleRename = () => {
 
+    }
+
+    const handleReorder = () => {
+        setIsReordering(prevData => !prevData)
+    }
+
+    const handleAddWorkout = () => {
+        props.navigation.navigate('SelectExercisePage', {
+            workoutData: {
+                cycleOrder: props.cycleOrder,
+                splitOrder: props.splitOrder,
+                exercises: props.exercises
+            }
+        })
     }
 
     const handleDelete = () => {
@@ -53,6 +72,33 @@ export default function SplitSection(props){
         })
     }
 
+    const mainBody = (
+        <>
+            {/* <View
+                style={{
+                    gap: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    alignSelf: 'stretch',
+                }}
+            > */}
+                { exercises }
+            {/* </View> */}
+            <AddSectionButton 
+                type='split'
+                text='Add Workout'
+                onPress={() => {
+                    handleAddWorkout()
+                }}
+            />
+        </>
+    )
+
+    const draglist = (
+        <>
+        </>
+    )
+
     return(
         <View
             style={{
@@ -74,6 +120,13 @@ export default function SplitSection(props){
                 <Pressable>
                     <Edit2 size={30} color={theme.colors.onBackground}/>
                 </Pressable>
+                <Pressable
+                    onPress={() => {
+                        handleReorder()
+                    }}
+                >
+                    <MaterialIcons name="reorder" size={30} color={isReordering ? theme.colors.primary : theme.colors.onBackground}/>
+                </Pressable>
                 {
                     props.splitOrder !== 1 &&
                     <Pressable
@@ -84,22 +137,8 @@ export default function SplitSection(props){
                         <MaterialIcons name="delete-forever" size={30} color={theme.colors.onBackground}/>
                     </Pressable>
                 }
-                
             </View>
-            { exercises }
-            <AddSectionButton 
-                type='split'
-                text='Add Workout'
-                onPress={() => {
-                    props.navigation.navigate('SelectExercisePage', {
-                        workoutData: {
-                            cycleOrder: props.cycleOrder,
-                            splitOrder: props.splitOrder,
-                            exercises: props.exercises
-                        }
-                    })
-                }}
-            />
+            { mainBody }
         </View>
     )
 }
