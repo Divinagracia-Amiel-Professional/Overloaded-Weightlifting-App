@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, Pressable } from 'react-native'
+import React, { useEffect, useState, memo } from 'react'
+import { View, Text, Pressable, TextInput, StyleSheet } from 'react-native'
 import { useTheme, Portal, Modal } from 'react-native-paper'
 import { 
   textStyles,
@@ -10,8 +10,10 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import RestInputs from '../do-workout-components/screens/components/restInputs'
+import EditExerciseModal from './editExerciseModal'
 
-export default function ExerciseItem(props){
+const ExerciseItem = (props) => {
     const theme = useTheme()
 
     const [ visible, setVisible ] = useState(false)
@@ -79,7 +81,7 @@ export default function ExerciseItem(props){
                 paddingHorizontal: 15,
             }}
         >   
-            <EditModal 
+            <EditExerciseModal
                 visible={visible}
                 setVisible={showModal}
                 hideModal={hideModal}
@@ -141,49 +143,14 @@ export default function ExerciseItem(props){
                         handleEdit()
                     }}
                 >
-                    <MaterialIcons name="tune" size={20} color={theme.colors.onBackground}/>
+                    <MaterialIcons name="tune" size={25} color={theme.colors.onBackground}/>
                 </Pressable>
                 <Pressable>
-                    <MaterialIcons name="delete-forever" size={20} color={theme.colors.onBackground}/>
+                    <MaterialIcons name="delete-forever" size={25} color={theme.colors.onBackground}/>
                 </Pressable>
-                <Pressable
-            
-                >
-                    <Feather name={'info'} size={15} color={theme.colors.secondary} />
-                </Pressable>  
             </View>  
         </View>
     )
 }
 
-const EditModal = (props) => {
-    const theme = useTheme()
-
-    return(
-        <Portal>
-            <Modal 
-                visible={props.visible} 
-                onDismiss={props.hideModal} 
-                dismissable={true}
-                dismissableBackButton={true}
-                contentContainerStyle={{...cardStyles.manageWorkoutModal.container,
-                    backgroundColor: theme.colors.tertiaryContainer
-            }}>
-
-                    <Text
-                        style={{...textStyles.cardHeaderText}}
-                    >{props.prompt}</Text>
-                    <View
-                        style={cardStyles.manageWorkoutModal.buttonContainer}
-                    >
-                        
-                    </View>
-            </Modal>
-        </Portal>
-    )
-}
-
-const EditExerciseForm = () => {
-    const theme = useTheme()
-    
-}
+export default memo(ExerciseItem)

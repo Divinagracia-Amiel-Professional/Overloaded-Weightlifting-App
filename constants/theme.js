@@ -6,7 +6,7 @@ const lightTheme = {
     "onPrimaryContainer": "#FFFFFF",
     "secondary": "#3D2B3D",
     "onSecondary": "rgb(255, 255, 255)",
-    "secondaryContainer": "transparent",
+    "secondaryContainer": "#3D2B3D",
     "onSecondaryContainer": "rgb(54, 0, 62)",
     "tertiary": "rgb(176, 46, 0)",
     "onTertiary": "rgb(255, 255, 255)",

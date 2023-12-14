@@ -12,7 +12,7 @@ import { Logo, Calendar } from '../constants/icons';
 
 import initializeDBSync from '../custom-hooks/initDBsync';
 import getCurrentlyUsedWorkoutObject from '../custom-hooks/getCurrentlyUsedWorkoutObject';
-import { getLocalDateTime, addDays } from '../functions/functions-index';
+import { getLocalDateTime, addDays, toHash } from '../functions/functions-index';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';

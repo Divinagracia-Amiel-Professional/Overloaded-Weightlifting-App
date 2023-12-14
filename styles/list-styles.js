@@ -54,7 +54,7 @@ const listStyles = StyleSheet.create({
         container: {
             margin: 0,
             flexGrow: 1,
-            alignSelf: 'center',
+            alignSelf: 'stretch',
             
             // borderBottomColor: 'gray',
             // borderBottomWidth: 0.5,

@@ -10,7 +10,7 @@ import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Add, CalendarEdit } from 'iconsax-react-native'
+import { Add, CalendarEdit, Edit2 } from 'iconsax-react-native'
 import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '../../../components/component-index';
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -26,6 +26,12 @@ export default function CreateFromScratch({navigation, route}){
     const [ workout, setWorkout ] = useState({
         ...initCycle
     })
+
+    const [ isReordering, setIsReordering ] = useState(false)
+    
+    const handleReorder = () => {
+        setIsReordering(prevData => !prevData)
+    }
 
     const routeParams = route.params ? route.params.workoutData : ''
 
@@ -70,7 +76,13 @@ export default function CreateFromScratch({navigation, route}){
 
             console.log(previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises)
 
-            setWorkout({...previousWorkout})
+            const reordered = reorderWorkout(previousWorkout.cycles)
+
+            setWorkout({
+                cycles: [
+                    ...reordered
+                ]
+            })
         }
     }
 
@@ -109,6 +121,39 @@ export default function CreateFromScratch({navigation, route}){
         }))
     }
 
+    const WorkoutBody = (
+        <View
+            style={{
+                alignSelf: 'stretch',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 0
+            }}
+        >
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignSelf: 'stretch',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 10
+                }}
+            >
+            <Text>{basicInfo.name ? basicInfo.name : 'Unnamed Workout'}</Text>
+            <Pressable
+                onPress={() => {
+                    handleReorder()
+                }}
+            >
+                <MaterialIcons name="reorder" size={30} color={isReordering ? theme.colors.primary : theme.colors.onBackground}/>
+            </Pressable> 
+            </View>
+
+            {cycles} 
+
+        </View> 
+    )
+
     return(
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
@@ -144,7 +189,7 @@ export default function CreateFromScratch({navigation, route}){
                     setBasicInfo={setBasicInfo}
                 />
 
-                {cycles}
+                { WorkoutBody }
 
                 <AddSectionButton
                     type='cycle'

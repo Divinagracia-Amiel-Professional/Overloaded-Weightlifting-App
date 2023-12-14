@@ -6,6 +6,7 @@ import addDays from "./addDays";
 import setWorkoutName from "./setWorkoutName";
 import reorderWorkout from "./reorderWorkout";
 import getAllExercises from "./getAllExercises";
+import toHash from "./toHash";
 
 export {
     addWorkoutsToUser,
@@ -15,5 +16,6 @@ export {
     addDays,
     setWorkoutName,
     reorderWorkout,
-    getAllExercises
+    getAllExercises,
+    toHash
 }

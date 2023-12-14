@@ -26,6 +26,14 @@ const Tab = createBottomTabNavigator()
 export default function NavBar(){
     const theme = useTheme()
 
+    const customTheme = {
+      ...theme,
+      "colors": {
+        ...theme.colors,
+        "secondaryContainer" : "transparent"
+      }
+    }
+
     return(
         <Tab.Navigator 
           detachInactiveScreens={true}
@@ -39,8 +47,10 @@ export default function NavBar(){
              inactiveColor={theme.colors.onBackground}
              activeColor={theme.colors.onBackground}
              style={{
-              backgroundColor: theme.colors.tertiaryContainer
+              backgroundColor: theme.colors.tertiaryContainer,
              }}
+
+             theme={customTheme}
 
              navigationState={state}
              safeAreaInsets={{insets}}

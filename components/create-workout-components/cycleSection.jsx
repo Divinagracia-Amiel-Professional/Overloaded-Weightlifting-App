@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import {
@@ -16,13 +16,14 @@ import SplitSection from './splitSection';
 import { textSizes } from '../../constants/theme';
 import { reorderWorkout } from '../../functions/functions-index'; //only takes the cycle array
 
-export default function CycleSection(props){
+const CycleSection = (props) => {
     const theme = useTheme()
 
     const splits = props.split.map(split => (
         <SplitSection 
             key={split.order}
             name={split.name}
+            splitArr={props.split}
             workout={props.workout}
             setWorkout={props.setWorkout}
             cycleOrder={props.order}
@@ -31,6 +32,12 @@ export default function CycleSection(props){
             navigation={props.navigation}
         />
     ))
+
+    const [ isReordering, setIsReordering ] = useState(false)
+
+    const handleReorder = () => {
+        setIsReordering(prevData => !prevData)
+    }
 
     const handleAdd = () => {
         const data = props.workout.cycles
@@ -77,6 +84,13 @@ export default function CycleSection(props){
                 style={{...mainStyles.fromScratch.cycleSection.headerContainer}}
             >
                 <Text>Cycle {props.order}</Text>
+                <Pressable
+                    onPress={() => {
+                        handleReorder()
+                    }}
+                >
+                    <MaterialIcons name="reorder" size={25} color={isReordering ? theme.colors.primary : theme.colors.onBackground}/>
+                </Pressable>
                 { 
                     props.order !== 1 &&
                     <Pressable
@@ -84,7 +98,7 @@ export default function CycleSection(props){
                             handleDelete()
                         }}
                     >
-                        <MaterialIcons name="delete-forever" size={30} color={theme.colors.onBackground}/>
+                        <MaterialIcons name="delete-forever" size={25} color={theme.colors.onBackground}/>
                     </Pressable>
                 }
             </View>
@@ -111,3 +125,5 @@ const initSplit = {
 
     ]
 }
+
+export default memo(CycleSection)
