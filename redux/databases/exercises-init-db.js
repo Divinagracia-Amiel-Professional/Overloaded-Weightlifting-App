@@ -22,6 +22,30 @@ import facePullsLying from "./exercise-objects/face-pulls-lying"
 import latPulldowns from "./exercise-objects/lat-pulldowns"
 import preacherCurls from "./exercise-objects/preacher-curls"
 import pullUps from "./exercise-objects/pull-ups"
+import arnoldPress from "./exercise-objects/arnold-press"
+import backSquats from "./exercise-objects/back-squats"
+import cableAbCrunches from "./exercise-objects/cable-ab-crunches"
+import cableTricepKickbacks from "./exercise-objects/cable-tricep-kickbacks"
+import cableWoodChops from "./exercise-objects/cable-wood-chops"
+import calfPress from "./exercise-objects/calf-press"
+import closeGripBenchPress from "./exercise-objects/close-grip-bench-press"
+import declinedBarbellBenchPress from "./exercise-objects/declined-barbell-bench-press"
+import declinedCableFly from "./exercise-objects/declined-cable-fly"
+import dumbbellCurls from "./exercise-objects/dumbbell-curls"
+import dumbbellLateralRaise from "./exercise-objects/dumbbell-lateral-raise"
+import dumbbellRearDeltRaise from "./exercise-objects/dumbbell-rear-delt-raise"
+import dumbbellTricepKickback from "./exercise-objects/dumbbell-tricep-kickback"
+import elevatedTrianglePushUps from "./exercise-objects/elevated-triangle-push-ups"
+import enhancedEccentricEzBarCurl from "./exercise-objects/enhanced-eccentric-ez-bar-curl"
+import enhancedSeatedSingleLegPull from "./exercise-objects/enhanced-seated-single-leg-pull"
+import ezBarbellCurl from "./exercise-objects/ez-barbell-curl"
+import frontSquats from "./exercise-objects/front-squats"
+import gluteHamRaises from "./exercise-objects/glute-ham-raises"
+import hammerCurl from "./exercise-objects/hammer-curl"
+import inclinedBarbellBenchPress from "./exercise-objects/inclined-barbell-bench-press"
+import inclinedDumbbellCurl from "./exercise-objects/inclined-dumbbell-curl"
+import inclinedDumbbellOverheadExtension from "./exercise-objects/inclined-dumbbell-overhead-extension"
+import kneelingFacePulls from "./exercise-objects/kneeling-face-pulls"
 
 export default [
     calfPressLegPressMachineSingle,
@@ -47,5 +71,29 @@ export default [
     facePullsLying,
     latPulldowns,
     preacherCurls,
-    pullUps
+    pullUps,
+    arnoldPress,
+    backSquats,
+    cableAbCrunches,
+    cableTricepKickbacks,
+    cableWoodChops,
+    calfPress,
+    closeGripBenchPress,
+    declinedBarbellBenchPress,
+    declinedCableFly,
+    dumbbellCurls,
+    dumbbellLateralRaise,
+    dumbbellRearDeltRaise,
+    dumbbellTricepKickback,
+    elevatedTrianglePushUps,
+    enhancedEccentricEzBarCurl,
+    enhancedSeatedSingleLegPull,
+    ezBarbellCurl,
+    frontSquats,
+    gluteHamRaises,
+    hammerCurl,
+    inclinedBarbellBenchPress,
+    inclinedDumbbellCurl,
+    inclinedDumbbellOverheadExtension,
+    kneelingFacePulls
 ]
