@@ -5,12 +5,12 @@ export default function reorderWorkout(data){
     const cycles = data
     const toConvert = cycles.map(cycle => {
         let splitCount = 0
-        let exerciseCount = 0
         count++
         return({
             order: count,
             split: cycle.split.map(split => {
                 splitCount++
+                let exerciseCount = 0
                 return({
                     ...split,
                     order: splitCount,

@@ -12,6 +12,7 @@ import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import RestInputs from '../do-workout-components/screens/components/restInputs'
 import EditExerciseModal from './editExerciseModal'
+import reorderWorkout from '../../functions/reorderWorkout'
 
 const ExerciseItem = (props) => {
     const theme = useTheme()
@@ -31,8 +32,24 @@ const ExerciseItem = (props) => {
 
     const { start, end, sets, increment, initial } = workoutData
 
-    const handleLongPressSelect = () => {
-    
+    const handleDelete = () => {
+        const cycles = props.workout.cycles
+        const exercises = cycles[props.cycleOrder - 1].split[props.splitOrder - 1].exercises
+        
+        exercises.splice(props.exerciseOrder - 1, 1)
+
+        console.log(exercises)
+
+        cycles[props.cycleOrder - 1].split[props.splitOrder - 1].exercises = exercises
+
+        const reordered = reorderWorkout(cycles)
+
+        props.setWorkout({
+            cycles: [
+                ...reordered
+            ]
+        })
+
     }
 
     const handleEdit = () => {
@@ -86,6 +103,8 @@ const ExerciseItem = (props) => {
                 setVisible={showModal}
                 hideModal={hideModal}
                 workoutData={workoutData}
+
+                thisExerciseData={{...props}}
             />
             <Feather name={'image'} size={50} color={theme.colors.secondary} />
             <View
@@ -145,7 +164,11 @@ const ExerciseItem = (props) => {
                 >
                     <MaterialIcons name="tune" size={25} color={theme.colors.onBackground}/>
                 </Pressable>
-                <Pressable>
+                <Pressable
+                    onPress={() => {
+                        handleDelete()
+                    }}
+                >
                     <MaterialIcons name="delete-forever" size={25} color={theme.colors.onBackground}/>
                 </Pressable>
             </View>  

@@ -3,39 +3,36 @@ import { View, Text, Pressable, TouchableOpacity, ScrollView } from 'react-nativ
 import DragList, { DragListRenderItemInfo } from 'react-native-draglist'
 import { useTheme } from 'react-native-paper'
 import { 
-  listStyles
+  listStyles,
+  buttonStyles
 } from '../../styles/style-index'
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux'
 import DraglistExerciseItem from './draglistExerciseItem'
+import { Gesture, GestureDetector } from 'react-native-gesture-handler'
+import formatData from '../../functions/formatData'
+import reorderWorkout from '../../functions/reorderWorkout'
 
 let DragListStyle = {}
 
-export default function DraggableSortableList(props) {
+export default function ReorderList(props) { //Component for reordering cycles, splits, and exercises in Create From Scratch Page
   const theme = useTheme()
 
-  const propsExercises = []
-
-  const [ exercises, setExercises ] = useState([])
+  const data = formatData(props.data, props.type)
 
   function keyExtractor(item) {
-    return item.item.exercise_id;
+    return item.order;
   }
 
   function renderItem(info: DragListRenderItemInfo<string>) {
-    const {item, onDragStart, onDragEnd, isActive} = info;
-
-    const name = item.item.exercise_obj.name
-    const rep_end = item.item.workout_data.rep_end
-    const rep_start =  item.item.workout_data.rep_start
-    const sets = item.item.workout_data.set_count
+    const {item, onDragStart, onDragEnd, isActive} = info;8
 
     return (
-      <DragListItem
-        key={item.id}
-        name={name}
-        start={rep_start}
-        end={rep_end}
-        sets={sets}
+      <DraglistExerciseItem
+        key={item.order}
+        order={item.order}
+        name={item.name}
+        data={item.data}
+        type={item.type}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
         setScroll={props.setScroll}
@@ -45,29 +42,44 @@ export default function DraggableSortableList(props) {
   }
 
   async function onReordered(fromIndex: number, toIndex: number) {
-    const copy = [...props.data]; // Don't modify react data in-place
+    const copy = [...data]; // Don't modify react data in-place
     const removed = copy.splice(fromIndex, 1);
 
     copy.splice(toIndex, 0, removed[0]); // Now insert at the new post
 
-    let count = -1
-    const toConvert = copy
-    const final_arr = toConvert.map(item => {
-        count++
-        return(
-          {
-            id: count,
-            item: {...item.item,
-              workout_data : {
-                ...item.item.workout_data,
-                order: count + 1
-              }
-            }
-          }
-        )
-      })
+    const reformatted = reformatData(copy)
 
-    props.post(final_arr);
+    const cycles = props.type === 'cycle' ? [] : [...props.workout.cycles]
+
+    switch(props.type){
+      case 'cycle':
+        props.post([
+          ...reformatted
+        ]);
+        break;
+      case 'split':
+        cycles[props.cycleOrder - 1].split = reformatted
+
+        updateWorkout(cycles)
+        break;
+      case 'exercise':
+        cycles[props.cycleOrder - 1].split[props.splitOrder - 1].exercises = reformatted
+  
+        updateWorkout(cycles)
+        break;
+    }
+  }
+
+  const updateWorkout = (cycles) => {
+    const updatedCycle = cycles
+
+    const resetOrder = reorderWorkout(updatedCycle)
+
+    props.post({
+      cycles: [
+          ...resetOrder
+      ]
+    })
   }
 
   return (
@@ -76,35 +88,76 @@ export default function DraggableSortableList(props) {
     //   // contentContainerStyle={{justifyContent: 'center',
     //   // alignSelf: 'stretch',}}
     // >
-    <View
-      style={{
-        ...listStyles.draggable.listContainer,
-        paddingBottom: 100,
-      }}
-
-      // contentContainerStyle={{
-      //   justifyContent: 'center',
-      //   alignSelf: 'stretch',
-      // }}
-    >
-      <DragList
-        data={props.data}
-        keyExtractor={keyExtractor}
-        onReordered={onReordered}
-        renderItem={renderItem}
-        scrollEnabled={false}
-        // onScroll={() => {
-        //   console.log('scrolled')
-        // }}
+    <GestureDetector gesture={props.onGesture ? props.onGesture : Gesture.Tap()}>
+      <View
+        collapsable={false}
         style={{
-          flexGrow: 0,
-          // paddingBottom: 200,
-          // backgroundColor: 'red'
+          alignSelf: 'stretch',
+          margin: props.type === 'exercise' ? 0 : 15,
         }}
-      />
-    </View>
+
+        // contentContainerStyle={{
+        //   justifyContent: 'center',
+        //   alignSelf: 'stretch',
+        // }}
+      >
+        <DragList
+          data={data}
+          keyExtractor={keyExtractor}
+          onReordered={onReordered}
+          renderItem={renderItem}
+          scrollEnabled={false}
+          // onScroll={() => {
+          //   console.log('scrolled')
+          // }}
+          style={{
+            flexGrow: 0,
+            // paddingBottom: 200,
+            // backgroundColor: 'red'
+          }}
+        />
+      </View>
+    </GestureDetector>
     // </ScrollView> 
     :
-    <Text>...Loading</Text>
+    <View
+      style={{...buttonStyles.fromScratch.addSectionButton.container,
+        height: 75
+      }}
+    >
+      <Text>No Exercises to Reorder</Text>
+    </View>
   );
 }
+
+const reformatData = (data) => {
+  const reformatted = data.map(item => ({
+    ...item.data
+  }))
+
+  return reformatted
+}
+
+// const reorderData = (data, type) => {
+//   let count = 0
+
+//   // const reordered = data.map(item => {
+//   //   count++ =
+//   // })
+  
+//   // switch (type) {
+//   //   case 'exercise':
+//   //     reordered = data.map(exercise => {
+//   //       count++
+//   //       return({
+
+//   //       })
+//   //     })
+//   //     break;
+//   //   default:
+
+//   //     break;
+//   // }
+
+//   return reordered
+// }

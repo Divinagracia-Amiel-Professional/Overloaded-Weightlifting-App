@@ -105,7 +105,7 @@ export default function NavBar(){
         >
             <Tab.Screen
                 name='Home'
-                component={gestureHandlerRootHOC(Home)}
+                component={(Home)}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({size, focused}) => {
@@ -115,7 +115,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Planner'} 
-                component={gestureHandlerRootHOC(Planner)}
+                component={(Planner)}
                 options={{
                     tabBarLabel: 'Planner',
                     tabBarIcon: ({size, focused}) => {
@@ -126,7 +126,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Tracker'} 
-                component={gestureHandlerRootHOC(Tracker)}
+                component={(Tracker)}
                 options={{
                     tabBarLabel: 'Tracker',
                     tabBarIcon: ({size, focused}) => {
@@ -136,7 +136,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Profile'} 
-                component={gestureHandlerRootHOC(ProfilePage)}
+                component={(ProfilePage)}
                 options={{
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({size, focused}) => {

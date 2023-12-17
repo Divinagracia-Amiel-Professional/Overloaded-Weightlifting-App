@@ -14,7 +14,24 @@ import { Add, CalendarEdit, Edit2 } from 'iconsax-react-native'
 import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '../../../components/component-index';
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { reorderWorkout } from '../../../functions/functions-index';
+import { reorderWorkout, formatData as formatForReorder } from '../../../functions/functions-index';
+import ReorderList from '../../../components/create-workout-components/draggable-list';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+
+const initCycle = {
+    cycles: [
+        {
+            order: 1,
+            split: [
+                {
+                    name: 'Split 1',
+                    order: 1,
+                    exercises: []
+                }
+            ]
+        }
+    ]
+}
 
 export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
@@ -27,76 +44,112 @@ export default function CreateFromScratch({navigation, route}){
         ...initCycle
     })
 
+    const [ scroll, setScroll ] = useState(true)
+
+    console.log(scroll)
+
+    const [ reorderingData, setReorderingData ] = useState(workout.cycles)
     const [ isReordering, setIsReordering ] = useState(false)
+
+    useEffect(() => {
+        setReorderingData(workout.cycles)
+    }, [workout])
     
     const handleReorder = () => {
         setIsReordering(prevData => !prevData)
-    }
-
-    const routeParams = route.params ? route.params.workoutData : ''
-
-    const updateExercises = () => {
-        if(routeParams){
-            const { cycleOrder, splitOrder, exercises } = route.params.workoutData
-            const previousWorkout = workout 
-            let previousExercises = previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises
-            const newExercises = exercises.filter(exercise => {
-                return !previousExercises.some(prev => prev.id === exercise.id)
-            })
-
-            let newExercisesFormatted 
-
-            let count = 0
-            newExercisesFormatted = newExercises.map(exercise => {
-            count++
-                return({
-                    id: exercise.id,
-                    name: exercise.name,
-                    workoutData: {
-                        order: count,
-                        rep_end: 8,
-                        rep_start: 6,
-                        rest_increment: 30,
-                        rest_initial: 60,
-                        set_count: 3
-                    }
-                })
-            })
-
-            // if(previousExercises >= exercises){
-                previousExercises = previousExercises.filter(prevExercise => {
-                    return exercises.some(exercise => exercise.id === prevExercise.id)
-                })
-            // }
-
-            previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises = [ 
-                ...previousExercises,
-                ...newExercisesFormatted
-            ]
-
-            console.log(previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises)
-
-            const reordered = reorderWorkout(previousWorkout.cycles)
+        
+        if(isReordering){ 
+            console.log(reorderingData)   
+            const resetOrder = reorderWorkout(reorderingData)
 
             setWorkout({
                 cycles: [
-                    ...reordered
+                    ...resetOrder
                 ]
             })
         }
     }
 
+    const routeParams = route.params ? route.params.workoutData : ''
+    const isEdit = route.params ? route.params.isEdit : false
+
+    const updateWorkout = () => { //function on how to update workout whether it is from edit workout page or from select exercises page
+        if(routeParams){
+            if(!isEdit){
+                updateExercises()
+            }
+            else{
+                getToEditData()
+            }
+        }
+    }
+
+    const updateExercises = () => { //function to update exercises in workout if user is from select exercises page
+        const { cycleOrder, splitOrder, exercises } = route.params.workoutData
+        const previousWorkout = workout 
+        let previousExercises = previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises
+        const newExercises = exercises.filter(exercise => {
+            return !previousExercises.some(prev => prev.id === exercise.id)
+        })
+
+        let newExercisesFormatted 
+
+        let count = 0
+        newExercisesFormatted = newExercises.map(exercise => {
+        count++
+            return({
+                id: exercise.id,
+                name: exercise.name,
+                workoutData: {
+                    order: count,
+                    rep_end: 8,
+                    rep_start: 6,
+                    rest_increment: 30,
+                    rest_initial: 60,
+                    set_count: 3
+                }
+            })
+        })
+
+        // if(previousExercises >= exercises){
+            previousExercises = previousExercises.filter(prevExercise => {
+                return exercises.some(exercise => exercise.id === prevExercise.id)
+            })
+        // }
+
+        previousWorkout.cycles[cycleOrder - 1].split[splitOrder - 1].exercises = [ 
+            ...previousExercises,
+            ...newExercisesFormatted
+        ]
+
+        const reordered = reorderWorkout(previousWorkout.cycles)
+
+        console.log(reordered[cycleOrder - 1].split[splitOrder - 1].exercises)
+
+        setWorkout({
+            cycles: [
+                ...reordered
+            ]
+        })
+    }
+
+    const getToEditData = () => {
+        console.log('edit')   
+    }
+
     useEffect(() => {
-        updateExercises()
-    }, [routeParams])
+        updateWorkout()
+    }, [routeParams, isEdit])
 
     const cycles = workout.cycles.map(cycle => (
         <CycleSection
             key={cycle.order}
             order={cycle.order}
             split={cycle.split}
+            cycle={cycle}
             workout={workout}
             setWorkout={setWorkout}
+            setScroll={setScroll}
             navigation={navigation}
         />
     ))
@@ -120,6 +173,8 @@ export default function CreateFromScratch({navigation, route}){
             ]
         }))
     }
+
+    const tapReorderList = Gesture.Tap()  
 
     const WorkoutBody = (
         <View
@@ -149,7 +204,17 @@ export default function CreateFromScratch({navigation, route}){
             </Pressable> 
             </View>
 
-            {cycles} 
+            {
+                !isReordering ?
+                cycles :
+                    <ReorderList 
+                        data={reorderingData}
+                        post={setReorderingData}
+                        type='cycle'
+                        setScroll={setScroll}
+                        onGesture={tapReorderList}      
+                    />
+            }
 
         </View> 
     )
@@ -160,13 +225,14 @@ export default function CreateFromScratch({navigation, route}){
         >
             <BackButton type='doWorkout' navigation={navigation} />
             <ScrollView
-            style={{...mainStyles.PremadeScrollView,
-                paddingHorizontal: 0,
-            }}
-            contentContainerStyle={{...mainStyles.PremadeScrollViewContainerStyle,
-                gap: 0,
-                
-            }}
+                scrollEnabled={scroll}
+                style={{...mainStyles.PremadeScrollView,
+                    paddingHorizontal: 0,
+                }}
+                contentContainerStyle={{...mainStyles.PremadeScrollViewContainerStyle,
+                    gap: 0,
+                    
+                }}
             >
                 <View
                     style={{...mainStyles.fromScratch.headerContainer,
@@ -191,31 +257,17 @@ export default function CreateFromScratch({navigation, route}){
 
                 { WorkoutBody }
 
-                <AddSectionButton
-                    type='cycle'
-                    text='Add Cycle'
-                    onPress={() => {
-                        handleAddCycle()
-                    }}
-                />
+                {
+                    !isReordering &&
+                    <AddSectionButton
+                        type='cycle'
+                        text='Add Cycle'
+                        onPress={() => {
+                            handleAddCycle()
+                        }}
+                    />
+                }
             </ScrollView>
         </SafeAreaView>
     )
-}
-
-const initCycle = {
-    cycles: [
-        {
-            order: 1,
-            split: [
-                {
-                    name: 'Split 1',
-                    order: 1,
-                    exercises: [
-
-                    ]
-                }
-            ]
-        }
-    ]
 }

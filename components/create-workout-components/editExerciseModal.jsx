@@ -24,8 +24,12 @@ for(let i=0; i<60; i++){
 
 const EditExerciseModal = (props) => {
     const theme = useTheme()
-    const [ isRange, setIsRange ] = useState(false)
-    const [ isIncrement, setIsIncrement ] = useState(false)
+
+    const isRangeInit = props.workoutData.start !== props.workoutData.end ? true : false 
+    const isIncrementInit = props.workoutData.increment !== 0 ? true : false
+
+    const [ isRange, setIsRange ] = useState(isRangeInit)
+    const [ isIncrement, setIsIncrement ] = useState(isIncrementInit)
 
     const initialWorkoutData = {
         start: props.workoutData.start,
@@ -38,21 +42,27 @@ const EditExerciseModal = (props) => {
         increment: formatTime(props.workoutData.increment)
     }
 
+    const { workout, setWorkout, cycleOrder, splitOrder, exerciseOrder } = props.thisExerciseData
+
     const [ workoutData, setWorkoutData ] = useState(initialWorkoutData)
 
     const [ restData, setRestData ] = useState(initialRest)
 
-    useEffect(() => { // makes rep-start and rep-end equal when user press checkbox for rep range
-        setWorkoutData(prevState => {             
-            return(
-                {
-                    ...prevState,
-                    start : prevState.start,
-                    end: prevState.start
-                }
-            )
-        })
-    }, [isRange])
+    // useEffect(() => { // makes rep-start and rep-end equal when user press checkbox for rep range
+    //     setWorkoutData(prevState => {             
+    //         return(
+    //             {
+    //                 ...prevState,
+    //                 start : prevState.start,
+    //                 end: prevState.start
+    //             }
+    //         )
+    //     })
+    // }, [isRange])
+
+    // if(props.workoutData.start === props.workout){
+
+    // }
 
     const handleOnAdd = (field) => {
         if(field === 'start' && !isRange){
@@ -114,6 +124,42 @@ const EditExerciseModal = (props) => {
         }
     } 
 
+    const handleDone = () => {
+        const cycles = [...workout.cycles]
+        const thisExercise = cycles[cycleOrder - 1].split[splitOrder - 1].exercises[exerciseOrder - 1].workoutData
+
+        if(thisExercise === workoutData){
+            return console.log('nothing changed')
+        }
+        
+        const reformatRestData = {
+            rest_initial: toSeconds(restData.initial.minute, restData.initial.second),
+            rest_increment: isIncrement ? toSeconds(restData.increment.minute, restData.increment.second) : 0,
+        }
+
+        const reformatWorkoutData = {
+            rep_start: workoutData.start,
+            rep_end: isRange ? workoutData.end : workoutData.start,
+            set_count: workoutData.sets,
+            ...reformatRestData
+        }
+        
+        cycles[cycleOrder - 1].split[splitOrder - 1].exercises[exerciseOrder - 1].workoutData = {
+            ...thisExercise,
+            ...reformatWorkoutData
+        }
+
+        const updatedCycles = cycles
+
+        setWorkout({
+            cycles: [
+                ...updatedCycles
+            ]
+        })
+
+        props.hideModal()
+    }
+
     const RestIncrement = (
         <Section
             title={'Rest Increment'}
@@ -139,7 +185,7 @@ const EditExerciseModal = (props) => {
         <Portal>
             <Modal 
                 visible={props.visible} 
-                onDismiss={props.hideModal} 
+                onDismiss={handleDone} 
                 dismissable={true}
                 dismissableBackButton={true}
                 contentContainerStyle={{...cardStyles.manageWorkoutModal.container,
@@ -160,7 +206,7 @@ const EditExerciseModal = (props) => {
 
                         <Feather name={'x'} size={12} color={theme.colors.secondary} />
                         
-                        <Text>{workoutData.start} {(workoutData.end !== workoutData.start ? `- ${workoutData.end} reps` : 'reps') /*conditional if there is no range*/}</Text>
+                        <Text>{workoutData.start} {isRange && (workoutData.end !== workoutData.start ? `- ${workoutData.end} ` : '') /*conditional if there is no range*/}reps</Text>
                     </SetRepContainer>
                     <SetRepContainer>
                         <NumericInput
@@ -238,7 +284,7 @@ const EditExerciseModal = (props) => {
                         backgroundColor: theme.colors.primary
                         }}
                         onPress={() => {
-                           props.hideModal()
+                           handleDone()
                         }}
                     >
                         <Text

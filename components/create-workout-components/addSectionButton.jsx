@@ -20,6 +20,8 @@ export default function AddSectionButton(props){
             style={{...buttonStyles.fromScratch.addSectionButton.container,
                 height: props.type === 'cycle' ? 150 : 75,
                 margin: props.type === 'cycle' ? 15 : 0,
+                marginTop: props.type === 'split' ? 15 : 
+                        props.type === 'cycle' ? 30 : 0
             }}
             onPress={props.onPress ? props.onPress : () => {}}
         >

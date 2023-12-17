@@ -15,6 +15,8 @@ import { reorderWorkout } from '../../functions/functions-index';
 import AddSectionButton from './addSectionButton';
 import ExerciseItem from './exerciseItem';
 import CustomTextInput from '../general/text_input';
+import ReorderList from './draggable-list';
+import { Gesture } from 'react-native-gesture-handler';
 
 const SplitSection = (props) => {
     const theme = useTheme()
@@ -34,6 +36,10 @@ const SplitSection = (props) => {
             id={exercise.id}
             name={exercise.name}
             workoutData={exercise.workoutData}
+        
+            splitOrder={props.splitOrder}
+            cycleOrder={props.cycleOrder}
+            exerciseOrder={exercise.workoutData.order}
             workout={props.workout}
             setWorkout={props.setWorkout}
         />
@@ -93,12 +99,14 @@ const SplitSection = (props) => {
         
         split.splice(props.splitOrder - 1, 1)
 
-        cycles.splice(props.cycleOrder - 1, 1, {
-            order: props.cyleOrder,
-            split: [
-                ...split
-            ]
-        })
+        // cycles.splice(props.cycleOrder - 1, 1, {
+        //     order: props.cyleOrder,
+        //     split: [
+        //         ...split
+        //     ]
+        // })
+
+        cycles[props.cycleOrder - 1].split = split
 
         const reordered = reorderWorkout(cycles)
         console.log(reordered[0].split)
@@ -110,6 +118,8 @@ const SplitSection = (props) => {
         })
     }
 
+    const tapReorderList = Gesture.Tap()
+
     const mainBody = (
         <>
             {/* <View
@@ -120,15 +130,33 @@ const SplitSection = (props) => {
                     alignSelf: 'stretch',
                 }}
             > */}
-                { exercises }
+                { 
+                    !isReordering ?                
+                    exercises :
+                    <ReorderList 
+                        data={props.exercises}
+                        cycleOrder={props.cycleOrder}
+                        splitOrder={props.splitOrder}
+                        workout={props.workout}
+
+                        post={props.setWorkout}
+                        type='exercise'
+                        setScroll={props.setScroll} 
+                        onGesture={tapReorderList}        
+                    />      
+                }
             {/* </View> */}
-            <AddSectionButton 
-                type='split'
-                text='Add Workout'
-                onPress={() => {
-                    handleAddWorkout()
-                }}
-            />
+
+            {
+                !isReordering &&
+                <AddSectionButton 
+                    type='workout'
+                    text='Add Workout'
+                    onPress={() => {
+                        handleAddWorkout()
+                    }}
+                />
+            }
         </>
     )
 

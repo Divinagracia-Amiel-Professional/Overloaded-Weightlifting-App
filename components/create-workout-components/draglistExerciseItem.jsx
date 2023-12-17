@@ -23,30 +23,41 @@ export default function DraglistExerciseItem(props){
 
     return(
         <View
-            // onLongPress={() => {
-            //     handlePress()
+            // onPressIn={() => {
+            //     props.setScroll(false)
+            //     props.onDragStart()
             // }}
-            onPress={() => {
-                handlePress()
-            }}
-            // onPressIn={props.onDragStart}
-            // onPressOut={props.onDragEnd}
-            style={{...buttonStyles.fromScratch.addSectionButton.container,
+            // onPressOut={() => {
+            //     props.setScroll(true)
+            //     props.onDragEnd()
+            // }}
+            style={{
+                alignItems: 'flex-start',
+                alignSelf: 'stretch',
+                justifyContent: 'flex-start',
+                alignSelf: 'stretch',
+                height: 75,
+                gap: 10,
+                borderWidth: 1,
+                borderRadius: 10,
+                marginVertical: 5,
+                flexDirection: 'row',
                 overflow: 'hidden',
-                paddingVertical: 5,
                 ...props.containerStyle,
             }}
         >
             <View
                 style={{...listStyles.draggable.HamburgerContainer,
-                    backgroundColor: props.isActive ? theme.colors.secondary : theme.colors.background
+                    backgroundColor: props.isActive ? theme.colors.secondary : 'transparent',
+                    paddingHorizontal: 10,
+                    marginRight: 0,
                 }}
             >
                 <Pressable 
+                    // onPressIn={() => {
+                    //     props.setScroll(false)
+                    // }}
                     onPressIn={() => {
-                        props.setScroll(false)
-                    }}
-                    onLongPress={() => {
                         props.setScroll(false)
                         props.onDragStart(() => {
                             console.log('dragged')
@@ -60,25 +71,33 @@ export default function DraglistExerciseItem(props){
                 </Pressable>
             </View>
             <View
-                style={{...listStyles.draggable.ListItemContainer,
-                    paddingHorizontal: 10,
-                    borderTopWidth: 0,
-                    borderBottomWidth: 0,
-                    paddingVertical: 2.5
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    alignSelf: 'stretch',
+                    gap: 15,
+                    
+                    flexGrow: 0,
+                    flexShrink: 1,
+                    paddingRight: 10,
                 }}
             >   
-                <Feather name={'image'} size={50} color={theme.colors.secondary} />
-           
+                {
+                    props.type === 'exercise' && 
+                    <Feather name={'image'} size={50} color={theme.colors.secondary} />
+                }
                 <View
-                    style={{...listStyles.draggable.HeaderContainer,
+                    style={{...listStyles.draggable.DetailContainer, 
+                        flexShrink: 1
                     }}
                 >
                     <Text
-                        style={{...textStyles.list.draggable.headerText,
-                        color: theme.colors.secondary,
-                        fontSize: 16,
-                    }}
-                    >{props.name}</Text> 
+                        style={{
+                            color: theme.colors.secondary,
+                            fontSize: 16,
+                            flexWrap: 'wrap',
+                        }}
+                    >{props.name}</Text>
                 </View>
             </View>
         </View>
