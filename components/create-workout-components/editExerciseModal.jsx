@@ -370,10 +370,14 @@ const DropdownComponent = (props) => {
             <Text>{getTitle(timeType)}</Text>
             <Dropdown
                 mode='modal'
-                style={listStyles.dropdown.container}
+                style={{...listStyles.dropdown.container,
+                    
+                }}
                 containerStyle={{...listStyles.dropdown.listContainer,
                     margin: 15,
                     height: '50%',
+                    borderRadius: 10,
+                    overflow: 'hidden'
                 }}
                 itemContainerStyle={listStyles.dropdown.itemContainer}
                 itemTextStyle={textStyles.restScreen.bodyTextAnton}

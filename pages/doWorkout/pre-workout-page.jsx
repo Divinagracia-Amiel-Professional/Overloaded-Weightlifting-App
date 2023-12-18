@@ -16,8 +16,6 @@ import { setWorkoutName } from '../../functions/functions-index';
 export default function PreWorkoutPage({navigation, route}){
     const theme = useTheme()
 
-    console.log(route.params.currentWorkout)
-
     const currentWorkout = {
         id: route.params.currentWorkout.data.id,
         cycle: route.params.currentWorkout.data.latest_state.cycle,

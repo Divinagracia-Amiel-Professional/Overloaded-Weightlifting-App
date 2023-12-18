@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { Snackbar, useTheme, Portal } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,
@@ -11,12 +11,28 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit, Edit2 } from 'iconsax-react-native'
-import { AddSectionButton, CycleSection, BasicInfoSection, BackButton } from '../../../components/component-index';
+import { 
+    AddSectionButton, 
+    CycleSection, 
+    BasicInfoSection, 
+    BackButton 
+} from '../../../components/component-index';
 import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { reorderWorkout, formatData as formatForReorder } from '../../../functions/functions-index';
+import { 
+    reorderWorkout,
+    formatData as formatForReorder,
+    checkIfExerciseEmpty,
+    checkBasicInfo,
+    getUserWorkouts,
+    toHash
+} from '../../../functions/functions-index';
 import ReorderList from '../../../components/create-workout-components/draggable-list';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+
+import { addWorkout } from '../../../redux/slices/CurrentUserSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../../redux/store';
 
 const initCycle = {
     cycles: [
@@ -33,12 +49,17 @@ const initCycle = {
     ]
 }
 
+
 export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
+    const userWorkouts = getUserWorkouts()
+    const dispatch = useDispatch<AppDispatch>()
+
     const [ basicInfo , setBasicInfo ] = useState({
         name: '',
         difficulty: 3,
         focus: '',
+        description: '',
     })
     const [ workout, setWorkout ] = useState({
         ...initCycle
@@ -51,24 +72,12 @@ export default function CreateFromScratch({navigation, route}){
     const [ reorderingData, setReorderingData ] = useState(workout.cycles)
     const [ isReordering, setIsReordering ] = useState(false)
 
+    const [ isSnackBarVisible, setIsSnackBarVisible ] = useState(false)
+    const [ snackBarMessage, setSnackBarMessage ] = useState('')
+
     useEffect(() => {
         setReorderingData(workout.cycles)
     }, [workout])
-    
-    const handleReorder = () => {
-        setIsReordering(prevData => !prevData)
-        
-        if(isReordering){ 
-            console.log(reorderingData)   
-            const resetOrder = reorderWorkout(reorderingData)
-
-            setWorkout({
-                cycles: [
-                    ...resetOrder
-                ]
-            })
-        }
-    }
 
     const routeParams = route.params ? route.params.workoutData : ''
     const isEdit = route.params ? route.params.isEdit : false
@@ -174,6 +183,101 @@ export default function CreateFromScratch({navigation, route}){
         }))
     }
 
+    const handleReorder = () => {
+        setIsReordering(prevData => !prevData)
+        
+        if(isReordering){ 
+            console.log(reorderingData)   
+            const resetOrder = reorderWorkout(reorderingData)
+
+            setWorkout({
+                cycles: [
+                    ...resetOrder
+                ]
+            })
+        }
+    }
+
+    const handleDone = () => {
+        const checkInfo = checkBasicInfo(basicInfo)
+        const workout_id = toHash(basicInfo.name)
+
+        if(isReordering){
+            setIsSnackBarVisible(true)
+            setSnackBarMessage('Finish Reordering Cycle First')
+            return
+        }   
+
+        if(checkInfo.hasError){
+            setSnackBarMessage(prevState => prevState.concat(checkInfo.message))
+        }
+
+        if(checkIfExerciseEmpty(workout.cycles).checkExercises){
+            setSnackBarMessage(prevState => prevState.concat(genericEmptyMessage.concat(getEmptySplits())))
+        }
+
+        if(checkIfExerciseEmpty(workout.cycles).checkExercises || checkInfo.hasError){
+            setIsSnackBarVisible(true)
+            return
+        }
+
+        const doesIdExist = userWorkouts.some(userWorkout => userWorkout.id === workout_id)
+
+        if(doesIdExist){
+            setSnackBarMessage("Workout with that name already exists. Please rename your workout")
+            setIsSnackBarVisible(true)
+            return
+        }
+
+        const reformattedCycles = workout.cycles.map(cycle => ({
+            ...cycle,
+            split: cycle.split.map(split => ({
+                ...split,
+                exercises: split.exercises.map(exercise => ({
+                    exercise_id: exercise.id,
+                    workout_data: {
+                        ...exercise.workoutData
+                    }
+                }))
+            }))
+        }))
+
+        const reformattedWorkout = {
+            ...basicInfo,
+            id: workout_id,
+            latest_state: {
+                is_completed: false,
+                date_used: '',
+                cycle: 1,
+                split: 1,
+                name: reformattedCycles[0].split[0].name
+            },
+            cycles: [
+                ...reformattedCycles
+            ]
+        }
+
+        dispatch(addWorkout(reformattedWorkout))
+        navigation.navigate('Navbar')
+    }
+
+    const getEmptySplits = () => {
+        const emptySplits = checkIfExerciseEmpty(workout.cycles).filtered
+        
+        const messages = emptySplits.map(item => {
+            const splits = item.emptySplits.map(split => {
+                return `- ${split.name} `
+            })
+
+            return `Cycle ${item.cycle}: \n${splits.join(`\n`)}`
+        })
+
+        const combineMessages = messages.join(`\n`)
+
+        return combineMessages
+    }
+
+    const genericEmptyMessage = `Splits should have at least 1 exercise. A split has no exercises.\nat: \n`
     const tapReorderList = Gesture.Tap()  
 
     const WorkoutBody = (
@@ -231,7 +335,7 @@ export default function CreateFromScratch({navigation, route}){
                 }}
                 contentContainerStyle={{...mainStyles.PremadeScrollViewContainerStyle,
                     gap: 0,
-                    
+                    paddingBottom: 100,
                 }}
             >
                 <View
@@ -250,7 +354,8 @@ export default function CreateFromScratch({navigation, route}){
                     data={{
                         name: basicInfo.name,
                         difficulty: basicInfo.difficulty,
-                        focus: basicInfo.focus
+                        focus: basicInfo.focus,
+                        description: basicInfo.description
                     }}
                     setBasicInfo={setBasicInfo}
                 />
@@ -268,6 +373,52 @@ export default function CreateFromScratch({navigation, route}){
                     />
                 }
             </ScrollView>
+            <View
+                style={{...buttonStyles.bottomAbsoluteContainer,
+                    backgroundColor: `${theme.colors.secondary}`,
+                    borderColor: theme.colors.customLightGray
+                    }}
+            >
+                <Pressable style={{...buttonStyles.bottomAbsoluteButton,
+                    backgroundColor: theme.colors.background,
+                    }}
+                    onPress={() => {
+                        handleDone()
+                    }}
+                >
+                    <Text
+                        style={{...buttonStyles.bottomAbsoluteButtonText,
+                            color: theme.colors.secondary
+                            }}
+                    >Save Workout</Text>
+                </Pressable>
+            </View>
+            <Snackbar
+              visible={isSnackBarVisible}
+              onDismiss={() => {
+                setSnackBarMessage('')
+                setIsSnackBarVisible(false)
+              }}
+              action={{
+                label: 'OK'
+              }}
+            >
+                {snackBarMessage}
+            </Snackbar>
         </SafeAreaView>
+    )
+}
+
+const SnackBarComponent = (props) => {
+    const theme = useTheme()
+
+    return(
+        <Snackbar
+            visible={props.visible}
+            onDismiss={props.onDismiss}
+            action={props.action}
+        >
+            {props.message}
+        </Snackbar>
     )
 }

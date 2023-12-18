@@ -8,6 +8,9 @@ import reorderWorkout from "./reorderWorkout";
 import getAllExercises from "./getAllExercises";
 import toHash from "./toHash";
 import formatData from "./formatData";
+import checkIfExerciseEmpty from "./checkIfSectionEmpty";
+import checkBasicInfo from "./checkBasicInfo";
+import checkIfWorkoutExists from "./checkIfWorkoutExists";
 
 export {
     addWorkoutsToUser,
@@ -19,5 +22,8 @@ export {
     reorderWorkout,
     getAllExercises,
     toHash,
-    formatData
+    formatData,
+    checkIfExerciseEmpty,
+    checkBasicInfo,
+    checkIfWorkoutExists
 }

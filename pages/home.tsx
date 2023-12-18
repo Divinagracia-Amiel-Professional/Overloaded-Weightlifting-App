@@ -28,11 +28,12 @@ export default function Home({navigation}){
 
   // console.log(useSelector((state: RootState) => state.currentUser.workoutUsed))
   const currentUsedWorkout = getCurrentlyUsedWorkoutObject()
+  console.log(currentUsedWorkout)
 
   const currentDate = getLocalDateTime()
 
   const getStartButton = () => {
-    if(currentUsedWorkout.data.id){
+    if(!currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty){
       return (
         <StartButton
           data={currentUsedWorkout}

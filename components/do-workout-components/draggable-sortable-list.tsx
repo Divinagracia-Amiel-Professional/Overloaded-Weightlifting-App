@@ -6,6 +6,7 @@ import {
   listStyles
 } from '../../styles/style-index'
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux'
+import getExercisesFromCurrentlyUsedWorkouts from '../../custom-hooks/getExercisesFromCurrentyUsedWorkout'
 import DragListItem from './draggable-sortable-list-item'
 
 let DragListStyle = {}
@@ -15,12 +16,10 @@ export default function DraggableSortableList(props) {
 
   //styling
 
-  const exercises = getExercisesFromWorkoutRedux(
-    props.currentWorkout.id,
+  const exercises = getExercisesFromCurrentlyUsedWorkouts(
     props.currentWorkout.cycle,
     props.currentWorkout.split.order
   )
-  // const [data, setData] = useState([])
 
   useEffect(() => {
     let count = -1
