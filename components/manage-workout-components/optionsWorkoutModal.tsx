@@ -13,9 +13,9 @@ import ButtonWithIcon from '../general/button';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
-import { useWorkout } from '../../redux/slices/CurrentUserSlice';
+import { useWorkout, deleteWorkout } from '../../redux/slices/CurrentUserSlice';
 
-export default function UseWorkoutModal(props){
+export default function OptionsWorkoutModal(props){
     const dispatch = useDispatch<AppDispatch>();
     const theme = useTheme()
 
@@ -32,19 +32,37 @@ export default function UseWorkoutModal(props){
  
                     <Text
                         style={{...textStyles.cardHeaderText}}
-                    >{props.state ? 'Stop Using Workout?' : 'Use Workout?'}</Text>
+                    >{props.mode === 'use' ? (props.state ? 'Stop Using Workout?' : 'Use Workout?') :
+                        props.prompt
+                    }</Text>
+                    {
+                        props.mode === 'delete' ? <Text>This will delete the exercise forever.</Text> 
+                        : 
+                        null
+                    }
                     <View
                         style={cardStyles.manageWorkoutModal.buttonContainer}
                     >
                         <ButtonWithIcon 
                             text="Yes"
                             onPress={() => {
-                                if(props.state){
-                                    dispatch(useWorkout(''))
+                                switch (props.mode) {
+                                    case 'use':
+                                        if(props.state){
+                                            dispatch(useWorkout(''))
+                                        }
+                                        else{
+                                            dispatch(useWorkout(props.workoutId))
+                                        }
+                                        break;
+                                    case 'delete':
+                                        if(props.state){
+                                            dispatch(useWorkout(''))
+                                        }
+                                        dispatch(deleteWorkout(props.workoutId))
+                                        break;
                                 }
-                                else{
-                                    dispatch(useWorkout(props.workoutId))
-                                }
+    
                                 props.hideModal()
                             }}
                         />
