@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../../redux/store';
 import { addWorkout } from '../../../redux/slices/CurrentUserSlice';
 import getUserWorkoutObjects from '../../../custom-hooks/getUserWorkoutObjects';
+import { BackButton } from '../../../components/component-index';
 
 export default function PremadeWorkoutDetails({navigation, route}){
     const dispatch = useDispatch<AppDispatch>();
@@ -30,27 +31,32 @@ export default function PremadeWorkoutDetails({navigation, route}){
     // console.log(getUserWorkoutObjects())
 
     return(
-        <ScrollView
+        <View
+            style={{flex: 1, position: 'relative'}}
+        >
+            <BackButton type='default' navigation={navigation} />
+            <ScrollView
             style={{...mainStyles.PremadeScrollView
             
             }}
             contentContainerStyle={mainStyles.PremadeScrollViewContainerStyle}
-        >
-            <DescriptionSection
-                name={data.name}
-                difficulty={data.difficulty}
-                focus={data.focus}
-                description={data.description}
-                addWorkout={() => {
-                    if(doesExist){
-                        return console.log('Workout is already used!')
-                    }
-                    dispatch(addWorkout(data))
-                }}
-                editWorkout={() => {
-                    console.log(workoutUsed)
-                }}
-            />
-        </ScrollView>
+            >
+                <DescriptionSection
+                    name={data.name}
+                    difficulty={data.difficulty}
+                    focus={data.focus}
+                    description={data.description}
+                    addWorkout={() => {
+                        if(doesExist){
+                            return console.log('Workout is already used!')
+                        }
+                        dispatch(addWorkout(data))
+                    }}
+                    editWorkout={() => {
+                        console.log(workoutUsed)
+                    }}
+                />
+            </ScrollView>
+        </View>
     )
 }

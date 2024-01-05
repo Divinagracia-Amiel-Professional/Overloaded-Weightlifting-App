@@ -13,6 +13,9 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
 export default function ButtonWithIcon(props){
   const theme = useTheme()
+  const iconOnly = props.iconOnly ? props.iconOnly : false
+  const customStyle = props.style ? props.style : {}
+
   return(
     <Pressable
       style={{...buttonStyles.button,
@@ -20,15 +23,23 @@ export default function ButtonWithIcon(props){
         flexDirection: 'row',
         gap: 5,
         minWidth: 50,
+        ...customStyle
       }}
 
-      onPress={props.onPress ? props.onPress : () => {}}
+      onPress={props.onPress ? props.onPress : () => {
+        console.log('di pumapasok')
+      }}
       >
-      <Text
-        style={{...buttonStyles.buttonText,
-          color: theme.colors.background
-        }}
-        >{props.text}</Text>
+      {
+        !iconOnly && 
+        <Text
+          style={{...buttonStyles.buttonText,
+            color: theme.colors.background
+          }}
+        >
+          {props.text}
+        </Text>
+      }
         {props.icon && props.icon}
     </Pressable>
   )

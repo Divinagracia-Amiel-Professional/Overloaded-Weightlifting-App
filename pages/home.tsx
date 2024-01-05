@@ -12,7 +12,7 @@ import { Logo, Calendar } from '../constants/icons';
 
 import initializeDBSync from '../custom-hooks/initDBsync';
 import getCurrentlyUsedWorkoutObject from '../custom-hooks/getCurrentlyUsedWorkoutObject';
-import { getLocalDateTime, addDays } from '../functions/functions-index';
+import { getLocalDateTime, addDays, toHash } from '../functions/functions-index';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
@@ -28,11 +28,12 @@ export default function Home({navigation}){
 
   // console.log(useSelector((state: RootState) => state.currentUser.workoutUsed))
   const currentUsedWorkout = getCurrentlyUsedWorkoutObject()
+  console.log(currentUsedWorkout)
 
   const currentDate = getLocalDateTime()
 
   const getStartButton = () => {
-    if(currentUsedWorkout.data.id){
+    if(!currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty){
       return (
         <StartButton
           data={currentUsedWorkout}
@@ -80,6 +81,7 @@ export default function Home({navigation}){
               backgroundColor: theme.colors.tertiaryContainer
           }}>
             <WorkoutPicker 
+              hideModal={hideModal}
               data={currentUsedWorkout}
             />
         </Modal>

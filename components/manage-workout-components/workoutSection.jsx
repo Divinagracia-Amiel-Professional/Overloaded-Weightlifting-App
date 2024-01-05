@@ -16,55 +16,71 @@ import { Placeholder2 } from '../../constants/images';
 import { Rating } from 'react-native-ratings';
 import { RatingImgGray } from '../../constants/images';
 import ButtonOption from './buttonOption';
-import UseWorkoutModal from './useWorkoutModal';
+import OptionsWorkoutModal from './optionsWorkoutModal';
+
+const modalStatesInit = {
+    useModalVisible: false,
+    deleteModalVisible: false,
+    editModalVisible: false,
+    checkScheduleVisible: false
+}
 
 export default function WorkoutSection(props){
     const theme = useTheme()
-    const [ visible, setVisible ] = useState(false)
+    const [ visible, setVisible ] = useState(modalStatesInit)
 
-    const showModal = () => setVisible(true);
-    const hideModal = () => setVisible(false);
+    console.log(visible)
 
     let count = 0
 
     const optionsData = [
         {
             type:'icon',
+            modal: 'editModalVisible',
             icon: <Edit size={25} color={theme.colors.secondary}/>,
             fill: theme.colors.customLightGray,
             color: theme.colors.background,
-            onPress: () => {
-                console.log('Edit Workout')
-            }
+            // onPress: () => {
+            //     console.log('Edit Workout')
+            // }
         },
+        // {
+        //     type:'icon',
+        //     icon: <CalendarEdit size={25} color={theme.colors.secondary}/>,
+        //     fill: theme.colors.customLightGray,
+        //     color: theme.colors.background,
+        //     onPress: () => {
+        //         console.log('Edit Schedule')
+        //     }
+        // },
         {
-            type:'icon',
-            icon: <CalendarEdit size={25} color={theme.colors.secondary}/>,
-            fill: theme.colors.customLightGray,
-            color: theme.colors.background,
-            onPress: () => {
-                console.log('Edit Schedule')
-            }
-        },
-        {
-            type:'icon',
+            type: 'icon',
+            modal: 'checkScheduleVisible',
             icon: <CalendarSearch size={25} color={theme.colors.secondary}/>,
             fill: theme.colors.customLightGray,
             color: theme.colors.background,
-            onPress: () => {
-                console.log('Check Schedule')
-            }
+            // onPress: () => {
+            //     console.log('Check Schedule')
+            // }
         },
         {
             type:'icon',
+            modal: 'deleteModalVisible',
             icon: <MaterialIcons name="delete-forever" size={25} color={theme.colors.background}/>,
             color: theme.colors.background,
             fill: theme.colors.primary,
-            onPress: () => {
-                console.log('Delete Forever')
-            }
+            // onPress: () => {
+            //     console.log('Delete Forever')
+            // }
         },
     ]
+
+    const hideModal = (modalState) => {
+        setVisible(prevState => ({
+            ...prevState,
+            [modalState]: false
+        }))
+    }
     
     return(
         <View
@@ -74,13 +90,25 @@ export default function WorkoutSection(props){
                 elevation: 3,
             }}
         >
-            <UseWorkoutModal
-                visible={visible}
-                setVisible={setVisible}
-                hideModal={hideModal}
+            <OptionsWorkoutModal
+                visible={visible.useModalVisible}
+                hideModal={() => {
+                    hideModal('useModalVisible')
+                }}
+                mode='use'
                 workoutId={props.id}
                 state={props.state}
-            />   
+            />
+            <OptionsWorkoutModal
+                visible={visible.deleteModalVisible}
+                hideModal={() => {
+                    hideModal('deleteModalVisible')
+                }}
+                mode='delete'
+                prompt='Delete Workout?'
+                workoutId={props.id}
+                state={props.state}
+            />
             <View
                 style={{...cardStyles.workoutCard.nameContainer}}
             >
@@ -158,7 +186,10 @@ export default function WorkoutSection(props){
                         fill={theme.colors.secondary}
                         state={props.state}
                         onPress={() => {
-                            showModal()
+                            setVisible(prevState => ({
+                                ...prevState,
+                                useModalVisible: true
+                            }))
                         }}
                     />
                     <View
@@ -178,7 +209,12 @@ export default function WorkoutSection(props){
                                 icon={option.icon}
                                 color={option.color}
                                 fill={option.fill}
-                                onPress={option.onPress}
+                                onPress={() => {
+                                    setVisible(prevState => ({
+                                        ...prevState,
+                                        [option.modal] : true
+                                    }))
+                                }}
                             />
                         )
                         })}

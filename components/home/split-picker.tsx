@@ -18,6 +18,7 @@ import getUserWorkoutObjects from '../../custom-hooks/getUserWorkoutObjects';
 import { ManageWorkoutCard } from '../component-index';
 import ListAccordion from 'react-native-paper/lib/typescript/components/List/ListAccordion';
 import { fontFamily } from '../../constants/theme';
+import { TextalignCenter } from 'iconsax-react-native';
 
 export default function WorkoutPicker(props){
     const dispatch = useDispatch<AppDispatch>();
@@ -30,6 +31,9 @@ export default function WorkoutPicker(props){
         <List.Section
             style={{alignSelf: 'stretch'}}
         >
+            <Text
+                style={{alignSelf:'stretch', textAlign: 'center'}}
+            >Choose Workout</Text>
             <List.AccordionGroup>
                 {workoutData.data.cycles.map(cycle => (
                         <List.Accordion 
@@ -57,6 +61,7 @@ export default function WorkoutPicker(props){
                                             name: split.name
                                         } 
                                         dispatch(updateState(data))
+                                        props.hideModal()
                                     }}
                                 />
                             ))}

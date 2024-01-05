@@ -19,10 +19,11 @@ import { ManageWorkoutCard } from '../../../components/component-index';
 
 export default function ManageWorkoutPage({navigation, route}){
     const theme = useTheme()
-    const [ data, setData ] = useState({
-        userWorkout: getUserWorkouts(), 
-        currentlyUsed: getCurrentlyUsedWorkouts()
-    })
+
+    const data = {
+        userWorkout: useSelector((state: RootState) => state.currentUser.workoutUsed), 
+        currentlyUsed: useSelector((state: RootState) => state.currentUser.currentWorkout)
+    }
 
     // const userWorkout = getUserWorkouts()
     // const currentlyUsed = getCurrentlyUsedWorkouts()
@@ -41,10 +42,7 @@ export default function ManageWorkoutPage({navigation, route}){
                 focus={workout.focus}
             />
         )
-    }) : setData({
-        userWorkout: getUserWorkouts(), 
-        currentlyUsed: getCurrentlyUsedWorkouts()
-    })
+    }) : navigation.navigate('Navbar')
 
     return(
         <ScrollView
@@ -53,7 +51,7 @@ export default function ManageWorkoutPage({navigation, route}){
             }}
             contentContainerStyle={mainStyles.scrollViewContainerStyle}
         >
-            {workouts ? workouts : null}
+            {workouts ? workouts : <Text>No used Workouts</Text>}
         </ScrollView>
     )
 }

@@ -10,10 +10,20 @@ export default function reorderWorkout(data){
             order: count,
             split: cycle.split.map(split => {
                 splitCount++
+                let exerciseCount = 0
                 return({
                     ...split,
                     order: splitCount,
-                    exercises: []
+                    exercises: split.exercises.map(exercise => {
+                        exerciseCount++
+                        return({
+                            ...exercise,
+                            workoutData: {
+                                ...exercise.workoutData,
+                                order: exerciseCount
+                            }
+                        })
+                    })
                 })
             })
         })

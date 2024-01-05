@@ -17,8 +17,10 @@ const listStyles = StyleSheet.create({
             alignSelf: 'stretch',
         },
         HamburgerContainer: {
-            paddingRight: 15,
+            marginRight: 15,
             alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'stretch',
             gap: 10,
         },
         ListItemContainer: {
@@ -30,12 +32,13 @@ const listStyles = StyleSheet.create({
             
             borderTopWidth: 0.5,
             borderBottomWidth: 0.5,
+            paddingVertical: 2.5
         },
         DetailContainer: {
             paddingVertical: 5,
             justifyContent: 'center',
             alignItems: 'flex-start',
-            gap: 10,
+            gap: 0,
             alignSelf: 'stretch',
             flexGrow: 1,      
         },
@@ -43,14 +46,15 @@ const listStyles = StyleSheet.create({
             flexDirection: 'row',
             alignItems: 'center',
             alignSelf: 'stretch',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            gap: 20
         },
     },
     dropdown: {
         container: {
             margin: 0,
             flexGrow: 1,
-            alignSelf: 'center',
+            alignSelf: 'stretch',
             
             // borderBottomColor: 'gray',
             // borderBottomWidth: 0.5,

@@ -14,6 +14,7 @@ const mainStyles = StyleSheet.create({
       padding: 15,
       paddingVertical: 50,
       gap: 10,
+      position: 'relative'
     },
     scrollView: {
       flex: 1,
@@ -50,6 +51,7 @@ const mainStyles = StyleSheet.create({
       padding: 0,
       paddingVertical: 0,
       gap: 10,
+      position: 'relative'
     },
     preWorkoutHeaderContainer: {
       justifyContent: 'center',

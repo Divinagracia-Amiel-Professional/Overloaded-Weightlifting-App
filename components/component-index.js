@@ -13,6 +13,9 @@ import WorkoutPicker from './home/split-picker'
 import CycleSection from './create-workout-components/cycleSection'
 import AddSectionButton from './create-workout-components/addSectionButton'
 import BasicInfoSection from './create-workout-components/basicInfoSection'
+import BackButton from './general/backButton'
+import ConfirmationModal from './general/confirmationModal'
+import SelectExerciseListItem from './create-workout-components/selectExerciseListItem'
 
 export {
     Header,
@@ -29,5 +32,8 @@ export {
     WorkoutPicker,
     CycleSection,
     AddSectionButton,
-    BasicInfoSection
+    BasicInfoSection,
+    BackButton,
+    ConfirmationModal,
+    SelectExerciseListItem
 }

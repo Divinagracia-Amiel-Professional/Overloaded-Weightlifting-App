@@ -17,6 +17,11 @@ const CurrentUserSlice = createSlice({
         addWorkout: (state, action) => {
             state.workoutUsed = [...state.workoutUsed, action.payload]
         },
+        deleteWorkout: (state, action) => {
+            const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === action.payload)
+
+            state.workoutUsed.splice(workoutIndex, 1)
+        },
         useWorkout: (state, action) => {
             state.currentWorkout = action.payload
         },
@@ -41,4 +46,4 @@ const CurrentUserSlice = createSlice({
 })
 
 export default CurrentUserSlice.reducer
-export const { addWorkout, useWorkout, updateState } = CurrentUserSlice.actions
+export const { addWorkout, useWorkout, updateState, deleteWorkout } = CurrentUserSlice.actions

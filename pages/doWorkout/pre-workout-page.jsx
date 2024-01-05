@@ -8,14 +8,13 @@ import {
 } from '../../styles/style-index'
 import { useTheme, Card } from 'react-native-paper';
 import DraggableSortableList from '../../components/do-workout-components/draggable-sortable-list';
+import { BackButton } from '../../components/component-index';
 import getExercisesFromWorkoutRedux from '../../custom-hooks/getExercisesFromWorkoutRedux';
 import { Placeholder as PlaceholderImage } from '../../constants/images';
 import { setWorkoutName } from '../../functions/functions-index';
 
 export default function PreWorkoutPage({navigation, route}){
     const theme = useTheme()
-
-    console.log(route.params.currentWorkout)
 
     const currentWorkout = {
         id: route.params.currentWorkout.data.id,
@@ -27,6 +26,8 @@ export default function PreWorkoutPage({navigation, route}){
     }
 
     const [ data, setParentData ] = useState([])
+
+    const [ scroll, setScroll ] = useState(true)
     // console.log(data)
     // for(let i=0; i<data.length; i++){
     //     console.log(data[i].id + ' ' + data[i].item.exercise_obj.name)
@@ -38,6 +39,7 @@ export default function PreWorkoutPage({navigation, route}){
             backgroundColor: theme.colors.background
             }}
             >
+
             <Image 
                 style={{...imageStyles.placeholder, 
                     borderColor: theme.colors.onBackground
@@ -67,12 +69,14 @@ export default function PreWorkoutPage({navigation, route}){
                 }
             </View>
             <ScrollView
+                scrollEnabled={scroll}
                 style={{alignSelf: 'stretch'}}
             >
                 <DraggableSortableList
                     currentWorkout = {currentWorkout}
                     data = {data}
                     post = {setParentData}
+                    setScroll={setScroll}
                 />
             </ScrollView>
             <View

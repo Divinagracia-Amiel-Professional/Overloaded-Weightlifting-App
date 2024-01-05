@@ -10,7 +10,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
-import Gradient from '../general/gradient'
+import { BackButton, Gradient } from '../component-index';
 import { Placeholder2 } from '../../constants/images';
 import { Rating } from 'react-native-ratings';
 import { RatingImgGray } from '../../constants/images';

@@ -114,7 +114,9 @@ const textStyles = StyleSheet.create({
         draggable: {
             headerText: {
                 fontFamily: fontFamily.primaryHeader,
-                fontSize: textSizes.large
+                fontSize: textSizes.large,
+                flexWrap: 'wrap',
+                flex: 1,
             },
             bodyText: {
                 fontFamily: fontFamily.body,

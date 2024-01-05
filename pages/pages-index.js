@@ -1,11 +1,11 @@
 import Home from "./home";
 import Planner from "./planner";
-import Settings from "./settings";
+import Profile from "./profile";
 import Tracker from "./tracker";
 
 export {
     Home,
     Planner,
-    Settings,
+    Profile,
     Tracker
 }
