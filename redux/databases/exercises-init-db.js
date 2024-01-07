@@ -1,4 +1,4 @@
-import calfPressLegPressMachineSingle from "./exercise-objects/calf-press-leg-press-machine-single"
+import calfPressLegPressMachineSingle from "./exercise-objects/single-leg-calf-press"
 import deadliftConventional from "./exercise-objects/deadlift-conventional"
 import hipAbductionsSeated from "./exercise-objects/hip-abductions-seated"
 import hipThrustBar from "./exercise-objects/hip-thrust-bar"
@@ -46,6 +46,33 @@ import inclinedBarbellBenchPress from "./exercise-objects/inclined-barbell-bench
 import inclinedDumbbellCurl from "./exercise-objects/inclined-dumbbell-curl"
 import inclinedDumbbellOverheadExtension from "./exercise-objects/inclined-dumbbell-overhead-extension"
 import kneelingFacePulls from "./exercise-objects/kneeling-face-pulls"
+import leanAwayLateralRaise from "./exercise-objects/lean-away-lateral-raise"
+import machineSeatedHipAbduction from "./exercise-objects/machine-seated-hip-abduction"
+import machineShoulderPress from "./exercise-objects/machine-shoulder-press"
+import meadowsRow from "./exercise-objects/meadows-row"
+import omniGripLatPulldowns from "./exercise-objects/omni-grip-lat-pulldowns"
+import oneArmCableFly from "./exercise-objects/one-arm-cable-fly"
+import overheadCableTricepsExtension from "./exercise-objects/overhead-cable-triceps-extension"
+import overheadPress from "./exercise-objects/overhead-press"
+import pausedFlatDumbbellPress from "./exercise-objects/paused-flat-dumbbell-press"
+import rackPull from "./exercise-objects/rack-pull"
+import reverseCrunch from "./exercise-objects/reverse-crunch"
+import reverseDumbbellCurls from "./exercise-objects/reverse-dumbbell-curls"
+import reversePecDeck from "./exercise-objects/reverse-pec-deck"
+import reverseWristCurls from "./exercise-objects/reverse-wrist-curls"
+import romanianDeadlift from "./exercise-objects/romanian-deadlift"
+import ropeUprightRow from "./exercise-objects/rope-upright-row"
+import seatedSingleLegCurl from "./exercise-objects/seated-single-leg-curl"
+import singleLegCalfPress from "./exercise-objects/single-leg-calf-press"
+import singleLegExtension from "./exercise-objects/single-leg-extension"
+import snatchGripBarbellShrug from "./exercise-objects/snatch-grip-barbell-shrug"
+import splitSquat from "./exercise-objects/split-squat"
+import standingCalfRaise from "./exercise-objects/standing-calf-raise"
+import standingSingleCalfRaise from "./exercise-objects/standing-single-calf-raise"
+import suitcaseHold from "./exercise-objects/suitcase-hold"
+import walkingLunges from "./exercise-objects/walking-lunges"
+import wideCablePullOver from "./exercise-objects/wide-cable-pull-over"
+import wristCurls from "./exercise-objects/wrist-curls"
 
 export default [
     calfPressLegPressMachineSingle,
@@ -95,5 +122,32 @@ export default [
     inclinedBarbellBenchPress,
     inclinedDumbbellCurl,
     inclinedDumbbellOverheadExtension,
-    kneelingFacePulls
+    kneelingFacePulls,
+    leanAwayLateralRaise,
+    machineSeatedHipAbduction,
+    machineShoulderPress,
+    meadowsRow,
+    omniGripLatPulldowns,
+    oneArmCableFly,
+    overheadCableTricepsExtension,
+    overheadPress,
+    pausedFlatDumbbellPress,
+    rackPull,
+    reverseCrunch,
+    reverseDumbbellCurls,
+    reversePecDeck,
+    reverseWristCurls,
+    romanianDeadlift,
+    ropeUprightRow,
+    seatedSingleLegCurl,
+    singleLegCalfPress,
+    singleLegExtension,
+    snatchGripBarbellShrug,
+    splitSquat,
+    standingCalfRaise,
+    standingSingleCalfRaise,
+    suitcaseHold,
+    walkingLunges,
+    wideCablePullOver,
+    wristCurls
 ]
