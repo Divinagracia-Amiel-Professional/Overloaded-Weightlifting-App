@@ -14,9 +14,10 @@ unless these two are fulfilled, the current workout and split will not change
 - I can focus more on the progress tracking aspect of the app which is much more important
 
 things to do:
--a feature to choose the split cycle in home page
--state of in-use workouts will be saved if changed
--order of exercises in preworkout will be saved if changed
--default behavior of the workouts
-
+- default behavior of scheduling as speficified here 
+- edit workout function
+- add action indicators(please)
+- if workout is already finished that day, even if the user picks another split then comes back,
+button should be disabled
+- saving current do workout page state and create from scratch page
 

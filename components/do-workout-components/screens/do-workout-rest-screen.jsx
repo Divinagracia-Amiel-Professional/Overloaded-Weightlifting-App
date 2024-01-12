@@ -21,11 +21,17 @@ export default function RestScreen(props){
     console.log(props.setCount)
     console.log(props.workoutLength)
 
+    const justifyContentLogic = ( //conditional to justify content if its the last rest of the set and the workout
+        props.currentSet === props.setCount + 1 && props.workoutLength === props.currentWorkout.item.workout_data.order ? 'center' : (
+            props.currentSet === props.setCount + 1 ? 'flex-end' : 'center'
+        )
+    )
+
     return(
         <View
             style={{...mainStyles.restScreen.screenContainer,
                 backgroundColor: theme.colors.primary,
-                justifyContent: (props.currentSet === props.setCount + 1 ? 'flex-end' : 'center' ) //condtional: center rest when exercise is in between set not finished
+                justifyContent: justifyContentLogic //condtional: center rest when exercise is in between set not finished
             }}
         >
             <View
@@ -40,10 +46,18 @@ export default function RestScreen(props){
                     setIndex={props.setIndex}
                     setSet={props.setSet}
                     currentSet={props.currentSet}
+                    currentWorkout={props.currentWorkout}
+                    workoutLength={props.workoutLength}
                     setCount={props.setCount} //not useState, simply number of sets
+
+                    setCurrentWorkoutRecords={props.setCurrentWorkoutRecords}
+                    currentWorkoutRecords={props.currentWorkoutRecords}
+
+                    navigation={props.navigation}
                 />
                 {(
                     props.currentSet === props.setCount + 1 &&  //conditional so that upcoming section won't appear if exercise is not finised yet
+                    props.workoutLength !== props.currentWorkout.item.workout_data.order &&
                     <RestUpcomingSection 
                         theme={theme}
                         workoutLength={props.workoutLength} 

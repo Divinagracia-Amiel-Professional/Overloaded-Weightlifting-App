@@ -159,22 +159,24 @@ const mainStyles = StyleSheet.create({
           alignItems: 'center',
           gap: 15,
           alignSelf: 'stretch',
+
+          // backgroundColor: 'blue' //this is just for debugging
         },
         inputWithLabelContainer: {
           justifyContent: 'center',
           alignItems: 'center',
           gap: 5,
-          flexGrow: 1,
-          alignSelf: 'stretch',
+          flexGrow: 0,
+
+          // backgroundColor: 'red' //this is just for debugging
         },
         inputContainer: {
           height: 40,
           flexDirection: 'row',
-          padding: 10,
           justifyContent: 'flex-end',
           alignItems: 'center',
           alignSelf: 'stretch',
-          gap: 10,
+          overflow: 'hidden',
 
           borderRadius: 10,
         },

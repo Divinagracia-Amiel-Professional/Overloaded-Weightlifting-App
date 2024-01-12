@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Pressable, Image } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import { Dropdown } from 'react-native-element-dropdown'
 import { useTheme } from 'react-native-paper'
 import { 
@@ -15,7 +15,7 @@ const initData = [
 ]
 
 export default function MetricDropdown(props){
-    const theme = props.theme
+    const theme = useTheme()
 
     const [ data, setData ] = useState(initData)
     
@@ -27,8 +27,12 @@ export default function MetricDropdown(props){
 
     return(
         <Dropdown
-            mode='auto'
-            style={listStyles.dropdown.container}
+            mode='modal'
+            style={{...listStyles.dropdown.container,
+                paddingHorizontal: 5,
+                borderLeftWidth: 1,
+                borderColor: theme.colors.primary
+            }}
             containerStyle={listStyles.dropdown.listContainer}
             itemContainerStyle={listStyles.dropdown.itemContainer}
             itemTextStyle={textStyles.restScreen.bodyTextAnton}
@@ -82,3 +86,9 @@ const timeOptions = [
     { label: 'minutes', value: 'm' },
     { label: 'hours', value: 'hr' },
 ]
+
+const dropdownStyle = StyleSheet.create({
+    fieldStyle: {
+
+    }
+})
