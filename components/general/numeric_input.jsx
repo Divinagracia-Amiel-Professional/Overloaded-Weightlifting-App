@@ -16,20 +16,28 @@ import { Add, Minus } from 'iconsax-react-native'
 export default function NumericInput(props){
     const theme = useTheme()
 
+    const hasButtons = props.hasButtons ? props.hasButtons : false
+
     return(
         <View
-            style={{...style.container}}
+            style={{
+                ...style.container,
+                ...props.style
+            }}
         >
-            <Text>{props.label}</Text>
+            {props.label ? <Text>{props.label}</Text> : null}
             <View
                 style={{...style.inputContainer,
-                    backgroundColor: theme.colors.customLightGray
+                    backgroundColor: theme.colors.customLightGray,
                 }}
             >
-                <Button
+                {
+                    hasButtons ? 
+                    <Button
                     icon={<Minus size={20} color={theme.colors.secondary}/>}
                     onPress={props.onSubtract} 
-                />
+                    /> : null
+                }
                 
                 <View
                     style={{...style.displayStyle,
@@ -38,21 +46,28 @@ export default function NumericInput(props){
                 >
                     {props.textInput ? 
                         <TextInput 
-                            style={style.textInput}
+                            style={{...style.textInput,
+                                ...props.textInputStyle
+                            }}
                             inputMode='numeric'
-                            maxLength={3}
+                            maxLength={10}
                             value={props.value}
-                            onChangeText={props.onChange}
+                            onChangeText={text => props.onChange(text)}
                             onKeyPress={props.onKeyPress}
+                            onEndEditing={props.onEndEditing}
                         />  : 
                         <Text>{props.value}</Text>
                     }
                 </View>
                 
-                <Button 
+                {
+                    hasButtons ? 
+                    <Button 
                     icon={<Add size={20} color={theme.colors.secondary}/>}
                     onPress={props.onAdd} 
-                    />
+                    />  : null
+                }
+                
             </View>
         </View>  
     )
@@ -76,7 +91,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
-        gap: 5,
+        gap: 5
     },
     inputContainer: {
         flexDirection: 'row',
@@ -89,7 +104,7 @@ const style = StyleSheet.create({
         padding: 5,
     },
     displayStyle: {
-        paddingVertical: 5,
+        paddingVertical: 10,
         paddingHorizontal: 20,
     },
     textInput: {

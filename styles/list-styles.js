@@ -53,9 +53,8 @@ const listStyles = StyleSheet.create({
     dropdown: {
         container: {
             margin: 0,
-            flexGrow: 1,
+            width: 60,
             alignSelf: 'stretch',
-            
             // borderBottomColor: 'gray',
             // borderBottomWidth: 0.5,
         },

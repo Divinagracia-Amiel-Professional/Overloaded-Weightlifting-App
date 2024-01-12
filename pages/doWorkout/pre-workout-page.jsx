@@ -90,7 +90,14 @@ export default function PreWorkoutPage({navigation, route}){
                     }}
                     onPress={() => {
                         navigation.navigate('DoWorkoutPage', {
-                            data: data
+                            data: data,
+                            workoutId: route.params.currentWorkout.data.id,
+                            workoutName: route.params.currentWorkout.data.name,
+                            cycle: route.params.currentWorkout.data.latest_state.cycle,
+                            split: {
+                                order: route.params.currentWorkout.data.latest_state.split,
+                                name: route.params.currentWorkout.data.latest_state.name,
+                            },
                         })
                     }}
                 >

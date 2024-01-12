@@ -25,15 +25,15 @@ export default function ExerciseButtons(props){
           backgroundColor: theme.colors.primary
         }}
         onPress={() => {
-          if(props.currentWorkoutOrder === props.workoutLength && props.currentSet === props.setCount){ //conditional to navigate to postWorkoutPage
-            props.navigation.navigate('PostWorkoutPage', {
-              isComplete: true
-            })
-          }
-          else{
+          // if(props.currentWorkoutOrder === props.workoutLength && props.currentSet === props.setCount){ //conditional to navigate to postWorkoutPage
+          //   props.navigation.navigate('PostWorkoutPage', {
+          //     isComplete: true
+          //   })
+          // }
+          // else{
             props.setSet(currentSet => currentSet + 1) //add set to parent exercise screen
             props.setIsRest(true)  
-          }
+          // }
         }}
       >
         <Feather name="check" size={25} color={theme.colors.background}/>

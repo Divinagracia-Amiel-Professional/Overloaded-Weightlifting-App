@@ -211,6 +211,7 @@ const EditExerciseModal = (props) => {
                     <SetRepContainer>
                         <NumericInput
                             label={'Sets'} 
+                            hasButtons={true}
                             value={workoutData.sets}
                             onAdd={() => {
                                 handleOnAdd('sets')
@@ -224,6 +225,7 @@ const EditExerciseModal = (props) => {
                         <NumericInput
                             label={isRange ? 'Start' : 'Reps'} 
                             value={workoutData.start}
+                            hasButtons={true}
                             onAdd={() => {
                                 handleOnAdd('start')
                             }}
@@ -233,7 +235,8 @@ const EditExerciseModal = (props) => {
                         />
                         {isRange && 
                             <NumericInput
-                                label={'End'} 
+                                label={'End'}
+                                hasButtons={true} 
                                 value={workoutData.end}
                                 onAdd={() => {
                                     handleOnAdd('end')
@@ -371,7 +374,7 @@ const DropdownComponent = (props) => {
             <Dropdown
                 mode='modal'
                 style={{...listStyles.dropdown.container,
-                    
+                    alignSelf: 'center'
                 }}
                 containerStyle={{...listStyles.dropdown.listContainer,
                     margin: 15,

@@ -303,8 +303,8 @@ export default
                             exercise_id: calfPressLegPressMachineSingle.id,
                             workout_data: {
                                 order: 7,
-                                rep_end: 30,
-                                rep_start: 30,
+                                rep_end: 10,
+                                rep_start: 10,
                                 rest_increment: 0,
                                 rest_initial: 90,
                                 set_count: 3
