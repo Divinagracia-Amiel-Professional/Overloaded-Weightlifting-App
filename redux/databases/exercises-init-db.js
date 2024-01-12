@@ -73,6 +73,9 @@ import suitcaseHold from "./exercise-objects/suitcase-hold"
 import walkingLunges from "./exercise-objects/walking-lunges"
 import wideCablePullOver from "./exercise-objects/wide-cable-pull-over"
 import wristCurls from "./exercise-objects/wrist-curls"
+import eccentricLatPulldown from "./exercise-objects/eccentric-lat-pulldown"
+import machineHighLowRow from "./exercise-objects/machine-high-low-row"
+import reverseGripPullup from "./exercise-objects/reverse-grip-pullup"
 
 export default [
     calfPressLegPressMachineSingle,
@@ -149,5 +152,8 @@ export default [
     suitcaseHold,
     walkingLunges,
     wideCablePullOver,
-    wristCurls
+    wristCurls,
+    eccentricLatPulldown,
+    machineHighLowRow,
+    reverseGripPullup
 ]
