@@ -24,6 +24,7 @@ import { NavigationContainer } from '@react-navigation/native'
 export default function StartButton(props){
     const theme = useTheme()
     const isRestDay = props.isRestDay
+    const isCompleted = props.isCompleted
     const [isDetailShown, setIsDetailShown] = useState(false)
 
     return(
@@ -31,24 +32,32 @@ export default function StartButton(props){
             backgroundColor: theme.colors.tertiaryContainer}}>
             <Pressable 
                 style={{...cardStyles.cardContainer,
-                    backgroundColor: !isRestDay ? theme.colors.primaryContainer : theme.colors.tertiaryContainer,
-                    opacity: !isRestDay ? 1 : 0.5
+                    backgroundColor: !isRestDay && !isCompleted ? theme.colors.primaryContainer : theme.colors.tertiaryContainer,
+                    opacity: !isRestDay && !isCompleted ? 1 : 0.5
                 }}
                 onPress={() => {
-                    if(!isRestDay){
+                    if(!isRestDay && !isCompleted){
                         props.onPress()
                     }
                 }}
             >
-                <Logo width={90} height={80} scale={1.5} strokeColor={!isRestDay ? theme.colors.primary : theme.colors.tertiaryContainer} fill={!isRestDay ? theme.colors.background : theme.colors.onTertiaryContainer}/>
+                <Logo width={90} height={80} scale={1.5} strokeColor={!isRestDay && !isCompleted ? theme.colors.primary : theme.colors.tertiaryContainer} fill={!isRestDay && !isCompleted ? theme.colors.background : theme.colors.onTertiaryContainer}/>
                 <Text 
                     style={{...textStyles.cardHeaderText,
-                    color: !isRestDay ? theme.colors.onPrimaryContainer : theme.colors.onTertiaryContainer}}
+                    color: !isRestDay && !isCompleted ? theme.colors.onPrimaryContainer : theme.colors.onTertiaryContainer}}
                 >
-                        Let's Go JIM!!!
+                        {
+                            isRestDay ?
+                                "Rest Day" :
+                                ( 
+                                    isCompleted ? 
+                                        "Workout Complete!" :
+                                        "Let's Go JIM!!!"
+                                )
+                        }
                 </Text>
                 {
-                    isRestDay ? 
+                    isRestDay || isCompleted ? 
                     <Text
                         style={{...textStyles.cardBodyText,
                             color: theme.colors.onTertiaryContainer,
@@ -57,7 +66,16 @@ export default function StartButton(props){
                             fontSize: 15,
                         }}
                     >
-                        {`Rest Day! \n It's 'stopping the urge to go to the gym' day!`}
+                        {    
+                            isRestDay ?
+                                `It's 'stopping the urge to go to the gym' day!` 
+                                :
+                                ( 
+                                    isCompleted ? 
+                                        "You have completed today's workout! Back to real life :<" :
+                                        ""
+                                )
+                        }
                     </Text> :
                     null
                 }

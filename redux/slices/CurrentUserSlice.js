@@ -56,6 +56,7 @@ const CurrentUserSlice = createSlice({
                 const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === state.currentWorkout)
                 const currentWorkoutObj = state.workoutUsed[workoutIndex]
                 const isRestDay = currentWorkoutObj.latest_state.split === 0 && currentWorkoutObj.latest_state.cycle === 0
+                const isCompleted = currentWorkoutObj.latest_state.is_completed
 
                 const currentCycleIndex = state.workoutUsed[workoutIndex].latest_state.cycle - 1
                 const currentSplitIndex = state.workoutUsed[workoutIndex].latest_state.split - 1
@@ -64,64 +65,67 @@ const CurrentUserSlice = createSlice({
                 
                 console.log(`Split Index: ${currentSplitIndex}   Cycle Index: ${currentCycleIndex}`)
                 console.log(`Cycle Length: ${cycleLength}   Split Length: ${splitLength}`)
+                console.log(`isRestDay? ${isRestDay}    isCompleted? ${isCompleted}`)
 
-                if(isRestDay){  //Reset date to first cycle and split after Rest Day
-                    const newLatestState = {
-                        ...currentWorkoutObj.latest_state,
-                        is_completed: false,
-                        date_used: getLocalDateTime().toISOString(),
-                        split: 1,
-                        cycle: 1,
-                        name: currentWorkoutObj.cycles[0].split[0].name
+                if(isCompleted){ //checks if user completed the currentWorkout, does not go to next split until user completes the current workout
+                    if(isRestDay){  //Reset date to first cycle and split after Rest Day
+                        const newLatestState = {
+                            ...currentWorkoutObj.latest_state,
+                            is_completed: false,
+                            date_used: getLocalDateTime().toISOString(),
+                            split: 1,
+                            cycle: 1,
+                            name: currentWorkoutObj.cycles[0].split[0].name
+                        }
+    
+                        state.workoutUsed[workoutIndex].latest_state = {
+                            ...newLatestState
+                        }
+                    } else if(state.workoutUsed[workoutIndex].latest_state.split < splitLength){ //Go to next split, given that there is in the current cycle; if there is not, then next condition
+                        console.log("Add Split")
+    
+                        const newLatestState = {
+                            ...currentWorkoutObj.latest_state,
+                            is_completed: false,
+                            date_used: getLocalDateTime().toISOString(),
+                            split: currentWorkoutObj.latest_state.split + 1,
+                            name: currentWorkoutObj.cycles[currentCycleIndex].split[currentSplitIndex + 1].name
+                        }
+    
+                        state.workoutUsed[workoutIndex].latest_state = {
+                            ...newLatestState
+                        }
+                    } else if (currentWorkoutObj.latest_state.cycle < cycleLength){ //Go to next cycle given that there is; if there is not, then next condition
+                        console.log("Add Cycle")
+    
+                        const newLatestState = {
+                            ...currentWorkoutObj.latest_state,
+                            is_completed: false,
+                            date_used: getLocalDateTime().toISOString(),
+                            split: 1,
+                            cycle: currentWorkoutObj.latest_state.cycle + 1,
+                            name: currentWorkoutObj.cycles[currentCycleIndex + 1].split[0].name
+                        }
+    
+                        state.workoutUsed[workoutIndex].latest_state = {
+                            ...newLatestState
+                        }
+                    } else {    //Only fires, if its the last split of the last cycle; changes split and cycle to 0 which is used to indicate Rest Day
+                        console.log("To Rest Day")
+                        const newLatestState = {
+                            ...currentWorkoutObj.latest_state,
+                            is_completed: true,
+                            date_used: getLocalDateTime().toISOString(),
+                            split: 0,
+                            cycle: 0,
+                            name: currentWorkoutObj.cycles[0].split[0].name
+                        }
+    
+                        state.workoutUsed[workoutIndex].latest_state = {
+                            ...newLatestState
+                        }
                     }
-
-                    state.workoutUsed[workoutIndex].latest_state = {
-                        ...newLatestState
-                    }
-                } else if(state.workoutUsed[workoutIndex].latest_state.split < splitLength){ //Go to next split, given that there is in the current cycle; if there is not, then next condition
-                    console.log("Add Split")
-
-                    const newLatestState = {
-                        ...currentWorkoutObj.latest_state,
-                        is_completed: false,
-                        date_used: getLocalDateTime().toISOString(),
-                        split: currentWorkoutObj.latest_state.split + 1,
-                        name: currentWorkoutObj.cycles[currentCycleIndex].split[currentSplitIndex + 1].name
-                    }
-
-                    state.workoutUsed[workoutIndex].latest_state = {
-                        ...newLatestState
-                    }
-                } else if (currentWorkoutObj.latest_state.cycle < cycleLength){ //Go to next cycle given that there is; if there is not, then next condition
-                    console.log("Add Cycle")
-
-                    const newLatestState = {
-                        ...currentWorkoutObj.latest_state,
-                        is_completed: false,
-                        date_used: getLocalDateTime().toISOString(),
-                        split: 1,
-                        cycle: currentWorkoutObj.latest_state.cycle + 1,
-                        name: currentWorkoutObj.cycles[currentCycleIndex + 1].split[0].name
-                    }
-
-                    state.workoutUsed[workoutIndex].latest_state = {
-                        ...newLatestState
-                    }
-                } else {    //Only fires, if its the last split of the last cycle; changes split and cycle to 0 which is used to indicate Rest Day
-                    console.log("To Rest Day")
-                    const newLatestState = {
-                        ...currentWorkoutObj.latest_state,
-                        is_completed: true,
-                        date_used: getLocalDateTime().toISOString(),
-                        split: 0,
-                        cycle: 0,
-                        name: currentWorkoutObj.cycles[0].split[0].name
-                    }
-
-                    state.workoutUsed[workoutIndex].latest_state = {
-                        ...newLatestState
-                    }
-                }
+                } 
             }
         },
         completeWorkout: (state, action) => { //PostWorkoutPage
