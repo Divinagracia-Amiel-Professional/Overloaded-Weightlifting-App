@@ -21,7 +21,7 @@ const Stack = createStackNavigator();
 export default function DoWorkoutStack(){
     return(
         <Stack.Navigator
-            detachInactiveScreens={false}
+            detachInactiveScreens={true}
             screenOptions={{
             headerShown: false,
           }}

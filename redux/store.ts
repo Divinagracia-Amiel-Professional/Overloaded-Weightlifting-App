@@ -8,6 +8,7 @@ import initReducer from "./slices/InitSlice";
 import currentUserReducer from "./slices/CurrentUserSlice";
 import themeReducer from "./slices/ThemeSlice";
 import currentSplitReducer from "./slices/CurrentSplit";
+import currentDateReducer from "./slices/CurrentDate";
 
 import ExpoFileSystemStorage from "redux-persist-expo-filesystem";
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     init: initReducer,
     currentUser: currentUserReducer,
     currentSplit: currentSplitReducer,
+    currentDate: currentDateReducer,
     theme: themeReducer,
 })
 

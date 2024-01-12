@@ -132,7 +132,7 @@ export default
             split : [
                 {
                     name: "Pull Day",
-                    order: 2,
+                    order: 1,
                     exercises : [
                         // {
                         //     exercise_id: latPulldowns.id,
@@ -231,7 +231,7 @@ export default
             split : [
                 {
                     name: "Leg Day",
-                    order: 3,
+                    order: 1,
                     exercises : [
                         {
                             exercise_id: deadliftConventional.id,

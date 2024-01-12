@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getLocalDateTime } from "../../functions/functions-index";
 
 const initState = {
     user: 'guestUser',
@@ -23,7 +24,18 @@ const CurrentUserSlice = createSlice({
             state.workoutUsed.splice(workoutIndex, 1)
         },
         useWorkout: (state, action) => { //Used in Manage Workout Page if user wants to use workout
-            state.currentWorkout = action.payload
+            const isAdd = action.payload.date_used ? true : false
+            const workoutId = isAdd ? action.payload.id : action.payload
+            state.currentWorkout = workoutId
+
+            if(isAdd){
+                const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === action.payload.id)
+                state.workoutUsed[workoutIndex].latest_state.date_used = action.payload.date_used
+            }
+            
+            console.log(`Workout Used: ${JSON.stringify(state.workoutUsed)} 
+                        Current Workout: ${state.currentWorkout} 
+            `)
         },
         updateState: (state, action) => { //Used in Workout Picker in Start Button Details
             if(state.workoutUsed[0]){
@@ -37,6 +49,79 @@ const CurrentUserSlice = createSlice({
             }
             else{
                 console.log('There is no workout with that ID')
+            }
+        },
+        goToNextSplit: (state) => { //Reducer to go to next split when it's midnight or the next day
+            if(state.currentWorkout){
+                const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === state.currentWorkout)
+                const currentWorkoutObj = state.workoutUsed[workoutIndex]
+                const isRestDay = currentWorkoutObj.latest_state.split === 0 && currentWorkoutObj.latest_state.cycle === 0
+
+                const currentCycleIndex = state.workoutUsed[workoutIndex].latest_state.cycle - 1
+                const currentSplitIndex = state.workoutUsed[workoutIndex].latest_state.split - 1
+                const cycleLength = currentWorkoutObj.cycles.length
+                const splitLength = !isRestDay ? currentWorkoutObj.cycles[currentCycleIndex].split.length : 1
+                
+                console.log(`Split Index: ${currentSplitIndex}   Cycle Index: ${currentCycleIndex}`)
+                console.log(`Cycle Length: ${cycleLength}   Split Length: ${splitLength}`)
+
+                if(isRestDay){  //Reset date to first cycle and split after Rest Day
+                    const newLatestState = {
+                        ...currentWorkoutObj.latest_state,
+                        is_completed: false,
+                        date_used: getLocalDateTime().toISOString(),
+                        split: 1,
+                        cycle: 1,
+                        name: currentWorkoutObj.cycles[0].split[0].name
+                    }
+
+                    state.workoutUsed[workoutIndex].latest_state = {
+                        ...newLatestState
+                    }
+                } else if(state.workoutUsed[workoutIndex].latest_state.split < splitLength){ //Go to next split, given that there is in the current cycle; if there is not, then next condition
+                    console.log("Add Split")
+
+                    const newLatestState = {
+                        ...currentWorkoutObj.latest_state,
+                        is_completed: false,
+                        date_used: getLocalDateTime().toISOString(),
+                        split: currentWorkoutObj.latest_state.split + 1,
+                        name: currentWorkoutObj.cycles[currentCycleIndex].split[currentSplitIndex + 1].name
+                    }
+
+                    state.workoutUsed[workoutIndex].latest_state = {
+                        ...newLatestState
+                    }
+                } else if (currentWorkoutObj.latest_state.cycle < cycleLength){ //Go to next cycle given that there is; if there is not, then next condition
+                    console.log("Add Cycle")
+
+                    const newLatestState = {
+                        ...currentWorkoutObj.latest_state,
+                        is_completed: false,
+                        date_used: getLocalDateTime().toISOString(),
+                        split: 1,
+                        cycle: currentWorkoutObj.latest_state.cycle + 1,
+                        name: currentWorkoutObj.cycles[currentCycleIndex + 1].split[0].name
+                    }
+
+                    state.workoutUsed[workoutIndex].latest_state = {
+                        ...newLatestState
+                    }
+                } else {    //Only fires, if its the last split of the last cycle; changes split and cycle to 0 which is used to indicate Rest Day
+                    console.log("To Rest Day")
+                    const newLatestState = {
+                        ...currentWorkoutObj.latest_state,
+                        is_completed: true,
+                        date_used: getLocalDateTime().toISOString(),
+                        split: 0,
+                        cycle: 0,
+                        name: currentWorkoutObj.cycles[0].split[0].name
+                    }
+
+                    state.workoutUsed[workoutIndex].latest_state = {
+                        ...newLatestState
+                    }
+                }
             }
         },
         completeWorkout: (state, action) => { //PostWorkoutPage
@@ -76,7 +161,7 @@ const CurrentUserSlice = createSlice({
                         ]
                     }
                 } else {
-                    state.records = [
+                    state.records = [ //add new record of a new exercise
                         ...state.records,
                         {
                             id: record.id,
@@ -113,11 +198,12 @@ const CurrentUserSlice = createSlice({
 export default CurrentUserSlice.reducer
 export const { 
     addWorkout,
-    seWorkout, 
+    useWorkout, 
     updateState, 
     deleteWorkout, 
     updateRecords, 
     resetRecords,
     completeWorkout,
     consoleLogRecords,
+    goToNextSplit
  } = CurrentUserSlice.actions

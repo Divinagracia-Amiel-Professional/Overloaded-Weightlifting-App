@@ -23,6 +23,7 @@ import { NavigationContainer } from '@react-navigation/native'
 
 export default function StartButton(props){
     const theme = useTheme()
+    const isRestDay = props.isRestDay
     const [isDetailShown, setIsDetailShown] = useState(false)
 
     return(
@@ -30,22 +31,44 @@ export default function StartButton(props){
             backgroundColor: theme.colors.tertiaryContainer}}>
             <Pressable 
                 style={{...cardStyles.cardContainer,
-                backgroundColor: theme.colors.primaryContainer}}
-                onPress={props.onPress}
+                    backgroundColor: !isRestDay ? theme.colors.primaryContainer : theme.colors.tertiaryContainer,
+                    opacity: !isRestDay ? 1 : 0.5
+                }}
+                onPress={() => {
+                    if(!isRestDay){
+                        props.onPress()
+                    }
+                }}
             >
-                <Logo width={90} height={80} scale={1.5} strokeColor={theme.colors.primary} fill={theme.colors.background}/>
+                <Logo width={90} height={80} scale={1.5} strokeColor={!isRestDay ? theme.colors.primary : theme.colors.tertiaryContainer} fill={!isRestDay ? theme.colors.background : theme.colors.onTertiaryContainer}/>
                 <Text 
                     style={{...textStyles.cardHeaderText,
-                    color: theme.colors.onPrimaryContainer}}
+                    color: !isRestDay ? theme.colors.onPrimaryContainer : theme.colors.onTertiaryContainer}}
                 >
                         Let's Go JIM!!!
                 </Text>
+                {
+                    isRestDay ? 
+                    <Text
+                        style={{...textStyles.cardBodyText,
+                            color: theme.colors.onTertiaryContainer,
+                            paddingHorizontal: 25,
+                            textAlign: 'center',
+                            fontSize: 15,
+                        }}
+                    >
+                        {`Rest Day! \n It's 'stopping the urge to go to the gym' day!`}
+                    </Text> :
+                    null
+                }
+                
             </Pressable>    
             {
                 isDetailShown 
                 && 
                 <StartButtonDetail
                     data={props.data}
+                    isRestDay={props.isRestDay}
                     showModal={props.showModal}
                     hideModal={props.hideModal}
                 />

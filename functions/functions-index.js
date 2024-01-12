@@ -25,5 +25,5 @@ export {
     formatData,
     checkIfExerciseEmpty,
     checkBasicInfo,
-    checkIfWorkoutExists
+    checkIfWorkoutExists,
 }

@@ -13,7 +13,7 @@ export default
         is_completed: false,
         date_used: '',
         cycle: 2,
-        split: 3,
+        split: 1,
         name: 'Leg Day'
     },
     cycles : [
@@ -22,7 +22,7 @@ export default
             split : [
                 {
                     name: "Leg Day",
-                    order: 3,
+                    order: 1,
                     exercises : [
                         {
                             exercise_id: squatBulgarianSplitBar.id,
@@ -55,7 +55,7 @@ export default
             split : [
                 {
                     name: "Leg Day",
-                    order: 3,
+                    order: 1,
                     exercises : [
                         {
                             exercise_id: squatBulgarianSplitBar.id,

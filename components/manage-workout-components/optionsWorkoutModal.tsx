@@ -14,6 +14,7 @@ import ButtonWithIcon from '../general/button';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { useWorkout, deleteWorkout } from '../../redux/slices/CurrentUserSlice';
+import { getLocalDateTime } from '../../functions/functions-index';
 
 export default function OptionsWorkoutModal(props){
     const dispatch = useDispatch<AppDispatch>();
@@ -52,7 +53,11 @@ export default function OptionsWorkoutModal(props){
                                             dispatch(useWorkout(''))
                                         }
                                         else{
-                                            dispatch(useWorkout(props.workoutId))
+                                            const data = {
+                                                id: props.workoutId,
+                                                date_used: getLocalDateTime().toISOString()
+                                            }
+                                            dispatch(useWorkout(data))
                                         }
                                         break;
                                     case 'delete':

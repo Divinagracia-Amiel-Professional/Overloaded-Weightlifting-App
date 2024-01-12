@@ -12,6 +12,7 @@ import { setWorkoutName } from '../../functions/functions-index';
 export default function StartButtonDetail(props){
     const theme = useTheme()
     const workoutData = props.data
+    const isRestDay = props.isRestDay
 
     return(
         <View
@@ -21,11 +22,12 @@ export default function StartButtonDetail(props){
                     style={{
                         ...textStyles.cardDetailHeaderText,
                         color: theme.colors.secondary,
+                        paddingBottom: 5,
                     }}
                 >
-                    Exercise Today: {setWorkoutName(workoutData.data.latest_state.cycle, workoutData.data.latest_state.name)}
+                    Exercise Today: {!isRestDay ? setWorkoutName(workoutData.data.latest_state.cycle, workoutData.data.latest_state.name) : "Just go rest bro"}
                 </Text>
-                <Text
+                {/* <Text
                     style={{
                         ...textStyles.cardDetailBody,
                         color: theme.colors.secondary
@@ -37,7 +39,7 @@ export default function StartButtonDetail(props){
                 }}>
                     <Abs height={30} strokeColor={theme.colors.tertiaryContainer} fill={theme.colors.secondary}/>
                     <Legs height={30} strokeColor={theme.colors.tertiaryContainer} fill={theme.colors.secondary}/>
-                </View>
+                </View> */}
                 <Pressable
                     style={{
                         ...buttonStyles.button,
