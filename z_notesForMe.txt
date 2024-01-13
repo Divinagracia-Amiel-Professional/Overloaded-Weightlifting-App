@@ -17,8 +17,9 @@ things to do:
 - default behavior of scheduling as speficified here (Finished but not tested)
 - edit workout function (done, not tested)
 - until failure case
-- add action indicators(please)
+- add action indicators/action alerts (please)
 - if workout is already finished that day, even if the user picks another split then comes back,
 button should be disabled(Optional)
 - saving current do workout page state and create from scratch page()
-
+- Exercise List Page
+- Loading Screen

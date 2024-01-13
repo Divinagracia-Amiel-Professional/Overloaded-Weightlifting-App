@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { useTheme, ActivityIndicator, Portal } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,
@@ -16,9 +16,11 @@ import { RootState, AppDispatch } from '../../../redux/store';
 import { addWorkout } from '../../../redux/slices/CurrentUserSlice';
 import getUserWorkoutObjects from '../../../custom-hooks/getUserWorkoutObjects';
 import { ManageWorkoutCard } from '../../../components/component-index';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ManageWorkoutPage({navigation, route}){
     const theme = useTheme()
+    const [ isLoading, setIsLoading ] = useState(false)
 
     const data = {
         userWorkout: useSelector((state: RootState) => state.currentUser.workoutUsed), 
@@ -42,18 +44,40 @@ export default function ManageWorkoutPage({navigation, route}){
                 focus={workout.focus}
                 navigation={navigation}
                 thisWorkout={workout}
+                setIsLoading={setIsLoading}
             />
         )
     }) : navigation.navigate('Navbar')
 
     return(
-        <ScrollView
-            style={{...mainStyles.scrollView,
-                backgroundColor: theme.colors.background
-            }}
-            contentContainerStyle={mainStyles.scrollViewContainerStyle}
+        <SafeAreaView
+            style={{flex: 1, position: 'relative'}}
         >
-            {workouts ? workouts : <Text>No used Workouts</Text>}
-        </ScrollView>
+            <View
+                style={{
+                    padding: 0,
+
+                    zIndex: 100,
+                    position: 'absolute',
+                    top: '50%',
+                    bottom: '50%',
+                    left: '50%',
+                    right: '50%'
+                 }}
+            >
+                <ActivityIndicator size={50} animating={isLoading} color={theme.colors.primary} />
+            </View>   
+            <ScrollView
+                style={{...mainStyles.scrollView,
+                    backgroundColor: theme.colors.background,
+                }}
+                contentContainerStyle={{
+                    ...mainStyles.scrollViewContainerStyle,
+                    paddingVertical: 0
+                }}
+            >
+                {workouts ? workouts : <Text>No used Workouts</Text>}
+            </ScrollView>
+        </SafeAreaView>
     )
 }

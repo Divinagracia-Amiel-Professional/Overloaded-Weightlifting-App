@@ -13,6 +13,7 @@ import 'react-native-gesture-handler'
 import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { SheetProvider } from 'react-native-actions-sheet'
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -44,9 +45,11 @@ export default function App() {
     <Provider store={store}>
       <PaperProvider theme={useLightTheme}>
         <PersistGate loading={null} persistor={persistor}>
-          <NavigationContainer theme={useLightTheme}>
-            <DoWorkoutStack />
-          </NavigationContainer>
+          <SheetProvider>
+            <NavigationContainer theme={useLightTheme}>
+              <DoWorkoutStack />
+            </NavigationContainer>
+          </SheetProvider>
         </PersistGate>
       </PaperProvider>
     </Provider>

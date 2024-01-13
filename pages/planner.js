@@ -54,12 +54,12 @@ export default function Planner({navigation}){
             />
             <CardButton 
                 state={false}
-                header='Workout List'
+                header='Exercise List'
                 mainIcon={<FontAwesome5 name="clipboard-list" size={80} color={theme.colors.background} />}
                 mainIconDisabled={<FontAwesome5 name="clipboard-list" size={80} color={theme.colors.onTertiaryContainer} />}
                 sideIcon={null}
                 sideIconDisabled={null}
-                disabledMessage='Create Workout First!'
+                disabledMessage='Unavailable for now'
                 onPress={() => {}}
             />
         </View>
