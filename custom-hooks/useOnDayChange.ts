@@ -20,12 +20,12 @@ const useOnDayChange = (callback) => {
             const nowTime = now.toISOString().slice(11, 19)
             const isMidnight = midnight.includes(nowTime)
             const isNextDay = new Date(nowDate).getTime() !== new Date(currentDate).getTime()
-            console.log(nowTime)
-            console.log("isMidnight? " + isMidnight)
-            console.log("isNextDay? " + isNextDay)
-            console.log("Now Date: " + nowDate)
-            console.log('Test Now Date: ' + testNowDate)
-            console.log('Current Date: ' + currentDate)
+            // console.log(nowTime)
+            // console.log("isMidnight? " + isMidnight)
+            // console.log("isNextDay? " + isNextDay)
+            // console.log("Now Date: " + nowDate)
+            // console.log('Test Now Date: ' + testNowDate)
+            // console.log('Current Date: ' + currentDate)
             
             if(isMidnight || isNextDay){
                 dispatch(updateDate(nowDate))

@@ -26,7 +26,7 @@ import pullUps from "../exercise-objects/pull-ups"
 
 export default 
 {
-    id: "divisplitID",
+    id: "1916393263234394",
     name: "Divi Split",
     difficulty: 3.5,
     focus: 'Strength Building',
@@ -34,8 +34,8 @@ export default
     latest_state: {
         is_completed: false,
         date_used: '',
-        cycle: 3,
-        split: 3,
+        cycle: 1,
+        split: 1,
         name: 'Leg Day'
     },
     cycles : [
@@ -48,6 +48,7 @@ export default
                     exercises : [
                         {
                             exercise_id: benchPress.id,
+                            name: benchPress.name,
                             workout_data: {
                                 order: 1,
                                 rep_end: 6,
@@ -59,6 +60,7 @@ export default
                         },
                         {
                             exercise_id: inclineCableFly.id,
+                            name: inclineCableFly.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 15,
@@ -70,6 +72,7 @@ export default
                         },
                         {
                             exercise_id: shoulderPressStanding.id,
+                            name: shoulderPressStanding.name,
                             workout_data: {
                                 order: 3,
                                 rep_end: 8,
@@ -81,6 +84,7 @@ export default
                         },
                         {
                             exercise_id: egyptianLateralRaises.id,
+                            name: egyptianLateralRaises.name,
                             workout_data: {
                                 order: 4,
                                 rep_end: 15,
@@ -92,6 +96,7 @@ export default
                         },
                         {
                             exercise_id: cablePushdowns.id,
+                            name: cablePushdowns.name,
                             workout_data: {
                                 order: 5,
                                 rep_end: 15,
@@ -114,6 +119,7 @@ export default
                         // },
                         {
                             exercise_id: ropeFacePull.id,
+                            name: ropeFacePull.name,
                             workout_data: {
                                 order: 6,
                                 rep_end: 20,
@@ -147,10 +153,11 @@ export default
                         // },
                         {
                             exercise_id: pullUps.id,
+                            name: pullUps.name,
                             workout_data: {
                                 order: 1,
-                                rep_end: 'until fail',
-                                rep_start: 'until fail',
+                                rep_end: 10,
+                                rep_start: 6,
                                 rest_increment: 30,
                                 rest_initial: 150,
                                 set_count: 4
@@ -158,6 +165,7 @@ export default
                         },
                         {
                             exercise_id: barbellRow.id,
+                            name: barbellRow.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 15,
@@ -169,6 +177,7 @@ export default
                         },
                         {
                             exercise_id: chestSupportedRearDeltRow.id,
+                            name: chestSupportedRearDeltRow.name,
                             workout_data: {
                                 order: 3,
                                 rep_end: 15,
@@ -180,6 +189,7 @@ export default
                         },
                         {
                             exercise_id: barbellCurlNarrowGrip.id,
+                            name: barbellCurlNarrowGrip.name,
                             workout_data: {
                                 order: 4,
                                 rep_end: 12,
@@ -191,6 +201,7 @@ export default
                         },
                         {
                             exercise_id: preacherCurls.id,
+                            name: preacherCurls.name,
                             workout_data: {
                                 order: 5,
                                 rep_end: 12,
@@ -202,6 +213,7 @@ export default
                         },
                         {
                             exercise_id: facePullsKneeling.id,
+                            name: facePullsKneeling.name,
                             workout_data: {
                                 order: 6,
                                 rep_end: 15,
@@ -213,6 +225,7 @@ export default
                         },
                         {
                             exercise_id: facePullsLying.id,
+                            name: facePullsLying.name,
                             workout_data: {
                                 order: 7,
                                 rep_end: 15,
@@ -235,6 +248,7 @@ export default
                     exercises : [
                         {
                             exercise_id: deadliftConventional.id,
+                            name: deadliftConventional.name,
                             workout_data: {
                                 order: 1,
                                 rep_end: 4,
@@ -246,6 +260,7 @@ export default
                         },
                         {
                             exercise_id: squatBulgarianSplitBar.id,
+                            name: squatBulgarianSplitBar.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 12,
@@ -257,6 +272,7 @@ export default
                         },
                         {
                             exercise_id: hipThrustBar.id,
+                            name: hipThrustBar.name,
                             workout_data: {
                                 order: 3,
                                 rep_end: 15,
@@ -268,6 +284,7 @@ export default
                         },
                         {
                             exercise_id: squatGobletEccentric.id,
+                            name: squatGobletEccentric.name,
                             workout_data: {
                                 order: 4,
                                 rep_end: 15,
@@ -279,6 +296,7 @@ export default
                         },
                         {
                             exercise_id: legCurlSeatedEccentric.id,
+                            name: legCurlSeatedEccentric.name,
                             workout_data: {
                                 order: 5,
                                 rep_end: 10,
@@ -290,6 +308,7 @@ export default
                         },
                         {
                             exercise_id: hipAbductionsSeated.id,
+                            name: hipAbductionsSeated.name,
                             workout_data: {
                                 order: 6,
                                 rep_end: 30,
@@ -301,6 +320,7 @@ export default
                         },
                         {
                             exercise_id: calfPressLegPressMachineSingle.id,
+                            name: calfPressLegPressMachineSingle.name,
                             workout_data: {
                                 order: 7,
                                 rep_end: 10,

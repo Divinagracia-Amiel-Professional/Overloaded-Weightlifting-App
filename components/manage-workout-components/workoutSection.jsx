@@ -98,6 +98,8 @@ export default function WorkoutSection(props){
                 mode='use'
                 workoutId={props.id}
                 state={props.state}
+                navigation={props.navigation}
+                thisWorkout={props.thisWorkout}
             />
             <OptionsWorkoutModal
                 visible={visible.deleteModalVisible}
@@ -108,6 +110,32 @@ export default function WorkoutSection(props){
                 prompt='Delete Workout?'
                 workoutId={props.id}
                 state={props.state}
+                navigation={props.navigation}
+                thisWorkout={props.thisWorkout}
+            />
+            <OptionsWorkoutModal 
+                visible={visible.editModalVisible}
+                hideModal={() => {
+                    hideModal('editModalVisible')
+                }}
+                mode='edit'
+                prompt='Edit Workout?'
+                workoutId={props.id}
+                state={props.state}
+                navigation={props.navigation}
+                thisWorkout={props.thisWorkout}
+            />
+            <OptionsWorkoutModal 
+                visible={visible.checkScheduleVisible}
+                hideModal={() => {
+                    hideModal('checkScheduleVisible')
+                }}
+                mode='schedule'
+                prompt='Check Schedule?'
+                workoutId={props.id}
+                state={props.state}
+                navigation={props.navigation}
+                thisWorkout={props.thisWorkout}
             />
             <View
                 style={{...cardStyles.workoutCard.nameContainer}}

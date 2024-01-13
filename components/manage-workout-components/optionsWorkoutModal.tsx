@@ -66,6 +66,17 @@ export default function OptionsWorkoutModal(props){
                                         }
                                         dispatch(deleteWorkout(props.workoutId))
                                         break;
+                                    case 'edit':
+                                        props.navigation.navigate('CreateFromScratch', {
+                                            isEdit: true,
+                                            workoutData: {
+                                                ...props.thisWorkout
+                                            }
+                                        })
+                                        break;
+                                    case 'schedule':
+                                        console.log('check schedule')
+                                        break;
                                 }
     
                                 props.hideModal()

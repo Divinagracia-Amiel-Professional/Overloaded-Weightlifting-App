@@ -13,7 +13,7 @@ import { Logo, Calendar } from '../constants/icons';
 import initializeDBSync from '../custom-hooks/initDBsync';
 import getCurrentlyUsedWorkoutObject from '../custom-hooks/getCurrentlyUsedWorkoutObject';
 import useOnDayChange from '../custom-hooks/useOnDayChange';
-import { getLocalDateTime, addDays, toHash, setNextSplit } from '../functions/functions-index';
+import { getLocalDateTime, addDays, toHash } from '../functions/functions-index';
 
 import { updateState, goToNextSplit } from '../redux/slices/CurrentUserSlice';
 import { updateDate } from '../redux/slices/CurrentDate';

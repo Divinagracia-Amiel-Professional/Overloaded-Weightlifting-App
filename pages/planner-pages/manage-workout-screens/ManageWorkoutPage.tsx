@@ -40,6 +40,8 @@ export default function ManageWorkoutPage({navigation, route}){
                 name={workout.name}
                 difficulty={workout.difficulty}
                 focus={workout.focus}
+                navigation={navigation}
+                thisWorkout={workout}
             />
         )
     }) : navigation.navigate('Navbar')

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getLocalDateTime } from "../../functions/functions-index";
+import { getLocalDateTime, toHash } from "../../functions/functions-index";
 
 const initState = {
     user: 'guestUser',
@@ -36,6 +36,19 @@ const CurrentUserSlice = createSlice({
             console.log(`Workout Used: ${JSON.stringify(state.workoutUsed)} 
                         Current Workout: ${state.currentWorkout} 
             `)
+        },
+        editWorkout: (state, action) => { //Used at the edit workout function in Manage Workout Page
+            const editedWorkout = action.payload
+            const workoutIndex = state.workoutUsed.findIndex(workout => workout.id === editedWorkout.id)
+
+            state.workoutUsed[workoutIndex] = {
+                ...editedWorkout,
+                id: toHash(action.payload.name).toString()
+            }
+
+            state.currentWorkout = ''
+            
+            console.log(JSON.stringify(state.workoutUsed))
         },
         updateState: (state, action) => { //Used in Workout Picker in Start Button Details
             if(state.workoutUsed[0]){
@@ -202,12 +215,13 @@ const CurrentUserSlice = createSlice({
 export default CurrentUserSlice.reducer
 export const { 
     addWorkout,
-    useWorkout, 
-    updateState, 
     deleteWorkout, 
+    useWorkout, 
+    editWorkout,
+    updateState, 
+    goToNextSplit,
+    completeWorkout,
     updateRecords, 
     resetRecords,
-    completeWorkout,
     consoleLogRecords,
-    goToNextSplit
  } = CurrentUserSlice.actions

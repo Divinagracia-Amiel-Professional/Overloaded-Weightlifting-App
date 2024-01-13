@@ -30,7 +30,7 @@ import {
 import ReorderList from '../../../components/create-workout-components/draggable-list';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 
-import { addWorkout } from '../../../redux/slices/CurrentUserSlice';
+import { addWorkout, editWorkout } from '../../../redux/slices/CurrentUserSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../../redux/store';
 
@@ -143,7 +143,41 @@ export default function CreateFromScratch({navigation, route}){
     }
 
     const getToEditData = () => {
-        console.log('edit')   
+        console.log(routeParams)  
+
+        const basicInfoToEdit = {
+            name: routeParams.name,
+            difficulty: routeParams.difficulty,
+            focus: routeParams.focus,
+            description: routeParams.description,
+        } 
+
+        const cyclesToEdit = routeParams.cycles.map(cycle => ({
+            ...cycle,
+            split: cycle.split.map(split => ({
+                ...split,
+                exercises: split.exercises.map(exercise => ({
+                    id: exercise.exercise_id,
+                    name: exercise.name,
+                    workoutData: {
+                        ...exercise.workout_data
+                    }
+                }))
+            }))
+        }))
+
+        const reformattedCyclesToEdit = {
+            cycles: [
+                ...cyclesToEdit
+            ]
+        }
+
+        setBasicInfo(basicInfoToEdit)
+        setWorkout(reformattedCyclesToEdit)
+    }
+
+    const getLatestState = () => {
+        return routeParams.latest_state
     }
 
     useEffect(() => {
@@ -200,7 +234,9 @@ export default function CreateFromScratch({navigation, route}){
 
     const handleDone = () => {
         const checkInfo = checkBasicInfo(basicInfo)
-        const workout_id = toHash(basicInfo.name)
+        let doesOtherNameExist = false
+        const workout_id = !isEdit ? toHash(basicInfo.name).toString() : routeParams.id
+        const workout_name = basicInfo.name
 
         if(isReordering){
             setIsSnackBarVisible(true)
@@ -221,9 +257,23 @@ export default function CreateFromScratch({navigation, route}){
             return
         }
 
-        const doesIdExist = userWorkouts.some(userWorkout => userWorkout.id === workout_id)
+        const doesIdExist = userWorkouts.some(userWorkout => {
+            console.log(`UserWorkout: ${userWorkout.id}     CurrentlyEditing: ${workout_id}`)
+            return userWorkout.id === workout_id
+        })
 
-        if(doesIdExist){
+        if(isEdit){ //Check if other name exists 
+            doesOtherNameExist = userWorkouts
+                .filter(userWorkout => userWorkout.id !== workout_id)
+                .some(userWorkout => {
+                    console.log(`UserWorkout: ${userWorkout.name}     CurrentlyEditing: ${workout_name}`)
+                    return userWorkout.name === workout_name
+                })
+        }
+ 
+        console.log(`Does ID Exist? ${doesIdExist}  isEdit? ${isEdit}   Does Other Name Exist? ${doesOtherNameExist}`)
+
+        if((doesIdExist && !isEdit) || (doesOtherNameExist && isEdit)){ //If ID exist and it is creatingfromscrach, then workout exists; if othernames exist besides its own and it is editing the workout, then workout exists
             setSnackBarMessage("Workout with that name already exists. Please rename your workout")
             setIsSnackBarVisible(true)
             return
@@ -235,6 +285,7 @@ export default function CreateFromScratch({navigation, route}){
                 ...split,
                 exercises: split.exercises.map(exercise => ({
                     exercise_id: exercise.id,
+                    name: exercise.name,
                     workout_data: {
                         ...exercise.workoutData
                     }
@@ -247,7 +298,7 @@ export default function CreateFromScratch({navigation, route}){
             id: workout_id,
             latest_state: {
                 is_completed: false,
-                date_used: '',
+                date_used: !isEdit ? '' : getLatestState().date_used,
                 cycle: 1,
                 split: 1,
                 name: reformattedCycles[0].split[0].name
@@ -257,8 +308,13 @@ export default function CreateFromScratch({navigation, route}){
             ]
         }
 
-        dispatch(addWorkout(reformattedWorkout))
-        navigation.navigate('Navbar')
+        if(!isEdit){
+            dispatch(addWorkout(reformattedWorkout))
+            navigation.navigate('Navbar')
+        } else {
+            dispatch(editWorkout(reformattedWorkout))
+            navigation.navigate('Navbar')
+        }
     }
 
     const getEmptySplits = () => {
