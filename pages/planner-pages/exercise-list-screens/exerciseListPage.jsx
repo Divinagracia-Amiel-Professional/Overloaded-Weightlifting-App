@@ -30,13 +30,6 @@ export default function ExerciseListPage({navigation, route}){
     })
 
     const RenderItem = ({ item }) => {
-        // const lastItemId = useRef(item.id);
-        // const [ selected, setSelected ] = useState(item.isSelected);
-        // if (item.id !== lastItemId.current) {
-        //     lastItemId.current = item.id;
-        //     setSelected(item.isSelected);
-        // }
-        
         return(
             <ExerciseListItem
                 key={item.id}
@@ -76,17 +69,6 @@ export default function ExerciseListPage({navigation, route}){
                 estimatedItemSize={100}
                 scrollEnabled={true}
             />
-            {/* <ScrollView
-            style={{...mainStyles.PremadeScrollView,
-                paddingHorizontal: 0,
-            }}
-            contentContainerStyle={{...mainStyles.PremadeScrollViewContainerStyle,
-                gap: 0,
-                
-            }}
-            >
-                
-            </ScrollView> */}
         </SafeAreaView>
     )
 }

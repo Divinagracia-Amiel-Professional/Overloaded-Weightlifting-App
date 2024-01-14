@@ -52,7 +52,7 @@ const ExerciseDetails = (props) => {
                     <Text
                         style={{...textStyles.headerBarText,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 28
                         }}
                     >
                         {exerciseData.name}
