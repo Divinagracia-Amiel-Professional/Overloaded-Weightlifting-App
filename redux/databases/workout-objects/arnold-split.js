@@ -1,4 +1,4 @@
-import calfPressLegPressMachine from "../exercise-objects/calf-press-leg-press-machine-single"
+import singleLegCalfPress from "../exercise-objects/single-leg-calf-press"
 import deadliftConventional from "../exercise-objects/deadlift-conventional"
 import squatBulgarianSplitBar from "../exercise-objects/squat-bulgarian-split-bar"
 
@@ -37,8 +37,8 @@ export default
                             }
                         },
                         {
-                            exercise_id: calfPressLegPressMachine.id,
-                            name: calfPressLegPressMachine.name,
+                            exercise_id: singleLegCalfPress.id,
+                            name: singleLegCalfPress.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 6,
@@ -72,8 +72,8 @@ export default
                             }
                         },
                         {
-                            exercise_id: calfPressLegPressMachine.id,
-                            name: calfPressLegPressMachine.name,
+                            exercise_id: singleLegCalfPress.id,
+                            name: singleLegCalfPress.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 6,

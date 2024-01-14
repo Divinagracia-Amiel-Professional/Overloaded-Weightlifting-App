@@ -14,14 +14,19 @@ unless these two are fulfilled, the current workout and split will not change
 - I can focus more on the progress tracking aspect of the app which is much more important
 
 things to do:
+//Done to some extent
 - default behavior of scheduling as speficified here (Finished but not tested) /
 - edit workout function (done, not tested) /
-- until failure case
-- add action indicators/action alerts (please)(Mainly on adding a workout)
-- if workout is already finished that day, even if the user picks another split then comes back,
-button should be disabled(Optional)
-- saving current do workout page state and create from scratch page()
-- Exercise List Page (Ongoing)
-- Loading Screen (Optional)
+- Exercise List Page
+
+//Not Done
 - skip function
 - basic display of records(Tabular)
+- updating divisplit
+
+- add action indicators/action alerts (please)(Mainly on adding a workout)
+- until failure case
+- Loading Screen (Optional)
+- saving current do workout page state and create from scratch page()
+- if workout is already finished that day, even if the user picks another split then comes back,
+button should be disabled(Optional)
