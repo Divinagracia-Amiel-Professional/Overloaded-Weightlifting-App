@@ -1,7 +1,7 @@
 export default 
 {
     id: "bwoUDawqUYwGqPy87DVv",
-    name: "Bulgarian Split Squats",
+    name: "Lat Pulldowns",
     description: "The lat pulldown is an excellent substitute for pullups or chinups if you have difficulty performing these exercises or if you’re training to get there.  The lat pulldown activates some of the same muscles as doing a pullup, although to a lesser extent.",
     difficulty: 3,
     focus: [

@@ -33,6 +33,7 @@ export default function PostWorkoutPage({ navigation, route, props}){
 
     useEffect(() => {
         dispatch(updateRecords(toUpdateData)) //updates records to redux
+        dispatch(completeWorkout(route.params.workoutId))
     }, [route.params])
 
     console.log("Data Received: " + JSON.stringify(route.params.currentWorkoutRecords))

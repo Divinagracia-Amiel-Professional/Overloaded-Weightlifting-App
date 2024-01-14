@@ -39,6 +39,8 @@ export default function ManageWorkoutCard(props){
                 difficulty={props.difficulty}
                 focus={props.focus}
                 state={state}
+                navigation={props.navigation}
+                thisWorkout={props.thisWorkout}
             />
             
             {/* setHasOptions={setHasOptions} */}

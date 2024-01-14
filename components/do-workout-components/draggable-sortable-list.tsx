@@ -55,6 +55,7 @@ export default function DraggableSortableList(props) {
         start={rep_start}
         end={rep_end}
         sets={sets}
+        exerciseData={item.item.exercise_obj}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
         setScroll={props.setScroll}

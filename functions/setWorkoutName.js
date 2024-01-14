@@ -14,5 +14,5 @@ export default function setWorkoutName(cycle, name){
             suffix = 'th';
     }
 
-    return `${cycle}${suffix} ${name}`
+    return `${cycle}${suffix} Cycle ${name}`
 }

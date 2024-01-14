@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Text, View, Pressable, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useTheme, Portal, Modal, List } from 'react-native-paper';
+import { SheetManager } from 'react-native-actions-sheet';
 import {
   mainStyles,
   textStyles,
@@ -12,14 +13,22 @@ import { Logo, Calendar } from '../constants/icons';
 
 import initializeDBSync from '../custom-hooks/initDBsync';
 import getCurrentlyUsedWorkoutObject from '../custom-hooks/getCurrentlyUsedWorkoutObject';
+import useOnDayChange from '../custom-hooks/useOnDayChange';
 import { getLocalDateTime, addDays, toHash } from '../functions/functions-index';
 
+import { updateState, goToNextSplit } from '../redux/slices/CurrentUserSlice';
+import { updateDate } from '../redux/slices/CurrentDate';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 
 export default function Home({navigation}){
   const theme = useTheme()
   const initDB = initializeDBSync()
+  const currentUser = useSelector((state: RootState) => state.currentUser)
+  const currentDate = useSelector((state: RootState) => state.currentDate)
+  const dispatch = useDispatch<AppDispatch>()
+
+  console.log("Current Date: " + currentDate)
 
   const [ visible, setVisible ] = useState(false)
 
@@ -28,17 +37,25 @@ export default function Home({navigation}){
 
   // console.log(useSelector((state: RootState) => state.currentUser.workoutUsed))
   const currentUsedWorkout = getCurrentlyUsedWorkoutObject()
+  
   console.log(currentUsedWorkout)
 
-  const currentDate = getLocalDateTime()
+  const isRestDay = !currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty ? currentUsedWorkout.data.latest_state.split === 0 && currentUsedWorkout.data.latest_state.cycle === 0 : false
+  const isCompleted = !currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty ? currentUsedWorkout.data.latest_state.is_completed : false
 
-  const getStartButton = () => {
+  useOnDayChange(() => { //fires when it's midnight; changes date in redux
+    dispatch(goToNextSplit())
+  })
+
+  const getStartButton = () => { 
     if(!currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty){
       return (
         <StartButton
           data={currentUsedWorkout}
           showModal={showModal}
           hideModal={hideModal}
+          isRestDay={isRestDay}
+          isCompleted={isCompleted}
           onPress={() => {
             navigation.navigate('PreWorkoutPage', {
               currentWorkout: currentUsedWorkout
@@ -70,7 +87,7 @@ export default function Home({navigation}){
       backgroundColor: theme.colors.background
     }}>
       {getStartButton()}
-      <Text>{useSelector((state: RootState) => state.init.data) ? "Loaded" : "No_DB"}</Text>
+      {/* <Text>{useSelector((state: RootState) => state.init.data) ? "Loaded" : "No_DB"}</Text> */}
       <Portal>
         <Modal
           visible={visible} 

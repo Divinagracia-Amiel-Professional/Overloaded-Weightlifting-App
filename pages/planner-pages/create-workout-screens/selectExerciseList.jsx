@@ -40,7 +40,11 @@ export default function SelectExercisePage({navigation, route}){
         })
     })
 
-    const [ selectedExercises, setSelectedExercises ] = useState(exercisesWithAdditionalAttributes)
+    const sortedByName = exercisesWithAdditionalAttributes.sort((a, b) => {
+        return a.name.localeCompare(b.name)
+    })
+
+    const [ selectedExercises, setSelectedExercises ] = useState(sortedByName)
    
 
     const handleDone = () => {
@@ -88,7 +92,13 @@ export default function SelectExercisePage({navigation, route}){
                     paddingVertical: 20,
                 }}
             >
-                <Text>Select Exercises</Text>
+                <Text
+                    style={{
+                        ...textStyles.headerText,
+                        color: theme.colors.secondary,
+                        fontSize: 28
+                    }}
+                >Select Exercises</Text>
             </View>
             <FlashList
                 data={selectedExercises}

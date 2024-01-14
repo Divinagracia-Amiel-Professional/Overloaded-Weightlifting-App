@@ -14,7 +14,7 @@ import RestInputs from '../do-workout-components/screens/components/restInputs'
 import EditExerciseModal from './editExerciseModal'
 import reorderWorkout from '../../functions/reorderWorkout'
 
-const ExerciseItem = (props) => {
+const ExerciseItem = (props) => { //Exercise Item in exercise list in create from scratch page when not reordering
     const theme = useTheme()
 
     const [ visible, setVisible ] = useState(false)

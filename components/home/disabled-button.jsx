@@ -12,6 +12,7 @@ import { textSizes } from '../../constants/theme';
 
 export default function DisabledStartButton(props){
   const theme = useTheme()
+  const isBreak = props.isBreak ? props.isBreak : false
   
   return(
     <View
@@ -34,7 +35,13 @@ export default function DisabledStartButton(props){
           color: theme.colors.onTertiaryContainer,
           fontSize: textSizes.small,
         }}
-      >Don't forget to use it in 'manage workout' first!</Text>
+      >
+      {
+        !isBreak ?
+        "Don't forget to use it in 'manage workout' first!" :
+        "Rest Day!!! It's 'stopping the urge to go to the gym' day!"
+      }
+      </Text>
     </View>
   )
 }

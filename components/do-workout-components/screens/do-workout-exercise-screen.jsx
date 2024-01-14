@@ -39,6 +39,7 @@ export default function ExerciseScreen(props){
                 setCount={currentWorkout.item.workout_data.set_count}
                 start={currentWorkout.item.workout_data.rep_start}
                 end={currentWorkout.item.workout_data.rep_end}
+                exerciseData={currentWorkout.item.exercise_obj}
             />
             <ExerciseSet 
                 theme={theme}

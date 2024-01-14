@@ -1,10 +1,10 @@
-import calfPressLegPressMachine from "../exercise-objects/calf-press-leg-press-machine-single"
+import singleLegCalfPress from "../exercise-objects/single-leg-calf-press"
 import deadliftConventional from "../exercise-objects/deadlift-conventional"
 import squatBulgarianSplitBar from "../exercise-objects/squat-bulgarian-split-bar"
 
 export default 
 {
-    id: "tomplatzID",
+    id: "6826531258407899",
     name: "Tom Platz Split",
     difficulty: 5,
     focus: 'Legs',
@@ -12,8 +12,8 @@ export default
     latest_state: {
         is_completed: false,
         date_used: '',
-        cycle: 2,
-        split: 3,
+        cycle: 1,
+        split: 1,
         name: 'Leg Day'
     },
     cycles : [
@@ -26,6 +26,7 @@ export default
                     exercises : [
                         {
                             exercise_id: squatBulgarianSplitBar.id,
+                            name: squatBulgarianSplitBar.name,
                             workout_data: {
                                 order: 1,
                                 rep_end: 4,
@@ -36,7 +37,8 @@ export default
                             }
                         },
                         {
-                            exercise_id: calfPressLegPressMachine.id,
+                            exercise_id: singleLegCalfPress.id,
+                            name: singleLegCalfPress.name,
                             workout_data: {
                                 order: 2,
                                 rep_end: 6,
