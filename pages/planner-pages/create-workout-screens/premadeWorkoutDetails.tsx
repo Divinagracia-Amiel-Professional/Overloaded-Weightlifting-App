@@ -36,10 +36,10 @@ export default function PremadeWorkoutDetails({navigation, route}){
         >
             <BackButton type='default' navigation={navigation} />
             <ScrollView
-            style={{...mainStyles.PremadeScrollView
-            
-            }}
-            contentContainerStyle={mainStyles.PremadeScrollViewContainerStyle}
+                style={{...mainStyles.PremadeScrollView
+                
+                }}
+                contentContainerStyle={mainStyles.PremadeScrollViewContainerStyle}
             >
                 <DescriptionSection
                     name={data.name}

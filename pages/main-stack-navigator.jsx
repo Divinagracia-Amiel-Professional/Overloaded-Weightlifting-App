@@ -11,7 +11,9 @@ import {
     CreateFromScratch,
     PremadeWorkoutDetails,
     ManageWorkoutPage,
-    SelectExercisePage
+    SelectExercisePage,
+    ExerciseListPage,
+    ExerciseDetailsPage
 } from './planner-pages/planner-pages-index';
 import NavBar from './navbar'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
@@ -40,6 +42,8 @@ export default function DoWorkoutStack(){
 
             <Stack.Screen name='ManageWorkoutPage' component={ManageWorkoutPage}/>
 
+            <Stack.Screen name='ExerciseListPage' component={ExerciseListPage}/>
+            <Stack.Screen name='ExerciseDetailsPage' component={ExerciseDetailsPage}/>
         </Stack.Navigator>
     )
 }

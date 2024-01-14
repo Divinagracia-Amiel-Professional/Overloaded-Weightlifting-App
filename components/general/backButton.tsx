@@ -90,11 +90,17 @@ export default function BackButton(props){
                 props.navigation.navigate('CreateFromScratch')
                 break;
             case 'direct_home':
-                props.navigation.popToTop()
+                props.navigation.navigate('Navbar')
                 props.navigation.navigate('Home')
                 break;
             case 'create_workout':
+                props.navigation.navigate('Navbar')
                 props.navigation.navigate('Planner')
+                break;
+            case 'exercise_list':
+                props.navigation.navigate('Navbar')
+                props.navigation.navigate('Planner')
+                break;
             default: 
                 showModal()
         }

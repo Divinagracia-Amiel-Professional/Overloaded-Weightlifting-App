@@ -15,10 +15,23 @@ import ButtonWithIcon from '../general/button';
 import { Placeholder as PlaceholderImage } from '../../constants/images';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+const defaultValues = {
+    id: "ID",
+    name: "Name",
+    description: "Description",
+    difficulty: 3,
+    focus: [],
+    group: [],
+    resources: {
+        img_urls: [],
+        vid_urls: []
+    }
+}
+
 const ExerciseDetails = (props) => {
     const theme = useTheme()
-    const exerciseData = props.exerciseData
-    const isActionSheet = props.isActionSheet
+    const exerciseData = props.exerciseData ? props.exerciseData : defaultValues
+    const isActionSheet = props.isActionSheet ? props.isActionSheet : false
 
     return(
         <View

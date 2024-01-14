@@ -24,3 +24,4 @@ button should be disabled(Optional)
 - Exercise List Page (Ongoing)
 - Loading Screen (Optional)
 - skip function
+- basic display of records(Tabular)
