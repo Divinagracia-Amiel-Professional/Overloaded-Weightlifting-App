@@ -8,8 +8,9 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { SheetManager } from 'react-native-actions-sheet'
 
-export default function SelectExerciseListItem(props){
+export default function SelectExerciseListItem(props){ //Exercise Item in Select Exercises Page
     const theme = useTheme()
     const [ isSelected, setIsSelected ] = useState(props.isSelected);
 
@@ -85,9 +86,16 @@ export default function SelectExerciseListItem(props){
                             }}
                         >{props.item.name}</Text>
                         <Pressable
-                    
+                            onPress={() => {
+                                SheetManager.show('exercise-sheet', {
+                                    payload: {
+                                        exerciseData: props.item,
+                                        isActionSheet: true,
+                                    }
+                                })
+                            }}
                         >
-                            <Feather name={'info'} size={15} color={theme.colors.secondary} />
+                            <Feather name={'info'} size={20} color={theme.colors.secondary} />
                         </Pressable>
                     </View>
                 </View>

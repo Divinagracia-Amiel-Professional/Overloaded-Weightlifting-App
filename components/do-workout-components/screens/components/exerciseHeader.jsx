@@ -8,6 +8,7 @@ import {
 } from '../../../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { SheetManager } from 'react-native-actions-sheet'
 
 export default function ExerciseHeader(props){
   const theme = props.theme
@@ -25,7 +26,14 @@ export default function ExerciseHeader(props){
           }}
         >{props.name}</Text>
         <Pressable
-                    
+            onPress={() => {
+              SheetManager.show('exercise-sheet', {
+                payload: {
+                  exerciseData: props.exerciseData,
+                  isActionSheet: true,
+                }
+              })
+            }}
         >
             <Feather name={'info'} size={25} color={theme.colors.secondary} />
         </Pressable>

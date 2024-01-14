@@ -7,7 +7,6 @@ import {
 } from '../styles/style-index'
 import GetWorkoutData from '../functions/getWorkoutData';
 import useExercises from '../custom-hooks/useExercises';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store';
 import exercisesInitDb from '../redux/databases/exercises-init-db';
@@ -23,7 +22,7 @@ export default function Profile(){
     const collections = useExercises(db, path)
     console.log(collections)
 
-    return(
+    return(         
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Profile</Text>
             <ButtonWithIcon

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Text, View, Pressable, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useTheme, Portal, Modal, List } from 'react-native-paper';
+import { SheetManager } from 'react-native-actions-sheet';
 import {
   mainStyles,
   textStyles,

@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SheetProvider } from 'react-native-actions-sheet'
+import './components/general/actionSheets'
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -44,13 +45,13 @@ export default function App() {
   return (
     <Provider store={store}>
       <PaperProvider theme={useLightTheme}>
-        <PersistGate loading={null} persistor={persistor}>
-          <SheetProvider>
-            <NavigationContainer theme={useLightTheme}>
-              <DoWorkoutStack />
-            </NavigationContainer>
-          </SheetProvider>
-        </PersistGate>
+        <SheetProvider>
+          <PersistGate loading={null} persistor={persistor}>
+              <NavigationContainer theme={useLightTheme}>
+                <DoWorkoutStack />
+              </NavigationContainer>
+          </PersistGate>
+        </SheetProvider>
       </PaperProvider>
     </Provider>
   );
