@@ -14,6 +14,7 @@ import { resetRecords } from '../../redux/slices/CurrentUserSlice';
 import { FontAwesome5 } from '@expo/vector-icons'
 
 const initSelectedExerise = {
+    id: null,
     name: 'Select Exercise First',
     records: [
 
@@ -31,12 +32,19 @@ export default function TrackerScreen(props){ //takes in navigation and route
 
     useEffect(() => {
         if(routeParams){
-            //setSelectedExercise
+            const exerciseRecord = routeParams.exerciseRecord
+            setSelectedExercise({
+                id: exerciseRecord.id,
+                name: exerciseRecord.name,
+                records: exerciseRecord.records
+            })
         }
     }, [ routeParams ])
 
     const handleGoToList = () => {
-        
+        props.navigation.navigate('SelectRecordPage', {
+            userRecords: userRecords
+        })
     }
 
     return(
@@ -59,7 +67,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                         fontSize: 28
                     }}
                 >{selectedExercise.name}</Text>
-                <FontAwesome5 name='angle-right' size={24} color={theme.colors.secondary}/>
+                <FontAwesome5 name='angle-right' size={30} color={theme.colors.secondary}/>
             </Pressable>
         </View>
     )
@@ -78,6 +86,6 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        gap: 5,
+        gap: 15,
     }
 })

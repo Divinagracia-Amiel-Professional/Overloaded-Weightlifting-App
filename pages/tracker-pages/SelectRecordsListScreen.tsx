@@ -5,26 +5,29 @@ import {
     mainStyles,
     textStyles,
     buttonStyles
-} from '../../../styles/style-index'
-import { getAllExercises } from '../../../functions/functions-index';
+} from '../../styles/style-index'
 import { 
     BackButton, 
-} from '../../../components/component-index';
+} from '../../components/component-index';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import ExerciseListItem from '../../../components/manage-workout-components/exerciseListItem';
+import SelectRecordsListItem from '../../components/tracker/SelectRecordItem';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store';
 
-export default function ExerciseListPage({navigation, route}){
+export default function SelectRecordsListPage({navigation, route}){
     const theme = useTheme()
-
-    const exercisesDB = getAllExercises()
-    const sortedByName = exercisesDB.sort((a, b) => {
+    const userRecordsDB = useSelector((state: RootState) => state.currentUser.records)
+    const userRecords = [...userRecordsDB]
+    const sortedByName = userRecords.sort((a, b) => {
         return a.name.localeCompare(b.name)
     })
 
     const RenderItem = ({ item }) => {
+        console.log(item)
+
         return(
-            <ExerciseListItem
+            <SelectRecordsListItem
                 key={item.id}
                 item={item}
                 navigation={navigation}
@@ -36,7 +39,7 @@ export default function ExerciseListPage({navigation, route}){
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
         >
-            <BackButton navigation={navigation} type='exercise_list' hidden={false} params={{}}/>
+            <BackButton navigation={navigation} type='default' hidden={false} params={{}}/>
             <View
                 style={{
                     justifyContent: 'center',

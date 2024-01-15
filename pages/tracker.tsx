@@ -37,16 +37,16 @@ export default function Tracker({route, navigation}){
                         dispatch(resetRecords())
                     }}
                 /> */}
+                <TrackerScreen
+                    navigation={navigation}
+                    route={route}
+                />
                 <ButtonWithIcon
                     style={{paddingVertical: 10, opacity: 0.8}}
                     text="Console Log Records"
                     onPress={() => {
                         console.log(JSON.stringify(userRecords))
                     }}
-                />
-                <TrackerScreen
-                    navigation={navigation}
-                    route={route}
                 />
             </ScrollView>
         </SafeAreaView>
@@ -57,6 +57,7 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         padding: 15,
+        paddingTop: 30,
     },
     contentContainer: {
         alignItems: 'center',
