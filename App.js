@@ -15,6 +15,7 @@ import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SheetProvider } from 'react-native-actions-sheet'
 import './components/general/actionSheets'
+import { SyncToFirebase } from './components/component-index';
 
 const useLightTheme = {
   ...MD3LightTheme,
@@ -47,6 +48,7 @@ export default function App() {
       <PaperProvider theme={useLightTheme}>
         <SheetProvider>
           <PersistGate loading={null} persistor={persistor}>
+              <SyncToFirebase />
               <NavigationContainer theme={useLightTheme}>
                 <DoWorkoutStack />
               </NavigationContainer>

@@ -10,7 +10,6 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import RestInputs from '../do-workout-components/screens/components/restInputs'
 import { Add, Minus } from 'iconsax-react-native'
 
 export default function NumericInput(props){

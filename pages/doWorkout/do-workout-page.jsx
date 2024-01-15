@@ -26,8 +26,8 @@ const recordData = [
 ]
 
 export default function DoWorkoutPage({ route, navigation }){
-    const [ isGoingBack, SetIsGoingBack ] = useState(false)
-    const [ isRest, setIsRest ] = useState(false)
+    const [ isGoingBack, SetIsGoingBack ] = useState(false) 
+    const [ isRest, setIsRest ] = useState(false) //set if rest screen 
     const [ set, setSet ] = useState(1) //set currentset of exercise
     const [ index, setIndex ] = useState(0) //sets index of exercise
     const [ restTime, setRestTime ] = useState(0) 
@@ -37,11 +37,11 @@ export default function DoWorkoutPage({ route, navigation }){
     const [ currentWorkoutRecords, setCurrentWorkoutRecords ] = useState([])
     console.log("Current Workout Records: " + JSON.stringify(currentWorkoutRecords))
 
-    const isLastRest = set === data[index].item.workout_data.set_count + 1 && data.length === data[index].item.workout_data.order
+    const isLastRest = set === data[index].item.workout_data.set_count + 1 && !isRest && data.length === data[index].item.workout_data.order
 
     console.log("Last Rest? " + isLastRest)
 
-    useEffect(() => {
+    useEffect(() => {   
         if(isLastRest){
             navigation.navigate('PostWorkoutPage', {
                 workoutId: route.params.workoutId,
@@ -52,35 +52,55 @@ export default function DoWorkoutPage({ route, navigation }){
                 isComplete: true
             })
         }
-    }, [currentWorkoutRecords])
+    }, [set, isRest])
+
+    console.log(
+        `Set: ${set} \n` + 
+        `Set Count + 1: ${data[index].item.workout_data.set_count + 1} \n` +
+        `Workout Length: ${data.length} \n` +
+        `Current Exercise Order: ${data[index].item.workout_data.order}`
+    )
+
+    const currentDoWorkoutData = {
+        time: data[index].item.workout_data.rest_initial,   //Rest Time
+        currentSet: set,                                    //current Set
+        setCount: data[index].item.workout_data.set_count,  //number of sets in an exercise
+        currentWorkout: data[index],                        //the data of the current exercise
+        nextWorkout: data[index + 1],                       //the data of the next exercise
+        workoutLength: data.length,                         //the number exercises in the workout
+        nextSet: set + 1,                                   //the next set
+    }
     
     return(
         <View style={{flex: 1, position: 'relative'}}>
             <BackButton navigation={navigation} type='doWorkout' />
             {isRest ? //conditional to switch from exercise to rest vice versa
                 <RestScreen
-                    time={data[index].item.workout_data.rest_initial}
+                    time={currentDoWorkoutData.time}
                     setIsRest={setIsRest}
                     setIndex={setIndex}
                     setSet={setSet}
                     setCurrentWorkoutRecords={setCurrentWorkoutRecords}
                     currentWorkoutRecords={currentWorkoutRecords}
-                    currentSet={set}
-                    setCount={data[index].item.workout_data.set_count} //not useState, simply number of sets
-                    currentWorkout={data[index]}
-                    nextWorkout={data[index + 1]}
-                    workoutLength={data.length}
-                    nextSet={set + 1}
+                    currentSet={currentDoWorkoutData.currentSet}
+                    setCount={currentDoWorkoutData.setCount} //not useState, simply number of sets
+                    currentWorkout={currentDoWorkoutData.currentWorkout}
+                    nextWorkout={currentDoWorkoutData.nextWorkout}
+                    workoutLength={currentDoWorkoutData.workoutLength}
+                    nextSet={currentDoWorkoutData.nextSet}
                     navigation={navigation}
                 /> :
                 <ExerciseScreen 
                     recordData={recordData}
                     setIsRest={setIsRest}
+                    setIndex={setIndex}
                     setSet={setSet}
-                    currentWorkout={data[index]}
-                    workoutLength={data.length}
                     currentSet={set}
+                    setCount={currentDoWorkoutData.setCount} //not useState, simply number of sets
+                    currentWorkout={currentDoWorkoutData.currentWorkout}
+                    workoutLength={currentDoWorkoutData.workoutLength}
                     navigation={navigation}
+                    isLastRest={isLastRest}
                 /> 
             }
         </View>

@@ -37,10 +37,10 @@ export default function SelectFromPremade({navigation}){
         >
             <BackButton type='create_workout' navigation={navigation}/>
             <ScrollView
-            style={{...mainStyles.scrollView,
-                backgroundColor: theme.colors.background
-            }}
-            contentContainerStyle={mainStyles.scrollViewContainerStyle}
+                style={{...mainStyles.scrollView,
+                    backgroundColor: theme.colors.background
+                }}
+                contentContainerStyle={mainStyles.scrollViewContainerStyle}
             >
             <Text
                 style={{...textStyles.headerText,

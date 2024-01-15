@@ -20,6 +20,7 @@ import { Placeholder as PlaceholderImage } from '../../../constants/images'
 export default function ExerciseScreen(props){
     const theme = useTheme()
     const currentWorkout = props.currentWorkout
+    const [ skipModalVisible, setSkipModalVisible ] = useState(false)
 
     return(
         <View
@@ -53,13 +54,15 @@ export default function ExerciseScreen(props){
             <ExerciseButtons
                 theme={theme}
                 setIsRest={props.setIsRest}
+                setIndex={props.setIndex}
                 setSet={props.setSet}
                 currentSet={props.currentSet}
-                setCount={currentWorkout.item.workout_data.set_count}
-                currentWorkoutOrder={props.currentWorkout.item.workout_data.order}
+                setCount={props.setCount}
+                currentWorkoutOrder={currentWorkout.item.workout_data.order}
                 workoutLength={props.workoutLength}
 
                 navigation={props.navigation}
+                isLastRest={props.isLastRest}
             />
 
             {/* <ExerciseTimer

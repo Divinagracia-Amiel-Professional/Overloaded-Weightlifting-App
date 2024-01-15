@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getLocalDateTime, toHash } from "../../functions/functions-index";
+import getLocalDateTime from "../../functions/getLocalDateTime";
+import toHash from "../../functions/toHash"
 
 const initState = {
     user: 'guestUser',
@@ -199,12 +200,9 @@ const CurrentUserSlice = createSlice({
             console.log(state.records)
         },
         resetRecords: (state) => { //Delete every record
-            state.records = []
+            state.records = initState.records
 
             console.log(state.records)
-        },
-        consoleLogRecords: (state) => { //For Debugging
-            console.log(JSON.stringify(state.records))
         }
     },
     extraReducers: {
@@ -223,5 +221,4 @@ export const {
     completeWorkout,
     updateRecords, 
     resetRecords,
-    consoleLogRecords,
  } = CurrentUserSlice.actions

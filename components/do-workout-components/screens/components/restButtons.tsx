@@ -56,6 +56,7 @@ export default function RestButtons(props){
       const reps = props.restFormData.rep.input
       
       const currentSetData = {
+        set: props.currentSet,
         date_achieved: getLocalDateTime().toISOString(),
         weight: finalWeight,
         reps: reps,
@@ -92,7 +93,30 @@ export default function RestButtons(props){
       }
     }
 
-    const handleSetUserRecords = () => {
+    const handleSkip = () => {
+      if(!props.hasInput){ //return unless user has no input on weight
+        return
+      }
+      if(props.isLastRest){ //conditional to navigate to postWorkoutPage
+        logWorkoutData()
+        handleSetCurrentWorkoutRecords()
+        props.setIsRest(false)
+      }
+      else if(props.currentSet === props.setCount + 1){
+        logWorkoutData()
+        handleSetCurrentWorkoutRecords()
+        props.setSet(1)
+        props.setIndex(prev => prev + 1)
+        props.setIsRest(false)
+      }
+      else{
+        logWorkoutData()
+        handleSetCurrentWorkoutRecords()
+        props.setIsRest(false)
+      }
+    }
+
+    const handleSkipExercise = () => {
 
     }
 
@@ -106,25 +130,7 @@ export default function RestButtons(props){
                 opacity: props.hasInput ? 1: 0.75,
               }}
               onPress={() => {
-                if(!props.hasInput){ //return unless user has no input on weight
-                  return
-                }
-                if(props.isLastRest){ //conditional to navigate to postWorkoutPage
-                  logWorkoutData()
-                  handleSetCurrentWorkoutRecords()
-                }
-                else if(props.currentSet === props.setCount + 1){
-                  logWorkoutData()
-                  handleSetCurrentWorkoutRecords()
-                  props.setSet(1)
-                  props.setIndex(prev => prev + 1)
-                  props.setIsRest(false)
-                }
-                else{
-                  logWorkoutData()
-                  handleSetCurrentWorkoutRecords()
-                  props.setIsRest(false)
-                }    
+                handleSkip()
               }}
             >
               <Text

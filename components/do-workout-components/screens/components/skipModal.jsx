@@ -6,27 +6,13 @@ import {
     textStyles,
     buttonStyles,
     cardStyles,
-} from '../../styles/style-index'
+} from '../../../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import ButtonWithIcon from '../general/button';
+import ButtonWithIcon from '../../../general/button';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
-
-
-export default function ConfirmationModal(props){ //visible, showModal, and hideModal is necessary as a prop 
-    const dispatch = useDispatch<AppDispatch>();
+export default function SkipModal(props){ //visible, showModal, and hideModal is necessary as a prop 
     const theme = useTheme()
-    
-    // const [ visible, setVisible ] = useState(false)
-
-    // const showModal = () => setVisible(true);
-    // const hideModal = () => setVisible(false);
-
-    // useEffect(() => {
-    //     setVisible(!props.hidden)
-    // }, [props.hidden])
 
     return(
         <Portal>
@@ -41,21 +27,21 @@ export default function ConfirmationModal(props){ //visible, showModal, and hide
  
                     <Text
                         style={{...textStyles.cardHeaderText}}
-                    >{props.prompt}</Text>
+                    >Skip...</Text>
                     <View
                         style={cardStyles.manageWorkoutModal.buttonContainer}
                     >
                         <ButtonWithIcon 
-                            text="Yes"
+                            text="Set"
                             onPress={() => {
-                                props.onAccept ? props.onAccept() : null
+                                props.onSet ? props.onSet() : null
                                 props.hideModal()              
                             }}
                         />
                         <ButtonWithIcon 
-                            text="No"
+                            text="Exercise"
                             onPress={() => {
-                                props.onDecline ? props.onDecline() : null
+                                props.onExercise ? props.onExercise() : null
                                 props.hideModal()
                             }}
                         />

@@ -24,7 +24,6 @@ import { RootState, AppDispatch } from '../redux/store';
 export default function Home({navigation}){
   const theme = useTheme()
   const initDB = initializeDBSync()
-  const currentUser = useSelector((state: RootState) => state.currentUser)
   const currentDate = useSelector((state: RootState) => state.currentDate)
   const dispatch = useDispatch<AppDispatch>()
 
