@@ -30,3 +30,5 @@ things to do:
 - saving current do workout page state and create from scratch page()
 - if workout is already finished that day, even if the user picks another split then comes back,
 button should be disabled(Optional)
+- implementation of supersets and trisets, and rest increments
+- implementation of alternatives(user wants to do another similar exercise)

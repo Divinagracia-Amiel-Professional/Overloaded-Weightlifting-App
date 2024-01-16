@@ -31,18 +31,22 @@ export default function WorkoutCard(props){
                     style={{...cardStyles.workoutCard.imageBackground}}
                 >
 
-                    <Gradient />
-                    <Text
-                        style={{...textStyles.workoutCard.header,
-                            color: theme.colors.secondary
-                        }}
-                    >{props.name}</Text>
-                    
+                    <Gradient /> 
                 </ImageBackground>
             </View>
             <View
                 style={{...cardStyles.workoutCard.details.container}}
             >
+                <Text
+                        style={{...textStyles.workoutCard.header,
+                            position: 'relative',
+                            color: theme.colors.secondary,
+                            lineHeight: 50,
+                            alignSelf: 'stretch',
+                            textAlign: 'center',
+                            paddingBottom: 10,
+                        }}
+                    >{props.name}</Text>
                 <View
                     style={{...cardStyles.workoutCard.details.difficultyContainer}}
                 >
