@@ -145,11 +145,7 @@ export default function WorkoutSection(props){
                 >
 
                     <Gradient />
-                    <Text
-                        style={{...textStyles.workoutCard.header,
-                            color: theme.colors.tertiaryContainer
-                        }}
-                    >{props.name}</Text>
+                    
                     
                 </ImageBackground>
             </View>
@@ -159,6 +155,16 @@ export default function WorkoutSection(props){
                     paddingVertical: 0,
                 }}
             >
+                <Text
+                        style={{...textStyles.workoutCard.header,
+                            position: 'relative',
+                            color: theme.colors.secondary,
+                            paddingHorizontal: 15,
+                            alignSelf: 'stretch',
+                            textAlign: 'center',
+                            lineHeight: 50
+                        }}
+                    >{props.name}</Text>
                 <View
                     style={{...cardStyles.workoutCard.details.difficultyContainer,
                         paddingHorizontal: 15,

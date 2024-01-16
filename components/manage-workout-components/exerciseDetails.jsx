@@ -51,6 +51,7 @@ const ExerciseDetails = (props) => {
                 >
                     <Text
                         style={{...textStyles.headerBarText,
+                            // fontFamily: 'Stem-Bold',
                             color: theme.colors.secondary,
                             fontSize: 28
                         }}

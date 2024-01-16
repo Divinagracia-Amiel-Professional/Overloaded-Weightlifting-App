@@ -36,7 +36,15 @@ export default function App() {
     'Signika-Medium': require('./assets/fonts/Signika-Medium.ttf'),
     'Signika-Regular': require('./assets/fonts/Signika-Regular.ttf'),
     'Signika-SemiBold': require('./assets/fonts/Signika-SemiBold.ttf'),
-    'Signika-Bold': require('./assets/fonts/Signika-Bold.ttf')
+    'Signika-Bold': require('./assets/fonts/Signika-Bold.ttf'),
+
+    'Stem-Bold': require('./assets/fonts/Stem-Bold.ttf'),
+    'Stem-Regular' : require('./assets/fonts/Stem-Regular.ttf'),
+    'Stem-Medium' : require('./assets/fonts/Stem-Medium.ttf'),
+    'Stem-SemiLight' : require('./assets/fonts/Stem-SemiLight.ttf'),
+
+    'Proxima-Nova-Bold' : require('./assets/fonts/Proxima-Nova-Bold.otf'),
+    'Proxima-Nova-Regular' : require('./assets/fonts/ProximaNova-Regular.otf'),
   })
 
   if(!fontsLoaded){

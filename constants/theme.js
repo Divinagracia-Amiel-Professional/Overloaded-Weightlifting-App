@@ -113,8 +113,8 @@ const colors = {
 
   const fontFamily = {
     primaryHeader: "Staatliches-Regular",
-    secondaryHeader: "Anton-Regular",
-    body: "Signika-Regular",
+    secondaryHeader: "Stem-Bold",
+    body: "Proxima-Nova-Regular",
     bodyHeader: "Signika-Bold",
     bodyLight: "Signika-Light"
   }

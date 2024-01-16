@@ -53,7 +53,8 @@ export default function PreWorkoutPage({navigation, route}){
                     currentWorkout ? 
                     <Text
                         style={{...textStyles.preWorkoutPage.headerText,
-                            color: theme.colors.secondary
+                            color: theme.colors.secondary,
+                            // fontFamily: ''/
                         }}
                     >{setWorkoutName(currentWorkout.cycle, currentWorkout.split.name)}</Text> : 
                     'No Workout'

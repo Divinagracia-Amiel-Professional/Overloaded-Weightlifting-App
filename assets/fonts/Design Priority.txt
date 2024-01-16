@@ -1,0 +1,29 @@
+PRIORITY
+
+Create Workout From Scratch: createFromScratch.tsx
+  - edit design
+  > All components of creatch from scratch is under '/components/create-workout-components' 
+
+ExerciseSheet and ExercisePage: exerciseSheet.tsx & exercisePage.jsx
+	> ExerciseDetails Component: exerciseDetails.jsx
+  		- edit design
+
+Premade Workout Page: premadeMadeWorkoutDetails.tsx
+  - remove edit workout button
+  - edit design
+
+WorkoutCard: workoutSection.jsx & workoutCard.jsx
+  - edit design
+
+Lists to be edit:
+	-Exercise List Page : exerciseListPage.jsx
+	-Select Exercise List Page: selectExerciseList.jsx
+	-Select Records List Page: SelectRecordsListScreen.tsx
+
+
+
+
+
+
+  
+

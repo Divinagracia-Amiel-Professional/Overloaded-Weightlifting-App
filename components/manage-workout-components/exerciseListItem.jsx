@@ -52,6 +52,7 @@ export default function ExerciseListItem(props){ //Exercise Item in Select Exerc
                     >
                         <Text
                             style={{...textStyles.list.draggable.headerText,
+                                fontFamily: 'Proxima-Nova-Regular',
                                 color: theme.colors.secondary,
                             }}
                         >{exerciseData.name}</Text>

@@ -34,7 +34,7 @@ export default function WorkoutCard(props){
                     <Gradient />
                     <Text
                         style={{...textStyles.workoutCard.header,
-                            color: theme.colors.tertiaryContainer
+                            color: theme.colors.secondary
                         }}
                     >{props.name}</Text>
                     

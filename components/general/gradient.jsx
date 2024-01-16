@@ -6,7 +6,7 @@ import { useTheme } from "react-native-paper";
 const fromColor = 'black'
 const toColor = 'black'
 const fromColorOpacity = 0
-const toColorOpacity = 0.5
+const toColorOpacity = 1
 
 export default function Gradient({ children }){
     const theme = useTheme()
@@ -27,8 +27,8 @@ export default function Gradient({ children }){
             >
                 <Defs>
                     <LinearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <Stop offset="0" stopColor={theme.colors.secondary} stopOpacity={fromColorOpacity}/>
-                        <Stop offset="1" stopColor={theme.colors.secondary} stopOpacity={toColorOpacity}/>
+                        <Stop offset="0" stopColor={theme.colors.tertiaryContainer} stopOpacity={fromColorOpacity}/>
+                        <Stop offset="1" stopColor={theme.colors.tertiaryContainer} stopOpacity={toColorOpacity}/>
                     </LinearGradient>
                 </Defs>
                 <Rect width='100%' height='100%' fill='url(#grad)'/>
