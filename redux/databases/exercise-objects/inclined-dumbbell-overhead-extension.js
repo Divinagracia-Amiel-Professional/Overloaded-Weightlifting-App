@@ -1,3 +1,5 @@
+import { inclinedDumbbellOverheadExtensionGif } from "../../../constants/images"
+
 export default 
 {
     id: "PLPMq4hcmV0zScKigCj7",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: inclinedDumbbellOverheadExtensionGif,
+                title: "Inclined Dumbbell Overhead Extension Form",
+                description: "Proper Form of Inclined Dumbbell Overhead Extension"
+            },
             {
                 url: "https://www.bodybuilding.com/images/2020/xdb/originals/xdb-28n-incline-dumbbell-overhead-triceps-extension-m2-16x9.jpg",
                 title: "Incline dumbbell overhead triceps extension",

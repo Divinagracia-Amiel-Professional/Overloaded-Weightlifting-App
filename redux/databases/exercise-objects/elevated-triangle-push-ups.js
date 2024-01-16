@@ -1,3 +1,5 @@
+import { elevatedTrianglePushUpsGif } from "../../../constants/images"
+
 export default 
 {
     id: "hxEqVmCpC3eLeDCcpyWq",
@@ -24,6 +26,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: elevatedTrianglePushUpsGif,
+                title: "Elevated Triangle Push-ups Form",
+                description: "Proper Form of Elevated Triangle Push-ups"
+            },
             {
                 url: "https://images.squarespace-cdn.com/content/v1/57efdb4cd482e918dc2a900f/1656971463376-O8SA985RW7QHQ420ENJI/triceps+pushup+-+start+position.jpg",
                 title: "Muscles Worked Doing Pushups",

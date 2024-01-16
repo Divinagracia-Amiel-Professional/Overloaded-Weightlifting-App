@@ -1,3 +1,5 @@
+import { arnoldPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "zqPtmKV2aT7EHVGQkbxx",
@@ -20,6 +22,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: arnoldPressGif,
+                title: "Arnold Press Form",
+                description: "Proper Form of Arnold Press"
+            },
             {
                 url: "https://hips.hearstapps.com/hmg-prod/images/aim-high-royalty-free-image-1699014455.jpg?crop=0.670xw:1.00xh;0.118xw,0&resize=640:*",
                 title: "How to Do the Arnold Press with Form Arnie Would Be Proud Of",

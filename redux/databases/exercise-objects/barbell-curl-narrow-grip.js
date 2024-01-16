@@ -1,3 +1,5 @@
+import { barbellCurlNarrowGripGif } from "../../../constants/images"
+
 export default 
 {
     id: "V1c8NcKPHwvnKmEptwEB",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: barbellCurlNarrowGripGif,
+                title: "Barbell Curl Narrow Grip Form",
+                description: "Proper Form of Barbell Curl Narrow Grip"
+            },
             {
                 url: "https://www.ajax.ca/en/resources/news/JanuaryFitNewsExercise20172.jpg",
                 title: "Exercise of the Month: Narrow Grip Barbell Bicep Curl",

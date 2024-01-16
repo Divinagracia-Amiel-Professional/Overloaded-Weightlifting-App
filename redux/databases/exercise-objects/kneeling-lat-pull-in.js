@@ -1,3 +1,5 @@
+import { kneelingLatPullInGif } from "../../../constants/images"
+
 export default 
 {
     id: "xG6rNCGk31KAxv8REH4t",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: kneelingLatPullInGif,
+                title: "Kneeling Lat Pull-in Form",
+                description: "Proper Form of Kneeling Lat Pull-in"
+            },
             {
                 url: "https://prod-ne-cdn-media.puregym.com/media/821728/kneeling-lat-pulldown.png?mode=pad&width=2500",
                 title: "HOW TO DO KNEELING LAT PULLDOWNS",

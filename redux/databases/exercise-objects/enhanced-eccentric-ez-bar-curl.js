@@ -1,3 +1,5 @@
+import { enhancedEccentricEzBarCurlGif } from "../../../constants/images"
+
 export default 
 {
     id: "kyi0VzFlTEzIOHNeJWED",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: enhancedEccentricEzBarCurlGif,
+                title: "Enhanced Eccentric EZ Bar Curl Form",
+                description: "Proper Form of Enhanced Eccentric EZ Bar Curl"
+            },
             {
                 url: "https://i.ytimg.com/vi/zaoTB75W_U4/maxresdefault.jpg",
                 title: "Eccentric Barbell Curls",

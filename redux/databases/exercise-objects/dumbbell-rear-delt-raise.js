@@ -1,3 +1,5 @@
+import { dumbbellRearDeltRaiseGif } from "../../../constants/images"
+
 export default 
 {
     id: "ZsSqvlWxDghB5JNa51dZ",
@@ -16,6 +18,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: dumbbellRearDeltRaiseGif,
+                title: "Dumbbell Rear Delt Raise Form",
+                description: "Proper Form of Dumbbell Rear Delt Raise"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2022/02/shutterstock_1266652417.jpg",
                 title: "How to Do the Dumbbell Rear Lateral Raise for Bigger, Stronger Shoulders",

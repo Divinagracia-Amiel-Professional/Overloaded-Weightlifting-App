@@ -1,3 +1,5 @@
+import { cableWoodChopsGif } from "../../../constants/images"
+
 export default 
 {
     id: "RTxRGWX8u5zGlEOYFFm0",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: cableWoodChopsGif,
+                title: "Cable Wood Chops Form",
+                description: "Proper Form of Cable Wood Chops"
+            },
             {
                 url: "https://www.bodybuilding.com/images/2020/xdb/originals/xdb-57c-standing-cable-high-to-low-twist-m1-16x9.jpg",
                 title: "Standing Cable Wood Chop",

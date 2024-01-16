@@ -1,3 +1,5 @@
+import { omniGripLatPulldownsGif } from "../../../constants/images"
+
 export default 
 {
     id: "HAVnnyvGiXAwxeDkr7WR",
@@ -21,6 +23,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: omniGripLatPulldownsGif,
+                title: "Omni Grip Lat Pulldown Form",
+                description: "Proper Form of Omni Grip Lat Pulldown"
+            },
             {
                 url: "https://fitnessvolt.com/wp-content/uploads/2023/03/woman-doing-pull-down-exercise-1024x653.jpg",
                 title: "Omni Grip Lat Pulldowns",

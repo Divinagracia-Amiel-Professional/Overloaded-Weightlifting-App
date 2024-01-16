@@ -1,3 +1,5 @@
+import { dumbbellLateralRaiseGif } from "../../../constants/images"
+
 export default 
 {
     id: "tHdkPPF55EZBSODTdkfc",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: dumbbellLateralRaiseGif,
+                title: "Dumbbell Lateral Raise Form",
+                description: "Proper Form of Dumbbell Lateral Raise"
+            },
             {
                 url: "https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2023/05/Dumbbell-lateral-raise-top-position.png?resize=768%2C774&ssl=1",
                 title: "How to Do Dumbbell Lateral Raise: Muscles Worked & Proper Form",

@@ -1,3 +1,5 @@
+import { standingSingleCalfRaiseGif } from "../../../constants/images"
+
 export default 
 {
     id: "N4JY7n2y9rF6X5r6zcbB",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: standingSingleCalfRaiseGif,
+                title: "Standing Single Calf Raise Form",
+                description: "Proper Form of Standing Single Calf Raise"
+            },
             {
                 url: "https://d3p2750kqzf48b.cloudfront.net/wp-content/uploads/2015/12/07160058/Single-Leg-Calf-Raise.jpg",
                 title: "Single Leg Calf Raise Exercise Guide",

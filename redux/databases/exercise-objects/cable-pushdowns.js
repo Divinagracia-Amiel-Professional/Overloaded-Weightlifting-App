@@ -1,3 +1,5 @@
+import { cablePushdownsGif } from "../../../constants/images"
+
 export default 
 {
     id: "zZl4dQmOV5rxMERWgmy7",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: cablePushdownsGif,
+                title: "Cable Pushdowns Form",
+                description: "Proper Form of Cable Pushdowns"
+            },
             {
                 url: "https://www.verywellfit.com/thmb/9287vIQF11Yafj48oAzFuyHBnL4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52-3498613-Triceps-Pushdown-GIF-04bb16783f5543a8be193ff64861111d.gif",
                 title: "How to Do Tricep Pushdowns: Proper Form, Variations, and Common Mistakes",

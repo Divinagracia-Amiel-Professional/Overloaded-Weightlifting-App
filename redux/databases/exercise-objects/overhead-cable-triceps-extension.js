@@ -1,3 +1,5 @@
+import { overheadCableTricepsExtensionGif } from "../../../constants/images"
+
 export default 
 {
     id: "6qGsGeIsx1w9tZosxcSw",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: overheadCableTricepsExtensionGif,
+                title: "Overhead Cable Triceps Extension Form",
+                description: "Proper Form of Overhead Cable Triceps Extension"
+            },
             {
                 url: "https://legionathletics.com/wp-content/uploads/2022/08/i-BHpnMVX-X4-3-1.jpg",
                 title: "How to Do the Overhead Triceps Extension: Benefits, Form, & Alternatives",

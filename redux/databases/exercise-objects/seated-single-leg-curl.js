@@ -1,3 +1,5 @@
+import { seatedSingleLegCurlGif } from "../../../constants/images"
+
 export default 
 {
     id: "NtqY2kzg9dZKdH67F0oq",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: seatedSingleLegCurlGif,
+                title: "Seated Single Leg Curl Form",
+                description: "Proper Form of Seated Single Leg Curl"
+            },
             {
                 url: "https://thefitnessmaverick.com/wp-content/uploads/2023/01/Image-12-01-2023-at-10.43-1024x819.jpg",
                 title: "Muscle-Building Technique: Seated Hamstring Curls",

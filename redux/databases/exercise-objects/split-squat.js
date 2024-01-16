@@ -1,3 +1,5 @@
+import { splitSquatGif } from "../../../constants/images"
+
 export default 
 {
     id: "XCb8O19so4HkknWZB56H",
@@ -20,6 +22,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: splitSquatGif,
+                title: "Split Squat Form",
+                description: "Proper Form of Split Squat"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2021/05/Split-Squat-Step-3-1.jpg",
                 title: "The Split Squat Can Improve Mobility and Leg Strength",

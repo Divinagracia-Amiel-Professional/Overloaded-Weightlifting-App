@@ -1,3 +1,5 @@
+import { inclineCableFlyGif } from "../../../constants/images"
+
 export default 
 {
     id: "Tl2VoVn3ICiq3o0S0AAM",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: inclineCableFlyGif,
+                title: "Incline Cable Fly Form",
+                description: "Proper Form of Incline Cable Fly"
+            },
             {
                 url: "https://fitliferegime.com/wp-content/uploads/2022/01/Incline-Cable-Fly.jpg",
                 title: "Incline Cable Fly",

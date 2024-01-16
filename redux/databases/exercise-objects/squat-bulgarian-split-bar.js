@@ -1,3 +1,5 @@
+import { squatBulgarianSplitBarGif } from "../../../constants/images"
+
 export default 
 {
     id: "VCddvcYVNlecXohyI6Ry",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: squatBulgarianSplitBarGif,
+                title: "Bulgarian Squat Form",
+                description: "Proper Form of Bulgarian Squat"
+            },
             {
                 url: "https://cdn.squats.in/kc_articles/a6454cb32206c21ebee99190290e62be.jpeg",
                 title: "Bulgarian Split Squat - The Ultimate Workout Guide ",

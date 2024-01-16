@@ -1,3 +1,5 @@
+import { inclinedBarbellBenchPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "LiqY9q92Ey3sII3sn69v",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: inclinedBarbellBenchPressGif,
+                title: "Inclined Barbell Bench Press Form",
+                description: "Proper Form of Inclined Barbell Bench Press"
+            },
             {
                 url: "https://blogscdn.thehut.net/app/uploads/sites/478/2016/09/shutterstock_68880238opt_hero_1625232204.jpg",
                 title: "Master the Incline Bench Press | Technique & Variations",

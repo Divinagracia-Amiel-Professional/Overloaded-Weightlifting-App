@@ -1,3 +1,5 @@
+import { cableTricepKickbacksGif } from "../../../constants/images"
+
 export default 
 {
     id: "z0ZSBhTvwBbnnYOchgMl",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: cableTricepKickbacksGif,
+                title: "Cable Tricep Kickback Form",
+                description: "Proper Form of Cable Tricep Kickback"
+            },
             {
                 url: "https://fitliferegime.com/wp-content/uploads/2022/06/Cable-Tricep-Kickbacks.webp",
                 title: "Cable Tricep Kickbacks: Muscle Worked, Tips & Alternate",
