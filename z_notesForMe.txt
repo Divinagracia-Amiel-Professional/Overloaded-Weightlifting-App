@@ -34,4 +34,4 @@ button should be disabled(Optional)
 - implementation of alternatives(user wants to do another similar exercise)
 
 prio 
-- add gifs, add snackbar to premade workout details
+- add gifs, add snackbar to premade workout details -
