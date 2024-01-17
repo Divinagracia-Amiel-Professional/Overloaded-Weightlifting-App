@@ -13,8 +13,9 @@ export default
         "bicep_long"
     ],
     group: [
-        "back",
-        "pull",
+        // "back",
+        // "pull",
+        "push",
         "arms"
     ],
     resources: {

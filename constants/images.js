@@ -18,27 +18,27 @@ import chestSupportedRearDeltRowGif from '../assets/images/ChestSupportedRearDel
 import closeGripBenchPressGif from '../assets/images/CloseGripBenchPress.gif'
 import declinedCableFlyGif from '../assets/images/DeclinedCableFly.gif'
 import declinedBarbellBenchPressGif from '../assets/images/DeclinedBarbellBenchPress.gif'
-import dumbbellCurlsGif from '../assets/images/DumbbellCurls.gif'
-import dumbbellLateralRaiseGif from '../assets/images/DumbbellLateralRaise.gif'
-import dumbbellRearDeltRaiseGif from '../assets/images/DumbbellRearDeltRaise.gif'
-import dumbbellTricepKickbackGif from '../assets/images/DumbbellTricepKickbacks.gif'
+import dumbellCurlsGif from '../assets/images/DumbellCurls.gif'
+import dumbbellLateralRaiseGif from '../assets/images/DumbellLateralRaise.gif'
+import dumbbellRearDeltRaiseGif from '../assets/images/DumbellRearDeltRaise.gif'
+import dumbbellTricepKickbackGif from '../assets/images/DumbellTricepKickbacks.gif'
 import egyptianLateralRaisesGif from '../assets/images/EgyptianLateralRaises.gif'
-import elevatedTrianglePushUpsGif from '../redux/databases/exercise-objects/elevated-triangle-push-ups'
+import elevatedTrianglePushUpsGif from '../assets/images/ElevatedTrianglePushups.gif'
 import enhancedEccentricEzBarCurlGif from '../assets/images/EnhancedEccentricEzBarCurl.gif'
-import enhancedSeatedSingleLegPullGif from '../assets/images/EnhancedSeatedSingleLegPull.gif'
+import enhancedSeatedSingleLegPullGif from '../assets/images/EnhancedSeatedLegPull.gif'
 import ezBarbellCurlGif from '../assets/images/EzBarbellCurl.gif'
 import frontSquatsGif from '../assets/images/FrontSquats.gif'
 import gluteHamRaisesGif from '../assets/images/GluteHamRaise.gif'
 import hammerCurlGif from '../assets/images/HammerCurls.gif'
 import inclineCableFlyGif from '../assets/images/InclineCableFly.gif'
 import inclinedBarbellBenchPressGif from '../assets/images/InclinedBarbellBenchPress.gif'
-import inclinedDumbbellCurlGif from '../assets/images/InclinedDumbbellCurl.gif'
+import inclinedDumbbellCurlGif from '../assets/images/InclinedDumbellCurl.gif'
 import inclinedDumbbellOverheadExtensionGif from '../assets/images/InclineDumbbellOverheadExtension.gif'
 import isometricDumbbellChestHoldGif from '../assets/images/IsometricDumbbellChestHold.gif'
 import kneelingLatPullInGif from '../assets/images/KneelingSingleArmLatPull_In.gif'
 import latPulldownsGif from '../assets/images/LatPulldowns.gif'
 import leanAwayLateralRaiseGif from '../assets/images/LeanAwayLateralRaise.gif'
-import machineSeatedHipAbductionGif from '../assets/images/MachineSeatedHipAbduction.gif'
+import machineSeatedHipAbductionGif from '../assets/images/MachineSeatedHipAbudction.gif'
 import machineShoulderPressGif from '../assets/images/MachineShoulderPress.gif'
 import meadowsRowGif from '../assets/images/MeadowsRow.gif'
 import barbellCurlNarrowGripGif from '../assets/images/NarrowGripBarbellCurl.gif'
@@ -46,31 +46,28 @@ import omniGripLatPulldownsGif from '../assets/images/OmniGripLatPulldowns.gif'
 import oneArmCableFlyGif from '../assets/images/OneArmCableFly.gif'
 import overheadCableTricepsExtensionGif from '../assets/images/OverheadCableTricepExtensions.gif'
 import overheadPressGif from '../assets/images/OverheadPress.gif'
-import pausedFlatDumbbellPressGif from '../assets/images/PausedFlatDumbbellPress.gif'
+import pausedFlatDumbbellPressGif from '../assets/images/PausedFlatDumbellPress.gif'
 import preacherCurlsGif from '../assets/images/PreacherCurls.gif'
 import pullUpsGif from '../assets/images/PullUps.gif'
 import rackPullGif from '../assets/images/RackPull.gif'
 import reverseCrunchGif from '../assets/images/ReverseCrunch.gif'
-import reverseDumbbellCurlsGif from '../assets/images/ReverseDumbbellCurls.gif'
+import reverseDumbbellCurlsGif from '../assets/images/ReverseDumbellCurls.gif'
 import reversePecDeckGif from '../assets/images/ReversePecDeck.gif'
-import reverseWristCurlsGif from '../assets/images/ReverseWristCurls.gif'
+import reverseWristCurlsGif from '../assets/images/WristCurls.gif'
 import romanianDeadliftGif from '../assets/images/RomanianDeadlift.gif'
 import ropeFacePullGif from '../assets/images/RopeFacePull.gif'
 import seatedSingleLegCurlGif from '../assets/images/SeatedSingleLegCurl.gif'
-import dumbbellRowSingleGif from '../assets/images/SingleDumbbellRow.gif'
+import dumbbellRowSingleGif from '../assets/images/SingleDumbellRow.gif'
 import singleLegCalfPressGif from '../assets/images/SingleLegCalfPress.gif'
 import singleLegExtensionGif from '../assets/images/SingleLegExtension.gif'
-import snatchGripBarbellShrugGif from '../assets/images/SnatchGripBarbellShrug.gif'
+import snatchGripBarbellShrugGif from '../assets/images/SnatchGripBarbellShrugs.gif'
 import splitSquatGif from '../assets/images/SplitSquats.gif'
 import standingCalfRaiseGif from '../assets/images/StandingCalfRaise.gif'
 import standingSingleCalfRaiseGif from '../assets/images/StandingSingleCalfRaise.gif'
 import suitcaseHoldGif from '../assets/images/SuitcaseHolds.gif'
 import walkingLungesGif from '../assets/images/WalkingLunges.gif'
 import wideCablePullOverGif from '../assets/images/WideCablePullOverUsingLatBar.gif'
-import wristCurlsGif from '../assets/images/WristCurls.gif'
-
-
-
+import wristCurlsGif from '../assets/images/ReverseWristCurls.gif'
 
 export {
     Placeholder,
@@ -93,7 +90,7 @@ export {
     closeGripBenchPressGif,
     declinedCableFlyGif,
     declinedBarbellBenchPressGif,
-    dumbbellCurlsGif,
+    dumbellCurlsGif,
     dumbbellLateralRaiseGif,
     dumbbellRearDeltRaiseGif,
     dumbbellTricepKickbackGif,

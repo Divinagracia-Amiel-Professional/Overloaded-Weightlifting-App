@@ -19,7 +19,7 @@ export default
         "erector"
     ],
     group: [
-        "legs",
+        // "legs",
         "core",
         "back",
         "arms",

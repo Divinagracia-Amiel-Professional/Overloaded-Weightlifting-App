@@ -9,9 +9,11 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { getExerciseIcon } from '../../functions/functions-index'
 
 export default function DraglistExerciseItem(props){
     const theme = useTheme()
+    const exerciseObj = props.data
 
     const handleLongPressSelect = () => {
     
@@ -20,6 +22,8 @@ export default function DraglistExerciseItem(props){
     const handlePress = () => {
        
     }
+
+    const leftIcon = getExerciseIcon(exerciseObj, theme, 1.5)
 
     return(
         <View
@@ -84,18 +88,20 @@ export default function DraglistExerciseItem(props){
             >   
                 {
                     props.type === 'exercise' && 
-                    <Feather name={'image'} size={50} color={theme.colors.secondary} />
+                    leftIcon
                 }
                 <View
                     style={{...listStyles.draggable.DetailContainer, 
-                        flexShrink: 1
+                        flexShrink: 1,
                     }}
                 >
                     <Text
                         style={{
+                            ...textStyles.list.draggable.headerText,
                             color: theme.colors.secondary,
                             fontSize: 16,
                             flexWrap: 'wrap',
+                            flex: 0
                         }}
                     >{props.name}</Text>
                 </View>

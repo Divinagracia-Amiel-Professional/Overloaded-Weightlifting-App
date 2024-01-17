@@ -8,10 +8,12 @@ import {
 } from '../../styles/style-index'
 import Feather from '@expo/vector-icons/Feather'
 import { FontAwesome5 } from '@expo/vector-icons';
+import { getExerciseIcon } from '../../functions/functions-index'
 
 export default function SelectRecordsListItem(props){ //Exercise Item in Select Exercises Page
     const theme = useTheme()
     const exerciseRecord = props.item
+    const exerciseDB = props.exerciseDB
 
     console.log(exerciseRecord)
 
@@ -20,6 +22,10 @@ export default function SelectRecordsListItem(props){ //Exercise Item in Select 
             exerciseRecord: {...exerciseRecord}
         })
     }
+
+    const exerciseObj = exerciseDB.find(exercise => exercise.id === exerciseRecord.id)
+
+    const leftIcon = getExerciseIcon(exerciseObj, theme)
 
     return(
         <Pressable
@@ -36,7 +42,7 @@ export default function SelectRecordsListItem(props){ //Exercise Item in Select 
                     borderColor: theme.colors.customLightGray
                 }}
             >
-                <Feather name={'image'} size={75} color={theme.colors.secondary} />
+                {leftIcon}
                 <View
                     style={{...listStyles.draggable.DetailContainer}}
                 >

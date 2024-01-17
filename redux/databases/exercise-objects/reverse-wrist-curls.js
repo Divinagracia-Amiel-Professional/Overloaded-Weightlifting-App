@@ -10,7 +10,8 @@ export default
         "forearm"
     ],
     group: [
-        "arms"
+        "arms",
+        "pull"
     ],
     resources: {
         img_urls: [

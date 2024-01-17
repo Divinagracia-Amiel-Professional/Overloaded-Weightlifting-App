@@ -11,7 +11,8 @@ export default
         "bicep_long"
     ],
     group: [
-        "arms"
+        "arms",
+        "pull"
     ],
     resources: {
         img_urls: [

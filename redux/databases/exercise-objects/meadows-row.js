@@ -21,7 +21,7 @@ export default
     ],
     group: [
         "arms",
-        "legs",
+        // "legs",
         "core",
         "full",
         "back",

@@ -18,7 +18,7 @@ export default
     group: [
         "push",
         "arms",
-        "back"
+        // "back"
     ],
     resources: {
         img_urls: [

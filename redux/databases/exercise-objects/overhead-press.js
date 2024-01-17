@@ -21,7 +21,7 @@ export default
         "push",
         "chest",
         "arms",
-        "back"
+        // "back"
     ],
     resources: {
         img_urls: [

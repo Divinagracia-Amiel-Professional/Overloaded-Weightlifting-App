@@ -12,7 +12,7 @@ export default
     ],
     group: [
         "arms",
-
+        "pull"
     ],
     resources: {
         img_urls: [

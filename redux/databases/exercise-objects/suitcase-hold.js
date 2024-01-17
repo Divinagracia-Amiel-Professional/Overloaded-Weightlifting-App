@@ -17,7 +17,6 @@ export default
     group: [
         "forearm",
         "arms",
-        "legs",
         "core"
     ],
     resources: {

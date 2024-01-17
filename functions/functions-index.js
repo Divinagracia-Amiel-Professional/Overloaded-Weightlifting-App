@@ -12,6 +12,7 @@ import checkIfExerciseEmpty from "./checkIfSectionEmpty";
 import checkBasicInfo from "./checkBasicInfo";
 import checkIfWorkoutExists from "./checkIfWorkoutExists";
 import getMDYFormat, { get12HFormat } from "./getMDYformat";
+import getExerciseIcon from "./getExerciseIcon";
 
 export {
     addWorkoutsToUser,
@@ -28,5 +29,6 @@ export {
     checkBasicInfo,
     checkIfWorkoutExists,
     getMDYFormat,
-    get12HFormat
+    get12HFormat,
+    getExerciseIcon
 }

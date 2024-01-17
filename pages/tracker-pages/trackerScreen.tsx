@@ -146,7 +146,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
     return(
         <View style={{
             ...style.container,
-            backgroundColor: theme.colors.background
+            backgroundColor: theme.colors.background,
         }}>
             <Pressable
                 style={{
@@ -169,7 +169,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
             {
                 selectedExercise.id ? 
                 RecordDataTable :
-                null
+                <Text>No Records to Show</Text> 
             }
         </View>
     )

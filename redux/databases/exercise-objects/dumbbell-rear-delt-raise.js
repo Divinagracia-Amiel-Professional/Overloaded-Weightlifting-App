@@ -13,8 +13,9 @@ export default
         "traps_lower"
     ],
     group: [
-        "arms",
-        "push",
+        "pull",
+        "back",
+        "arms"
     ],
     resources: {
         img_urls: [

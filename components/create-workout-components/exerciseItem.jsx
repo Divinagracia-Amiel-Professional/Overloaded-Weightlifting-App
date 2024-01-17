@@ -13,6 +13,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import RestInputs from '../do-workout-components/screens/components/restInputs'
 import EditExerciseModal from './editExerciseModal'
 import reorderWorkout from '../../functions/reorderWorkout'
+import { getExerciseIcon } from '../../functions/functions-index'
 
 const ExerciseItem = (props) => { //Exercise Item in exercise list in create from scratch page when not reordering
     const theme = useTheme()
@@ -55,6 +56,8 @@ const ExerciseItem = (props) => { //Exercise Item in exercise list in create fro
     const handleEdit = () => {
         showModal()
     }
+
+    const leftIcon = getExerciseIcon(props.exerciseData, theme, 1.5)
 
     return(
         // <View
@@ -106,7 +109,7 @@ const ExerciseItem = (props) => { //Exercise Item in exercise list in create fro
 
                 thisExerciseData={{...props}}
             />
-            <Feather name={'image'} size={50} color={theme.colors.secondary} />
+            {leftIcon}
             <View
                 style={{
                     ...listStyles.draggable.DetailContainer, 

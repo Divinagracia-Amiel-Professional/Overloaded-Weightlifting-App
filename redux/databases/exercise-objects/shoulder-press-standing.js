@@ -20,8 +20,8 @@ export default
         "push",
         "chest",
         "arms",
-        "back",
-        "core"
+        // "back",
+        // "core"
     ],
     resources: {
         img_urls: [

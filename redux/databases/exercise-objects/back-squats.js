@@ -17,7 +17,6 @@ export default
     group: [
         "legs",
         "back",
-        "core",
     ],
     resources: {
         img_urls: [

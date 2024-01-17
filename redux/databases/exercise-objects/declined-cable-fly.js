@@ -15,7 +15,7 @@ export default
     group: [
         "arms",
         "chest",
-        "back",
+        // "back",
         "push"
     ],
     resources: {

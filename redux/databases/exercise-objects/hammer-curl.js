@@ -11,7 +11,7 @@ export default
         "bicep_long"
     ],
     group: [
-        "legs",
+        "pull",
         "core",
     ],
     resources: {

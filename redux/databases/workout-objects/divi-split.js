@@ -75,6 +75,8 @@ import seatedSingleLegCurl from "../exercise-objects/seated-single-leg-curl"
 import eccentricLatPulldown from "../exercise-objects/eccentric-lat-pulldown"
 import enhancedEccentricEzBarCurl from "../exercise-objects/enhanced-eccentric-ez-bar-curl"
 
+import machineSeatedHipAbduction from "../exercise-objects/machine-seated-hip-abduction"
+
 export default 
 {
     id: "1916393263234394",
@@ -637,8 +639,8 @@ export default
                             }
                         },
                         {
-                            exercise_id: hipAbductionsSeated.id,
-                            name: hipAbductionsSeated.name,
+                            exercise_id: machineSeatedHipAbduction.id,
+                            name: machineSeatedHipAbduction.name,
                             workout_data: {
                                 order: 6,
                                 rep_end: 30,

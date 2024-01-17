@@ -9,6 +9,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { SheetManager } from 'react-native-actions-sheet'
+import { getExerciseIcon } from '../../functions/functions-index'
 
 export default function DragListItem(props){
     const theme = useTheme()
@@ -16,6 +17,8 @@ export default function DragListItem(props){
     const onDragStart = () => {
 
     }
+
+    const leftIcon = getExerciseIcon(props.exerciseData, theme)
 
     return(
         <View
@@ -50,7 +53,7 @@ export default function DragListItem(props){
                     borderColor: theme.colors.customLightGray
                 }}
             >
-                <Feather name={'image'} size={75} color={theme.colors.secondary} />
+                {leftIcon}
                 <View
                     style={{...listStyles.draggable.DetailContainer}}
                 >

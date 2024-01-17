@@ -45,7 +45,7 @@ export default function SelectExercisePage({navigation, route}){
     })
 
     const [ selectedExercises, setSelectedExercises ] = useState(sortedByName)
-   
+
 
     const handleDone = () => {
         const filtered = selectedExercises.filter(exercise => exercise.isSelected === true)
