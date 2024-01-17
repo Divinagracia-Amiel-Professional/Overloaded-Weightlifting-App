@@ -15,9 +15,11 @@ import { addInitExercises } from '../redux/slices/ExerciseSlice';
 import { addInitWorkouts } from '../redux/slices/WorkoutSlice';
 import { ButtonWithIcon } from '../components/component-index';
 import { db } from '../firebase'
+import { auth } from '../firebase';
 
 export default function Profile(){
     const dispatch = useDispatch<AppDispatch>()
+    const firebaseAuth = auth
     const path = ['Workouts', 'gxgmfK5Z0bvhN1FkodoQ', 'Cycles', 'cycle_two','Splits']
     const collections = useExercises(db, path)
     console.log(collections)
