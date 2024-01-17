@@ -36,10 +36,11 @@ export default function PreWorkoutPage({navigation, route}){
     
     return(
         <View style={{...mainStyles.preWorkoutContainer,
-            backgroundColor: theme.colors.background
+            backgroundColor: theme.colors.background,
+            position: 'relative'
             }}
             >
-
+            <BackButton navigation={navigation} type='default' hidden={false} params={{}}/>
             <Image 
                 style={{...imageStyles.placeholder, 
                     borderColor: theme.colors.onBackground

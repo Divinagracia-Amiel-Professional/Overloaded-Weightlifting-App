@@ -54,7 +54,7 @@ export default function SelectRecordsListPage({navigation, route}){
                         color: theme.colors.secondary,
                         fontSize: 28
                     }}
-                >Exercise List</Text>
+                >Select Record</Text>
             </View>
             <FlashList
                 data={sortedByName}

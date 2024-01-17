@@ -85,6 +85,7 @@ export default function RestButtons(props){
             name: props.currentWorkout.item.exercise_obj.name,
             repStart: props.currentWorkout.item.workout_data.rep_start,
             repEnd: props.currentWorkout.item.workout_data.rep_end,
+            setCount: props.currentWorkout.item.workout_data.set_count,
             sets: [
               currentSetData
             ]
@@ -100,9 +101,10 @@ export default function RestButtons(props){
       if(props.isLastRest){ //conditional to navigate to postWorkoutPage
         logWorkoutData()
         handleSetCurrentWorkoutRecords()
+        props.setSet(currentSet => currentSet + 1)
         props.setIsRest(false)
       }
-      else if(props.currentSet === props.setCount + 1){
+      else if(props.currentSet === props.setCount){
         logWorkoutData()
         handleSetCurrentWorkoutRecords()
         props.setSet(1)
@@ -112,6 +114,7 @@ export default function RestButtons(props){
       else{
         logWorkoutData()
         handleSetCurrentWorkoutRecords()
+        props.setSet(currentSet => currentSet + 1)
         props.setIsRest(false)
       }
     }

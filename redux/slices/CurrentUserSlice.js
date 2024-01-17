@@ -174,6 +174,7 @@ const CurrentUserSlice = createSlice({
                                 date_achieved: action.payload.date_achieved,
                                 rep_start: record.repStart,
                                 rep_end: record.repEnd,
+                                set_count: record.setCount,
                                 sets: record.sets
                             }
                         ]
@@ -189,6 +190,7 @@ const CurrentUserSlice = createSlice({
                                     date_achieved: action.payload.date_achieved,
                                     rep_start: record.repStart,
                                     rep_end: record.repEnd,
+                                    set_count: record.setCount,
                                     sets: record.sets
                                 }
                             ]

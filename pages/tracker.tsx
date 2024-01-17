@@ -19,6 +19,8 @@ export default function Tracker({route, navigation}){
     const theme = useTheme()
     const dispatch = useDispatch<AppDispatch>()
 
+    const isEmpty = userRecords[0] ? false : true
+
     return(
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
@@ -41,13 +43,13 @@ export default function Tracker({route, navigation}){
                     navigation={navigation}
                     route={route}
                 />
-                <ButtonWithIcon
+                {/* <ButtonWithIcon
                     style={{paddingVertical: 10, opacity: 0.8}}
                     text="Console Log Records"
                     onPress={() => {
                         console.log(JSON.stringify(userRecords))
                     }}
-                />
+                /> */}
             </ScrollView>
         </SafeAreaView>
     )
@@ -57,11 +59,11 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         padding: 15,
-        paddingTop: 30,
     },
     contentContainer: {
         alignItems: 'center',
         justifyContent: 'flex-start',
         gap: 30,
+        paddingBottom: 50
     }
 })

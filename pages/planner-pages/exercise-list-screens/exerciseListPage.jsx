@@ -18,7 +18,9 @@ export default function ExerciseListPage({navigation, route}){
     const theme = useTheme()
 
     const exercisesDB = getAllExercises()
-    const sortedByName = exercisesDB.sort((a, b) => {
+    
+    const exercises = [...exercisesDB]
+    const sortedByName = exercises.sort((a, b) => {
         return a.name.localeCompare(b.name)
     })
 

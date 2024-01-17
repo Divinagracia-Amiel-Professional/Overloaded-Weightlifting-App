@@ -20,7 +20,7 @@ export default function ExerciseButtons(props){
   console.log(`${props.currentWorkoutOrder} of ${props.workoutLength}`)
 
   const handleDone = () => {
-    props.setSet(currentSet => currentSet + 1) //add set to parent exercise screen
+    // props.setSet(currentSet => currentSet + 1) //add set to parent exercise screen
     props.setIsRest(true) 
   }
 

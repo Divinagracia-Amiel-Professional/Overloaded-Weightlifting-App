@@ -41,7 +41,7 @@ export default function RestMainSection(props){
         }
     }, [restFormData])
 
-    const isLastRest = props.currentSet === props.setCount + 1 && props.workoutLength === props.currentWorkout.item.workout_data.order
+    const isLastRest = props.currentSet === props.setCount && props.workoutLength === props.currentWorkout.item.workout_data.order
 
     return(
         <View

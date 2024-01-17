@@ -53,16 +53,16 @@ export default function WorkoutSection(props){
         //         console.log('Edit Schedule')
         //     }
         // },
-        {
-            type: 'icon',
-            modal: 'checkScheduleVisible',
-            icon: <CalendarSearch size={25} color={theme.colors.secondary}/>,
-            fill: theme.colors.customLightGray,
-            color: theme.colors.background,
-            // onPress: () => {
-            //     console.log('Check Schedule')
-            // }
-        },
+        // {
+        //     type: 'icon',
+        //     modal: 'checkScheduleVisible',
+        //     icon: <CalendarSearch size={25} color={theme.colors.secondary}/>,
+        //     fill: theme.colors.customLightGray,
+        //     color: theme.colors.background,
+        //     // onPress: () => {
+        //     //     console.log('Check Schedule')
+        //     // }
+        // },
         {
             type:'icon',
             modal: 'deleteModalVisible',

@@ -77,6 +77,7 @@ export default function CreateFromScratch({navigation, route}){
 
     useEffect(() => {
         setReorderingData(workout.cycles)
+        console.log(JSON.stringify(workout))
     }, [workout])
 
     const routeParams = route.params ? route.params.workoutData : ''

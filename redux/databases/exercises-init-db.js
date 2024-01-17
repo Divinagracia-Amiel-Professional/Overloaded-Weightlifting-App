@@ -78,7 +78,6 @@ import machineHighLowRow from "./exercise-objects/machine-high-low-row"
 import reverseGripPullup from "./exercise-objects/reverse-grip-pullup"
 
 export default [
-    calfPressLegPressMachineSingle,
     deadliftConventional,
     hipAbductionsSeated,
     hipThrustBar,
@@ -125,7 +124,6 @@ export default [
     inclinedBarbellBenchPress,
     inclinedDumbbellCurl,
     inclinedDumbbellOverheadExtension,
-    kneelingFacePulls,
     leanAwayLateralRaise,
     machineSeatedHipAbduction,
     machineShoulderPress,
