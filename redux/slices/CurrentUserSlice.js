@@ -205,6 +205,9 @@ const CurrentUserSlice = createSlice({
             state.records = initState.records
 
             console.log(state.records)
+        },
+        resetCurrentUserSlice: (state) => {
+            return state = initState
         }
     },
     extraReducers: {
@@ -223,4 +226,5 @@ export const {
     completeWorkout,
     updateRecords, 
     resetRecords,
+    resetCurrentUserSlice
  } = CurrentUserSlice.actions
