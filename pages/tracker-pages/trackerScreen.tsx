@@ -83,7 +83,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                         return(
                             <>
                             <DataTable.Header
-                                key={record.id}
+                                key={record.id + 'a'}
                             >
                                 <DataTable.Title
                                     textStyle={{fontSize: 12}} 
@@ -97,7 +97,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                                 </DataTable.Title>
                             </DataTable.Header>
                             <DataTable.Header
-                                key={record.id + '2'}
+                                key={record.id + 'b'}
                             >
                                 <DataTable.Title>Set</DataTable.Title>
                                 <DataTable.Title>Time</DataTable.Title>
