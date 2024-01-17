@@ -35,7 +35,7 @@ export default
     name: "Tom Platz Split",
     difficulty: 5,
     focus: 'Legs',
-    description: '',
+    description: "The Tom Platz split, inspired by the legendary bodybuilder Tom Platz, is a training regimen designed to prioritize intense and focused leg development. Platz, known for his exceptional leg development, places a strong emphasis on training the lower body multiple times a week, incorporating high-volume and high-frequency workouts specifically targeting the quadriceps, hamstrings, and glutes. While the exact details may vary, the central theme revolves around intense leg training sessions and strategically placed rest days to allow for optimal recovery. This split is particularly renowned for its dedication to building powerful and well-defined leg muscles, reflecting Tom Platz's iconic physique.",
     latest_state: {
         is_completed: false,
         date_used: '',
