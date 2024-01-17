@@ -1,3 +1,5 @@
+import { chestSupportedRearDeltRowGif } from "../../../constants/images"
+
 export default 
 {
     id: "WV5RRRObRmYsEhX3fly3",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: chestSupportedRearDeltRowGif,
+                title: "Chest Supported Rear Delt Row Form",
+                description: "Proper Form of Chest Supported Rear Delt Row"
+            },
             {
                 url: "https://bodybuilding-wizard.com/wp-content/uploads/2020/06/incline-bench-dumbbell-rows-guide.jpg",
                 title: "Chest-supported dumbbell rows",

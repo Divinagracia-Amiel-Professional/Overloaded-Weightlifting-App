@@ -1,3 +1,5 @@
+import { reverseWristCurlsGif } from "../../../constants/images"
+
 export default 
 {
     id: "MH5lGb1klqgw1XBDPEd8",
@@ -12,6 +14,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: reverseWristCurlsGif,
+                title: "Reverse Wrist Curls Form",
+                description: "Proper Form of Reverse Wrist Curls"
+            },
             {
                 url: "https://www.muscleandfitness.com/wp-content/uploads/2014/02/1146_B.jpg?w=800&h=630&crop=1&quality=86&strip=all",
                 title: "REVERSE GRIP WRIST CURL",

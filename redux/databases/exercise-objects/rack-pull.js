@@ -1,3 +1,5 @@
+import { rackPullGif } from "../../../constants/images"
+
 export default 
 {
     id: "eIpVsK1pdDtRalenWeRY",
@@ -26,6 +28,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: rackPullGif,
+                title: "Rack Pull Form",
+                description: "Proper Form of Rack Pull"
+            },
             {
                 url: "https://outdoorfitnesssociety.com/wp-content/uploads/2021/11/Rack-Pulls-by-Female-Athlete-800x445.png",
                 title: "Rack Pulls for Strength and Muscle - Benefits, Technique and Tips",

@@ -1,3 +1,5 @@
+import { wristCurlsGif } from "../../../constants/images"
+
 export default 
 {
     id: "NdrfOsOjRURwVHNzEprW",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: wristCurlsGif,
+                title: "Wrist Curls Form",
+                description: "Proper Form of Wrist Curls"
+            },
             {
                 url: "https://steelsupplements.com/cdn/shop/articles/Wrist_Curl_1_1800x.progressive.jpg?v=1609232849",
                 title: "HOW TO DO WRIST CURLS FOR BIGGER FOREARM",

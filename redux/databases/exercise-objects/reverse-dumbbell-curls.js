@@ -1,3 +1,5 @@
+import { reverseDumbbellCurlsGif } from "../../../constants/images"
+
 export default 
 {
     id: "dGVBsPrxSmQnqE91iRbz",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: reverseDumbbellCurlsGif,
+                title: "Reverse Dumbbell Curls Form",
+                description: "Proper Form of Reverse Dumbbell Curls"
+            },
             {
                 url: "https://i.ytimg.com/vi/i5h3myNHVFk/maxresdefault.jpg",
                 title: "Standing Dumbbell Reverse Curl",

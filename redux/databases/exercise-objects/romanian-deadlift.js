@@ -1,3 +1,5 @@
+import { romanianDeadliftGif } from "../../../constants/images"
+
 export default 
 {
     id: "KN9JnBNyeMitbfEoumYd",
@@ -22,6 +24,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: romanianDeadliftGif,
+                title: "Romanian Deadlift Form",
+                description: "Proper Form of Romanian Deadlift"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2022/12/BarBend-Article-Image-760-x-427-59.jpg",
                 title: "How to Do the Romanian Deadlift the Right Way",

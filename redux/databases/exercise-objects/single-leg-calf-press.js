@@ -1,3 +1,5 @@
+import { singleLegCalfPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "5vrmgBtrRxPTWEofKNMo",
@@ -12,6 +14,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: singleLegCalfPressGif,
+                title: "Single Leg Calf Press Form",
+                description: "Proper Form of Single Leg Calf Press"
+            },
             {
                 url: "https://i.ytimg.com/vi/cn3YmyzcRW0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGYgZihmMA8=&rs=AOn4CLAdD7p8DWyj-16cg6XteE61zRe-UQ",
                 title: "Single Leg Calf Raise Leg Press Machine - Exercise - Fitness Oefening - Fitsociety",

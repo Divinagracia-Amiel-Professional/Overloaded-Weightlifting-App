@@ -1,3 +1,5 @@
+import { singleLegExtensionGif } from "../../../constants/images"
+
 export default 
 {
     id: "OxqaOpEscBim9zXPFgAz",
@@ -13,6 +15,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: singleLegExtensionGif,
+                title: "Single Leg Extension Form",
+                description: "Proper Form of Single Leg Extension"
+            },
             {
                 url: "https://i.ytimg.com/vi/ymCvLgI9wlA/maxresdefault.jpg",
                 title: "Single Leg Extension",

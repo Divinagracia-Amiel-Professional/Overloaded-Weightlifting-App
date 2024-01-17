@@ -1,3 +1,5 @@
+import { calfPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "My2mImsgUtIJ9QT3E4xF",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: calfPressGif,
+                title: "Calf Press Form",
+                description: "Proper Form of Calf Press"
+            },
             {
                 url: "https://cdn.muscleandstrength.com/sites/default/files/leg-press-calf-raise-1.jpg",
                 title: "45 Degree Leg Press Calf Raise",

@@ -1,3 +1,5 @@
+import { latPulldownsGif } from "../../../constants/images"
+
 export default 
 {
     id: "bwoUDawqUYwGqPy87DVv",
@@ -22,6 +24,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: latPulldownsGif,
+                title: "Lat Pulldown Form",
+                description: "Proper Form of Lat Pulldown"
+            },
             {
                 url: "https://miro.medium.com/v2/resize:fit:1358/0*7g3xHWvaXcGhd2Ag.jpg",
                 title: "Lat Pulldowns: The Key to Creating “Wings”",

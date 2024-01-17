@@ -1,3 +1,5 @@
+import { oneArmCableFlyGif } from "../../../constants/images"
+
 export default 
 {
     id: "BYJQn8rtbXhZ6lYBIkmL",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: oneArmCableFlyGif,
+                title: "One Arm Cable Fly Form",
+                description: "Proper Form of One Arm Cable Fly"
+            },
             {
                 url: "https://cdn.mos.cms.futurecdn.net/sCWEw5LXrKiWxefsPbtRSj-650-80.jpg.webp",
                 title: "How To Do The One-Arm Cable Flye",

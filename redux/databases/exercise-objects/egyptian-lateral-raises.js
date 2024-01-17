@@ -1,3 +1,5 @@
+import { egyptianLateralRaisesGif } from "../../../constants/images"
+
 export default 
 {
     id: "oYa5vlDNTVKftyyqQbwV",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: egyptianLateralRaisesGif,
+                title: "Egyptian Lateral Raise Form",
+                description: "Proper Form of Egyptian Lateral Raise"
+            },
             {
                 url: "https://i0.wp.com/barbellrush.com/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-14-at-16.08.30-1.jpeg?w=1200&ssl=1",
                 title: "How to do the Egyptian Lateral Raise",
