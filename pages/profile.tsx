@@ -1,15 +1,16 @@
 import React from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { auth } from "../firebase";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
 
 const LoginScreen = () => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const handleSignUp = () => {
-        auth
-            .createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then(userCredentials => {
                 const user = userCredentials.user;
                 console.log("Registered with:", user.email);
@@ -18,8 +19,7 @@ const LoginScreen = () => {
     };
 
     const handleLogin = () => {
-        auth
-            .signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then(userCredentials => {
                 const user = userCredentials.user;
                 console.log("Logged in with:", user.email);
