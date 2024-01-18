@@ -17,7 +17,7 @@ import {
     BasicInfoSection, 
     BackButton 
 } from '../../../components/component-index';
-import { textSizes } from '../../../constants/theme';
+import { fontFamily, textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { 
     reorderWorkout,
@@ -53,6 +53,8 @@ const initCycle = {
 export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
     const userWorkouts = getUserWorkouts()
+    const exerciseDB = useSelector((state: RootState) => state.exercise);
+    const exerciseDBCopy = [...exerciseDB.data]
     const dispatch = useDispatch<AppDispatch>()
 
     const [ basicInfo , setBasicInfo ] = useState({
@@ -74,20 +76,23 @@ export default function CreateFromScratch({navigation, route}){
 
     const [ isSnackBarVisible, setIsSnackBarVisible ] = useState(false)
     const [ snackBarMessage, setSnackBarMessage ] = useState('')
+    
 
     useEffect(() => {
         setReorderingData(workout.cycles)
+        console.log(JSON.stringify(workout))
     }, [workout])
 
     const routeParams = route.params ? route.params.workoutData : ''
     const isEdit = route.params ? route.params.isEdit : false
+    const isSelect = route.params ? route.params.isSelect : false
 
     const updateWorkout = () => { //function on how to update workout whether it is from edit workout page or from select exercises page
         if(routeParams){
-            if(!isEdit){
+            if(isSelect){
                 updateExercises()
             }
-            else{
+            else if(isEdit && !isSelect){
                 getToEditData()
             }
         }
@@ -107,6 +112,7 @@ export default function CreateFromScratch({navigation, route}){
         newExercisesFormatted = newExercises.map(exercise => {
         count++
             return({
+                ...exercise,
                 id: exercise.id,
                 name: exercise.name,
                 workoutData: {
@@ -156,13 +162,20 @@ export default function CreateFromScratch({navigation, route}){
             ...cycle,
             split: cycle.split.map(split => ({
                 ...split,
-                exercises: split.exercises.map(exercise => ({
-                    id: exercise.exercise_id,
-                    name: exercise.name,
-                    workoutData: {
-                        ...exercise.workout_data
-                    }
-                }))
+                exercises: split.exercises.map(exercise => {
+                    const group = exerciseDBCopy.find(exDB => exDB.id === exercise.exercise_id).group
+
+                    return(
+                        {
+                            id: exercise.exercise_id,
+                            name: exercise.name,
+                            group: [...group],
+                            workoutData: {
+                                ...exercise.workout_data
+                            }
+                        }
+                    )
+                })
             }))
         }))
 
@@ -194,6 +207,7 @@ export default function CreateFromScratch({navigation, route}){
             setWorkout={setWorkout}
             setScroll={setScroll}
             navigation={navigation}
+            isEdit={isEdit}
         />
     ))
 
@@ -395,14 +409,21 @@ export default function CreateFromScratch({navigation, route}){
                 }}
             >
                 <View
-                    style={{...mainStyles.fromScratch.headerContainer,
+                    style={{  
+                        paddingVertical: 20,
+                        paddingHorizontal: 20,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        alignSelf: 'stretch',
                         backgroundColor: theme.colors.primary,
                     }}
                 >
                     <Text
                         style={{...textStyles.headerText,
                             color: 'white',
-                            fontSize: textSizes.xxLarge
+                            fontSize: textSizes.xxLarge,
+                            fontFamily: 'Proxima-Nova-Bold'
+
                         }}
                     >Create Workout From Scratch</Text>
                 </View>
@@ -432,7 +453,7 @@ export default function CreateFromScratch({navigation, route}){
             <View
                 style={{...buttonStyles.bottomAbsoluteContainer,
                     backgroundColor: `${theme.colors.secondary}`,
-                    borderColor: theme.colors.customLightGray
+                    borderColor: `{theme.colors.customLightGray}`
                     }}
             >
                 <Pressable style={{...buttonStyles.bottomAbsoluteButton,
@@ -444,7 +465,10 @@ export default function CreateFromScratch({navigation, route}){
                 >
                     <Text
                         style={{...buttonStyles.bottomAbsoluteButtonText,
-                            color: theme.colors.secondary
+                            color: theme.colors.secondary,
+                            fontFamily:'Proxima-Nova-Bold',
+                            fontSize: 20
+                            
                             }}
                     >Save Workout</Text>
                 </Pressable>

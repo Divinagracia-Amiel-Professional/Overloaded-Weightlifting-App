@@ -1,3 +1,5 @@
+import { enhancedSeatedSingleLegPullGif } from "../../../constants/images"
+
 export default 
 {
     id: "NejG9m9blN1G3MEf0zow",
@@ -16,6 +18,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: enhancedSeatedSingleLegPullGif,
+                title: "Enhanced Seated Single Leg Pull Form",
+                description: "Proper Form of Enhanced Seated Single Leg Pull"
+            },
             {
                 url: "https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2023/05/seated-leg-curl-starting-position.png?resize=700%2C701&ssl=1",
                 title: "How to Do Seated Leg Curl: Muscles Worked & Proper Form",

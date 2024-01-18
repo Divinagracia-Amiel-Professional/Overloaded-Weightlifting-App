@@ -38,7 +38,8 @@ export default function DescriptionSection(props){
                     <Gradient />
                     <Text
                         style={{...textStyles.workoutCard.header,
-                            color: theme.colors.tertiaryContainer
+                            color: theme.colors.secondary,
+                            fontSize: 65,
                         }}
                     >{props.name}</Text>
                     
@@ -52,7 +53,7 @@ export default function DescriptionSection(props){
                 >
                     <Text
                         style={{...textStyles.workoutCard.body,
-                            color: theme.colors.secondary
+                            color: theme.colors.secondary,
                         }}
                     >Difficulty: </Text>
                     <Rating 
@@ -108,11 +109,7 @@ export default function DescriptionSection(props){
                         icon={<Add size={20} color={theme.colors.background}/>}
                         onPress={props.addWorkout}
                     />
-                    <ButtonWithIcon 
-                        text='Edit Workout'
-                        icon={<Gear height={20} fill={theme.colors.background}/>}
-                        onPress={props.editWorkout}
-                    />
+                  
                 </View>
             </View>
         </View>

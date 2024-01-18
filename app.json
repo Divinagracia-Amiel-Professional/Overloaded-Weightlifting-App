@@ -3,14 +3,14 @@
     "name": "Overloaded",
     "slug": "Overloaded",
     "scheme": "tabs-routing",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/favicon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/icons/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#F0EEEA"
+      "backgroundColor": "#0D9098"
     },
     "assetBundlePatterns": [
       "**/*"

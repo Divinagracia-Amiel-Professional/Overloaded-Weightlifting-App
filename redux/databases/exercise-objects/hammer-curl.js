@@ -1,3 +1,5 @@
+import { hammerCurlGif } from "../../../constants/images"
+
 export default 
 {
     id: "daA4Yx91YCaRktcMPYD9",
@@ -9,11 +11,16 @@ export default
         "bicep_long"
     ],
     group: [
-        "legs",
+        "pull",
         "core",
     ],
     resources: {
         img_urls: [
+            {
+                url: hammerCurlGif,
+                title: "Hammer Curl Form",
+                description: "Proper Form of Hammer Curl"
+            },
             {
                 url: "https://hips.hearstapps.com/hmg-prod/images/hammer-curls-1581441441.jpg",
                 title: "How Dumbbell Hammer Curls Can Help You Build Even Bigger Arms",

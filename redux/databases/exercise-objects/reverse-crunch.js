@@ -1,3 +1,5 @@
+import { reverseCrunchGif } from "../../../constants/images"
+
 export default 
 {
     id: "4G0MZyx3YVmfPM9MJLXz",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: reverseCrunchGif,
+                title: "Reverse Crunch Form",
+                description: "Proper Form of Reverse Crunch"
+            },
             {
                 url: "https://i.ytimg.com/vi/7rRWy7-Gokg/maxresdefault.jpg",
                 title: "How to Do a Reverse Crunch",

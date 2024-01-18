@@ -1,3 +1,5 @@
+import { pullUpsGif } from "../../../constants/images"
+
 export default 
 {
     id: "aELq4TtPA3i0WQyJlJoC",
@@ -21,6 +23,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: pullUpsGif,
+                title: "Pull Ups Form",
+                description: "Proper Form of Pull Ups"
+            },
             {
                 url: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/12/pull-up-pullup-gym-1296x728-header-1296x728.jpg?w=1155&h=1528",
                 title: "The Benefits of Pullups",

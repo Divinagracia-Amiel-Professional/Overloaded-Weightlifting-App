@@ -1,3 +1,5 @@
+import { meadowsRowGif } from "../../../constants/images"
+
 export default 
 {
     id: "BuQk6NWZgcCRvy5uAb7l",
@@ -19,7 +21,7 @@ export default
     ],
     group: [
         "arms",
-        "legs",
+        // "legs",
         "core",
         "full",
         "back",
@@ -27,6 +29,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: meadowsRowGif,
+                title: "Meadow's Row Form",
+                description: "Proper Form of Meadow's Row"
+            },
             {
                 url: "https://www.muscleandfitness.com/wp-content/uploads/2022/01/Lean-muscular-man-working-out-topless-with-a-meadows-row-exercise.jpg?w=1109&h=614&crop=1&quality=86&strip=all",
                 title: "Meadows Row Exercise: How To, Benefits, Variations - Muscle & Fitness",

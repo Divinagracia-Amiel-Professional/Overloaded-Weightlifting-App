@@ -20,6 +20,18 @@ import { Placeholder as PlaceholderImage } from '../../../constants/images'
 export default function ExerciseScreen(props){
     const theme = useTheme()
     const currentWorkout = props.currentWorkout
+    const [ skipModalVisible, setSkipModalVisible ] = useState(false)
+
+    const imgUrl = currentWorkout.item.exercise_obj.resources.img_urls[0].url
+
+    const image = (
+        <Image 
+            style={{...imageStyles.doWorkout,
+                height: 300,
+            }}
+            source={imgUrl}
+        />
+    )
 
     return(
         <View
@@ -27,12 +39,7 @@ export default function ExerciseScreen(props){
                 backgroundColor: theme.colors.background
             }}
         >
-            <Image 
-                style={{...imageStyles.doWorkout,
-
-                }}
-                source={PlaceholderImage}
-            />
+            {image}
             <ExerciseHeader
                 theme={theme}
                 name={currentWorkout.item.exercise_obj.name}
@@ -53,13 +60,15 @@ export default function ExerciseScreen(props){
             <ExerciseButtons
                 theme={theme}
                 setIsRest={props.setIsRest}
+                setIndex={props.setIndex}
                 setSet={props.setSet}
                 currentSet={props.currentSet}
-                setCount={currentWorkout.item.workout_data.set_count}
-                currentWorkoutOrder={props.currentWorkout.item.workout_data.order}
+                setCount={props.setCount}
+                currentWorkoutOrder={currentWorkout.item.workout_data.order}
                 workoutLength={props.workoutLength}
 
                 navigation={props.navigation}
+                isLastRest={props.isLastRest}
             />
 
             {/* <ExerciseTimer

@@ -1,3 +1,5 @@
+import { reversePecDeckGif } from "../../../constants/images"
+
 export default 
 {
     id: "aReohBRtMjuW6Vh6k66M",
@@ -19,9 +21,14 @@ export default
     resources: {
         img_urls: [
             {
+                url: reversePecDeckGif,
+                title: "Reverse Pec Deck Form",
+                description: "Proper Form of Reverse Pec Deck"
+            },
+            {
                 url: "https://barbend.com/wp-content/uploads/2022/11/Untitled-design-2022-11-09T105123.434.png",
                 title: "How to Do the Reverse Pec Deck — Tips, Tricks, & Variations",
-                description: "Whether you’re piling on the prehab work during a high-volume powerlifting program or chasing the pump on shoulder day, you need a rear delt movement that goes the distance."
+                description: "Whether you're piling on the prehab work during a high-volume powerlifting program or chasing the pump on shoulder day, you need a rear delt movement that goes the distance."
             }
         ],
         vid_urls: [

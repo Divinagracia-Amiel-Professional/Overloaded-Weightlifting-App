@@ -10,9 +10,13 @@ import LogoRating from '../assets/icons/logo-rating-icon'
 import Package from '../assets/icons/package-icon'
 import Rack from '../assets/icons/rack-icon'
 import Tools from '../assets/icons/tools-icon'
+import PullUp from '../assets/icons/pullUp-icon'
+import PushUp from '../assets/icons/pushUp-icon'
 
 export {
     Abs,
+    PushUp,
+    PullUp,
     Calendar,
     CalendarFilled,
     Gear,

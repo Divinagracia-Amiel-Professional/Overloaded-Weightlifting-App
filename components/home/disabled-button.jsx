@@ -34,6 +34,7 @@ export default function DisabledStartButton(props){
         style={{...textStyles.cardBodyText,
           color: theme.colors.onTertiaryContainer,
           fontSize: textSizes.small,
+          flexWrap: 'wrap'
         }}
       >
       {

@@ -24,7 +24,9 @@ export default function ReorderList(props) { //Component for reordering cycles, 
   }
 
   function renderItem(info: DragListRenderItemInfo<string>) {
-    const {item, onDragStart, onDragEnd, isActive} = info;8
+    const {item, onDragStart, onDragEnd, isActive} = info;
+
+    console.log(item)
 
     return (
       <DraglistExerciseItem

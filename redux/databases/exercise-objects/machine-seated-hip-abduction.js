@@ -1,3 +1,5 @@
+import { machineSeatedHipAbductionGif } from "../../../constants/images"
+
 export default 
 {
     id: "E4d3QyKfZOPAnSIz7jT4",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: machineSeatedHipAbductionGif,
+                title: "Machine Seated Hip Abduction Form",
+                description: "Proper Form of Machine Seated Hip Abduction"
+            },
             {
                 url: "https://www.jefit.com/images/exercises/960_590/864.jpg",
                 title: "Machine Hip Abduction",

@@ -1,3 +1,5 @@
+import { barbellRowGif } from "../../../constants/images"
+
 export default 
 {
     id: "ZNzRkmnYHOPFqOsREgGg",
@@ -22,6 +24,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: barbellRowGif,
+                title: "Barbell Row Form",
+                description: "Proper Form of Barbell Row"
+            },
             {
                 url: "https://images.ctfassets.net/8urtyqugdt2l/5JyoMOTRMiqUgeX3xcFAot/adc9c772286fb52694a1d39de481709a/barbell-row-tile.jpg",
                 title: "How to Barbell Row Properly: Tips, Benefits and Variations",

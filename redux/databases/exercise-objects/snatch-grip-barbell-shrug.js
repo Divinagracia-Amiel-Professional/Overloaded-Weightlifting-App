@@ -1,3 +1,5 @@
+import { snatchGripBarbellShrugGif } from "../../../constants/images"
+
 export default 
 {
     id: "lUWA8viqND5udTvUbTZB",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: snatchGripBarbellShrugGif,
+                title: "Snatch Grip Barbell Shrug Form",
+                description: "Proper Form of Snatch Grip Barbell Shrug"
+            },
             {
                 url: "https://i.ytimg.com/vi/wXB_491TC20/maxresdefault.jpg",
                 title: "Snatch Grip Barbell Shrug",

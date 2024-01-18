@@ -1,3 +1,5 @@
+import { gluteHamRaisesGif } from "../../../constants/images"
+
 export default 
 {
     id: "UqX4LsnUpLzOKkAzxkYh",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: gluteHamRaisesGif,
+                title: "Glute Ham Raise Form",
+                description: "Proper Form of Glute Ham Raise"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2021/05/BarBend-Article-Image-760-x-427-2021-05-19T130757.295.jpg",
                 title: "The Glute-Ham Raise is a Functional Hamstring Builder",

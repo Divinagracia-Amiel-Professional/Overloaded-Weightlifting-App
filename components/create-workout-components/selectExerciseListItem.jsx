@@ -9,6 +9,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { SheetManager } from 'react-native-actions-sheet'
+import { getExerciseIcon } from '../../functions/functions-index'
 
 export default function SelectExerciseListItem(props){ //Exercise Item in Select Exercises Page
     const theme = useTheme()
@@ -48,6 +49,8 @@ export default function SelectExerciseListItem(props){ //Exercise Item in Select
         }
     }
 
+    const leftIcon = getExerciseIcon(props.item, theme)
+
     return(
         <Pressable
             // onLongPress={() => {
@@ -73,7 +76,7 @@ export default function SelectExerciseListItem(props){ //Exercise Item in Select
                     borderColor: theme.colors.customLightGray
                 }}
             >
-                <Feather name={'image'} size={75} color={theme.colors.secondary} />
+                {leftIcon}
                 <View
                     style={{...listStyles.draggable.DetailContainer}}
                 >
@@ -83,6 +86,9 @@ export default function SelectExerciseListItem(props){ //Exercise Item in Select
                         <Text
                             style={{...textStyles.list.draggable.headerText,
                                 color: theme.colors.secondary,
+                                fontFamily:'Proxima-Nova-Regular',
+                                fontSize: 18
+  
                             }}
                         >{props.item.name}</Text>
                         <Pressable

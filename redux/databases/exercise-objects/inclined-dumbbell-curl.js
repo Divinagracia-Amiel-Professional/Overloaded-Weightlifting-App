@@ -1,3 +1,5 @@
+import { inclinedDumbbellCurlGif } from "../../../constants/images"
+
 export default 
 {
     id: "y4o6UfkM6OZZTr2jtemW",
@@ -9,10 +11,16 @@ export default
         "bicep_long"
     ],
     group: [
-        "arms"
+        "arms",
+        "pull"
     ],
     resources: {
         img_urls: [
+            {
+                url: inclinedDumbbellCurlGif,
+                title: "Inclined Dumbbell Curl Form",
+                description: "Proper Form of Inclined Dumbbell Curl"
+            },
             {
                 url: "https://breakingmuscle.com/wp-content/uploads/2022/08/Screen-Shot-2022-08-09-at-12.47.27-PM.png",
                 title: "How to Do the Incline Dumbbell Curl for Bigger, Stronger Arms",

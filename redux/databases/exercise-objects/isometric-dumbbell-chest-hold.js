@@ -1,3 +1,5 @@
+import { isometricDumbbellChestHoldGif } from "../../../constants/images"
+
 export default 
 {
     id: "hZ95fDXyF8e3exkFe8Ue",
@@ -21,6 +23,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: isometricDumbbellChestHoldGif,
+                title: "Isometric Dumbbell Chest Hold Form",
+                description: "Proper Form of Isometric Dumbbell Chest Hold"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2019/05/Dumbbell-Bench-Press-Guide-750x303.jpg",
                 title: "2 Isometric Training Methods For Stronger Powerlifts",

@@ -24,7 +24,6 @@ import { RootState, AppDispatch } from '../redux/store';
 export default function Home({navigation}){
   const theme = useTheme()
   const initDB = initializeDBSync()
-  const currentUser = useSelector((state: RootState) => state.currentUser)
   const currentDate = useSelector((state: RootState) => state.currentDate)
   const dispatch = useDispatch<AppDispatch>()
 
@@ -42,10 +41,6 @@ export default function Home({navigation}){
 
   const isRestDay = !currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty ? currentUsedWorkout.data.latest_state.split === 0 && currentUsedWorkout.data.latest_state.cycle === 0 : false
   const isCompleted = !currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty ? currentUsedWorkout.data.latest_state.is_completed : false
-
-  useOnDayChange(() => { //fires when it's midnight; changes date in redux
-    dispatch(goToNextSplit())
-  })
 
   const getStartButton = () => { 
     if(!currentUsedWorkout.err.noUsed && !currentUsedWorkout.err.isEmpty){

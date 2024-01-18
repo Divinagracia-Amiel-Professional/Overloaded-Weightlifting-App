@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Pressable, Image, StyleSheet, ScrollView } from 'react-native';
-import { useTheme, Modal, Portal } from 'react-native-paper';
+import { useTheme, Modal, Portal, ActivityIndicator } from 'react-native-paper';
 import ActionSheet, { SheetProps, registerSheet } from "react-native-actions-sheet";
 import {
     mainStyles,
@@ -28,10 +28,15 @@ const defaultValues = {
     }
 }
 
+const preloadImage = (url) => {
+    return fetch(url)
+}
+
 const ExerciseDetails = (props) => {
     const theme = useTheme()
     const exerciseData = props.exerciseData ? props.exerciseData : defaultValues
     const isActionSheet = props.isActionSheet ? props.isActionSheet : false
+    const imgUrl = exerciseData.resources.img_urls[0].url
 
     return(
         <View
@@ -41,7 +46,7 @@ const ExerciseDetails = (props) => {
                 style={{...imageStyles.doWorkout,
                     height: isActionSheet ? 200 : 300
                 }}
-                source={PlaceholderImage}
+                source={imgUrl ? imgUrl : PlaceholderImage}
             />
             <View
                 style={style.bodyContainer}
@@ -51,8 +56,9 @@ const ExerciseDetails = (props) => {
                 >
                     <Text
                         style={{...textStyles.headerBarText,
+                            fontFamily: 'Stem-Bold',
                             color: theme.colors.secondary,
-                            fontSize: 28
+                            fontSize: 40
                         }}
                     >
                         {exerciseData.name}
@@ -61,6 +67,7 @@ const ExerciseDetails = (props) => {
                         style={{...textStyles.bodyText,
                             color: theme.colors.secondary,
                             fontSize: 16,
+                            fontFamily: 'Proxima-Nova-Regular'
                         }}
                     >
                         {exerciseData.description}
@@ -72,7 +79,8 @@ const ExerciseDetails = (props) => {
                     <Text
                         style={{...textStyles.headerBarText,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 20,
+                            fontFamily: 'Stem-Medium'
                         }}
                     >
                         Focus
@@ -99,7 +107,8 @@ const ExerciseDetails = (props) => {
                     <Text
                         style={{...textStyles.headerBarText,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 20,
+                            fontFamily: 'Stem-Medium'
                         }}
                     >
                         Group
@@ -137,7 +146,8 @@ const ExerciseDetails = (props) => {
                         style={{...textStyles.headerBarText,
                             ...style.textContainer,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 24,
+                            fontFamily: 'Stem-Bold'
                         }}
                     >
                         Supplementary Videos

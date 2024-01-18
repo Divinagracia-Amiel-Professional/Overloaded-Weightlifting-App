@@ -45,6 +45,7 @@ const CycleSection = (props) => {
             exercises={split.exercises[0] ? split.exercises : []}
             navigation={props.navigation}
             setScroll={props.setScroll}
+            isEdit={props.isEdit}
         />
     ))
 

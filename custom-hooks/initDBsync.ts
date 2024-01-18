@@ -7,6 +7,7 @@ import { setInit } from '../redux/slices/InitSlice';
 import exercisesInitDb from '../redux/databases/exercises-init-db';
 import workoutsInitDb from '../redux/databases/workouts-init-db';
 import { useSecureStore } from './useSecureStore';
+import { resetCurrentUserSlice } from '../redux/slices/CurrentUserSlice';
 
 const initializeDBSync = () => {
     const [ isSuccess, setIsSuccess ] = useState(false)
@@ -21,6 +22,7 @@ const initializeDBSync = () => {
         if(!isInit){
             dispatch(addInitExercises(exercisesInitDb));
             dispatch(addInitWorkouts(workoutsInitDb));
+            dispatch(resetCurrentUserSlice())
             dispatch(setInit())
             console.log('success!')
         }

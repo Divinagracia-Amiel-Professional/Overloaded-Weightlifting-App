@@ -1,3 +1,5 @@
+import { benchPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "2paqSykbxVb7omFXwLIe",
@@ -17,6 +19,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: benchPressGif,
+                title: "Bench Press Form",
+                description: "Proper Form of Bench Press"
+            },
             {
                 url: "https://www.ironmanmagazine.com/wp-content/uploads/Bench-Press-tutorial_chest-scaled.jpeg",
                 title: "Bench Press",

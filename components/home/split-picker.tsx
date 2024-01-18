@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Pressable, ScrollView } from 'react-native';
+import { Text, View, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useTheme, List } from 'react-native-paper';
 import {
     mainStyles,
@@ -32,7 +32,10 @@ export default function WorkoutPicker(props){
             style={{alignSelf: 'stretch'}}
         >
             <Text
-                style={{alignSelf:'stretch', textAlign: 'center'}}
+                style={{
+                    ...style.header,
+                    color: theme.colors.onBackground
+                }}
             >Choose Workout</Text>
             <List.AccordionGroup>
                 {workoutData.data.cycles.map(cycle => (
@@ -41,7 +44,10 @@ export default function WorkoutPicker(props){
                             key={cycle.order}
                             style={{backgroundColor: theme.colors.tertiaryContainer}}
                             rippleColor={theme.colors.customLightGray}
-                            titleStyle={{color: theme.colors.onTertiaryContainer}}
+                            titleStyle={{
+                                ...style.cycleTitleStyle,
+                                color: theme.colors.onBackground,
+                            }}
                             titleNumberOfLines={1}
                             title={`Cycle ${cycle.order}`} 
                         >
@@ -49,7 +55,12 @@ export default function WorkoutPicker(props){
                                 <List.Item
                                     key={split.order}
                                     style={{paddingLeft: 40}}
+                                    titleStyle={{
+                                        ...style.splitTitleSyle,
+                                        color: theme.colors.onBackground
+                                    }}
                                     title={split.name} 
+                                    right={props => <MaterialCommunityIcons name='chevron-right' size={24} color={theme.colors.secondary}/>}
                                     onPress={() => {
                                         const id = workoutData.data.id
                                         const data = {
@@ -73,23 +84,19 @@ export default function WorkoutPicker(props){
     )
 }
 
-{/* <List.AccordionGroup>
-                <List.Accordion 
-                    id='1'
-                    style={{backgroundColor: theme.colors.tertiaryContainer}}
-                    rippleColor={theme.colors.customLightGray}
-                    titleStyle={{color: 'black'}}
-                    titleNumberOfLines={1}
-                    title={workoutData.data.id} >
-                    <List.Item title='Item 1' />
-                </List.Accordion>
-                <List.Accordion 
-                    id='2'
-                    style={{backgroundColor: theme.colors.tertiaryContainer}}
-                    rippleColor={theme.colors.customLightGray}
-                    titleStyle={{color: 'black'}}
-                    titleNumberOfLines={1}
-                    title='WTF' >
-                    <List.Item title='Item 1' />
-                </List.Accordion>
-    </List.AccordionGroup>  */}
+const style = StyleSheet.create({
+    header: {
+        alignSelf:'stretch', 
+        textAlign: 'center',
+        fontFamily: 'Stem-Medium', 
+        fontSize: 24
+    },
+    cycleTitleStyle: {
+        fontFamily: 'Staatliches-Regular', 
+        fontSize: 20
+    },
+    splitTitleSyle: { 
+        fontFamily: 'Signika-Regular', 
+        fontSize: 16
+    }
+})

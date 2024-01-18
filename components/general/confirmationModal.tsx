@@ -18,7 +18,7 @@ import { RootState, AppDispatch } from '../../redux/store';
 export default function ConfirmationModal(props){ //visible, showModal, and hideModal is necessary as a prop 
     const dispatch = useDispatch<AppDispatch>();
     const theme = useTheme()
-
+    
     // const [ visible, setVisible ] = useState(false)
 
     // const showModal = () => setVisible(true);

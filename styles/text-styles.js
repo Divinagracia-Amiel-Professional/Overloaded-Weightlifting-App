@@ -32,7 +32,7 @@ const textStyles = StyleSheet.create({
         fontSize: textSizes.xxLarge,
     },
     cardBodyText: {
-        fontFamily: fontFamily.bodyHeader,
+        fontFamily: fontFamily.bodyText,
         fontSize: textSizes.medium,
     },
     cardDetailHeaderText: {
@@ -79,7 +79,7 @@ const textStyles = StyleSheet.create({
         },
         timer: {
             textAlign: 'center',
-            fontFamily: fontFamily.primaryHeader,
+            fontFamily: fontFamily.secondaryHeader,
             fontSize: textSizes.timer,
             letterSpacing: 6.4,
         },
@@ -128,17 +128,17 @@ const textStyles = StyleSheet.create({
         header: {
             textAlign: 'center',
             fontFamily: fontFamily.primaryHeader,
-            fontSize: textSizes.workoutHeader,
+            fontSize: 48,
 
             position: 'absolute',
-            bottom: -21,
+            bottom: -18,
 
             // includeFontPadding: false,
             textAlignVertical: 'bottom'
         },
         body: {
             textAlign: 'center',
-            fontFamily: fontFamily.primaryHeader,
+            fontFamily: 'Proxima-Nova-Bold',
             fontSize: textSizes.xLarge,
         }
     }

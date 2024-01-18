@@ -1,3 +1,5 @@
+import { suitcaseHoldGif } from "../../../constants/images"
+
 export default 
 {
     id: "KVCzwZMZOBVej1h6IzD2",
@@ -15,11 +17,15 @@ export default
     group: [
         "forearm",
         "arms",
-        "legs",
         "core"
     ],
     resources: {
         img_urls: [
+            {
+                url: suitcaseHoldGif,
+                title: "Suitcase Hold Form",
+                description: "Proper Form of Suitcase Hold"
+            },
             {
                 url: "https://www.verywellfit.com/thmb/EuJdOW9QQ3jbVMDiThenCalV4O0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SuitcaseCarry-d42a853ea64745ea8d70a4efce668807.jpg",
                 title: "How to Do a Suitcase Carry: Proper Form, Variations, and Common Mistakes",

@@ -1,3 +1,5 @@
+import { preacherCurlsGif } from "../../../constants/images"
+
 export default 
 {
     id: "SucorBdZrkUi7o2I4GaJ",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: preacherCurlsGif,
+                title: "Preacher Curls Form",
+                description: "Proper Form of Preacher Curls"
+            },
             {
                 url: "https://blog.squatwolf.com/wp-content/uploads/2019/05/pc.jpg",
                 title: "Preacher Curl - Benefits and How to Do It Correctly",

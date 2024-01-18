@@ -1,3 +1,5 @@
+import { backSquatsGif } from "../../../constants/images"
+
 export default 
 {
     id: "atw9ajCICspoRJB4SAEQ",
@@ -15,10 +17,14 @@ export default
     group: [
         "legs",
         "back",
-        "core",
     ],
     resources: {
         img_urls: [
+            {
+                url: backSquatsGif,
+                title: "Back Squats Form",
+                description: "Proper Form of Back Squats"
+            },
             {
                 url: "https://steelsupplements.com/cdn/shop/articles/shutterstock_2018381615_1000x.jpg?v=1636630369",
                 title: "HOW TO DO BARBELL BACK SQUATS (FORM & BENEFITS)",

@@ -32,7 +32,7 @@ export default function StartButton(props){
             backgroundColor: theme.colors.tertiaryContainer}}>
             <Pressable 
                 style={{...cardStyles.cardContainer,
-                    backgroundColor: !isRestDay && !isCompleted ? theme.colors.primaryContainer : theme.colors.tertiaryContainer,
+                    backgroundColor: !isRestDay && !isCompleted ? theme.colors.primary : theme.colors.tertiaryContainer,
                     opacity: !isRestDay && !isCompleted ? 1 : 0.5
                 }}
                 onPress={() => {

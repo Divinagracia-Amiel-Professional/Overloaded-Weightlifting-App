@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { Snackbar, Portal } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,
@@ -21,6 +21,8 @@ import { BackButton } from '../../../components/component-index';
 export default function PremadeWorkoutDetails({navigation, route}){
     const dispatch = useDispatch<AppDispatch>();
     const workoutUsed = useSelector((state: RootState) => state.currentUser.workoutUsed)
+    const [ isSnackBarVisible, setIsSnackBarVisible ] = useState(false)
+    const [ snackBarMessage, setSnackBarMessage ] = useState('')
 
     const data = route.params.workoutDetails
     // console.log(data)
@@ -28,7 +30,6 @@ export default function PremadeWorkoutDetails({navigation, route}){
 
     const doesExist = workoutUsed.find(workouts => workouts.id === data.id) ? true : false
     console.log(doesExist)
-    // console.log(getUserWorkoutObjects())
 
     return(
         <View
@@ -48,14 +49,34 @@ export default function PremadeWorkoutDetails({navigation, route}){
                     description={data.description}
                     addWorkout={() => {
                         if(doesExist){
-                            return console.log('Workout is already used!')
+                            setSnackBarMessage('Workout is already added. Please go to Manage Workout Page')
+                            setIsSnackBarVisible(true)
+                            return
                         }
+                        setSnackBarMessage('Successfully Added to Workouts. You can now go to Manage Workout Page')
+                        setIsSnackBarVisible(true)
                         dispatch(addWorkout(data))
                     }}
                     editWorkout={() => {
                         console.log(workoutUsed)
                     }}
                 />
+                <Portal>
+                    <Snackbar
+                        visible={isSnackBarVisible}
+                        onDismiss={() => {
+                            setIsSnackBarVisible(false)
+                        }}
+                        action={{
+                        label: 'close',
+                        onPress: () => {
+                            setIsSnackBarVisible(false)
+                        },
+                        }}
+                        >
+                        {snackBarMessage}
+                    </Snackbar>
+                </Portal>
             </ScrollView>
         </View>
     )

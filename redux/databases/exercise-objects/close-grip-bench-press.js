@@ -1,3 +1,5 @@
+import { closeGripBenchPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "xNL5uQVeWJhbd4Z9NoII",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: closeGripBenchPressGif,
+                title: "Close Grip Bench Press Form",
+                description: "Proper Form of Close Grip Bench Press"
+            },
             {
                 url: "https://steelsupplements.com/cdn/shop/articles/shutterstock_69079681_2912x.jpg?v=1599316230",
                 title: "How (And Why!) To Close Grip Bench Press Properly",

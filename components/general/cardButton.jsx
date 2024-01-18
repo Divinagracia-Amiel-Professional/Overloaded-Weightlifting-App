@@ -13,6 +13,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 export default function CardButton(props){
     const [ isEnabled , setIsEnabled ] = useState(props.state)
     const theme = useTheme()
+    console.log(theme.colors.primary)
 
     useEffect(() => {
         setIsEnabled(props.state)

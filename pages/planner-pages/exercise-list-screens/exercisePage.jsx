@@ -19,6 +19,7 @@ const ExerciseDetailsPage = ({route, navigation}) => {
     const theme = useTheme()
     const exerciseData = route.params.exerciseData
 
+
     return(
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}

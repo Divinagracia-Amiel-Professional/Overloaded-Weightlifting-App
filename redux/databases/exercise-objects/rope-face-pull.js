@@ -1,3 +1,5 @@
+import { ropeFacePullGif } from "../../../constants/images"
+
 export default 
 {
     id: "fkSohQfORRlPpuBnJZdQ",
@@ -18,6 +20,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: ropeFacePullGif,
+                title: "Rope Face Pull Form",
+                description: "Proper Form of Rope Face Pull"
+            },
             {
                 url: "https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2023/07/face-pulls-start-position.png?resize=768%2C768&ssl=1",
                 title: "How to Do Face Pull: Muscles Worked & Proper Form",

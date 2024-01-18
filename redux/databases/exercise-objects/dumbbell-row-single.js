@@ -1,3 +1,5 @@
+import { dumbbellRowSingleGif } from "../../../constants/images"
+
 export default 
 {
     id: "X71hWk5BCYQWQJk3RNrf",
@@ -22,6 +24,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: dumbbellRowSingleGif,
+                title: "Single Dumbbell Row Form",
+                description: "Proper Form of Single Dumbbell Row",
+            },
             {
                 url: "https://prod-ne-cdn-media.puregym.com/media/819915/single-arm-dumbbell-row.jpg?mode=pad&width=2500",
                 title: "How to do Single Arm Dumbbell Row",

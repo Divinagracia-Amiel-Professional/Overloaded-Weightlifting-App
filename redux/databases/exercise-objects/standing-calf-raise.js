@@ -1,3 +1,5 @@
+import { standingCalfRaiseGif } from "../../../constants/images"
+
 export default 
 {
     id: "6zrgEEZ22CYH7bFc3nQ2",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: standingCalfRaiseGif,
+                title: "Standing Calf Raise Form",
+                description: "Proper Form of Standing Calf Raise"
+            },
             {
                 url: "https://www.intowellness.in/wp-content/uploads/2019/12/Standing-Calf-Raise.jpg",
                 title: "Standing Calf Raise",

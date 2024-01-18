@@ -15,6 +15,7 @@ import {
     ExerciseListPage,
     ExerciseDetailsPage
 } from './planner-pages/planner-pages-index';
+import SelectRecordsListPage from './tracker-pages/SelectRecordsListScreen';
 import NavBar from './navbar'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
@@ -44,6 +45,8 @@ export default function DoWorkoutStack(){
 
             <Stack.Screen name='ExerciseListPage' component={ExerciseListPage}/>
             <Stack.Screen name='ExerciseDetailsPage' component={ExerciseDetailsPage}/>
+
+            <Stack.Screen name='SelectRecordPage' component={SelectRecordsListPage}/>
         </Stack.Navigator>
     )
 }

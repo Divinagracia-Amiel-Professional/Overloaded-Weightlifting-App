@@ -76,9 +76,9 @@ import wristCurls from "./exercise-objects/wrist-curls"
 import eccentricLatPulldown from "./exercise-objects/eccentric-lat-pulldown"
 import machineHighLowRow from "./exercise-objects/machine-high-low-row"
 import reverseGripPullup from "./exercise-objects/reverse-grip-pullup"
+import kneelingLatPullIn from "./exercise-objects/kneeling-lat-pull-in"
 
 export default [
-    calfPressLegPressMachineSingle,
     deadliftConventional,
     hipAbductionsSeated,
     hipThrustBar,
@@ -125,7 +125,6 @@ export default [
     inclinedBarbellBenchPress,
     inclinedDumbbellCurl,
     inclinedDumbbellOverheadExtension,
-    kneelingFacePulls,
     leanAwayLateralRaise,
     machineSeatedHipAbduction,
     machineShoulderPress,
@@ -155,5 +154,6 @@ export default [
     wristCurls,
     eccentricLatPulldown,
     machineHighLowRow,
-    reverseGripPullup
+    reverseGripPullup,
+    kneelingLatPullIn
 ]

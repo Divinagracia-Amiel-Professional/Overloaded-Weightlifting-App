@@ -10,7 +10,7 @@ import {
 import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { FontAwesome5 } from '@expo/vector-icons';
-import { BackButton, Gradient } from '../component-index';
+import Gradient from '../general/gradient';
 import { Placeholder2 } from '../../constants/images';
 import { Rating } from 'react-native-ratings';
 import { RatingImgGray } from '../../constants/images';
@@ -31,18 +31,22 @@ export default function WorkoutCard(props){
                     style={{...cardStyles.workoutCard.imageBackground}}
                 >
 
-                    <Gradient />
-                    <Text
-                        style={{...textStyles.workoutCard.header,
-                            color: theme.colors.tertiaryContainer
-                        }}
-                    >{props.name}</Text>
-                    
+                    <Gradient /> 
                 </ImageBackground>
             </View>
             <View
                 style={{...cardStyles.workoutCard.details.container}}
             >
+                <Text
+                        style={{...textStyles.workoutCard.header,
+                            position: 'relative',
+                            color: theme.colors.secondary,
+                            lineHeight: 50,
+                            alignSelf: 'stretch',
+                            textAlign: 'center',
+                            paddingBottom: 10,
+                        }}
+                    >{props.name}</Text>
                 <View
                     style={{...cardStyles.workoutCard.details.difficultyContainer}}
                 >

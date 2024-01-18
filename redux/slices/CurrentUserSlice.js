@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getLocalDateTime, toHash } from "../../functions/functions-index";
+import getLocalDateTime from "../../functions/getLocalDateTime";
+import toHash from "../../functions/toHash"
 
 const initState = {
     user: 'guestUser',
@@ -173,6 +174,7 @@ const CurrentUserSlice = createSlice({
                                 date_achieved: action.payload.date_achieved,
                                 rep_start: record.repStart,
                                 rep_end: record.repEnd,
+                                set_count: record.setCount,
                                 sets: record.sets
                             }
                         ]
@@ -188,6 +190,7 @@ const CurrentUserSlice = createSlice({
                                     date_achieved: action.payload.date_achieved,
                                     rep_start: record.repStart,
                                     rep_end: record.repEnd,
+                                    set_count: record.setCount,
                                     sets: record.sets
                                 }
                             ]
@@ -199,12 +202,12 @@ const CurrentUserSlice = createSlice({
             console.log(state.records)
         },
         resetRecords: (state) => { //Delete every record
-            state.records = []
+            state.records = initState.records
 
             console.log(state.records)
         },
-        consoleLogRecords: (state) => { //For Debugging
-            console.log(JSON.stringify(state.records))
+        resetCurrentUserSlice: (state) => {
+            return state = initState
         }
     },
     extraReducers: {
@@ -223,5 +226,5 @@ export const {
     completeWorkout,
     updateRecords, 
     resetRecords,
-    consoleLogRecords,
+    resetCurrentUserSlice
  } = CurrentUserSlice.actions

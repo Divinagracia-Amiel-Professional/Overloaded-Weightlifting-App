@@ -36,10 +36,11 @@ export default function PreWorkoutPage({navigation, route}){
     
     return(
         <View style={{...mainStyles.preWorkoutContainer,
-            backgroundColor: theme.colors.background
+            backgroundColor: theme.colors.background,
+            position: 'relative'
             }}
             >
-
+            <BackButton navigation={navigation} type='default' hidden={false} params={{}}/>
             <Image 
                 style={{...imageStyles.placeholder, 
                     borderColor: theme.colors.onBackground
@@ -53,7 +54,8 @@ export default function PreWorkoutPage({navigation, route}){
                     currentWorkout ? 
                     <Text
                         style={{...textStyles.preWorkoutPage.headerText,
-                            color: theme.colors.secondary
+                            color: theme.colors.secondary,
+                            // fontFamily: ''/
                         }}
                     >{setWorkoutName(currentWorkout.cycle, currentWorkout.split.name)}</Text> : 
                     'No Workout'

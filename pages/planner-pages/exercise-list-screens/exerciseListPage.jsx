@@ -6,17 +6,10 @@ import {
     textStyles,
     buttonStyles
 } from '../../../styles/style-index'
-import Feather from '@expo/vector-icons/Feather'
-import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Add, CalendarEdit } from 'iconsax-react-native'
 import { getAllExercises } from '../../../functions/functions-index';
 import { 
     BackButton, 
-    SelectExerciseListItem 
 } from '../../../components/component-index';
-import { textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import ExerciseListItem from '../../../components/manage-workout-components/exerciseListItem';
@@ -25,7 +18,9 @@ export default function ExerciseListPage({navigation, route}){
     const theme = useTheme()
 
     const exercisesDB = getAllExercises()
-    const sortedByName = exercisesDB.sort((a, b) => {
+    
+    const exercises = [...exercisesDB]
+    const sortedByName = exercises.sort((a, b) => {
         return a.name.localeCompare(b.name)
     })
 

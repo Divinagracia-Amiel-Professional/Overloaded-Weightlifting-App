@@ -1,3 +1,5 @@
+import { leanAwayLateralRaiseGif } from "../../../constants/images"
+
 export default 
 {
     id: "IVY3P8JLV0AjwgHkyCBN",
@@ -14,12 +16,17 @@ export default
     ],
     group: [
         "core",
-        "back",
+        // "back",
         "arms",
         "push"
     ],
     resources: {
         img_urls: [
+            {
+                url: leanAwayLateralRaiseGif,
+                title: "Lean Away Lateral Raise Form",
+                description: "Proper Form of Lean Away Lateral Raise",
+            },
             {
                 url: "https://fitnessvolt.com/wp-content/uploads/2023/01/Leaning-Lateral-Raise.jpg",
                 title: "Leaning Lateral Raise - Muscles Worked, How-To, Benefits, and Alternatives",

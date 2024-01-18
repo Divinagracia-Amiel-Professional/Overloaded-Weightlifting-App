@@ -1,3 +1,5 @@
+import { ropeUprightRowGif } from "../../../constants/images"
+
 export default 
 {
     id: "jEuoKyUfRCXTPAo8jYkx",
@@ -11,12 +13,18 @@ export default
         "bicep_long"
     ],
     group: [
-        "back",
-        "pull",
+        // "back",
+        // "pull",
+        "push",
         "arms"
     ],
     resources: {
         img_urls: [
+            {
+                url: ropeUprightRowGif,
+                title: "Rope Upright Row Form",
+                description: "Proper Form of Rope Upright Row"
+            },
             {
                 url: "https://prod-ne-cdn-media.puregym.com/media/818896/cable-upright-row.png?mode=pad&width=2500",
                 title: "CABLE UPRIGHT ROW",
