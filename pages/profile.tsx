@@ -27,7 +27,7 @@ export default function Profile(){
     return(         
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Profile</Text>
-            <ButtonWithIcon
+            {/* <ButtonWithIcon
                 style={{paddingVertical: 10, opacity: 0.8}}
                 text="Reset Workout DB"
                 onPress={() => {
@@ -40,7 +40,7 @@ export default function Profile(){
                 onPress={() => {
                     dispatch(addInitExercises(exercisesInitDb))
                 }}
-            />
+            /> */}
         </View>
     )
 }
