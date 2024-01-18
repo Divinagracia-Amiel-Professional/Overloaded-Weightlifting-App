@@ -43,13 +43,12 @@ const signUp = async () => {
         <TextInput value={password} style={styles.input} placeholder='Password' onChangeText={setPassword} secureTextEntry/>
 
         {loading ? <ActivityIndicator /> : (
-          <>
-            <Button title='Login' onPress={signIn} />
-            <Button title='Register' onPress={signUp} />
-          </>
-      )
-
-      }
+            <View style={styles.buttonContainer}>
+                <Button title='Login' onPress={signIn} color='#007AFF' />
+                <View style={styles.buttonSpacing} />
+                <Button title='Register' onPress={signUp} color='#007AFF' />
+            </View>
+        )}
     </KeyboardAvoidingView>
     </View>
   )
@@ -70,5 +69,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         borderRadius: 3,
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    buttonSpacing: {
+        width: 10,
     }
 })
