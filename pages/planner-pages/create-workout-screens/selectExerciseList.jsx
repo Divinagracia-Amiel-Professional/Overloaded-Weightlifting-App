@@ -51,7 +51,8 @@ export default function SelectExercisePage({navigation, route}){
         const filtered = selectedExercises.filter(exercise => exercise.isSelected === true)
         
         navigation.navigate('CreateFromScratch', {
-            isEdit: false,
+            isEdit: route.params.isEdit ? true : false,
+            isSelect: true,
             workoutData: {
                 cycleOrder: dataFromSplit.cycleOrder,
                 splitOrder: dataFromSplit.splitOrder,

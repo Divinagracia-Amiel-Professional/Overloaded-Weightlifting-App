@@ -57,6 +57,8 @@ const ExerciseItem = (props) => { //Exercise Item in exercise list in create fro
         showModal()
     }
 
+    console.log(JSON.stringify(props.exerciseData))
+
     const leftIcon = getExerciseIcon(props.exerciseData, theme, 1.5)
 
     return(

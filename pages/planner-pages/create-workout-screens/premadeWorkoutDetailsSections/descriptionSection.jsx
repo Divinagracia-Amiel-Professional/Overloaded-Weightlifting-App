@@ -38,7 +38,7 @@ export default function DescriptionSection(props){
                     <Gradient />
                     <Text
                         style={{...textStyles.workoutCard.header,
-                            color: theme.colors.tertiaryContainer,
+                            color: theme.colors.secondary,
                             fontSize: 65,
                         }}
                     >{props.name}</Text>

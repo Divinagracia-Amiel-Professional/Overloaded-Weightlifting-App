@@ -53,6 +53,8 @@ const initCycle = {
 export default function CreateFromScratch({navigation, route}){
     const theme = useTheme()
     const userWorkouts = getUserWorkouts()
+    const exerciseDB = useSelector((state: RootState) => state.exercise);
+    const exerciseDBCopy = [...exerciseDB.data]
     const dispatch = useDispatch<AppDispatch>()
 
     const [ basicInfo , setBasicInfo ] = useState({
@@ -74,6 +76,7 @@ export default function CreateFromScratch({navigation, route}){
 
     const [ isSnackBarVisible, setIsSnackBarVisible ] = useState(false)
     const [ snackBarMessage, setSnackBarMessage ] = useState('')
+    
 
     useEffect(() => {
         setReorderingData(workout.cycles)
@@ -82,13 +85,14 @@ export default function CreateFromScratch({navigation, route}){
 
     const routeParams = route.params ? route.params.workoutData : ''
     const isEdit = route.params ? route.params.isEdit : false
+    const isSelect = route.params ? route.params.isSelect : false
 
     const updateWorkout = () => { //function on how to update workout whether it is from edit workout page or from select exercises page
         if(routeParams){
-            if(!isEdit){
+            if(isSelect){
                 updateExercises()
             }
-            else{
+            else if(isEdit && !isSelect){
                 getToEditData()
             }
         }
@@ -158,13 +162,20 @@ export default function CreateFromScratch({navigation, route}){
             ...cycle,
             split: cycle.split.map(split => ({
                 ...split,
-                exercises: split.exercises.map(exercise => ({
-                    id: exercise.exercise_id,
-                    name: exercise.name,
-                    workoutData: {
-                        ...exercise.workout_data
-                    }
-                }))
+                exercises: split.exercises.map(exercise => {
+                    const group = exerciseDBCopy.find(exDB => exDB.id === exercise.exercise_id).group
+
+                    return(
+                        {
+                            id: exercise.exercise_id,
+                            name: exercise.name,
+                            group: [...group],
+                            workoutData: {
+                                ...exercise.workout_data
+                            }
+                        }
+                    )
+                })
             }))
         }))
 
@@ -196,6 +207,7 @@ export default function CreateFromScratch({navigation, route}){
             setWorkout={setWorkout}
             setScroll={setScroll}
             navigation={navigation}
+            isEdit={isEdit}
         />
     ))
 

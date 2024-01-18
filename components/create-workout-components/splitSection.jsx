@@ -89,6 +89,7 @@ const SplitSection = (props) => {
 
     const handleAddWorkout = () => {
         props.navigation.navigate('SelectExercisePage', {
+            isEdit: props.isEdit,
             workoutData: {
                 cycleOrder: props.cycleOrder,
                 splitOrder: props.splitOrder,

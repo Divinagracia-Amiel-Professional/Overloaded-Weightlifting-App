@@ -23,7 +23,9 @@ export default function DraglistExerciseItem(props){
        
     }
 
-    const leftIcon = getExerciseIcon(exerciseObj, theme, 1.5)
+    const leftIcon = props.type === 'exercise' ? getExerciseIcon(exerciseObj, theme, 1.5) : null
+
+    console.log(props.type === 'exercise')
 
     return(
         <View
