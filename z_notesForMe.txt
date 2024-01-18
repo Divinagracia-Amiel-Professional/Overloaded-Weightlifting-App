@@ -20,11 +20,16 @@ things to do:
 - Exercise List Page
 
 //Not Done
-- skip function
+- skip function/
 - basic display of records(Tabular) /
 - updating divisplit /
-
 - add action indicators/action alerts (please)(Mainly on adding a workout)
+
+
+prio 
+- add gifs, add snackbar to premade workout details /
+
+future
 - until failure case
 - Loading Screen (Optional)
 - saving current do workout page state and create from scratch page()
@@ -32,6 +37,4 @@ things to do:
 button should be disabled(Optional)
 - implementation of supersets and trisets, and rest increments
 - implementation of alternatives(user wants to do another similar exercise)
-
-prio 
-- add gifs, add snackbar to premade workout details -
+- adding exercise in workout can still save with the same name
