@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
-import { useTheme, Snackbar, Portal } from 'react-native-paper';
+import { Snackbar, Portal } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,

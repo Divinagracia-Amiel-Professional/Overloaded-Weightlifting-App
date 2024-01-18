@@ -159,7 +159,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                 <Text
                     style={{
                         ...textStyles.headerText,
-                        fontFamily: 'Stem-Medium',
+                        fontFamily: 'Stem-Bold',
                         color: theme.colors.secondary,
                         fontSize: 28
                     }}

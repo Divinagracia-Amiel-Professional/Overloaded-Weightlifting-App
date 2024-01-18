@@ -86,6 +86,9 @@ export default function SelectExerciseListItem(props){ //Exercise Item in Select
                         <Text
                             style={{...textStyles.list.draggable.headerText,
                                 color: theme.colors.secondary,
+                                fontFamily:'Proxima-Nova-Regular',
+                                fontSize: 18
+  
                             }}
                         >{props.item.name}</Text>
                         <Pressable

@@ -56,9 +56,9 @@ const ExerciseDetails = (props) => {
                 >
                     <Text
                         style={{...textStyles.headerBarText,
-                            // fontFamily: 'Stem-Bold',
+                            fontFamily: 'Stem-Bold',
                             color: theme.colors.secondary,
-                            fontSize: 28
+                            fontSize: 40
                         }}
                     >
                         {exerciseData.name}
@@ -67,6 +67,7 @@ const ExerciseDetails = (props) => {
                         style={{...textStyles.bodyText,
                             color: theme.colors.secondary,
                             fontSize: 16,
+                            fontFamily: 'Proxima-Nova-Regular'
                         }}
                     >
                         {exerciseData.description}
@@ -78,7 +79,8 @@ const ExerciseDetails = (props) => {
                     <Text
                         style={{...textStyles.headerBarText,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 20,
+                            fontFamily: 'Stem-Medium'
                         }}
                     >
                         Focus
@@ -105,7 +107,8 @@ const ExerciseDetails = (props) => {
                     <Text
                         style={{...textStyles.headerBarText,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 20,
+                            fontFamily: 'Stem-Medium'
                         }}
                     >
                         Group
@@ -143,7 +146,8 @@ const ExerciseDetails = (props) => {
                         style={{...textStyles.headerBarText,
                             ...style.textContainer,
                             color: theme.colors.secondary,
-                            fontSize: 20
+                            fontSize: 24,
+                            fontFamily: 'Stem-Bold'
                         }}
                     >
                         Supplementary Videos

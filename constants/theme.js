@@ -1,10 +1,10 @@
 const lightTheme = {
   "colors": {
-    "primary": "#880D1E",
+    "primary": "#0D9098",
     "onPrimary": "#FFFFFF",
     "primaryContainer": "#880D1E",
     "onPrimaryContainer": "#FFFFFF",
-    "secondary": "#3D2B3D",
+    "secondary": "#222222",
     "onSecondary": "rgb(255, 255, 255)",
     "secondaryContainer": "#3D2B3D",
     "onSecondaryContainer": "rgb(54, 0, 62)",
@@ -94,7 +94,7 @@ const darkTheme = {
 const colors = {
     primary: "#880D1E", //OU Crimson
     secondary: "#3D2B3D", //Dark Purple
-  
+    
     black: "#4F5152", //Cracked Pepper
 
     lightGray: "#F0EEEA", //Isabelline
