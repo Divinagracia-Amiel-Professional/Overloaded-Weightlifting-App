@@ -1,118 +1,74 @@
-import React from "react";
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { View, Text, StyleSheet, TextInput, ActivityIndicator, Button, KeyboardAvoidingView } from 'react-native'
+import React, { useState } from 'react'
+import { fire_auth } from '../firebase';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const auth = getAuth();
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const auth = fire_auth;
 
-const LoginScreen = () => {
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-
-    const handleSignUp = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log("Registered with:", user.email);
-            })
-            .catch(error => alert(error.message));
-    };
-
-    const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log("Logged in with:", user.email);
-            })
-            .catch(error => alert(error.message));
-    };
-
-    return (
-        <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding"
-        >
-            <View style={styles.inputContainer}>
-                <TextInput
-                placeholder="Email"
-                value={email}
-                onChangeText={text => setEmail(text)}
-                style={styles.input}
-                />
-                <TextInput
-                placeholder="Password"
-                value={password}
-                onChangeText={text => setPassword(text)}
-                style={styles.input}
-                secureTextEntry
-                />
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                onPress={handleLogin}
-                style={styles.button}
-                >
-                    <Text style={styles.buttonText}>Login</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                onPress={handleSignUp}
-                style={[styles.button, styles.buttonOutline]}
-                >
-                    <Text style={styles.buttonOutlineText}>Register</Text>
-                </TouchableOpacity>
-            </View>
-
-        </KeyboardAvoidingView>
-    )
+const signIn = async () => {
+    setLoading(true);
+    try {
+        const response = await signInWithEmailAndPassword(auth, email, password);
+        console.log(response);
+    } catch (error: any) {
+        console.log(error);
+        alert(error.message);
+    } finally {
+        setLoading(false);
+    }
 }
 
-export default LoginScreen
+const signUp = async () => {
+    setLoading(true);
+    try {
+        const response = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(response);
+        alert('User created successfully');
+    } catch (error: any) {
+        console.log(error);
+        alert(error.message);
+    } finally {
+        setLoading(false);
+    }
+}
+
+  return (
+    <View style={styles.container}>
+    <KeyboardAvoidingView behavior='padding'>
+        <TextInput value={email} style={styles.input} placeholder='Email' onChangeText={setEmail} />
+        <TextInput value={password} style={styles.input} placeholder='Password' onChangeText={setPassword} secureTextEntry/>
+
+        {loading ? <ActivityIndicator /> : (
+          <>
+            <Button title='Login' onPress={signIn} />
+            <Button title='Register' onPress={signUp} />
+          </>
+      )
+
+      }
+    </KeyboardAvoidingView>
+    </View>
+  )
+}
+
+export default Login
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
+        marginHorizontal: 20,
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
     },
-    inputContainer: {
-        width: "80%",
-    },     
     input: {
-        backgroundColor: "white",
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        borderRadius: 10,
-        marginTop: 5,
-    },
-    buttonContainer: {
-        width: "60%",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 40,
-    },
-    button: {
-        backgroundColor: "blue",
-        width: "100%",
-        padding: 15,
-        borderRadius: 10,
-        alignItems: "center",
-    },
-    buttonText: {
-        color: "white",
-        fontWeight: "700",
-        fontSize: 16,
-    },
-    buttonOutline: {
-        backgroundColor: "white",
-        marginTop: 5,
-        bprdercolor: "blue",
-        borderWidth: 2
-    },
-    buttonOutlineText: {
-        color: "blue",
-        fontWeight: "700",
-        fontSize: 16,
+        marginVertical: 10,
+        borderWidth: 1,
+        borderColor: 'gray',
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        borderRadius: 3,
     }
 })
