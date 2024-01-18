@@ -131,14 +131,14 @@ const textStyles = StyleSheet.create({
             fontSize: 48,
 
             position: 'absolute',
-            bottom: -21,
+            bottom: -18,
 
             // includeFontPadding: false,
             textAlignVertical: 'bottom'
         },
         body: {
             textAlign: 'center',
-            fontFamily: fontFamily.primaryHeader,
+            fontFamily: 'Proxima-Nova-Bold',
             fontSize: textSizes.xLarge,
         }
     }

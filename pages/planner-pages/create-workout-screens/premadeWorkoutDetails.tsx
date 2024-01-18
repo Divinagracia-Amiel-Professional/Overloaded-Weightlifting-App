@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, ScrollView } from 'react-native';
-import { useTheme } from 'react-native-paper';
 import {
     mainStyles,
     textStyles,

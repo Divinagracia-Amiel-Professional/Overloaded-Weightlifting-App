@@ -15,7 +15,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Add, CalendarEdit, Edit2 } from 'iconsax-react-native'
 import AddSectionButton from './addSectionButton';
 import SplitSection from './splitSection';
-import { textSizes } from '../../constants/theme';
+import { fontFamily, textSizes } from '../../constants/theme';
 import { Rating } from 'react-native-ratings';
 import { RatingImgGray } from '../../constants/images';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -34,7 +34,12 @@ export default function BasicInfoSection(props){
             <View
                 style={{...mainStyles.fromScratch.cycleSection.headerContainer}}
             >
-                <Text>Basic Info</Text>
+                <Text
+                style={{
+                    fontFamily: 'Proxima-Nova-Bold',
+                    fontSize: 18,
+                    
+                }}>Basic Info</Text>
             </View>
             <View
                 style={{...mainStyles.fromScratch.cycleSection.bodyContainer,
@@ -42,7 +47,7 @@ export default function BasicInfoSection(props){
                 }}
             >
                 <TextInputCustom 
-                    label='Name: '
+                    label= 'Name: '
                     value={props.data.name}
                     onChangeText={newName => props.setBasicInfo(prevState => ({
                         ...prevState,

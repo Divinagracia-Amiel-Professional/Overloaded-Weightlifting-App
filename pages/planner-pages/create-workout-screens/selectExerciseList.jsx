@@ -16,7 +16,7 @@ import {
     BackButton, 
     SelectExerciseListItem 
 } from '../../../components/component-index';
-import { textSizes } from '../../../constants/theme';
+import { fontFamily, textSizes } from '../../../constants/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 
@@ -104,7 +104,7 @@ export default function SelectExercisePage({navigation, route}){
                 data={selectedExercises}
                 renderItem={RenderItem}
                 contentContainerStyle={{
-                    paddingHorizontal: 15
+                    paddingHorizontal: 25
                 }}
                 estimatedItemSize={100}
                 scrollEnabled={true}
@@ -113,8 +113,11 @@ export default function SelectExercisePage({navigation, route}){
                 style={{...buttonStyles.bottomAbsoluteContainer,
                     backgroundColor: theme.colors.background,
                     borderColor: theme.colors.customLightGray,
-                    flexDirection: 'row'
-                    }}
+                    flexDirection: 'row',
+                    fontFamily:'Proxima-Nova-Regular',
+                    fontSize: 27
+
+                }}
             >
                 <Pressable style={{...buttonStyles.bottomAbsoluteButton,
                     backgroundColor: theme.colors.primary
@@ -125,7 +128,8 @@ export default function SelectExercisePage({navigation, route}){
                 >
                     <Text
                         style={{...buttonStyles.bottomAbsoluteButtonText,
-                            color: theme.colors.background
+                            color: theme.colors.background,
+                            fontFamily:'Proxima-Nova-Bold',
                             }}
                     >Done</Text>
                 </Pressable>
@@ -141,7 +145,8 @@ export default function SelectExercisePage({navigation, route}){
                 >
                     <Text
                         style={{...buttonStyles.bottomAbsoluteButtonText,
-                            color: theme.colors.secondary
+                            color: theme.colors.secondary,
+                            fontFamily:'Proxima-Nova-Bold',
                             }}
                     >Reset</Text>
                 </Pressable>
