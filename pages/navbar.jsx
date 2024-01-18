@@ -23,7 +23,7 @@ import { Profile } from 'iconsax-react-native'
 
 const Tab = createBottomTabNavigator()
 
-export default function NavBar(){
+export default function NavBar(props){
     const theme = useTheme()
 
     const customTheme = {
@@ -136,7 +136,7 @@ export default function NavBar(){
             />
             <Tab.Screen
                 name={'Profile'} 
-                component={(ProfilePage)}
+                children={() => <ProfilePage promptAsync={props.promptAsync}/>}
                 options={{
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({size, focused}) => {

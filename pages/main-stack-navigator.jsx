@@ -21,7 +21,7 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
-export default function DoWorkoutStack(){
+export default function DoWorkoutStack(props){
     return(
         <Stack.Navigator
             detachInactiveScreens={true}
@@ -29,7 +29,7 @@ export default function DoWorkoutStack(){
             headerShown: false,
           }}
         >
-            <Stack.Screen name='Navbar' component={gestureHandlerRootHOC(NavBar)} />
+            <Stack.Screen name='Navbar' children={() => <NavBar promptAsync={props.promptAsync} />} />
 
             <Stack.Screen name='PreWorkoutPage'component={gestureHandlerRootHOC(PreWorkoutPage)}/>
             <Stack.Screen name='DoWorkoutPage' component={DoWorkoutPage}/>

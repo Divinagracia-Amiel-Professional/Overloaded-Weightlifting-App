@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, StyleSheet } from 'react-native';
 import {
     mainStyles,
     textStyles,
@@ -17,7 +17,7 @@ import { ButtonWithIcon } from '../components/component-index';
 import { db } from '../firebase'
 import { auth } from '../firebase';
 
-export default function Profile(){
+export default function Profile({navigation, route, promptAsync}){
     const dispatch = useDispatch<AppDispatch>()
     const firebaseAuth = auth
     const path = ['Workouts', 'gxgmfK5Z0bvhN1FkodoQ', 'Cycles', 'cycle_two','Splits']
@@ -27,7 +27,7 @@ export default function Profile(){
     return(         
         <View style={mainStyles.bodyContainer}>
             <Text style={textStyles.headerText}>Profile</Text>
-            <ButtonWithIcon
+            {/* <ButtonWithIcon
                 style={{paddingVertical: 10, opacity: 0.8}}
                 text="Reset Workout DB"
                 onPress={() => {
@@ -40,7 +40,38 @@ export default function Profile(){
                 onPress={() => {
                     dispatch(addInitExercises(exercisesInitDb))
                 }}
-            />
+            /> */}
+            <Pressable
+                style={{
+                    ...style.googleButton
+                }}
+                onPress={() => {
+                    promptAsync()
+                }}
+            >
+                <Text
+                    style={{
+                        ...style.googleText
+                    }}
+                >Sign In with Google</Text>
+            </Pressable>
         </View>
     )
 }
+
+const style = StyleSheet.create({
+    googleButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'stretch',
+        flexDirection: 'row',
+        paddingVertical: 15,
+
+        borderRadius: 15,
+        backgroundColor: '#4285F4',
+    },
+    googleText: {
+        color: 'white',
+        fontWeight: 'bold'
+    }
+})
