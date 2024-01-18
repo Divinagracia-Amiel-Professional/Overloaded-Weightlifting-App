@@ -1,3 +1,5 @@
+import { dumbbellCurlsGif } from "../../../constants/images"
+
 export default 
 {
     id: "fm4S6WLfvWCwIP7G4jKK",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: dumbbellCurlsGif,
+                title: "Dumbbell Curls Form",
+                description: "Proper Form of Dumbbell Curls"
+            },
             {
                 url: "https://www.verywellfit.com/thmb/RJr07SAwodYiFDn8w4BGgsUbOiI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/81-3498604-Bicep-arm-curlsGIF2-c7c59f252b1a4ef9b1e181ca05e96084.jpg",
                 title: "How to Do Biceps Curls: Proper Form, Variations, and Common Mistakes",

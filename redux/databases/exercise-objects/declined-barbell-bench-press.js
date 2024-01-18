@@ -1,3 +1,5 @@
+import { declinedBarbellBenchPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "v8TCQpP0jDy5vEpl3szb",
@@ -20,6 +22,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: declinedBarbellBenchPressGif,
+                title: "Declined Barbell Bench Press Form",
+                description: "Proper Form of Declined Barbell Bench Press"
+            },
             {
                 url: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/05/Decline_Bench_Press_1296x728-header-1296x728.jpg?w=1155&h=1528",
                 title: "How to Do the Decline Bench Press",

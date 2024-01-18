@@ -1,3 +1,5 @@
+import { walkingLungesGif } from "../../../constants/images"
+
 export default 
 {
     id: "SgqbTjmF9yA4Dpz9fInD",
@@ -20,6 +22,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: walkingLungesGif,
+                title: "Walking Lunges Form",
+                description: "Proper Form of Walking Lunges"
+            },
             {
                 url: "https://barbend.com/wp-content/uploads/2023/11/walking-lunge-2282702529.jpg",
                 title: "How to Do Walking Lunges to Build Strong Legs Without a Squat Rack",

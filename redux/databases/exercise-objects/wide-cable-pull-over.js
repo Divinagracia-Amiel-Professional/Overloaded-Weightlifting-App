@@ -1,3 +1,5 @@
+import { wideCablePullOverGif } from "../../../constants/images"
+
 export default 
 {
     id: "xCw8mNsUuAEsOMy0o8ub",
@@ -21,6 +23,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: wideCablePullOverGif,
+                title: "Wide Cable Pullover Form",
+                description: "Proper Form of Wide Cable Pullover"
+            },
             {
                 url: "https://cdn.shopify.com/s/files/1/1876/4703/files/shutterstock_490109662_480x480.jpg?v=1647113750",
                 title: "HOW TO DO CABLE PULLOVERS (FORM & BENEFITS)",

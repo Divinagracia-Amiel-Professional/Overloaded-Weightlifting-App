@@ -83,7 +83,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                         return(
                             <>
                             <DataTable.Header
-                                key={record.id}
+                                key={record.id + 'a'}
                             >
                                 <DataTable.Title
                                     textStyle={{fontSize: 12}} 
@@ -97,7 +97,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
                                 </DataTable.Title>
                             </DataTable.Header>
                             <DataTable.Header
-                                key={record.id + '2'}
+                                key={record.id + 'b'}
                             >
                                 <DataTable.Title>Set</DataTable.Title>
                                 <DataTable.Title>Time</DataTable.Title>
@@ -146,7 +146,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
     return(
         <View style={{
             ...style.container,
-            backgroundColor: theme.colors.background
+            backgroundColor: theme.colors.background,
         }}>
             <Pressable
                 style={{
@@ -169,7 +169,7 @@ export default function TrackerScreen(props){ //takes in navigation and route
             {
                 selectedExercise.id ? 
                 RecordDataTable :
-                null
+                <Text>No Records to Show</Text> 
             }
         </View>
     )

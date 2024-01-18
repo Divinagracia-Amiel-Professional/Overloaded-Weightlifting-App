@@ -1,3 +1,5 @@
+import { frontSquatsGif } from "../../../constants/images"
+
 export default 
 {
     id: "XbP8LDrbMV9TiKak3nVL",
@@ -19,6 +21,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: frontSquatsGif,
+                title: "Front Squats Form",
+                description: "Proper Form of Front Squats"
+            },
             {
                 url: "https://gunsmithfitness.com/cdn/shop/articles/barbell-front-squat-build-your-quads-with-proper-form-958641.jpg?v=1695576418&width=2000",
                 title: "BARBELL FRONT SQUAT: BUILD YOUR QUADS WITH PROPER FORM",

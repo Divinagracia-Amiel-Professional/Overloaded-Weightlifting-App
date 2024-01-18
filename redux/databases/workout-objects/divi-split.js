@@ -75,13 +75,15 @@ import seatedSingleLegCurl from "../exercise-objects/seated-single-leg-curl"
 import eccentricLatPulldown from "../exercise-objects/eccentric-lat-pulldown"
 import enhancedEccentricEzBarCurl from "../exercise-objects/enhanced-eccentric-ez-bar-curl"
 
+import machineSeatedHipAbduction from "../exercise-objects/machine-seated-hip-abduction"
+
 export default 
 {
     id: "1916393263234394",
     name: "Divi Split",
     difficulty: 3.5,
     focus: 'Strength Building',
-    description: 'Venenatis maecenas at ullamcorper risus iaculis at imperdiet nulla. Amet sed est porttitor ridiculus elementum. Non sem leo nunc quisque. Nec lobortis nisl blandit viverra amet tortor lorem elit mattis. Integer hendrerit egestas blandit at blandit ut. Arcu faucibus vitae in leo gravida auctor. Purus erat lacus enim viverra curabitur. Malesuada tempor neque in sed habitasse mi. Magna tristique consectetur commodo duis cursus enim massa. Mi varius posuere amet est. Tristique nisl ipsum massa eu dui sed feugiat et.',
+    description: 'This workout regimen is a comprehensive and well-structured three-cycle-three-day split, targeting push, pull, and leg muscle groups, with additional focus on forearms and abs. The push workouts emphasize chest, shoulders, and triceps, incorporating compound movements like bench press and isolation exercises for balanced development. Pull workouts center around the back, incorporating a mix of rows, lat pull-downs, and bicep exercises. Leg workouts feature compound movements such as squats and deadlifts, along with isolation exercises for a complete lower-body workout. Forearm and abdominal exercises are included for added strength and aesthetics. The routine also integrates specific instructions for progression and holds, contributing to a balanced and holistic approach to strength training.',
     latest_state: {
         is_completed: false,
         date_used: '',
@@ -637,8 +639,8 @@ export default
                             }
                         },
                         {
-                            exercise_id: hipAbductionsSeated.id,
-                            name: hipAbductionsSeated.name,
+                            exercise_id: machineSeatedHipAbduction.id,
+                            name: machineSeatedHipAbduction.name,
                             workout_data: {
                                 order: 6,
                                 rep_end: 30,

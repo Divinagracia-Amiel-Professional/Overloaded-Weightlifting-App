@@ -18,6 +18,7 @@ import { RootState, AppDispatch } from '../../redux/store';
 export default function SelectRecordsListPage({navigation, route}){
     const theme = useTheme()
     const userRecordsDB = useSelector((state: RootState) => state.currentUser.records)
+    const exerciseDB = useSelector((state: RootState) => state.exercise.data)
     const userRecords = [...userRecordsDB]
     const sortedByName = userRecords.sort((a, b) => {
         return a.name.localeCompare(b.name)
@@ -31,6 +32,7 @@ export default function SelectRecordsListPage({navigation, route}){
                 key={item.id}
                 item={item}
                 navigation={navigation}
+                exerciseDB={exerciseDB}
             />
         ) 
     }

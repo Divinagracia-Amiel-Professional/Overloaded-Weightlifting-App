@@ -17,10 +17,12 @@ import { addInitWorkouts } from '../redux/slices/WorkoutSlice';
 import { ButtonWithIcon } from '../components/component-index';
 import { db } from '../firebase'
 import { fontFamily } from '../constants/theme';
+import { auth } from '../firebase';
 
 export default function Profile(){
     const theme = useTheme()
     const dispatch = useDispatch<AppDispatch>()
+    const firebaseAuth = auth
     const path = ['Workouts', 'gxgmfK5Z0bvhN1FkodoQ', 'Cycles', 'cycle_two','Splits']
     const collections = useExercises(db, path)
     console.log(collections)
@@ -28,7 +30,7 @@ export default function Profile(){
     return(         
         <View style={mainStyles.bodyContainer}>
             <Text style={{fontFamily: 'Stem-Bold', fontSize:35}}>Profile</Text>
-            <ButtonWithIcon
+        {/* <ButtonWithIcon
                 style={{paddingVertical: 10, opacity: 0.8, }}
                 text="Reset Workout DB"
                 onPress={() => {
@@ -41,7 +43,7 @@ export default function Profile(){
                 onPress={() => {
                     dispatch(addInitExercises(exercisesInitDb))
                 }}
-            />
+            /> */}
         </View>
     )
 }

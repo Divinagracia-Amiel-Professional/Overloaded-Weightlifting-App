@@ -1,3 +1,5 @@
+import { dumbbellTricepKickbackGif } from "../../../constants/images"
+
 export default 
 {
     id: "t5RA1ieCorI6RInjnIdD",
@@ -15,6 +17,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: dumbbellTricepKickbackGif,
+                title: "Dumbbell Tricep Kickback Form",
+                description: "Proper Form of Dumbbell Tricep Kickback"
+            },
             {
                 url: "https://cdn.muscleandstrength.com/sites/default/files/standing-bent-over-tricep-dumbbell-kickback.jpg",
                 title: "Bent Over Dumbbell Tricep Kickback Video Exercise Guide",

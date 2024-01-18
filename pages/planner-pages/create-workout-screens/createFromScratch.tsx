@@ -108,6 +108,7 @@ export default function CreateFromScratch({navigation, route}){
         newExercisesFormatted = newExercises.map(exercise => {
         count++
             return({
+                ...exercise,
                 id: exercise.id,
                 name: exercise.name,
                 workoutData: {

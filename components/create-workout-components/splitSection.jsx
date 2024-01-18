@@ -30,12 +30,16 @@ const SplitSection = (props) => {
         setName(props.name)
     }, [props.name])
 
-    const exercises = props.exercises[0] ? props.exercises.map(exercise => (
+    const exercises = props.exercises[0] ? props.exercises.map(exercise => {
+        console.log(exercise)
+
+        return (
         <ExerciseItem 
             key={exercise.id}
             id={exercise.id}
             name={exercise.name}
             workoutData={exercise.workoutData}
+            exerciseData={exercise}
         
             splitOrder={props.splitOrder}
             cycleOrder={props.cycleOrder}
@@ -43,7 +47,7 @@ const SplitSection = (props) => {
             workout={props.workout}
             setWorkout={props.setWorkout}
         />
-    )) : null
+    )}) : null
 
     const handleRename = () => {
         setIsRenaming(prevState => !prevState)

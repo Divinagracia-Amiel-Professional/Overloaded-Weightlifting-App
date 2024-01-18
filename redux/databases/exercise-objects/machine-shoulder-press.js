@@ -1,3 +1,5 @@
+import { machineShoulderPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "EaOlHy9H57zIqGASvTQJ",
@@ -16,10 +18,15 @@ export default
     group: [
         "push",
         "arms",
-        "back"
+        // "back"
     ],
     resources: {
         img_urls: [
+            {
+                url: machineShoulderPressGif,
+                title: "Machine Shoulder Press Form",
+                description: "Proper Form of Machine Shoulder Press"
+            },
             {
                 url: "https://cdn.shopify.com/s/files/1/1876/4703/files/shutterstock_69079702_1024x1024.jpg?v=1644309689",
                 title: "HOW TO USE THE SHOULDER PRESS MACHINE",

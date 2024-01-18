@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, Image } from 'react-native'
 import { useTheme } from 'react-native-paper'
 import { 
   textStyles,
   listStyles,
-  mainStyles
+  mainStyles,
+  imageStyles
 } from '../../styles/style-index'
-import Feather from '@expo/vector-icons/Feather'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { SheetManager } from 'react-native-actions-sheet'
 import { FontAwesome5 } from '@expo/vector-icons';
+import { getExerciseIcon } from '../../functions/functions-index'
 
 export default function ExerciseListItem(props){ //Exercise Item in Select Exercises Page
     const theme = useTheme()
@@ -22,6 +23,12 @@ export default function ExerciseListItem(props){ //Exercise Item in Select Exerc
             exerciseData: {...exerciseData}
         })
     }
+
+    const imgUrl = exerciseData.resources.img_urls[0].url
+
+    const leftIcon = getExerciseIcon(exerciseData, theme)
+
+    // <Logo width={90} height={80} scale={1.5} fill={theme.colors.secondary}/>
 
     return(
         <Pressable
@@ -43,7 +50,11 @@ export default function ExerciseListItem(props){ //Exercise Item in Select Exerc
                     borderColor: theme.colors.customLightGray
                 }}
             >
-                <Feather name={'image'} size={75} color={theme.colors.secondary} />
+                <View
+                    style={{paddingVertical: 10}}
+                >
+                    {leftIcon}
+                </View>
                 <View
                     style={{...listStyles.draggable.DetailContainer}}
                 >

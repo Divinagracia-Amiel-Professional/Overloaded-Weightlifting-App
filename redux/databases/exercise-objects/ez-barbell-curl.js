@@ -1,3 +1,5 @@
+import { ezBarbellCurlGif } from "../../../constants/images"
+
 export default 
 {
     id: "4alEQxrvDQbPzjFzvioM",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: ezBarbellCurlGif,
+                title: "EZ Barbell Curl Form",
+                description: "Proper Form of EZ Barbell Curl"
+            },
             {
                 url: "https://cdn.mos.cms.futurecdn.net/882r52chfQqDHNLeEAUnUB.jpg",
                 title: "How To Master The EZ-Bar Curl",

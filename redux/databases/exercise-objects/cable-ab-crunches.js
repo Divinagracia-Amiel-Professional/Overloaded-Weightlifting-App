@@ -1,3 +1,5 @@
+import { cableAbCrunchesGif } from "../../../constants/images"
+
 export default 
 {
     id: "eW7V8jYOzp8fIkI3NI6O",
@@ -14,6 +16,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: cableAbCrunchesGif,
+                title: "Cable Ab Crunches Form",
+                description: "Proper Form of Cable Ab Crunches"
+            },
             {
                 url: "https://steelsupplements.com/cdn/shop/articles/shutterstock_69079933_048d9f70-996d-47d4-8309-db07a8db1b0c_1800x.progressive.jpg?v=1631204924",
                 title: "HOW TO DO CABLE-CRUNCHES (FORM + BENEFITS)",

@@ -1,8 +1,10 @@
+import { shoulderPressStandingGif } from "../../../constants/images"
+
 export default 
 {
     id: "cEq1aJG2dML4MqTh0xyN",
     name: "Standing Shoulder Press",
-    description: "If you’re looking to build impressive upper body strength, the dumbbell overhead press is a fantastic exercise to add to your workout routine.  The overhead dumbbell press is one of the best upper body exercises for gaining muscle and overall strength in the shoulders.",
+    description: "If you're looking to build impressive upper body strength, the dumbbell overhead press is a fantastic exercise to add to your workout routine.  The overhead dumbbell press is one of the best upper body exercises for gaining muscle and overall strength in the shoulders.",
     difficulty: 4,
     focus: [
         "delts_mid",
@@ -18,11 +20,16 @@ export default
         "push",
         "chest",
         "arms",
-        "back",
-        "core"
+        // "back",
+        // "core"
     ],
     resources: {
         img_urls: [
+            {
+                url: shoulderPressStandingGif,
+                title: "Standing Shoulder Press Form",
+                description: "Proper Form of Standing Shoulder Press"
+            },
             {
                 url: "https://hortonbarbell.com/wp-content/uploads/2022/06/DB-Shoulder-Press.webp",
                 title: "Dumbbell Shoulder Press (How To, Muscles Worked, Benefits)",

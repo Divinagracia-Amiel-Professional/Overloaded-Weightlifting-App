@@ -22,18 +22,24 @@ export default function ExerciseScreen(props){
     const currentWorkout = props.currentWorkout
     const [ skipModalVisible, setSkipModalVisible ] = useState(false)
 
+    const imgUrl = currentWorkout.item.exercise_obj.resources.img_urls[0].url
+
+    const image = (
+        <Image 
+            style={{...imageStyles.doWorkout,
+                height: 300,
+            }}
+            source={imgUrl}
+        />
+    )
+
     return(
         <View
             style={{...mainStyles.doWorkoutScreen.bodyContainer,
                 backgroundColor: theme.colors.background
             }}
         >
-            <Image 
-                style={{...imageStyles.doWorkout,
-
-                }}
-                source={PlaceholderImage}
-            />
+            {image}
             <ExerciseHeader
                 theme={theme}
                 name={currentWorkout.item.exercise_obj.name}

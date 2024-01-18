@@ -1,3 +1,5 @@
+import { pausedFlatDumbbellPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "5iWTJ5GrVNxSctlkAtWZ",
@@ -19,6 +21,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: pausedFlatDumbbellPressGif,
+                title: "Paused Flat Dumbbell Press Form",
+                description: "Proper Form of Paused Flat Dumbbell Press"
+            },
             {
                 url: "https://i.vimeocdn.com/video/544317368-b92a30d0d9f8764bef770c5429399b803a246e841c662a96dab23031dda703a7-d_640?f=webp",
                 title: "DUMBBELL BENCH PRESS (PAUSE METHOD)",

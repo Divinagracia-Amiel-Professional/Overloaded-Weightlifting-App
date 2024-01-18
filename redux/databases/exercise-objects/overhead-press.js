@@ -1,3 +1,5 @@
+import { overheadPressGif } from "../../../constants/images"
+
 export default 
 {
     id: "5qIqWFIfNoQ7Wkm1ONwo",
@@ -19,10 +21,15 @@ export default
         "push",
         "chest",
         "arms",
-        "back"
+        // "back"
     ],
     resources: {
         img_urls: [
+            {
+                url: overheadPressGif,
+                title: "Overhead Press Form",
+                description: "Proper Form of Overhead Press"
+            },
             {
                 url: "https://images.ctfassets.net/8urtyqugdt2l/5yJyKuNvr395xYrIHf7Pk9/5afe6ee2d943ece433d9424ebae9ff50/barbell-press-how-to-exercise-female-tile.jpg",
                 title: "HOW TO OVERHEAD PRESS + BENEFITS, VARIATIONS AND TIPS",

@@ -1,3 +1,5 @@
+import { enhancedSeatedSingleLegPullGif } from "../../../constants/images"
+
 export default 
 {
     id: "a89VfH68wG78RXEWje7S",
@@ -13,6 +15,11 @@ export default
     ],
     resources: {
         img_urls: [
+            {
+                url: enhancedSeatedSingleLegPullGif,
+                title: "Eccentric Seated Leg Curl Form",
+                description: "Proper Form of Eccentric Seated Leg Curl"
+            },
             {
                 url: "https://liftingfaq.com/wp-content/uploads/2021/07/seated-leg-curl-alternatives.jpg",
                 title: "Seated Leg Curl Exercise | Technique & Common Mistakes",

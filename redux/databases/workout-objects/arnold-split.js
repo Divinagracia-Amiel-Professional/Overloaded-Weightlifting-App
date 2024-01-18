@@ -28,7 +28,7 @@ export default
     name: "Arnold Split",
     difficulty: 4,
     focus: 'Body Building',
-    description: '',
+    description: 'The Arnold Split, a well-known and effective training routine popularized by Arnold Schwarzenegger, follows a classic bodybuilding split that targets different muscle groups on separate days. The program typically divides the week into chest and back, shoulders and arms, and legs. This split allows for dedicated focus on specific muscle groups, facilitating sufficient rest and recovery between sessions. The routine typically includes a combination of compound and isolation exercises, emphasizing high volume and intensity for muscle hypertrophy and overall development. The Arnold Split is renowned for its balanced approach, ensuring comprehensive muscle engagement and a well-rounded physique.',
     latest_state: {
         is_completed: false,
         date_used: '',

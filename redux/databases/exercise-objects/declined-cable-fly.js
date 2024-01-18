@@ -1,3 +1,5 @@
+import { declinedCableFlyGif } from "../../../constants/images"
+
 export default 
 {
     id: "uqMn1PguLx8pZtGhuB4T",
@@ -13,11 +15,16 @@ export default
     group: [
         "arms",
         "chest",
-        "back",
+        // "back",
         "push"
     ],
     resources: {
         img_urls: [
+            {
+                url: declinedCableFlyGif,
+                title: "Declined Cable Fly Form",
+                description: "Proper Form of Declined Cable Fly"
+            },
             {
                 url: "https://bodypass.net/wp-content/uploads/2021/09/decline-cable-fly.jpg",
                 title: "Decline Cable Fly: How To Do, Benefits & Muscles Worked",
