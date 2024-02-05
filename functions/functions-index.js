@@ -13,6 +13,8 @@ import checkBasicInfo from "./checkBasicInfo";
 import checkIfWorkoutExists from "./checkIfWorkoutExists";
 import getMDYFormat, { get12HFormat } from "./getMDYformat";
 import getExerciseIcon from "./getExerciseIcon";
+import getMuscleName from "./getMuscleName";
+import getExerciseGroupName from "./getMuscleGroupName";
 
 export {
     addWorkoutsToUser,
@@ -30,5 +32,7 @@ export {
     checkIfWorkoutExists,
     getMDYFormat,
     get12HFormat,
-    getExerciseIcon
+    getExerciseIcon, 
+    getMuscleName,
+    getExerciseGroupName
 }

@@ -12,9 +12,25 @@ import Rack from '../assets/icons/rack-icon'
 import Tools from '../assets/icons/tools-icon'
 import PullUp from '../assets/icons/pullUp-icon'
 import PushUp from '../assets/icons/pushUp-icon'
+import FrontMuscles from '../assets/icons/muscles-front'
+import BackMuscles from '../assets/icons/muscles-back'
+import Back from '../assets/icons/back-icon'
+import Calisthenics from '../assets/icons/calisthenics-icon'
+import Chest from '../assets/icons/chest-icon'
+import FullBody from '../assets/icons/full-body-icon'
+import Stretching from '../assets/icons/stretching-icon'
+import Treadmill from '../assets/icons/treadmill-icon'
 
 export {
+    FrontMuscles,
+    BackMuscles,
+    Calisthenics,
+    Chest,
+    FullBody,
+    Back,
+    Stretching,
     Abs,
+    Treadmill,
     PushUp,
     PullUp,
     Calendar,
@@ -27,5 +43,5 @@ export {
     LogoRating,
     Package,
     Rack,
-    Tools,
+    Tools,   
 }

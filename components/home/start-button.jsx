@@ -41,7 +41,7 @@ export default function StartButton(props){
                     }
                 }}
             >
-                <Logo width={90} height={80} scale={1.5} strokeColor={!isRestDay && !isCompleted ? theme.colors.primary : theme.colors.tertiaryContainer} fill={!isRestDay && !isCompleted ? theme.colors.background : theme.colors.onTertiaryContainer}/>
+                <Logo width={90} height={80} scale={1.5} strokeWidth={1} strokeColor={!isRestDay && !isCompleted ? theme.colors.primary : theme.colors.tertiaryContainer} fill={!isRestDay && !isCompleted ? theme.colors.background : theme.colors.onTertiaryContainer}/>
                 <Text 
                     style={{...textStyles.cardHeaderText,
                     color: !isRestDay && !isCompleted ? theme.colors.onPrimaryContainer : theme.colors.onTertiaryContainer}}

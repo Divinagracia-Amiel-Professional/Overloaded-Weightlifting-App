@@ -2,7 +2,7 @@ export default
 {
     id: "cLyNe2g2CC643wBaBfhO",
     name: "Conventional Deadlift",
-    description: "",
+    description: "The deadlift is a fundamental and compound weightlifting exercise that primarily targets the muscles in the lower back, hips, glutes, and hamstrings. It is considered one of the most effective full-body strength-training movements and is often included in strength and powerlifting programs. The exercise involves lifting a loaded barbell from the ground to a standing position, utilizing a hip hinge movement pattern.",
     difficulty: 5,
     focus: [
         "glut_max", 
@@ -12,7 +12,9 @@ export default
         "forearm",
         "traps_upper",
         "traps_lower",
-        "core"
+        "core",
+        "erectors",
+        "rot_cuffs"
     ],
     group: [
         "legs",

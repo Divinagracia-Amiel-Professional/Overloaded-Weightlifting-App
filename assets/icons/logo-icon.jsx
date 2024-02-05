@@ -5,7 +5,7 @@ const Logo = (props) => {
     const color = props.strokeColor ? props.strokeColor : 'none'
     const fill = props.fill ? props.fill : 'none'
     const scale = props.scale ? props.scale : 1
-    const strokeWidth = props.strokeWidth ? props.strokeWidth : 1.5
+    const strokeWidth = props.strokeWidth ? props.strokeWidth * scale : 1 * scale
 
     const def_width = 92
     const def_height = 82

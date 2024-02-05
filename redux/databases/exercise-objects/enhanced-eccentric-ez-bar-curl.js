@@ -8,7 +8,7 @@ export default
     difficulty: 3,
     focus: [
         "bicep_long", 
-        "biecp_short"
+        "bicep_short"
     ],
     group: [
         "arms",

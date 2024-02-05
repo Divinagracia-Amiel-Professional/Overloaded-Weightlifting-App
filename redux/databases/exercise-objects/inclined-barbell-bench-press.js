@@ -7,7 +7,7 @@ export default
     description: "The incline bench press is a variation of the bench press and an exercise used to build the muscles of the chest. The shoulders and triceps will be indirectly involved as well.",
     difficulty: 2,
     focus: [
-        "chsst_upper", 
+        "chest_upper", 
         "chest_lower",
         "tri_lat",
         "tri_mid",

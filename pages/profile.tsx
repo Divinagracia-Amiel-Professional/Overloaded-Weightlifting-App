@@ -30,7 +30,7 @@ export default function Profile(){
     return(         
         <View style={mainStyles.bodyContainer}>
             <Text style={{fontFamily: 'Stem-Bold', fontSize:35}}>Profile</Text>
-        {/* <ButtonWithIcon
+            <ButtonWithIcon
                 style={{paddingVertical: 10, opacity: 0.8, }}
                 text="Reset Workout DB"
                 onPress={() => {
@@ -43,7 +43,16 @@ export default function Profile(){
                 onPress={() => {
                     dispatch(addInitExercises(exercisesInitDb))
                 }}
-            /> */}
+            />
         </View>
     )
 }
+
+{/* <Back strokeWidth={1.5}/>
+            <Calisthenics fill='black' />
+            <Chest strokeWidth={1.5} />
+            <FullBody fill='black' scale={1.25}/>
+            <Stretching fill='black' />
+            <Treadmill fill="black" />
+            <PushUp fill='black' width={50}/>
+            <PullUp fill='black' height={50}/> */}
