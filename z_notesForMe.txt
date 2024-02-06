@@ -28,6 +28,7 @@ things to do:
 
 prio 
 - add gifs, add snackbar to premade workout details /
+- update edit exercise details page sections /
 
 future
 - until failure case

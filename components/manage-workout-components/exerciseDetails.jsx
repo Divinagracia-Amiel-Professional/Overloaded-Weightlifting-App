@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, Pressable, Image, StyleSheet, ScrollView } from 'react-native';
 import { useTheme, Modal, Portal, ActivityIndicator } from 'react-native-paper';
-import ActionSheet, { SheetProps, registerSheet } from "react-native-actions-sheet";
 import {
     mainStyles,
     textStyles,
@@ -14,8 +13,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import ButtonWithIcon from '../general/button';
 import { Placeholder as PlaceholderImage } from '../../constants/images';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { FrontMuscles, BackMuscles } from '../../constants/icons';
+import YoutubePlayer, { getYoutubeMeta } from 'react-native-youtube-iframe'
 import { getMuscleName, getExerciseGroupName } from '../../functions/functions-index';
 import { 
     Abs,
@@ -301,10 +300,16 @@ const ExerciseDetails = (props) => {
                     <>
                     </>
                 </View> */}
-                <View>
+                <View
+                    style={{
+                        alignSelf: 'stretch',
+                        gap: 20,
+                    }}
+                >
                     <Text
                         style={{...textStyles.headerBarText,
                             ...style.textContainer,
+                            textAlign: 'center',
                             color: theme.colors.secondary,
                             fontSize: 24,
                             fontFamily: 'Stem-Bold'
@@ -312,8 +317,33 @@ const ExerciseDetails = (props) => {
                     >
                         Supplementary Videos
                     </Text>
-                    <>
-                    </>
+                    {
+                        exerciseData.resources.vid_urls.map(video => {
+                            const videoUrlString = video.url
+                            const videoId = videoUrlString.slice(32, 43)
+            
+                            console.log(videoUrlString)
+                            console.log(videoId)
+
+                            return (
+                                <View
+                                    id={videoId}
+                                    style={{
+                                        alignSelf: 'stretch'
+                                    }}
+                                >
+                                    <YoutubePlayer
+                                        videoId={videoId}
+                                        webViewStyle={{opacity: 0.99}}
+                                        height={300}
+                                        play={false}
+                                        resumePlayAndroid={false}
+                                        // onChangeState={onStateChange}
+                                    /> 
+                                </View>
+                            )
+                        })
+                    }
                 </View>
             </View>
         </View>
