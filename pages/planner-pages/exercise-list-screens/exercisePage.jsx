@@ -24,7 +24,7 @@ const ExerciseDetailsPage = ({route, navigation}) => {
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
         >
-            <BackButton navigation={navigation} type='default' hidden={false} params={{}}/>
+            <BackButton navigation={navigation} type='default' hidden={false}/>
             <ScrollView
                 style={{...mainStyles.PremadeScrollView
             

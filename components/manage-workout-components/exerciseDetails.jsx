@@ -16,6 +16,7 @@ import { Placeholder as PlaceholderImage } from '../../constants/images';
 import { FrontMuscles, BackMuscles } from '../../constants/icons';
 import YoutubePlayer, { getYoutubeMeta } from 'react-native-youtube-iframe'
 import { getMuscleName, getExerciseGroupName } from '../../functions/functions-index';
+import { useNetInfo } from "@react-native-community/netinfo"
 import { 
     Abs,
     Logo,
@@ -49,6 +50,7 @@ const preloadImage = (url) => {
 
 const ExerciseDetails = (props) => {
     const theme = useTheme()
+    const netInfo = useNetInfo()
     const exerciseData = props.exerciseData ? props.exerciseData : defaultValues
     const isActionSheet = props.isActionSheet ? props.isActionSheet : false
 
@@ -316,6 +318,11 @@ const ExerciseDetails = (props) => {
                         }}
                     >
                         Supplementary Videos
+                    </Text>
+                    <Text>
+                    {
+                            netInfo.isConnected ? 'Connected to the internet' : 'Not Connected'
+                    }
                     </Text>
                     {
                         exerciseData.resources.vid_urls.map(video => {

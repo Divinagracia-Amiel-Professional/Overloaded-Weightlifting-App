@@ -38,7 +38,7 @@ export default function ExerciseListPage({navigation, route}){
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
         >
-            <BackButton navigation={navigation} type='exercise_list' hidden={false} params={{}}/>
+            <BackButton navigation={navigation} type='exercise_list' hidden={false}/>
             <View
                 style={{
                     justifyContent: 'center',

@@ -13,7 +13,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getCurrentlyUsedWorkouts, getUserWorkouts, getLocalDateTime }from '../../functions/functions-index';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
-import { addWorkout, updateState } from '../../redux/slices/CurrentUserSlice';
+import { addWorkout, updateState, resetDoWorkoutSave } from '../../redux/slices/CurrentUserSlice';
 import getUserWorkoutObjects from '../../custom-hooks/getUserWorkoutObjects';
 import { ManageWorkoutCard } from '../component-index';
 import ListAccordion from 'react-native-paper/lib/typescript/components/List/ListAccordion';
@@ -33,7 +33,9 @@ export default function WorkoutPicker(props){
         >
             <Text
                 style={{
-                    ...style.header,
+                    ...textStyles.cardHeaderText,
+                    alignSelf:'stretch', 
+                    textAlign: 'center',
                     color: theme.colors.onBackground
                 }}
             >Choose Workout</Text>
@@ -72,6 +74,7 @@ export default function WorkoutPicker(props){
                                             name: split.name
                                         } 
                                         dispatch(updateState(data))
+                                        dispatch(resetDoWorkoutSave())
                                         props.hideModal()
                                     }}
                                 />
@@ -96,7 +99,7 @@ const style = StyleSheet.create({
         fontSize: 20
     },
     splitTitleSyle: { 
-        fontFamily: 'Signika-Regular', 
+        fontFamily: 'Proxima-Nova-Regular', 
         fontSize: 16
     }
 })

@@ -87,6 +87,11 @@ export default function CreateFromScratch({navigation, route}){
     const isEdit = route.params ? route.params.isEdit : false
     const isSelect = route.params ? route.params.isSelect : false
 
+    const createFromScratchStates = {
+        basicInfo: basicInfo,
+        workout: workout
+    }
+
     const updateWorkout = () => { //function on how to update workout whether it is from edit workout page or from select exercises page
         if(routeParams){
             if(isSelect){
@@ -397,7 +402,7 @@ export default function CreateFromScratch({navigation, route}){
         <SafeAreaView
             style={{flex: 1, position: 'relative'}}
         >
-            <BackButton type='doWorkout' navigation={navigation} />
+            <BackButton type='create_workout' navigation={navigation} data={createFromScratchStates}/>
             <ScrollView
                 scrollEnabled={scroll}
                 style={{...mainStyles.PremadeScrollView,
