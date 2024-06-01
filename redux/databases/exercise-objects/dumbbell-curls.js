@@ -1,4 +1,4 @@
-import { dumbbellCurlsGif } from "../../../constants/images"
+import { dumbellCurlsGif } from "../../../constants/images"
 
 export default 
 {
@@ -17,7 +17,7 @@ export default
     resources: {
         img_urls: [
             {
-                url: dumbbellCurlsGif,
+                url: dumbellCurlsGif,
                 title: "Dumbbell Curls Form",
                 description: "Proper Form of Dumbbell Curls"
             },

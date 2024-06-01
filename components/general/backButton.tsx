@@ -16,10 +16,17 @@ import ButtonWithIcon from './button'
 import ConfirmationModal from './confirmationModal'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store';
+import { updateDoWorkoutSave, updateCreateWorkoutSave } from '../../redux/slices/CurrentUserSlice'
+
 export default function BackButton(props){
     const theme = useTheme()
+    const dispatch = useDispatch<AppDispatch>()
     const [ visible, setVisible ] = useState(false)
     const [ visibleSave, setVisibleSave ] = useState(false)
+    const [ isEnabled, setIsEnabled ] = useState(props.enabled !== undefined ? props.enabled : true)
+    const [ isHidden, setIsHidden ] = useState(props.hidden !== undefined ? props.hidden : false)
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
@@ -28,21 +35,29 @@ export default function BackButton(props){
     const hideModalSave = () => setVisibleSave(false);
 
     const type = props.type ? props.type : 'default'
+    const data = props.data ? props.data : {}
+
+    console.log("isEnabled? " + isEnabled)
+    console.log("isBackButtonHidden? " + isHidden)
+
     console.log('pasok')
 
     const getSave = () => {
-        const data = props.data ? props.data : {}
         return(
             <ConfirmationModal 
                 visible={visibleSave}
                 setVisible={showModalSave}
                 hideModal={hideModalSave}
                 prompt={`Save Progress?`}
+                subprompt={getSavePrompt(type)}
                 onAccept={() => {
+                    onSave(type)
                     props.navigation.popToTop()
+                    props.navigation.navigate('Home')
                 }}
                 onDecline={()=>{
                     props.navigation.popToTop()
+                    props.navigation.navigate('Home')
                 }}
             />
         )
@@ -51,6 +66,18 @@ export default function BackButton(props){
     const getModal = (type) => {
         switch(type){
             case 'doWorkout': 
+                return (
+                    <ConfirmationModal 
+                        visible={visible}
+                        setVisible={setVisible}
+                        hideModal={hideModal}
+                        prompt={`Return Home?`}
+                        onAccept={() => {
+                            showModalSave()
+                        }}
+                    />
+                )
+            case 'create_workout' :
                 return (
                     <ConfirmationModal 
                         visible={visible}
@@ -74,10 +101,30 @@ export default function BackButton(props){
                         }}
                     />
                 )
-            case 'createWorkout' :
-                return
             default: 
                 return 
+        }
+    }
+
+    const getSavePrompt = (type) => {
+        switch(type){
+            case 'doWorkout':
+                return 'Pressing No will return the workout to previous save of the workout'
+            case 'create_workout':
+                return 'Pressing No will retain the previous save of this form'
+        }
+    }
+
+    const onSave = (type) => {
+        switch(type){
+            case 'doWorkout':
+                console.log('save doWorkout')
+                dispatch(updateDoWorkoutSave(data))
+                break;
+            case 'create_workout':
+                console.log('save createFromScratch')
+                dispatch(updateCreateWorkoutSave(data))
+                break;
         }
     }
 
@@ -93,10 +140,6 @@ export default function BackButton(props){
                 props.navigation.navigate('Navbar')
                 props.navigation.navigate('Home')
                 break;
-            case 'create_workout':
-                props.navigation.navigate('Navbar')
-                props.navigation.navigate('Planner')
-                break;
             case 'exercise_list':
                 props.navigation.navigate('Navbar')
                 props.navigation.navigate('Planner')
@@ -107,8 +150,20 @@ export default function BackButton(props){
     }
 
     useBackListener(() => {
-        onGoBack()
+        isEnabled ? onGoBack() : null
     })
+
+    useEffect(() => {
+        if(props.enabled !== undefined){
+            setIsEnabled(props.enabled)
+        }
+    }, [props.enabled])
+
+    useEffect(() => {
+        if(props.enabled !== undefined){
+            setIsHidden(props.hidden)
+        }
+    }, [props.hidden])
 
     return(
         <SafeAreaView
@@ -119,7 +174,7 @@ export default function BackButton(props){
                 position: 'absolute',
                 top: 10,
                 left: 10,
-                display: props.hidden ? 'none' : 'flex'
+                display: isHidden ? 'none' : 'flex'
             }}
         >   
             <ButtonWithIcon
@@ -128,12 +183,12 @@ export default function BackButton(props){
                 style={{paddingVertical: 10, opacity: 0.8}}
                 text="Yes"
                 onPress={() => {
-                    onGoBack()
+                    isEnabled ? onGoBack() : null
                 }}
             />
 
-            {getModal(props.type)}
-            {getSave()}
+            {isEnabled ? getModal(type) : null}
+            {isEnabled ? getSave() : null}
         </SafeAreaView>
     )
 }

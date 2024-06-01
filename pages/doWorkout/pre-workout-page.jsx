@@ -27,6 +27,8 @@ export default function PreWorkoutPage({navigation, route}){
 
     const [ data, setParentData ] = useState([])
 
+    console.log(JSON.stringify(data))
+
     const [ scroll, setScroll ] = useState(true)
     // console.log(data)
     // for(let i=0; i<data.length; i++){
@@ -92,6 +94,7 @@ export default function PreWorkoutPage({navigation, route}){
                     }}
                     onPress={() => {
                         navigation.navigate('DoWorkoutPage', {
+                            saveState: null,
                             data: data,
                             workoutId: route.params.currentWorkout.data.id,
                             workoutName: route.params.currentWorkout.data.name,

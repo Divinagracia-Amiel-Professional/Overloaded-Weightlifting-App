@@ -10,6 +10,7 @@ export default
         "delts_front", 
         "hams",
         "core",
+        "core_oblique",
         "glut_max",
         "glut_min",
         "quad"

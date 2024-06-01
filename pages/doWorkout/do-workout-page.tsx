@@ -25,14 +25,13 @@ const recordData = [
     }
 ]
 
-export default function DoWorkoutPage({ route, navigation }){
-    const [ isGoingBack, SetIsGoingBack ] = useState(false) 
+export default function DoWorkoutPage({ route, navigation }){ 
     const [ isRest, setIsRest ] = useState(false) //set if rest screen 
     const [ set, setSet ] = useState(1) //set currentset of exercise
     const [ index, setIndex ] = useState(0) //sets index of exercise
     const [ restTime, setRestTime ] = useState(0) 
 
-    const { data } = route.params
+    const { data, saveState } = route.params
 
     const [ currentWorkoutRecords, setCurrentWorkoutRecords ] = useState([])
     console.log("Current Workout Records: " + JSON.stringify(currentWorkoutRecords))
@@ -41,7 +40,7 @@ export default function DoWorkoutPage({ route, navigation }){
 
     console.log("Last Rest? " + isLastRest)
 
-    useEffect(() => {   
+    useEffect(() => {   //Fires every change in state
         if(isLastRest){
             navigation.navigate('PostWorkoutPage', {
                 workoutId: route.params.workoutId,
@@ -53,6 +52,14 @@ export default function DoWorkoutPage({ route, navigation }){
             })
         }
     }, [set, isRest])
+
+    useEffect(() => { //Fires if there are changes in Save State. Used to update current do workout to SaveState
+        if(saveState){
+            setSet(saveState.set)
+            setIndex(saveState.index)
+            setCurrentWorkoutRecords(saveState.records)
+        }
+    }, [saveState])
 
     console.log(
         `Set: ${set} \n` + 
@@ -70,10 +77,17 @@ export default function DoWorkoutPage({ route, navigation }){
         workoutLength: data.length,                         //the number exercises in the workout
         nextSet: set + 1,                                   //the next set
     }
-    
+
+    const doWorkoutState = {
+        set: set,
+        index: index,
+        records: currentWorkoutRecords,
+        data: data
+    }
+
     return(
         <View style={{flex: 1, position: 'relative'}}>
-            <BackButton navigation={navigation} type='doWorkout' />
+            <BackButton navigation={navigation} type='doWorkout' enabled={!isRest} hidden={isRest} data={doWorkoutState}/>
             {isRest ? //conditional to switch from exercise to rest vice versa
                 <RestScreen
                     time={currentDoWorkoutData.time}

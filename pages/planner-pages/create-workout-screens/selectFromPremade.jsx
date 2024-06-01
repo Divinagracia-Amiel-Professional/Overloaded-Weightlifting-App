@@ -35,7 +35,7 @@ export default function SelectFromPremade({navigation}){
         <View
             style={{flex: 1, position: 'relative'}}
         >
-            <BackButton type='create_workout' navigation={navigation}/>
+            <BackButton type='exercise_list' navigation={navigation}/>
             <ScrollView
                 style={{...mainStyles.scrollView,
                     backgroundColor: theme.colors.background

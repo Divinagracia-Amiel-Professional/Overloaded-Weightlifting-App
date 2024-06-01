@@ -6,7 +6,7 @@ export default
     difficulty: 2,
     focus: [
         "glut_max", 
-        "glut_med",
+        "glut_mid",
         "hams",
         "core"
     ],

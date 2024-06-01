@@ -9,7 +9,11 @@ const initState = {
     records:[],
     preferences: {
         lightTheme: true,
-    }
+    },
+    saveStates: {
+        doWorkout: null,
+        createFromScratch: null
+    },
 }
 
 const CurrentUserSlice = createSlice({
@@ -201,6 +205,30 @@ const CurrentUserSlice = createSlice({
 
             console.log(state.records)
         },
+        addSaveStates: (state) => {
+            if(!state.saveStates){
+                return state = {
+                    ...state,
+                    saveStates: {
+                        doWorkout: null,
+                        createFromScratch: null
+                    },
+                }
+            }
+        },
+        updateDoWorkoutSave: (state, action) => {
+            console.log("Data From DoWorkout: " + JSON.stringify(action.payload))
+            state.saveStates.doWorkout = {...action.payload}
+        },
+        updateCreateWorkoutSave: (state, action) => {
+            console.log("Data from CreateFromScratch: " + JSON.stringify(action.payload))
+        },
+        resetDoWorkoutSave: (state) => {
+            state.saveStates.doWorkout = initState.saveStates.doWorkout
+        },
+        resetCreateWorkoutSave: (state) => {
+            state.saveStates.createFromScratch = initState.saveStates.createFromScratch
+        },
         resetRecords: (state) => { //Delete every record
             state.records = initState.records
 
@@ -208,7 +236,7 @@ const CurrentUserSlice = createSlice({
         },
         resetCurrentUserSlice: (state) => {
             return state = initState
-        }
+        },
     },
     extraReducers: {
 
@@ -226,5 +254,10 @@ export const {
     completeWorkout,
     updateRecords, 
     resetRecords,
-    resetCurrentUserSlice
+    resetCurrentUserSlice,
+    addSaveStates,
+    resetDoWorkoutSave,
+    resetCreateWorkoutSave,
+    updateDoWorkoutSave,
+    updateCreateWorkoutSave
  } = CurrentUserSlice.actions

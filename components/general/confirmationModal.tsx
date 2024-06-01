@@ -40,8 +40,24 @@ export default function ConfirmationModal(props){ //visible, showModal, and hide
             }}>
  
                     <Text
-                        style={{...textStyles.cardHeaderText}}
+                        style={{...textStyles.cardHeaderText,
+                            color: theme.colors.secondary
+                        }}
                     >{props.prompt}</Text>
+                    {
+                        props.subprompt ? 
+                        <Text
+                            style={{
+                                ...textStyles.preWorkoutPage.bodyText,
+                                alignSelf: 'stretch',
+                                textAlign: 'center',
+                                color: theme.colors.secondary
+                            }}
+                        >
+                            { props.subprompt }
+                        </Text> : 
+                        null
+                    }
                     <View
                         style={cardStyles.manageWorkoutModal.buttonContainer}
                     >

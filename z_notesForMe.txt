@@ -17,14 +17,21 @@ things to do:
 //Done to some extent
 - default behavior of scheduling as speficified here (Finished but not tested) /
 - edit workout function (done, not tested) /
-- Exercise List Page
-
-//Not Done
-- skip function
+- Exercise List Page /
+- skip function/
 - basic display of records(Tabular) /
 - updating divisplit /
+- add action indicators/action alerts (please)(Mainly on adding a workout) /
+- add gifs, add snackbar to premade workout details /
+- update edit exercise details page sections /
+- detection of networks /
 
-- add action indicators/action alerts (please)(Mainly on adding a workout)
+//Not Done
+
+prio
+- previous, max, 1 rep max records
+
+future
 - until failure case
 - Loading Screen (Optional)
 - saving current do workout page state and create from scratch page()
@@ -32,6 +39,6 @@ things to do:
 button should be disabled(Optional)
 - implementation of supersets and trisets, and rest increments
 - implementation of alternatives(user wants to do another similar exercise)
+- adding exercise in workout can still save with the same name
 
-prio 
-- add gifs, add snackbar to premade workout details -
+

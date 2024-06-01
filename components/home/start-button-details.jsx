@@ -14,6 +14,14 @@ export default function StartButtonDetail(props){
     const workoutData = props.data
     const isRestDay = props.isRestDay
 
+    const handleChooseSplit = () => {
+        if(props.hasSave){
+            props.setChooseModalVisible(true)
+        } else {
+            props.showModal()
+        }
+    }
+
     return(
         <View
                 style={cardStyles.startButtonDetailsContainer}
@@ -47,7 +55,7 @@ export default function StartButtonDetail(props){
                     }}
 
                     onPress={() => {
-                        props.showModal()
+                        handleChooseSplit()
                     }}
                     >
                     <Text style={{
